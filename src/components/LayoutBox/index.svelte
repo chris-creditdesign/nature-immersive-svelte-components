@@ -1,17 +1,11 @@
 <script>
+  import StyleBox from "./style.svelte";
+
   export let className = "";
   export let boxSpace = "";
 </script>
 
-<style>
-  :global(:root) {
-    --box-space: var(--s1);
-  }
-
-  :global(.box) {
-    padding: var(--box-space);
-  }
-</style>
+<StyleBox />
 
 <div
   class={`box ${className}`}
