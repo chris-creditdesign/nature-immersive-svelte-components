@@ -185,21 +185,21 @@ iframe {
 	width: 100%;
 }
 
-button {
+/* button {
 	font-size: var(--font-size-base);
 	border: none;
 	background: none;
 
-}
+} */
 
-button:hover {
+/* button:hover {
 	cursor: pointer;
 	background-color: var(--white-1);
 }
 
 button:focus {
 	border: 1px solid var(--outline);
-}
+} */
 
 sup, sub {
   vertical-align: baseline;
@@ -217,6 +217,7 @@ sub {
 /* Background colors */
 .invert {
 	color: var(--text-color-invert);
+	fill: var(--text-color-invert);
 	background-color: var(--background-color-invert);
 }
 
@@ -232,7 +233,7 @@ sub {
 	}
 }
 
-.box--border {
+/* .box--border {
 	color: var(--text-color);
 	text-transform: uppercase;
 	outline: none;
@@ -241,8 +242,8 @@ sub {
 }
 
 .box--border:focus {
-	border-color: var(--outline);
-}
+	border-color: 3px solid var(--outline);
+} */
 
 /* Borders */
 .border-above {
@@ -323,46 +324,9 @@ sub {
 /*                                   Layout                                   */
 /* -------------------------------------------------------------------------- */
 
-/* ---------------------------------- Cover --------------------------------- */
-
-.cover {
-  display: flex;
-  flex-direction: column;
-  min-height: var(--cover-height);
-  padding: var(--cover-space);
-  position: relative;
-  overflow: hidden;
-}
-
-.cover > * {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.cover > :first-child:not(.centered) {
-  margin-top: 0;
-}
-
-.cover > :last-child:not(.centered) {
-  margin-bottom: 0;
-}
-
-.cover > .centered {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.cover__background {
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: -999;
-}
-
+/* CoverBackgroundVideo and CoverBackgroundImage */
 .cover--with-background {
-	background-color: rgba(10, 4, 4, 0.4);
+  background-color: rgba(10, 4, 4, 0.4);
 }
 
 /* ---------------------------------- Frame --------------------------------- */
@@ -390,39 +354,4 @@ sub {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-
-/* -------------------------------- Switcher -------------------------------- */
-
-  
-.switcher > * {
-	display: flex;
-	flex-wrap: wrap;
-	--space-between: var(--switcher-space);
-	--modifier: calc(var(--switcher-min-width) - (100% - var(--space-between)));
-	margin: calc((var(--space-between) / 2) * -1);
-}
-
-.switcher > * > * {
-	flex-grow: 1;
-	flex-basis: calc(var(--modifier) * 999);
-	margin: calc(var(--space-between) / 2);
-}
-
-/* If there are more than 7 items, stack them automatically */
-.switcher > * > :nth-last-child(n+8),
-.switcher > * > :nth-last-child(n+8) ~ * {
-	flex-basis: 100%;
-}
-
-.switcher ul {
-	list-style: none;
-	max-width: none;
-	padding: 0;
-}
-
-.switcher li {
-	/* Remove default padding */
-	padding: 0;
 }

@@ -3,7 +3,7 @@ import ViewMultipleWidths from './view.multiple-widths.svelte';
 import ViewMultipleStacks from './view.multiple-stacks.svelte';
 
 export default {
-  title: 'Layout components/LayoutCenter',
+  title: 'Layout primitives/LayoutCenter',
 };
 
 export const Default = () => ({

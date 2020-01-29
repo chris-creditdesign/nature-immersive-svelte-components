@@ -1,6 +1,6 @@
 <style>
   :global(:root) {
-    --box-space: var(--s1);
+    --box-space: var(--s-1);
   }
 
   :global(.box) {

@@ -3,7 +3,7 @@ import ViewGrow from './view.grow.svelte';
 import ViewSplit from './view.split.svelte';
 
 export default {
-  title: 'Layout components/LayoutCluster',
+  title: 'Layout primitives/LayoutCluster',
 };
 
 export const Default = () => ({

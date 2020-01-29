@@ -23,4 +23,19 @@
   :global(.cluster > * > .grow) {
     flex-grow: 2;
   }
+
+  :global(.cluster__split-after) {
+    flex-grow: 1;
+  }
+
+  :global(.cluster ul) {
+    list-style: none;
+    max-width: none;
+    padding: 0;
+  }
+
+  :global(.clusetr li) {
+    /* // Remove default padding and add extra */
+    padding: 0;
+  }
 </style>

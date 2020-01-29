@@ -7,8 +7,10 @@
 
 <StyleStack />
 
-<div
-  class={`stack ${className}`}
-  style={`${stackSpace ? `--stack-space: ${stackSpace};` : ''}`}>
-  <slot />
+<div>
+  <div
+    class={`stack ${className}`}
+    style={`${stackSpace ? `--stack-space: ${stackSpace};` : ''}`}>
+    <slot />
+  </div>
 </div>

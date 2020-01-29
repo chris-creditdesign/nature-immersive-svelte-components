@@ -3,7 +3,7 @@ import ViewSplitBefore from './view.split-before.svelte';
 import ViewText from './view.text.svelte';
 
 export default {
-  title: 'Layout components/LayoutStack',
+  title: 'Layout primitives/LayoutStack',
 };
 
 export const Default = () => ({

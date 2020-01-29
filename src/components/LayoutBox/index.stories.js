@@ -1,7 +1,7 @@
 import ViewDefault from './view.default.svelte';
 
 export default {
-  title: 'Layout components/LayoutBox',
+  title: 'Layout primitives/LayoutBox',
 };
 
 export const Default = () => ({
