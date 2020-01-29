@@ -62,6 +62,10 @@ export { default as Footer } from "./components/Footer/index.svelte"
 
 export { default as Menu } from "./components/Menu/index.svelte"
 
+/* ---------------------------------- StaticImage ---------------------------------- */
+
+export { default as StaticImage } from "./components/StaticImage/index.svelte"
+
 /* ---------------------------------- Logos --------------------------------- */
 
 export { default as LogoEmail } from "./components/LogoEmail/index.svelte"
