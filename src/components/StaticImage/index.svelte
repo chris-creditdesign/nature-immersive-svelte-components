@@ -6,6 +6,7 @@
 
   let textContainer;
   let intersectingStep = 0;
+  let mounted = false;
 
   let options = {
     root: null, // The viewport is the root
@@ -13,6 +14,7 @@
   };
 
   onMount(() => {
+    mounted = true;
     const steps = Array.from(textContainer.querySelectorAll(".step__content"));
     const onEnterScreen = entries => {
       entries
@@ -44,13 +46,8 @@
     .static-image-container {
       width: 100%;
       display: grid;
-      grid-template-columns: 2fr 1fr 2fr;
+      grid-template-columns: 1fr var(--s3) 1fr;
       position: relative;
-    }
-    .step {
-      height: 100vh;
-      display: flex;
-      align-items: center;
     }
 
     .text-container {
@@ -71,44 +68,22 @@
       position: -webkit-sticky;
       top: 10px;
     }
-
-    /* Don't show the images if the screen is wide enough and processed */
-    /* Keep them available for screen readers */
-    .step__image {
-      opacity: 0;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      height: 1px;
-      width: 1px;
-      margin: -1px !important;
-      padding: 0 !important;
-      border: 0 !important;
-    }
   }
 </style>
 
 <div class={`static-image-container ${className}`}>
   <div class="text-container" bind:this={textContainer}>
-    {#each steps as { text, altText, caption, srcURL }, i}
-      <div class="step">
-        <div class="step__content" id={i}>
-          <div class="step__image">
-            <Image {altText} {caption} {srcURL} />
-          </div>
-          <p>
-            {@html text}
-          </p>
-        </div>
-      </div>
-    {/each}
+    <slot />
   </div>
 
-  <div class="image-container">
-    <div class="image-container__content">
-      <Image
-        altText={steps[intersectingStep]['altText']}
-        caption={steps[intersectingStep]['caption']}
-        srcURL={steps[intersectingStep]['srcURL'].replace(/-small/, '')} />
+  {#if mounted}
+    <div class="image-container">
+      <div class="image-container__content">
+        <Image
+          altText={steps[intersectingStep]['altText']}
+          caption={steps[intersectingStep]['caption']}
+          srcURL={steps[intersectingStep]['srcURL'].replace(/-small/, '')} />
+      </div>
     </div>
-  </div>
+  {/if}
 </div>

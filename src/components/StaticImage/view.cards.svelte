@@ -1,6 +1,8 @@
 <script>
   import StaticImage from "./index.svelte";
   import Image from "../Image/index.svelte";
+  import Card from "../Card/index.svelte";
+  import LayoutStack from "../LayoutStack/index.svelte";
   export let className = "";
   export let steps;
 </script>
@@ -29,15 +31,20 @@
 </style>
 
 <StaticImage {className} {steps}>
-  {#each steps as { text, altText, caption, srcURL }, i}
+  {#each steps as { headline, content, altText, caption, srcURL }, i}
     <div class="step">
       <div class="step__content" id={i}>
         <div class="step__image">
           <Image {altText} {caption} {srcURL} />
         </div>
-        <p>
-          {@html text}
-        </p>
+        <LayoutStack stackSpace={'var(--s1)'}>
+          <h2 class="border-above">
+            {@html headline}
+          </h2>
+          {#each content as cardData}
+            <Card {cardData} />
+          {/each}
+        </LayoutStack>
       </div>
     </div>
   {/each}
