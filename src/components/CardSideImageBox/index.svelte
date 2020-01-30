@@ -5,15 +5,11 @@
   import Image from "../Image/index.svelte";
 
   export let className = "";
-  export let altText = "";
-  export let caption = "";
-  export let footnote = "";
-  export let headline;
-  export let href;
-  export let srcURL = "";
-  export let text;
+  export let cardData;
   export let stackSpace = "var(--s-1)";
   export let gridSpace = "var(--s-1)";
+
+  let { altText, caption, footnote, headline, href, srcURL, text } = cardData;
 </script>
 
 <style>

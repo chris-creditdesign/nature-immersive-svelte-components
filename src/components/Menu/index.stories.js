@@ -15,8 +15,6 @@ export const Default = () => ({
 
 const articleDataNoMenuLinks = Object.assign({}, articleData, { menuLinks: undefined} )
 
-console.log(articleDataNoMenuLinks)
-
 export const NoMenuLinks = () => ({
   Component: ViewDefault,
   props: {

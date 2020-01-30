@@ -43,9 +43,12 @@ For everyone else, `npm run build` will bundle your component's source code into
 ## TODO: 
 
 - Implement grid above-min function
-- High res images onMount // and/or lazyLoad?
+- High res images onMount // and/or lazyLoad / intersection observer
 - Caption space for image
 - Add GALinks
 - Add stories for Layout Switcher
 - Proper transitions for menu button
 - SM image url in Head component
+- Static Image - remove image container on mobile
+- Focus states for header links
+- NoJS state for StaticImage section

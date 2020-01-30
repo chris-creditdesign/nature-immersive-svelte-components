@@ -4,14 +4,19 @@
   import Image from "../Image/index.svelte";
 
   export let className = "";
-  export let altText = "";
-  export let caption = "";
-  export let footnote = "";
-  export let headline;
-  export let href;
-  export let srcURL = "";
-  export let text;
+  export let cardData;
   export let stackSpace = "var(--s-1)";
+
+  let {
+    altText,
+    caption,
+    captionSpace,
+    footnote,
+    headline,
+    href,
+    text,
+    srcURL
+  } = cardData;
 </script>
 
 <style>
