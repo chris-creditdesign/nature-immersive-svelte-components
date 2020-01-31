@@ -6,7 +6,7 @@
 </script>
 
 <style>
-  footer {
+  .footer {
     margin-top: var(--s4);
     font-family: var(--sans-serif-font);
     font-size: var(--font-size-small-1);
@@ -17,17 +17,18 @@
     align-items: flex-start;
   }
 
-  ul {
+  .footer ul {
     list-style: none;
     padding: 0;
     max-width: none;
   }
 
-  a {
+  .footer a {
+    text-decoration: none;
     color: inherit;
   }
 
-  a:focus {
+  .footer a:focus {
     outline: none;
     text-decoration: underline;
     color: var(--outline);
@@ -36,7 +37,7 @@
 
 <StyleCluster />
 
-<footer class="invert" role="contentinfo">
+<footer class="footer invert" role="contentinfo">
   <LayoutBox>
     <LayoutStack className="footer-logo-container" stackSpace="var(--s0)">
       <LogoSpringerNature height={1.5} />
