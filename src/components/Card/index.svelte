@@ -58,7 +58,12 @@
         {#if journal}
           <p class="journal-name">{journal}</p>
         {/if}
-        <a {href}>
+        <a
+          {href}
+          data-track="click"
+          data-event-category="body links"
+          data-event-action="click"
+          data-event-label={headline}>
           <h3>
             {@html headline}
           </h3>
