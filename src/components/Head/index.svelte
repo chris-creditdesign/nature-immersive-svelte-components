@@ -10,7 +10,7 @@
     twitterHandle
   } = articleData;
 
-  $: imageURL = `${immersiveURL}${doi}/public/img/${doi}.jpg`;
+  $: imageURL = `${immersiveURL}${doi}/img/${doi}.jpg`;
 </script>
 
 <svelte:head>
