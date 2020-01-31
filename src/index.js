@@ -69,6 +69,7 @@ export { default as Image } from "./components/Image/index.svelte"
 /* ---------------------------------- StaticImage ---------------------------------- */
 
 export { default as StaticImage } from "./components/StaticImage/index.svelte"
+export { default as StyleStaticImage } from "./components/StaticImage/style.svelte"
 
 /* ---------------------------------- Logos --------------------------------- */
 

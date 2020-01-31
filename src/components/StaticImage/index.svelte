@@ -24,7 +24,6 @@
           const { isIntersecting } = entry;
 
           intersectingStep = parseInt(id, 10);
-          console.log(`From parent: ${id} : ${isIntersecting}`);
         });
     };
 
@@ -35,41 +34,6 @@
     // return () => observer.unobserve(onEnterScreen);
   });
 </script>
-
-<style>
-  .image-container {
-    display: none;
-  }
-
-  @media screen and (min-width: 800px) {
-    /* media query */
-    .static-image-container {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr var(--s3) 1fr;
-      position: relative;
-    }
-
-    .text-container {
-      grid-column: 1 / span 1;
-      grid-row: 1;
-    }
-
-    .image-container {
-      display: block;
-      grid-column: 3 / span 1;
-      grid-row: 1;
-    }
-
-    .image-container__content {
-      width: 100%;
-      margin: 0;
-      position: sticky;
-      position: -webkit-sticky;
-      top: 10px;
-    }
-  }
-</style>
 
 <div class={`static-image-container ${className}`}>
   <div class="text-container" bind:this={textContainer}>

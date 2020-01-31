@@ -1,5 +1,6 @@
 <script>
   import StaticImage from "./index.svelte";
+  import StyleStaticImage from "./style.svelte";
   import Image from "../Image/index.svelte";
   export let className = "";
   export let steps;
@@ -27,6 +28,8 @@
     }
   }
 </style>
+
+<StyleStaticImage />
 
 <StaticImage {className} {steps}>
   {#each steps as { text, altText, caption, srcURL }, i}

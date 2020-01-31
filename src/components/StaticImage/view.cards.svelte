@@ -1,5 +1,6 @@
 <script>
   import StaticImage from "./index.svelte";
+  import StyleStaticImage from "./style.svelte";
   import Image from "../Image/index.svelte";
   import Card from "../Card/index.svelte";
   import LayoutStack from "../LayoutStack/index.svelte";
@@ -29,6 +30,8 @@
     }
   }
 </style>
+
+<StyleStaticImage />
 
 <StaticImage {className} {steps}>
   {#each steps as { headline, content, altText, caption, srcURL }, i}
