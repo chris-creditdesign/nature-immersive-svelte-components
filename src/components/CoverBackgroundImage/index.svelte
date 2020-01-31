@@ -26,6 +26,6 @@
 </style>
 
 <LayoutCover className="cover--with-background" {coverSpace} {coverHeight}>
-  <img class="cover__background" {src} {alt} loading="lazy" />
+  <img class="cover__background" {src} {alt} />
   <slot />
 </LayoutCover>
