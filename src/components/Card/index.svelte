@@ -81,7 +81,9 @@
     </p>
 
     {#if footnote}
-      <p class="footnote">{footnote}</p>
+      <p class="footnote">
+        {@html footnote}
+      </p>
     {/if}
   </LayoutStack>
 </div>

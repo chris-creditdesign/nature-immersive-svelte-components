@@ -29,5 +29,7 @@
 
 <figure class={`${className}`}>
   <img {src} alt={altText} />
-  <figcaption>{caption}</figcaption>
+  <figcaption>
+    {@html caption}
+  </figcaption>
 </figure>
