@@ -1,12 +1,8 @@
 <script>
-  import StyleCluster from "./style.svelte";
-
   export let className = "";
   export let clusterJustifyContent = "";
   export let clusterSpace = "";
 </script>
-
-<StyleCluster />
 
 <div
   class={`cluster ${className}`}

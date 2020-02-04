@@ -3,8 +3,8 @@
 
   export let className = "";
   export let id = "";
-  export let switcherSpace;
-  export let switcherMinWidth;
+  export let switcherSpace = "var(--s-1)";
+  export let switcherMinWidth = "var(--measure)";
 </script>
 
 <StyleSwitcher />

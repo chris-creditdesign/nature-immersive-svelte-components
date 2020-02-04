@@ -28,6 +28,10 @@
     color: inherit;
   }
 
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
   .footer a:focus {
     outline: none;
     text-decoration: underline;
@@ -39,7 +43,7 @@
 
 <footer class="footer invert" role="contentinfo">
   <LayoutBox>
-    <LayoutStack className="footer-logo-container" stackSpace="var(--s0)">
+    <LayoutStack className="footer-logo-container" stackSpace="var(--s-1)">
       <LogoSpringerNature height={1.5} />
       <div class="cluster">
         <ul>

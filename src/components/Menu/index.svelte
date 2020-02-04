@@ -1,10 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import LayoutBox from "../LayoutBox/index.svelte";
-  import LayoutCluster from "../LayoutCluster/index.svelte";
-  import StyleCluster from "../LayoutCluster/style.svelte";
-  import StyleSwitcher from "../LayoutSwitcher/style.svelte";
-  import LayoutSwitcher from "../LayoutSwitcher/index.svelte";
   import LogoNature from "../LogoNature/index.svelte";
   import LogoFacebook from "../LogoFacebook/index.svelte";
   import LogoTwitter from "../LogoTwitter/index.svelte";
@@ -13,6 +8,11 @@
   import generateSocialURLs from "../utils/generate-social-urls.js";
 
   export let className = "";
+  export let menuClusterSpace = "var(--s-4)";
+  export let menuClusterJustifyContent = "flex-start";
+  export let menuSwitcherSpace = "var(--s-1)";
+  export let menuSwitcherMinWidth = "var(--measure-big)";
+  export let menuBoxSpace = "var(--s-4)";
   export let articleData;
 
   let { doi, articleURL, headline, stand, menuLinks } = articleData;
@@ -27,7 +27,6 @@
   let menuExpanded = true;
 
   let handleButtonClick = () => {
-    console.log(menuExpanded);
     menuExpanded = !menuExpanded;
   };
 
@@ -35,180 +34,204 @@
 </script>
 
 <style>
-  /* Push the navigation menu down */
-  .menu > :last-child {
-    margin-top: var(--s0);
-  }
+  /* ---------------------------- Default elements ---------------------------- */
 
-  /* Remove the default outline to account for the */
-  /* outline being clipped by the cluster element */
-  .menu:focus {
-    outline: none;
-  }
-
-  /* Remove the global max width value */
-  /* So that the Header can span the whole page width */
-  .menu * {
-    max-width: none;
-  }
-
-  .menu--reveal > ul {
-    margin-top: var(--s-1);
-  }
-
+  /* Reset the default browser button styles */
+  /* To enable the veggieburger svg to be styled */
   button {
-    /* Reset the default browser button styles */
     font-size: var(--font-size-base);
     border: none;
     background: none;
-  }
-
-  a,
-  button {
-    /* Make the links/button the exact size of the svg */
-    display: block;
-    max-width: max-content;
-    /* Apply colour to text and svg elements */
-    color: inherit;
-    fill: var(--text-color-invert);
-    transition: color ease var(--time);
+    padding: 0;
     cursor: pointer;
   }
 
-  a:hover,
-  button:hover {
-    text-decoration: none;
-    color: var(--text-color-invert-accent);
-    fill: var(--text-color-invert-accent);
+  a {
+    display: block;
+    color: var(--text-color-invert);
+    fill: var(--text-color-invert);
   }
 
+  a:hover,
+  button:hover,
   a:focus,
   button:focus {
     color: var(--outline);
     fill: var(--outline);
-    text-decoration: underline;
   }
 
-  button {
-    /* Remove the default padding from the button */
+  ul {
+    list-style: none;
+    max-width: none;
     padding: 0;
   }
 
+  li {
+    padding: 0;
+  }
+
+  .menu {
+    font-family: var(--sans-serif-font);
+  }
+
+  /* -------------------------------- Box style ------------------------------- */
+
+  .menu--box {
+    padding: var(--menu-box-space);
+  }
+
+  /* ------------------------------ Cluster style ----------------------------- */
+
+  .menu__cluster {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: var(--menu-cluster-justify-content);
+    align-items: center;
+  }
+
+  .menu__cluster > * {
+    margin: var(--menu-cluster-space);
+  }
+
+  .menu__cluster__split-after {
+    flex-grow: 1;
+  }
+
+  /* ----------------------------- Switcher style ----------------------------- */
+
+  .menu__switcher {
+    display: flex;
+    flex-wrap: wrap;
+    --modifier: calc(
+      var(--menu-switcher-min-width) - (100% - var(--menu-switcher-space))
+    );
+    margin: var(--s-4) 0;
+  }
+
+  .menu__switcher > * {
+    flex-grow: 1;
+    flex-basis: calc(var(--modifier) * 999);
+    margin: var(--menu-cluster-space);
+  }
+
+  /* Make sure the focus ring doesn't extend past the link text */
+  .menu__switcher a {
+    max-width: max-content;
+  }
+
+  /* If there are more than 7 items, stack them automatically */
+  .menu__switcher > :nth-last-child(n + 8),
+  .menu__switcher > :nth-last-child(n + 8) ~ * {
+    flex-basis: 100%;
+  }
+
+  /* ------------------------------ Veggie burger ----------------------------- */
+
   /* Animate the veggieburger icon - there's a better way to do this */
-  :global(.menu--button .closed, .menu--button .open) {
+  :global(.menu__button .closed, .menu__button .open) {
     transition: opacity 300ms ease;
   }
 
-  :global(.menu--button[aria-expanded="true"] .closed) {
+  /* Open state  */
+  :global(.menu__button[aria-expanded="true"] .closed) {
     opacity: 0;
   }
 
-  :global(.menu--button[aria-expanded="true"] .open) {
+  :global(.menu__button[aria-expanded="true"] .open) {
     opacity: 1;
   }
 
-  :global(.menu--button[aria-expanded="false"] .closed) {
+  /* Closed state */
+  :global(.menu__button[aria-expanded="false"] .closed) {
     opacity: 1;
   }
 
-  :global(.menu--button[aria-expanded="false"] .open) {
+  :global(.menu__button[aria-expanded="false"] .open) {
     opacity: 0;
-  }
-
-  /* Stops icon clipping on safari */
-  :global(.menu svg) {
-    display: block;
-    overflow: visible;
-    fill: inherit;
-    transition: fill ease var(--time);
-    /* To stop the svgs being clipped by the overflow:hidden */
-    /* behaviour of the cluster element */
-    padding-bottom: 1px;
   }
 </style>
 
-<StyleCluster />
-<StyleSwitcher />
+<header
+  role="banner"
+  class={`menu menu--box invert ${className}`}
+  style={`
+	--menu-cluster-space: ${menuClusterSpace};
+	--menu-cluster-justify-content: ${menuClusterJustifyContent};
+	--menu-switcher-space: ${menuSwitcherSpace};
+	--menu-switcher-min-width: ${menuSwitcherMinWidth};
+	--menu-box-space: ${menuBoxSpace};`}>
+  <div class="menu__cluster">
+    <a
+      href="https://www.nature.com"
+      data-track="click"
+      data-event-category="menu"
+      data-event-action="click"
+      data-event-label="nature.com">
+      <LogoNature height={1.6} />
+    </a>
 
-<header role="banner" class={`menu invert ${className}`}>
-  <LayoutBox className="menu invert">
-    <LayoutCluster>
-      <div class="cluster__split-after">
+    <div class="menu__cluster__split-after" />
+
+    <ul class="menu__cluster">
+      <li>
         <a
-          href="https://www.nature.com"
+          href={facebookURL}
           data-track="click"
-          data-event-category="menu"
+          data-event-category="menu social"
           data-event-action="click"
-          data-event-label="nature.com">
-          <LogoNature height={1.6} />
+          data-event-label="facebook">
+          <LogoFacebook height={1.6} />
         </a>
-      </div>
-
-      <div class="cluster">
-        <ul>
-          <li>
-            <a
-              href={facebookURL}
-              data-track="click"
-              data-event-category="menu social"
-              data-event-action="click"
-              data-event-label="facebook">
-              <LogoFacebook height={1.6} />
-            </a>
-          </li>
-          <li>
-            <a
-              href={twitterURL}
-              data-track="click"
-              data-event-category="menu social"
-              data-event-action="click"
-              data-event-label="twitter">
-              <LogoTwitter height={1.6} />
-            </a>
-          </li>
-          <li>
-            <a
-              href={emailURL}
-              data-track="click"
-              data-event-category="menu social"
-              data-event-action="click"
-              data-event-label="email">
-              <LogoEmail height={1.6} />
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      {#if menuLinks}
-        <button
-          on:click={handleButtonClick}
-          class="menu--button"
-          aria-expanded={menuExpanded}
-          aria-controls="menu-list"
-          data-event-category="menu"
+      </li>
+      <li>
+        <a
+          href={twitterURL}
+          data-track="click"
+          data-event-category="menu social"
           data-event-action="click"
-          data-event-label="button">
-          <LogoVeggieBurger height={1.6} />
-        </button>
-      {/if}
-    </LayoutCluster>
+          data-event-label="twitter">
+          <LogoTwitter height={1.6} />
+        </a>
+      </li>
+      <li>
+        <a
+          href={emailURL}
+          data-track="click"
+          data-event-category="menu social"
+          data-event-action="click"
+          data-event-label="email">
+          <LogoEmail height={1.6} />
+        </a>
+      </li>
+    </ul>
 
-    {#if menuExpanded && menuLinks}
-      <div class="switcher menu--reveal">
-        <ul id="menu-list">
-          {#each menuLinks as { text, href }}
-            <li>
-              <a
-                {href}
-                data-event-category="menu"
-                data-event-action="click"
-                data-event-label={text}>
-                {text}
-              </a>
-            </li>
-          {/each}
-        </ul>
-      </div>
+    {#if menuLinks}
+      <button
+        on:click={handleButtonClick}
+        class="menu__button"
+        aria-expanded={menuExpanded}
+        aria-controls="menu-list"
+        data-event-category="menu"
+        data-event-action="click"
+        data-event-label="button">
+        <LogoVeggieBurger height={1.6} />
+      </button>
     {/if}
-  </LayoutBox>
+  </div>
+
+  {#if menuExpanded && menuLinks}
+    <ul class="menu__switcher" id="menu-list">
+      {#each menuLinks as { text, href }}
+        <li>
+          <a
+            {href}
+            data-event-category="menu"
+            data-event-action="click"
+            data-event-label={text}>
+            {text}
+          </a>
+        </li>
+      {/each}
+    </ul>
+  {/if}
 </header>

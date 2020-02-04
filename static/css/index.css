@@ -84,13 +84,8 @@
 	--measure-big: calc(var(--measure) * var(--ratio));
 	--measure-small: calc(var(--measure) / var(--ratio));
 
-	--switcher-min-width: var(--measure);
-
-  
 	/* --------------------------------- Spacing -------------------------------- */
 	--space: var(--s-1);
-
-	--switcher-space: var(--s-1);
 
 	--cover-space: 1rem;
 	--cover-height: 100vh;

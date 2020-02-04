@@ -76,9 +76,11 @@
       </LayoutStack>
     </header>
 
-    <p>
-      {@html text}
-    </p>
+    {#if text}
+      <p>
+        {@html text}
+      </p>
+    {/if}
 
     {#if footnote}
       <p class="footnote">

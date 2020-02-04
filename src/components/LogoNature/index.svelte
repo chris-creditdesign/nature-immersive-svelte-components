@@ -5,6 +5,12 @@
   export let title = "Nature";
 </script>
 
+<style>
+  svg {
+    display: block;
+  }
+</style>
+
 <svg
   height={`${height}em`}
   viewBox="0 0 200 49"

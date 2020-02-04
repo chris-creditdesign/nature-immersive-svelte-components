@@ -1,5 +1,6 @@
 <script>
   import LayoutCluster from "./index.svelte";
+  import StyleCluster from "./style.svelte";
 </script>
 
 <style>
@@ -12,6 +13,8 @@
     align-items: center;
   }
 </style>
+
+<StyleCluster />
 
 <LayoutCluster clusterJustifyContent="space-between">
   <img src="img/image-small.jpg" alt="" class="test-content" />
