@@ -8,15 +8,17 @@
   let intersectingStep = 0;
   let mounted = false;
 
-  let options = {
-    root: null, // The viewport is the root
-    rootMargin: "0px 0px 0px 0px" // No margins
-  };
-
   onMount(() => {
     mounted = true;
+
+    // '-50%' intercet when the item is half way up the screen
+    let options = {
+      root: null,
+      rootMargin: "0px 0px -50% 0px"
+    };
+
     const steps = Array.from(textContainer.querySelectorAll(".step__content"));
-    const onEnterScreen = entries => {
+    const onEnterScreen = (entries, observer) => {
       entries
         .filter(entry => entry.isIntersecting)
         .forEach(entry => {
