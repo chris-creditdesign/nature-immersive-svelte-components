@@ -14,7 +14,7 @@
     // '-50%' intercet when the item is half way up the screen
     let options = {
       root: null,
-      rootMargin: "0px 0px -50% 0px"
+      rootMargin: "-50% 0px -50% 0px"
     };
 
     const steps = Array.from(textContainer.querySelectorAll(".step__content"));
