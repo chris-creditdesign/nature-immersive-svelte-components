@@ -15,13 +15,21 @@
   export let menuBoxSpace = "var(--s-4)";
   export let articleData;
 
-  let { doi, articleURL, headline, stand, menuLinks } = articleData;
+  let {
+    doi,
+    articleURL,
+    headline,
+    stand,
+    title,
+    description,
+    menuLinks
+  } = articleData;
 
   let { facebookURL, twitterURL, emailURL } = generateSocialURLs(
     doi,
     articleURL,
-    headline,
-    stand
+    title,
+    description
   );
 
   let menuExpanded = true;

@@ -1,4 +1,4 @@
-const generateSocialURLs = (doi, articleURL, headline, stand) => {
+const generateSocialURLs = (doi, articleURL, title, description) => {
 	const facebookBaseURL = "https://www.facebook.com/sharer/sharer.php?u="
 	const twitterBaseURL = "https://twitter.com/intent/tweet?text="
 	const emailBaseURL = "mailto:?"
@@ -11,11 +11,11 @@ const generateSocialURLs = (doi, articleURL, headline, stand) => {
 	const facebookWebEncoded = encodeURIComponent(facebookCustom)
 	const facebookURL = `${facebookBaseURL}${facebookWebEncoded}`
 
-	const twitterCustom = `${headline}. ${stand} ${articleURL}${doi}`
+	const twitterCustom = `${title}. ${description} ${articleURL}${doi}`
 	const twitterWebEncoded = encodeURIComponent(twitterCustom)
 	const twitterURL = `${twitterBaseURL}${twitterWebEncoded}`
 
-	const emailCustom = `subject=${headline}&body=${stand} ${articleURL}${doi}`
+	const emailCustom = `subject=${title}&body=${description} ${articleURL}${doi}`
 	const emailWebEncoded = encodeURIComponent(emailCustom)
 	const emailURL = `${emailBaseURL}${emailWebEncoded}`
 
