@@ -227,13 +227,13 @@ sub {
 	color: var(--link-color-invert);
 }
 
-.box__link {
+/* .box__link {
 	outline: none;
 	
 	&:focus {
 		background-color: var(--outline);
 	}
-}
+} */
 
 /* .box--border {
 	color: var(--text-color);
@@ -320,6 +320,18 @@ sub {
 /* Make sure hidden elements are hidden */
 [hidden] {
 	display: none !important;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px !important;
+  padding: 0 !important;
+  opacity: 0;
+  border: 0 !important;
 }
 
 /* -------------------------------------------------------------------------- */

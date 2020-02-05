@@ -46,16 +46,16 @@
     cursor: pointer;
   }
 
-  a {
+  header a {
     display: block;
     color: var(--text-color-invert);
     fill: var(--text-color-invert);
   }
 
-  a:hover,
-  button:hover,
-  a:focus,
-  button:focus {
+  header a:hover,
+  header button:hover,
+  header a:focus,
+  header button:focus {
     color: var(--outline);
     fill: var(--outline);
   }
@@ -72,6 +72,24 @@
 
   .menu {
     font-family: var(--sans-serif-font);
+  }
+
+  /* -------------------------- Skip to main content -------------------------- */
+
+  .skip-link {
+    font-family: var(--sans-serif-font);
+  }
+
+  .skip-link:not(:focus) {
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px !important;
+    padding: 0 !important;
+    opacity: 0;
+    border: 0 !important;
   }
 
   /* -------------------------------- Box style ------------------------------- */
@@ -151,6 +169,7 @@
   }
 </style>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <header
   role="banner"
   class={`menu menu--box invert ${className}`}
