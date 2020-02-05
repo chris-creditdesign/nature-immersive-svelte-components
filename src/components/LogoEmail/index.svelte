@@ -1,7 +1,7 @@
 <script>
   export let height = 1;
   export let titleId = "email-logo-title";
-  export let title = "Nature";
+  export let title = "Share this page via email";
 </script>
 
 <style>

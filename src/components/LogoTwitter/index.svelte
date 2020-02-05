@@ -1,7 +1,7 @@
 <script>
   export let height = 1;
   export let titleId = "twitter-logo-title";
-  export let title = "Twitter";
+  export let title = "Share this page on twitter";
 </script>
 
 <style>

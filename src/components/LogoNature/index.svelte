@@ -2,7 +2,7 @@
   export let className = "";
   export let height = 1;
   export let titleId = "nature-logo-title";
-  export let title = "Nature";
+  export let title = "Nature homepage";
 </script>
 
 <style>

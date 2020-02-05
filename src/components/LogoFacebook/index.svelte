@@ -1,7 +1,7 @@
 <script>
   export let height = 1;
   export let titleId = "facebook-logo-title";
-  export let title = "Facebook";
+  export let title = "Share this page on facebook";
 </script>
 
 <style>
