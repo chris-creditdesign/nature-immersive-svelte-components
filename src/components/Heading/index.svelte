@@ -46,17 +46,25 @@
   <LayoutCenter {centerMeasure} {centerSpace}>
     <LayoutStack {stackSpace}>
 
-      <h1>{headline}</h1>
-      <p>{stand}</p>
+      <h1>
+        {@html headline}
+      </h1>
+      <p>
+        {@html stand}
+      </p>
 
       {#if author || photographer || publishedAt}
         <div>
           <LayoutStack stackSpace={'var(--s-3)'}>
             {#if author}
-              <p class="author">{author}</p>
+              <p class="author">
+                {@html author}
+              </p>
             {/if}
             {#if photographer}
-              <p class="photographer">{photographer}</p>
+              <p class="photographer">
+                {@html photographer}
+              </p>
             {/if}
 
             {#if publishedAt}
