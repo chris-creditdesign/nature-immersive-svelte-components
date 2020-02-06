@@ -17,7 +17,7 @@
   } = articleData;
 
   let centerMeasure;
-  let centerSpace = "var(--s2)";
+  let centerSpace = "0";
   let stackSpace = "var(--s2)";
 </script>
 
