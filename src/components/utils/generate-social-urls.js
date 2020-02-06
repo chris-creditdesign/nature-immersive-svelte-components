@@ -15,9 +15,8 @@ const generateSocialURLs = (doi, articleURL, title, description) => {
 	const twitterWebEncoded = encodeURIComponent(twitterCustom)
 	const twitterURL = `${twitterBaseURL}${twitterWebEncoded}`
 
-	const emailCustom = `subject=${title}&body=${description} ${articleURL}${doi}`
-	const emailWebEncoded = encodeURIComponent(emailCustom)
-	const emailURL = `${emailBaseURL}${emailWebEncoded}`
+	const emailCustom = `subject=${title}&body=${description} ${encodeURIComponent(articleURL)}${doi}`
+	const emailURL = `${emailBaseURL}${emailCustom}`
 
 	return {
 		pdfURL,
