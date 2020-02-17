@@ -23,6 +23,12 @@
     transform: translate(-50%, -50%);
     z-index: -999;
   }
+
+  /* Make the text visible over the dark background */
+  :global(.cover--with-background) {
+    color: var(--white-0);
+    background-color: rgba(10, 4, 4, 0.4);
+  }
 </style>
 
 <LayoutCover className="cover--with-background" {coverSpace} {coverHeight}>

@@ -1,5 +1,6 @@
 <script>
   import LayoutStack from "./index.svelte";
+  import Style from "../Style/index.svelte";
   export let className = "";
   export let stackSpace = "";
 </script>
@@ -20,6 +21,8 @@
     height: 100vh;
   }
 </style>
+
+<Style />
 
 <div class="test-container">
   <div class="test-height-expander" />

@@ -1,12 +1,8 @@
 <script>
-  import StyleCenter from "./style.svelte";
-
   export let className = "";
   export let centerSpace = "";
   export let centerMeasure = "";
 </script>
-
-<StyleCenter />
 
 <div
   class={`center ${className}`}

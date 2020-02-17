@@ -6,17 +6,21 @@
   import CardBox from "../CardBox/index.svelte";
   import CardSideImage from "../CardSideImage/index.svelte";
   import CardSideImageBox from "../CardSideImageBox/index.svelte";
+  import Style from "../Style/index.svelte";
+  import Light from "../Style/light.svelte";
+  import Dark from "../Style/dark.svelte";
+  import cardData from "../preview-content/card-data.js";
 
-  let altText = "This is the alt text";
-  let caption = "This is the caption";
-  let srcURL = "img/image.jpg";
-  let captionSpace = "";
-  let footnote = "Footnote";
-  let headline = "Headline";
-  let href = "https =//www.nature.com";
-  let text =
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus. Qui beatae, id quasi neque veniam sequi doloremque, officia voluptatibus expedita optio repudiandae quos ad! Aut, rerum. <a href="https://www.nature.com/news">Click here to read more</a>';
+  let dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 </script>
+
+<Style />
+
+{#if dark}
+  <Dark />
+{:else}
+  <Light />
+{/if}
 
 <Section headline={'Headline one'}>
   <LayoutStack stackSpace={'var(--s2)'}>
@@ -25,34 +29,13 @@
       iusto eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo
       corrupti numquam officia architecto modi! Labore natus error nisi earum?
     </p>
-    <CardBox {footnote} {headline} {href} {text} />
-    <Card {footnote} {headline} {href} {text} />
+    <CardBox {cardData} />
+    <Card {cardData} />
     <LayoutGrid gridSpace={'var(--s2)'}>
-      <Card {altText} {caption} {footnote} {headline} {href} {srcURL} {text} />
-      <CardBox
-        {altText}
-        {caption}
-        {footnote}
-        {headline}
-        {href}
-        {srcURL}
-        {text} />
+      <Card {cardData} />
+      <CardBox {cardData} />
     </LayoutGrid>
-    <CardSideImageBox
-      {altText}
-      {caption}
-      {footnote}
-      {headline}
-      {href}
-      {srcURL}
-      {text} />
-    <CardSideImage
-      {altText}
-      {caption}
-      {footnote}
-      {headline}
-      {href}
-      {srcURL}
-      {text} />
+    <CardSideImageBox {cardData} />
+    <CardSideImage {cardData} />
   </LayoutStack>
 </Section>

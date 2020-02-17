@@ -37,6 +37,61 @@
   });
 </script>
 
+<style>
+  :global(.image-container) {
+    display: none;
+  }
+
+  @media screen and (min-width: 600px) {
+    /* media query */
+    .static-image-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 2fr var(--s3) 1fr;
+      position: relative;
+    }
+
+    .text-container {
+      grid-column: 1 / span 1;
+      grid-row: 1;
+    }
+
+    .image-container {
+      display: block;
+      grid-column: 3 / span 1;
+      grid-row: 1;
+    }
+
+    .image-container__content {
+      width: 100%;
+      margin: 0;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 10px;
+    }
+
+    /* Content contained within the slot */
+    :global(.step) {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Don't show the images if the screen is wide enough and processed */
+    /* Keep them available for screen readers */
+    :global(.step__image) {
+      opacity: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      height: 1px;
+      width: 1px;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+    }
+  }
+</style>
+
 <div class={`static-image-container ${className}`}>
   <div class="text-container" bind:this={textContainer}>
     <slot />

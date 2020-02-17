@@ -1,5 +1,6 @@
 <script>
   import LayoutCenter from "./index.svelte";
+  import Style from "../Style/index.svelte";
   export let className = "";
   export let centerSpace = "";
   export let centerMeasure = "";
@@ -15,6 +16,8 @@
     margin: 0;
   }
 </style>
+
+<Style />
 
 <LayoutCenter {className} {centerSpace} {centerMeasure}>
   <p class="test-content">

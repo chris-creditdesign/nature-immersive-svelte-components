@@ -1,7 +1,6 @@
 <script>
   import LayoutBox from "../LayoutBox/index.svelte";
   import LayoutStack from "../LayoutStack/index.svelte";
-  import StyleCluster from "../LayoutCluster/style.svelte";
   import LogoSpringerNature from "../LogoSpringerNature/index.svelte";
 </script>
 
@@ -38,8 +37,6 @@
     color: var(--outline);
   }
 </style>
-
-<StyleCluster />
 
 <footer class="footer invert" role="contentinfo">
   <LayoutBox>

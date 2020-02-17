@@ -13,7 +13,6 @@ export { default as StyleCenter } from "./components/LayoutCenter/style.svelte"
 /* --------------------------------- Cluster -------------------------------- */
 
 export { default as LayoutCluster } from "./components/LayoutCluster/index.svelte"
-export { default as StyleCluster } from "./components/LayoutCluster/style.svelte"
 
 /* ---------------------------------- Cover --------------------------------- */
 

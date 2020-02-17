@@ -1,11 +1,7 @@
 <script>
-  import StyleBox from "./style.svelte";
-
   export let className = "";
   export let boxSpace = "";
 </script>
-
-<StyleBox />
 
 <div
   class={`box ${className}`}

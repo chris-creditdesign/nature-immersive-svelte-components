@@ -1,11 +1,7 @@
 <script>
-  import StyleStack from "./style.svelte";
-
   export let className = "";
   export let stackSpace = "";
 </script>
-
-<StyleStack />
 
 <div>
   <div

@@ -42,7 +42,7 @@ For everyone else, `npm run build` will bundle your component's source code into
 
 ## TODO: 
 
-- Jump to main content link for menu
+- Check for intersectionObserver before implementing StaticImage
 - Make veggie burger a proper animating button
 - Implement grid above-min function
 - High res images onMount // and/or lazyLoad / intersection observer
@@ -53,3 +53,6 @@ For everyone else, `npm run build` will bundle your component's source code into
 - Static Image - remove image container on mobile
 - Focus states for header links
 - NoJS state for StaticImage section
+- Set font sizes to values [https://www.smashingmagazine.com/2018/05/css-custom-properties-strategy-guide/]()
+- Recursize stack layout
+- LayoutGrid above min

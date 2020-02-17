@@ -1,11 +1,13 @@
 <script>
-  import Heading from "./index.svelte";
+  import CardSideImage from "./index.svelte";
   import Style from "../Style/index.svelte";
   import Light from "../Style/light.svelte";
   import Dark from "../Style/dark.svelte";
 
-  export let className = "";
-  export let articleData;
+  export let className;
+  export let cardData;
+  export let stackSpace;
+  export let gridSpace;
 
   let dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 </script>
@@ -18,4 +20,4 @@
   <Light />
 {/if}
 
-<Heading {className} {articleData} />
+<CardSideImage {className} {cardData} {stackSpace} {gridSpace} />

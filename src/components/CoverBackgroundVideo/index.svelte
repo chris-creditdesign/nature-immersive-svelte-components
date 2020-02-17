@@ -2,7 +2,6 @@
   import { onMount, tick } from "svelte";
   import LayoutCover from "../LayoutCover/index.svelte";
   import LayoutCluster from "../LayoutCluster/index.svelte";
-  import StyleBox from "../LayoutBox/style.svelte";
 
   export let srcURL;
   export let alt;
@@ -48,14 +47,20 @@
     z-index: -999;
   }
 
+  /* Make the text visible over the dark background */
+  :global(.cover--with-background) {
+    color: var(--white-0);
+    background-color: rgba(10, 4, 4, 0.4);
+  }
+
   button {
     --box-space: var(--s-2);
-    color: var(--text-color-invert);
+    color: var(--white-0);
     font-size: var(--font-size-small-1);
     font-weight: bold;
     text-transform: uppercase;
     outline: none;
-    border: 3px solid var(--text-color-invert);
+    border: 3px solid var(--white-0);
     background: none;
     cursor: pointer;
     transition: background-color 300ms ease;
@@ -70,8 +75,6 @@
     border: 3px solid var(--outline);
   }
 </style>
-
-<StyleBox />
 
 <LayoutCover className="cover--with-background" {coverSpace} {coverHeight}>
 
@@ -91,7 +94,6 @@
   <slot />
 
   <LayoutCluster clusterJustifyContent="flex-end">
-
     <button class="box" type="button" bind:this={btn} on:click={handleBtnClick}>
       {btnMSG}
     </button>

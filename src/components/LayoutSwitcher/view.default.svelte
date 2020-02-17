@@ -1,6 +1,10 @@
 <script>
   import LayoutSwitcher from "./index.svelte";
-  export let className = "";
+  import Style from "../Style/index.svelte";
+  export let className;
+  export let id;
+  export let switcherSpace;
+  export let switcherMinWidth;
 </script>
 
 <style>
@@ -10,7 +14,9 @@
   }
 </style>
 
-<LayoutSwitcher {className}>
+<Style />
+
+<LayoutSwitcher {className} {id} {switcherSpace} {switcherMinWidth}>
   <p class="test-content">
     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
     eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti

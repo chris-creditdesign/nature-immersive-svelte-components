@@ -1,4 +1,4 @@
-import Card from './index.svelte';
+import ViewDefault from './view.default.svelte';
 import cardData from '../preview-content/card-data.js';
 
 const cardDataNoImage = Object.assign({}, cardData, {srcURL: undefined});
@@ -10,7 +10,7 @@ export default {
 };
 
 export const Default = () => ({
-  Component: Card,
+  Component: ViewDefault,
   props: {
 	className: 'test',
 	cardData,
@@ -18,7 +18,7 @@ export const Default = () => ({
 });
 
 export const NoImage = () => ({
-  Component: Card,
+  Component: ViewDefault,
   props: {
 	className: 'test',
 	cardData: cardDataNoImage,
@@ -26,7 +26,7 @@ export const NoImage = () => ({
 });
 
 export const NoAuthor = () => ({
-  Component: Card,
+  Component: ViewDefault,
   props: {
 	className: 'test',
 	cardData: cardDataNoImageNoAuthor,
@@ -34,7 +34,7 @@ export const NoAuthor = () => ({
 });
 
 export const NoJournal = () => ({
-  Component: Card,
+  Component: ViewDefault,
   props: {
 	className: 'test',
 	cardData: cardDataNoImageNoAuthorNoJournal,
