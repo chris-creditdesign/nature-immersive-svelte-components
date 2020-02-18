@@ -42,6 +42,7 @@ For everyone else, `npm run build` will bundle your component's source code into
 
 ## TODO: 
 
+- Footer links
 - Check for intersectionObserver before implementing StaticImage
 - Make veggie burger a proper animating button
 - Implement grid above-min function

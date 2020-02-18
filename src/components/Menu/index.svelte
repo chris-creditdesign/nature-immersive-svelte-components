@@ -42,8 +42,6 @@
 </script>
 
 <style>
-  /* ---------------------------- Default elements ---------------------------- */
-
   /* Reset the default browser button styles */
   /* To enable the veggieburger svg to be styled */
   button {
@@ -61,11 +59,20 @@
   }
 
   header a:hover,
+  header a:focus {
+    color: var(--text-color);
+    fill: var(--text-color);
+  }
+
+  header button {
+    transition: background-color var(--time) ease, color var(--time) ease;
+  }
+
   header button:hover,
-  header a:focus,
   header button:focus {
-    color: var(--outline);
-    fill: var(--outline);
+    background-color: var(--outline);
+    fill: var(--text-color);
+    outline: 3px solid var(--outline);
   }
 
   ul {

@@ -21,21 +21,6 @@
     padding: 0;
     max-width: none;
   }
-
-  .footer a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-  }
-
-  .footer a:focus {
-    outline: none;
-    text-decoration: underline;
-    color: var(--outline);
-  }
 </style>
 
 <footer class="footer invert" role="contentinfo">

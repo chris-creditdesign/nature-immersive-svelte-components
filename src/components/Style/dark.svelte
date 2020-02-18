@@ -1,13 +1,12 @@
 <style>
   :global(:root) {
-    --link-color: var(--orange-2);
-    --link-color-invert: var(--blue-2);
-    --outline: var(--yellow-3);
+    --link-color: var(--orange-1);
+    --link-color-invert: var(--blue-1);
+    --link-color-active: var(--black-0);
+    --outline: var(--yellow-1);
     --background-color: var(--black-0);
     --background-color-invert: var(--white-0);
     --text-color: var(--white-0);
-    --text-color-accent: #666666;
     --text-color-invert: var(--black-1);
-    --text-color-invert-accent: var(--black-3);
   }
 </style>

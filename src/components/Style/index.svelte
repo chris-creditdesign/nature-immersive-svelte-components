@@ -131,15 +131,13 @@
 
   /* links */
   :global(a) {
-    text-decoration: none;
+    text-decoration: underline;
     color: var(--link-color);
   }
 
-  :global(a:hover) {
-    text-decoration: underline;
-  }
-
-  :global(*:focus) {
+  :global(a:hover, a:focus) {
+    background-color: var(--outline);
+    color: var(--link-color-active);
     outline: 3px solid var(--outline);
   }
 
@@ -182,10 +180,24 @@
     color: var(--link-color-invert);
   }
 
+  :global(.invert a:hover, .invert a:focus) {
+    color: var(--link-color-active);
+  }
+
   /* Borders */
   :global(.border-above) {
     padding-top: var(--s1);
     border-top: 1px solid var(--text-color);
+  }
+
+  /* Dropcap */
+  :global(.drop-cap:first-letter) {
+    font-size: 88px;
+    line-height: 62px;
+    float: left;
+    padding-top: 8px;
+    padding-right: 3px;
+    padding-left: 0;
   }
 
   /* -------------------------------- Utilities ------------------------------- */
