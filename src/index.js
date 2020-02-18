@@ -1,14 +1,18 @@
+/* ----------------------------------- CSS ---------------------------------- */
+
+export { default as Style } from "./components/Style/index.svelte"
+export { default as Light } from "./components/Style/light.svelte"
+export { default as Dark } from "./components/Style/dark.svelte"
+
 /* ---------------------------- Layout primitives --------------------------- */
 
 /* ----------------------------------- Box ---------------------------------- */
 
 export { default as LayoutBox } from "./components/LayoutBox/index.svelte"
-export { default as StyleBox } from "./components/LayoutBox/style.svelte"
 
 /* --------------------------------- Center --------------------------------- */
 
 export { default as LayoutCenter } from "./components/LayoutCenter/index.svelte"
-export { default as StyleCenter } from "./components/LayoutCenter/style.svelte"
 
 /* --------------------------------- Cluster -------------------------------- */
 
@@ -25,7 +29,6 @@ export { default as LayoutGrid } from "./components/LayoutGrid/index.svelte"
 /* ---------------------------------- Stack --------------------------------- */
 
 export { default as LayoutStack } from "./components/LayoutStack/index.svelte"
-export { default as StyleStack } from "./components/LayoutStack/style.svelte"
 
 /* ---------------------------- Layout components --------------------------- */
 
@@ -68,7 +71,6 @@ export { default as Image } from "./components/Image/index.svelte"
 /* ---------------------------------- StaticImage ---------------------------------- */
 
 export { default as StaticImage } from "./components/StaticImage/index.svelte"
-export { default as StyleStaticImage } from "./components/StaticImage/style.svelte"
 
 /* ---------------------------------- Logos --------------------------------- */
 
