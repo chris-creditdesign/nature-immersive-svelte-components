@@ -1,9 +1,3 @@
-/* ----------------------------------- CSS ---------------------------------- */
-
-export { default as Style } from "./components/Style/index.svelte"
-export { default as Light } from "./components/Style/light.svelte"
-export { default as Dark } from "./components/Style/dark.svelte"
-
 /* ---------------------------- Layout primitives --------------------------- */
 
 /* ----------------------------------- Box ---------------------------------- */
