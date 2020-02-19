@@ -64,8 +64,13 @@
     fill: var(--text-color);
   }
 
-  header button {
-    transition: background-color var(--time) ease, color var(--time) ease;
+  /* Make sure the links are black when hovered or focused in dark and light modes */
+  @media (prefers-color-scheme: dark) {
+    header a:hover,
+    header a:focus {
+      color: var(--text-color-invert);
+      fill: var(--text-color-invert);
+    }
   }
 
   header button:hover,
@@ -73,6 +78,14 @@
     background-color: var(--outline);
     fill: var(--text-color);
     outline: 3px solid var(--outline);
+  }
+
+  /* Make sure the links are black when hovered or focused in dark and light modes */
+  @media (prefers-color-scheme: dark) {
+    header button:hover,
+    header button:focus {
+      fill: var(--text-color-invert);
+    }
   }
 
   ul {

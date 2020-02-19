@@ -12,6 +12,10 @@
     font-size: var(--font-size-small-1);
   }
 
+  a {
+    color: var(--text-color-invert);
+  }
+
   /* Make sure the SVG logo is aligned left */
   :global(.footer-logo-container) {
     align-items: flex-start;
