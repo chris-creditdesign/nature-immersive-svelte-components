@@ -201,12 +201,7 @@
 <header
   role="banner"
   class={`menu menu--box invert ${className}`}
-  style={`
-	--menu-cluster-space: ${menuClusterSpace};
-	--menu-cluster-justify-content: ${menuClusterJustifyContent};
-	--menu-switcher-space: ${menuSwitcherSpace};
-	--menu-switcher-min-width: ${menuSwitcherMinWidth};
-	--menu-box-space: ${menuBoxSpace};`}>
+  style={`--menu-cluster-space: ${menuClusterSpace}; --menu-cluster-justify-content: ${menuClusterJustifyContent}; --menu-switcher-space: ${menuSwitcherSpace}; --menu-switcher-min-width: ${menuSwitcherMinWidth}; --menu-box-space: ${menuBoxSpace};`}>
   <div class="menu__cluster">
     <a
       href="https://www.nature.com"
