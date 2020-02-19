@@ -1,6 +1,6 @@
 <script>
   import LayoutCover from "./index.svelte";
-  import Style from "../Style/index.svelte";
+
   export let className = "";
   export let coverHeight;
   export let coverSpace;
@@ -12,8 +12,6 @@
     max-width: 100%;
   }
 </style>
-
-<Style />
 
 <LayoutCover {className} {coverHeight} {coverSpace}>
   <p class="centered test-content">

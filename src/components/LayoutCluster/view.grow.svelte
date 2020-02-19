@@ -1,6 +1,6 @@
 <script>
   import LayoutCluster from "./index.svelte";
-  import Style from "../Style/index.svelte";
+
   export let className = "";
   export let clusterJustifyContent = "";
   export let clusterclusterSpaceJustifyContent = "";
@@ -16,8 +16,6 @@
     align-items: center;
   }
 </style>
-
-<Style />
 
 <LayoutCluster
   {className}

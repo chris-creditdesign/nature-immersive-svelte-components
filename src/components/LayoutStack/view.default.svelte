@@ -1,6 +1,6 @@
 <script>
   import LayoutStack from "./index.svelte";
-  import Style from "../Style/index.svelte";
+
   export let className = "";
   export let stackSpace = "";
 </script>
@@ -10,8 +10,6 @@
     background-color: lightblue;
   }
 </style>
-
-<Style />
 
 <LayoutStack {className} {stackSpace}>
   <p class="test-content">

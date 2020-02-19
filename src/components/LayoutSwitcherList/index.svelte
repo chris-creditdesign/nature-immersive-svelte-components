@@ -32,13 +32,24 @@
       ~ *) {
     flex-basis: 100%;
   }
+
+  :global(.switcher ul) {
+    list-style: none;
+    max-width: none;
+    padding: 0;
+  }
+
+  :global(.switcher li) {
+    /* Remove default padding */
+    padding: 0;
+  }
 </style>
 
 <div
   {id}
   class={`switcher ${className}`}
   style={`${switcherSpace ? `--switcher-space: ${switcherSpace};` : ''} ${switcherMinWidth ? `--switcher-min-width: ${switcherMinWidth};` : ''}`}>
-  <div>
+  <ul>
     <slot />
-  </div>
+  </ul>
 </div>

@@ -1,5 +1,9 @@
 <script>
   import LayoutCluster from "./index.svelte";
+
+  export let className = "";
+  export let clusterJustifyContent = "";
+  export let clusterclusterSpaceJustifyContent = "";
 </script>
 
 <style>
@@ -13,14 +17,29 @@
   }
 </style>
 
-<LayoutCluster clusterJustifyContent="space-between">
-  <img src="img/image-small.jpg" alt="" class="test-content" />
-  <LayoutCluster clusterJustifyContent="flex-start">
+<LayoutCluster
+  {className}
+  {clusterJustifyContent}
+  {clusterclusterSpaceJustifyContent}>
+  <li>
+    <img src="img/image-small.jpg" alt="" class="test-content" />
+  </li>
+  <li>
     <a href="https://www.nature.com" class="test-content">Link</a>
+  </li>
+  <li>
     <a href="https://www.nature.com" class="test-content">Link</a>
+  </li>
+  <li>
     <a href="https://www.nature.com" class="test-content">Link</a>
+  </li>
+  <li>
     <a href="https://www.nature.com" class="test-content">Link</a>
+  </li>
+  <li>
     <a href="https://www.nature.com" class="test-content">Link</a>
+  </li>
+  <li>
     <a href="https://www.nature.com" class="test-content">Link</a>
-  </LayoutCluster>
+  </li>
 </LayoutCluster>

@@ -1,21 +1,8 @@
 <script>
   import Template from "./index.svelte";
-  import Style from "../Style/index.svelte";
-  import Light from "../Style/light.svelte";
-  import Dark from "../Style/dark.svelte";
-
-  let dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   export let className;
 </script>
-
-<Style />
-
-{#if dark}
-  <Dark />
-{:else}
-  <Light />
-{/if}
 
 <Template {className}>
   <p class="test-content">

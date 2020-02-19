@@ -1,7 +1,7 @@
 <script>
   import LayoutCenter from "./index.svelte";
   import LayoutStack from "../LayoutStack/index.svelte";
-  import Style from "../Style/index.svelte";
+
   export let className = "";
   export let centerSpace = "";
   export let centerMeasure = "";
@@ -17,8 +17,6 @@
     max-width: 100%;
   }
 </style>
-
-<Style />
 
 <LayoutStack>
   <LayoutCenter {className} {centerSpace} centerMeasure="var(--measure-small)">

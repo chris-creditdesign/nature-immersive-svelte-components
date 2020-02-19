@@ -1,20 +1,7 @@
 <script>
   import LayoutBox from "../LayoutBox/index.svelte";
   import LayoutStack from "../LayoutStack/index.svelte";
-  import Style from "../Style/index.svelte";
-  import Light from "../Style/light.svelte";
-  import Dark from "../Style/dark.svelte";
-
-  let dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 </script>
-
-<Style />
-
-{#if dark}
-  <Dark />
-{:else}
-  <Light />
-{/if}
 
 <LayoutBox boxSpace="var(--s3)">
   <LayoutStack stackSpace="var(--s1)">

@@ -1,7 +1,7 @@
 <script>
   import LayoutCenter from "./index.svelte";
   import LayoutStack from "../LayoutStack/index.svelte";
-  import Style from "../Style/index.svelte";
+
   export let className = "";
   export let centerSpace = "";
 </script>
@@ -11,8 +11,6 @@
     background-color: lightblue;
   }
 </style>
-
-<Style />
 
 <LayoutStack stackSpace="var(--s3)">
   <LayoutCenter {className} {centerSpace} centerMeasure="var(--measure-small)">

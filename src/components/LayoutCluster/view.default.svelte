@@ -1,6 +1,6 @@
 <script>
   import LayoutCluster from "./index.svelte";
-  import Style from "../Style/index.svelte";
+
   export let className = "";
   export let clusterJustifyContent = "";
   export let clusterSpace = "";
@@ -16,8 +16,6 @@
     align-items: center;
   }
 </style>
-
-<Style />
 
 <LayoutCluster {className} {clusterJustifyContent} {clusterSpace}>
   <img src="img/image-small.jpg" alt="" class="test-content" />
