@@ -15,19 +15,29 @@
 </script>
 
 <style>
+  /* Fall back styles for no custom properties */
   .cover__background {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -999;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* Make the text visible over the dark background */
-  :global(.cover--with-background) {
-    color: var(--white-0);
-    background-color: rgba(10, 4, 4, 0.4);
+  @supports (color: var(--primary)) {
+    .cover__background {
+      width: 100%;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -999;
+    }
+
+    /* Make the text visible over the dark background */
+    :global(.cover--with-background) {
+      color: var(--white-0);
+      background-color: rgba(10, 4, 4, 0.4);
+    }
   }
 </style>
 
