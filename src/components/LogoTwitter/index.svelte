@@ -1,6 +1,5 @@
 <script>
   export let height = 1;
-  export let titleId = "twitter-logo-title";
   export let title = "Share this page on twitter";
 </script>
 
@@ -15,8 +14,7 @@
   viewBox="0 0 30 30"
   focusable="false"
   role="img"
-  aria-labelledby={titleId}>
-  <title id={titleId}>{title}</title>
+  aria-hidden="true">
   <path
     d="M30,15A15,15,0,1,1,15,0,15,15,0,0,1,30,15ZM15,2A13,13,0,1,0,28,15,13,13,0,0,0,15,2Z" />
   <path
@@ -36,3 +34,4 @@
     22.50125,10.99625 C21.97375,11.2425 21.4075,11.40875 20.81375,11.48375
     L20.8125,11.4875 Z" />
 </svg>
+<span class="visually-hidden">{title}</span>

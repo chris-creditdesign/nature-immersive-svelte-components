@@ -8,11 +8,11 @@ Config based on the [sveltejs/component-template](https://github.com/sveltejs/co
 
 To install dependencies:
 
-	npm install
+    npm install
 
 To view components [Storybook](https://storybook.js.org/):
 
-	npm run storybook
+    npm run storybook
 
 ## Consuming components
 
@@ -40,7 +40,7 @@ For everyone else, `npm run build` will bundle your component's source code into
 - publishedAt
 - publishedAtString
 
-## TODO: 
+## TODO:
 
 - Footer links
 - Check for intersectionObserver before implementing StaticImage
@@ -57,3 +57,14 @@ For everyone else, `npm run build` will bundle your component's source code into
 - Set font sizes to values [https://www.smashingmagazine.com/2018/05/css-custom-properties-strategy-guide/]()
 - Recursize stack layout
 - LayoutGrid above min
+
+## References
+
+- [prefers-reduced-motion](https://developers.google.com/web/updates/2019/03/prefers-reduced-motion)
+- [svelte use:action to lazy load images](https://svelte.dev/repl/26ba12b3fbd146eaaefc8b024a826da7?version=3.5.1)
+- [svelte use:action](https://svelte.dev/docs#use_action)
+- [Lazy Loading Images and Video](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video)
+- [DOMException: The play() request was interrupted](https://developers.google.com/web/updates/2017/06/play-request-was-interrupted)
+- [svelte media query demo](https://codesandbox.io/s/6y2l0yxo53)
+- [A Strategy Guide To CSS Custom Properties](https://www.smashingmagazine.com/2018/05/css-custom-properties-strategy-guide/)
+- [HTMLImageElement.decode](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decode)

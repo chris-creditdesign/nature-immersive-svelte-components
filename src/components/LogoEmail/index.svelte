@@ -1,6 +1,5 @@
 <script>
   export let height = 1;
-  export let titleId = "email-logo-title";
   export let title = "Share this page via email";
 </script>
 
@@ -15,8 +14,7 @@
   viewBox="0 0 30 30"
   focusable="false"
   role="img"
-  aria-labelledby={titleId}>
-  <title id={titleId}>{title}</title>
+  aria-hidden="true">
   <path
     d="M30,15A15,15,0,1,1,15,0,15,15,0,0,1,30,15ZM15,2A13,13,0,1,0,28,15,13,13,0,0,0,15,2Z" />
   <path
@@ -31,3 +29,4 @@
     22,10.4477153 22,11 L22,19 C22,19.5522847 21.5522847,20 21,20 L9,20
     C8.44771525,20 8,19.5522847 8,19 L8,11 C8,10.4477153 8.44771525,10 9,10 Z" />
 </svg>
+<span class="visually-hidden">{title}</span>

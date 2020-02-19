@@ -1,7 +1,6 @@
 <script>
   export let className = "";
   export let height = 1;
-  export let titleId = "springernature-logo-title";
   export let title = "SpringerNature";
 </script>
 
@@ -15,10 +14,9 @@
   height={`${height}em`}
   viewBox="0 0 140 14"
   role="img"
-  aria-labelledby={titleId}
   focusable="false"
+  aria-hidden="true"
   {className}>
-  <title id={titleId}>{title}</title>
   >
   <path
     d="M74.9,5.7c0-2.8-2.4-3.8-4.6-3.8c-1.1,0-2.8,0-3.8,0v11.6h2.9V10h0.9c0.2,0,0.3,0,0.5,0l0,0l0,0c0.5,0.8,1.1,2,1.3,3.5
@@ -58,3 +56,4 @@
     M85.9,13.5h3.4v-13h-2.8l0.1,9.1l-4.2-9.1h-3.4v13h2.7l0-9
     l0.1,0.2L85.9,13.5L85.9,13.5z" />
 </svg>
+<span class="visually-hidden">{title}</span>

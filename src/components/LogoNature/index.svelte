@@ -1,7 +1,6 @@
 <script>
   export let className = "";
   export let height = 1;
-  export let titleId = "nature-logo-title";
   export let title = "Nature homepage";
 </script>
 
@@ -15,10 +14,9 @@
   height={`${height}em`}
   viewBox="0 0 200 49"
   role="img"
-  aria-labelledby={titleId}
+  aria-hidden="ture"
   focusable="false"
   {className}>
-  <title id={titleId}>{title}</title>
   <g>
     <path
       d="M12.8 8.4l.1.1v8.4h.2c1.7-4.8 6-8.7 12.2-8.7 8.1 0 10.5 4 10.5
@@ -54,3 +52,4 @@
       193.7 49 185 49z" />
   </g>
 </svg>
+<span class="visually-hidden">{title}</span>

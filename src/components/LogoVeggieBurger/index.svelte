@@ -1,6 +1,5 @@
 <script>
   export let height = 1;
-  export let titleId = "veggie-burger-title";
   export let title = "Show navigation menu";
 </script>
 
@@ -15,8 +14,7 @@
   viewBox="0 0 30 30"
   focusable="false"
   role="img"
-  aria-labelledby={titleId}>
-  <title id={titleId}>{title}</title>
+  aria-hidden="true">
   <g class="closed">
     <path
       d="M27,6H3C1.34,6,0,4.66,0,3v0c0-1.66,1.34-3,3-3h24c1.66,0,3,1.34,3,3v0C30,4.66,28.66,6,27,6z" />
@@ -32,3 +30,4 @@
       c1.17,1.17,3.07,1.17,4.24,0s1.17-3.07,0-4.24L19.24,14.5z" />
   </g>
 </svg>
+<span class="visually-hidden">{title}</span>
