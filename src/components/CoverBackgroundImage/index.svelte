@@ -24,7 +24,7 @@
 
   @supports (color: var(--primary)) {
     .cover__background {
-      width: 100%;
+      width: inherit;
       margin: 0;
       position: absolute;
       top: 50%;
