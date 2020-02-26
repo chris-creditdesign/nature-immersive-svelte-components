@@ -1,6 +1,6 @@
 <script>
   export let height = 1;
-  export let title = "Show navigation menu";
+  export let title = "Menu";
 </script>
 
 <style>

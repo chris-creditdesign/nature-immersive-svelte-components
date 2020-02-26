@@ -1,6 +1,6 @@
 <script>
   export let height = 1;
-  export let title = "Share this page on facebook";
+  export let title = "Facebook";
 </script>
 
 <style>
