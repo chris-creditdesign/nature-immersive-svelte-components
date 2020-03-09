@@ -43,7 +43,6 @@
   }
 
   @media screen and (min-width: 600px) {
-    /* media query */
     .static-image-container {
       width: 100%;
       display: grid;
@@ -70,9 +69,10 @@
       top: 10px;
     }
 
-    /* Content contained within the slot */
+    /* Content contained within the 'slot' */
     :global(.step) {
-      height: 100vh;
+      min-height: 100vh;
+      margin-bottom: var(--s4);
       display: flex;
       align-items: center;
     }
