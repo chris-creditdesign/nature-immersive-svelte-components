@@ -1,8 +1,7 @@
 <script>
+  import { Center, Stack } from "creditdesign-svelte-components";
   import CoverBackgroundImage from "./index.svelte";
   import Heading from "../Heading/index.svelte";
-  import LayoutCenter from "../LayoutCenter/index.svelte";
-  import LayoutStack from "../LayoutStack/index.svelte";
 
   export let srcURL;
   export let alt;
@@ -11,10 +10,9 @@
   export let articleData;
 </script>
 
-<LayoutStack stackSpace="var(--s3)">
-
-  <LayoutCenter>
-    <LayoutStack stackSpace="var(--s0)">
+<Stack stackSpace="var(--s3)">
+  <Center>
+    <Stack stackSpace="var(--s0)">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quidem
         temporibus beatae amet facilis, qui est praesentium laborum! Id vero
@@ -33,15 +31,15 @@
         repellat nostrum iure incidunt eligendi quasi architecto officia odio
         eos!
       </p>
-    </LayoutStack>
-  </LayoutCenter>
+    </Stack>
+  </Center>
 
   <CoverBackgroundImage {srcURL} {alt} {coverSpace} {coverHeight}>
     <Heading className={'centered'} {articleData} />
   </CoverBackgroundImage>
 
-  <LayoutCenter>
-    <LayoutStack stackSpace="var(--s0)">
+  <Center>
+    <Stack stackSpace="var(--s0)">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat quidem
         temporibus beatae amet facilis, qui est praesentium laborum! Id vero
@@ -60,6 +58,6 @@
         repellat nostrum iure incidunt eligendi quasi architecto officia odio
         eos!
       </p>
-    </LayoutStack>
-  </LayoutCenter>
-</LayoutStack>
+    </Stack>
+  </Center>
+</Stack>

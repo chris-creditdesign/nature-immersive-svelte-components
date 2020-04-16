@@ -1,6 +1,5 @@
 <script>
-  import LayoutStack from "../LayoutStack/index.svelte";
-  import LayoutBox from "../LayoutBox/index.svelte";
+  import { Box } from "creditdesign-svelte-components";
   import Card from "../Card/index.svelte";
 
   export let className = "";
@@ -9,7 +8,7 @@
 </script>
 
 <div class={`card ${className}`}>
-  <LayoutBox className={'invert'}>
+  <Box className={'invert'}>
     <Card {cardData} {stackSpace} />
-  </LayoutBox>
+  </Box>
 </div>

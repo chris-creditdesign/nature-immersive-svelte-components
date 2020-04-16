@@ -1,10 +1,9 @@
 <script>
-  import LayoutBox from "../LayoutBox/index.svelte";
-  import LayoutStack from "../LayoutStack/index.svelte";
+  import { Box, Stack } from "creditdesign-svelte-components";
 </script>
 
-<LayoutBox boxSpace="var(--s3)">
-  <LayoutStack stackSpace="var(--s1)">
+<Box boxSpace="var(--s3)">
+  <Stack stackSpace="var(--s1)">
     <h1>Heading level 1</h1>
 
     <h2>Heading level 2</h2>
@@ -44,5 +43,5 @@
       <li>List item two</li>
       <li>List item three</li>
     </ol>
-  </LayoutStack>
-</LayoutBox>
+  </Stack>
+</Box>

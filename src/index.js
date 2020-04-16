@@ -1,29 +1,3 @@
-/* ---------------------------- Layout primitives --------------------------- */
-
-/* ----------------------------------- Box ---------------------------------- */
-
-export { default as LayoutBox } from "./components/LayoutBox/index.svelte"
-
-/* --------------------------------- Center --------------------------------- */
-
-export { default as LayoutCenter } from "./components/LayoutCenter/index.svelte"
-
-/* --------------------------------- Cluster -------------------------------- */
-
-export { default as LayoutCluster } from "./components/LayoutCluster/index.svelte"
-
-/* ---------------------------------- Cover --------------------------------- */
-
-export { default as LayoutCover } from "./components/LayoutCover/index.svelte"
-
-/* ---------------------------------- Grid ---------------------------------- */
-
-export { default as LayoutGrid } from "./components/LayoutGrid/index.svelte"
-
-/* ---------------------------------- Stack --------------------------------- */
-
-export { default as LayoutStack } from "./components/LayoutStack/index.svelte"
-
 /* ---------------------------- Layout components --------------------------- */
 
 /* ---------------------------------- Card ---------------------------------- */

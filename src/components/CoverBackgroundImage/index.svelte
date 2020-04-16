@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
+  import { Cover } from "creditdesign-svelte-components";
 
-  import LayoutCover from "../LayoutCover/index.svelte";
   export let srcURL;
   export let alt;
   export let coverSpace = "1rem";
@@ -41,7 +41,7 @@
   }
 </style>
 
-<LayoutCover className="cover--with-background" {coverSpace} {coverHeight}>
+<Cover className="cover--with-background" {coverSpace} {coverHeight}>
   <img class="cover__background" {src} {alt} />
   <slot />
-</LayoutCover>
+</Cover>

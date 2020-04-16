@@ -1,5 +1,5 @@
 <script>
-  import LayoutStack from "../LayoutStack/index.svelte";
+  import { Stack } from "creditdesign-svelte-components";
   import Image from "../Image/index.svelte";
 
   export let className = "";
@@ -48,13 +48,13 @@
 </style>
 
 <div class={`card ${className}`}>
-  <LayoutStack {stackSpace}>
+  <Stack {stackSpace}>
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />
     {/if}
 
     <header>
-      <LayoutStack stackSpace="var(--s-4)">
+      <Stack stackSpace="var(--s-4)">
         {#if journal}
           <p class="journal-name">{journal}</p>
         {/if}
@@ -73,7 +73,7 @@
             {@html authorName}
           </p>
         {/if}
-      </LayoutStack>
+      </Stack>
     </header>
 
     {#if text}
@@ -87,5 +87,5 @@
         {@html footnote}
       </p>
     {/if}
-  </LayoutStack>
+  </Stack>
 </div>

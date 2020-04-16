@@ -1,6 +1,5 @@
 <script>
-  import LayoutStack from "../LayoutStack/index.svelte";
-  import LayoutGrid from "../LayoutGrid/index.svelte";
+  import { Grid } from "creditdesign-svelte-components";
   import Card from "../Card/index.svelte";
   import Image from "../Image/index.svelte";
 
@@ -8,6 +7,7 @@
   export let cardData;
   export let stackSpace = "var(--s-1)";
   export let gridSpace = "var(--s-1)";
+  export let minWidth = "20ch";
 
   let { altText, caption, footnote, headline, href, srcURL, text } = cardData;
 
@@ -15,10 +15,10 @@
 </script>
 
 <div class={`card ${className}`}>
-  <LayoutGrid {gridSpace}>
+  <Grid gridRowSpace={gridSpace} gridColumnSpace={gridSpace} {minWidth}>
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />
     {/if}
     <Card cardData={cardDataNoImage} {stackSpace} />
-  </LayoutGrid>
+  </Grid>
 </div>

@@ -1,6 +1,5 @@
 <script>
-  import LayoutCenter from "../LayoutCenter/index.svelte";
-  import LayoutStack from "../LayoutStack/index.svelte";
+  import { Center, Stack } from "creditdesign-svelte-components";
 
   import formatDate from "../utils/format-date.js";
 
@@ -43,8 +42,8 @@
 </style>
 
 <section class={`heading ${className}`}>
-  <LayoutCenter {centerMeasure} {centerSpace}>
-    <LayoutStack {stackSpace}>
+  <Center {centerMeasure} {centerSpace}>
+    <Stack {stackSpace}>
 
       <h1>
         {@html headline}
@@ -55,7 +54,7 @@
 
       {#if author || photographer || publishedAt}
         <div>
-          <LayoutStack stackSpace={'var(--s-3)'}>
+          <Stack stackSpace={'var(--s-3)'}>
             {#if author}
               <p class="author">
                 {@html author}
@@ -74,10 +73,10 @@
                 {formatDate(publishedAt)}
               </time>
             {/if}
-          </LayoutStack>
+          </Stack>
         </div>
       {/if}
 
-    </LayoutStack>
-  </LayoutCenter>
+    </Stack>
+  </Center>
 </section>

@@ -1,7 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import LayoutCover from "../LayoutCover/index.svelte";
-  import LayoutCluster from "../LayoutCluster/index.svelte";
+  import { Cover, Cluster } from "creditdesign-svelte-components";
 
   export let srcURL;
   export let alt;
@@ -83,7 +82,7 @@
   }
 </style>
 
-<LayoutCover className="cover--with-background" {coverSpace} {coverHeight}>
+<Cover className="cover--with-background" {coverSpace} {coverHeight}>
 
   {#if mounted}
     <video
@@ -106,11 +105,11 @@
   <slot />
 
   {#if mounted}
-    <LayoutCluster clusterJustifyContent="flex-end">
+    <Cluster clusterJustifyContent="flex-end">
       <button class="box" type="button" on:click={handleBtnClick}>
         {paused ? 'Play video' : 'Pause video'}
       </button>
-    </LayoutCluster>
+    </Cluster>
   {/if}
 
-</LayoutCover>
+</Cover>

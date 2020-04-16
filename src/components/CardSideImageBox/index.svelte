@@ -1,7 +1,5 @@
 <script>
-  import LayoutStack from "../LayoutStack/index.svelte";
-  import LayoutGrid from "../LayoutGrid/index.svelte";
-  import LayoutBox from "../LayoutBox/index.svelte";
+  import { Box } from "creditdesign-svelte-components";
   import CardSideImage from "../CardSideImage/index.svelte";
   import Image from "../Image/index.svelte";
 
@@ -14,7 +12,7 @@
 </script>
 
 <div class={`card ${className}`}>
-  <LayoutBox className={'invert'}>
+  <Box className={'invert'}>
     <CardSideImage {cardData} {stackSpace} {gridSpace} />
-  </LayoutBox>
+  </Box>
 </div>

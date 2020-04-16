@@ -1,6 +1,5 @@
 <script>
-  import LayoutCenter from "../LayoutCenter/index.svelte";
-  import LayoutStack from "../LayoutStack/index.svelte";
+  import { Center, Stack } from "creditdesign-svelte-components";
 
   export let className = "";
   export let centerSpace = "var(--s1)";
@@ -10,12 +9,12 @@
 </script>
 
 <section class={`${className}`}>
-  <LayoutCenter {centerSpace} {centerMeasure}>
-    <LayoutStack {stackSpace}>
+  <Center {centerSpace} {centerMeasure}>
+    <Stack {stackSpace}>
       {#if headline}
         <h2 class="border-above">{headline}</h2>
       {/if}
       <slot />
-    </LayoutStack>
-  </LayoutCenter>
+    </Stack>
+  </Center>
 </section>

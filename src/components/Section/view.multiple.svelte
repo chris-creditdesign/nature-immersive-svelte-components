@@ -1,9 +1,9 @@
 <script>
   import Section from "./index.svelte";
-  import LayoutStack from "../LayoutStack/index.svelte";
+  import { Stack } from "creditdesign-svelte-components";
 </script>
 
-<LayoutStack stackSpace={'var(--s3)'}>
+<Stack stackSpace={'var(--s3)'}>
   <Section headline={'Headline one'}>
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt
@@ -27,4 +27,4 @@
       corrupti numquam officia architecto modi! Labore natus error nisi earum?
     </p>
   </Section>
-</LayoutStack>
+</Stack>

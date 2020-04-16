@@ -1,7 +1,7 @@
 import ViewDefault from './view.default.svelte';
 
 export default {
-  title: 'Typeography',
+  title: 'Typography',
 };
 
 export const Default = () => ({

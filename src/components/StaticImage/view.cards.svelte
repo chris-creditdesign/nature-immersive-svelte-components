@@ -1,8 +1,8 @@
 <script>
+  import { Stack } from "creditdesign-svelte-components";
   import StaticImage from "./index.svelte";
   import Image from "../Image/index.svelte";
   import Card from "../Card/index.svelte";
-  import LayoutStack from "../LayoutStack/index.svelte";
 
   export let className = "";
   export let steps;
@@ -15,14 +15,14 @@
         <div class="step__image">
           <Image {altText} {caption} {srcURL} />
         </div>
-        <LayoutStack stackSpace={'var(--s1)'}>
+        <Stack stackSpace={'var(--s1)'}>
           <h2 class="border-above">
             {@html headline}
           </h2>
           {#each content as cardData}
             <Card {cardData} />
           {/each}
-        </LayoutStack>
+        </Stack>
       </div>
     </div>
   {/each}

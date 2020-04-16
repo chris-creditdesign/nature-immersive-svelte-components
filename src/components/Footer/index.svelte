@@ -1,7 +1,5 @@
 <script>
-  import LayoutBox from "../LayoutBox/index.svelte";
-  import LayoutStack from "../LayoutStack/index.svelte";
-  import LayoutClusterList from "../LayoutClusterList/index.svelte";
+  import { Box, Stack, ClusterList } from "creditdesign-svelte-components";
   import LogoSpringerNature from "../LogoSpringerNature/index.svelte";
 </script>
 
@@ -23,11 +21,11 @@
 </style>
 
 <footer class="footer invert" role="contentinfo">
-  <LayoutBox>
-    <LayoutStack className="footer-logo-container" stackSpace="var(--s-1)">
+  <Box>
+    <Stack className="footer-logo-container" stackSpace="var(--s-1)">
       <LogoSpringerNature height={1.5} />
 
-      <LayoutClusterList>
+      <ClusterList>
         <li>
           <a href="https://www.nature.com/info/privacy.html">Privacy Policy</a>
         </li>
@@ -49,10 +47,10 @@
             Accessibility statement
           </a>
         </li>
-      </LayoutClusterList>
+      </ClusterList>
 
       <small>© 2020 Springer Nature Limited. All rights reserved.</small>
-    </LayoutStack>
-  </LayoutBox>
+    </Stack>
+  </Box>
 
 </footer>
