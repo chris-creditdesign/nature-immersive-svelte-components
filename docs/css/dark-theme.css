@@ -1,0 +1,11 @@
+:root {
+	--link-color: var(--orange-2);
+	--link-color-invert: var(--blue-2);
+	--outline: var(--yellow-3);
+	--background-color: var(--black-0);
+	--background-color-invert: var(--white-0);
+	--text-color: var(--white-0);
+	--text-color-accent: #666666;
+	--text-color-invert: var(--black-1);
+	--text-color-invert-accent: var(--black-3);
+}
