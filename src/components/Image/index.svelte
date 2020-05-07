@@ -6,7 +6,6 @@
   export let srcURL;
 
   $: src = srcURL;
-  //   export let captionSpace;
 
   onMount(() => {
     src = srcURL.replace(/-small/, "");
@@ -14,16 +13,10 @@
 </script>
 
 <style>
-  figure {
-    margin: 0;
-  }
-
   figcaption {
     box-sizing: content-box;
     font-size: var(--font-size-small-1);
     font-family: var(--sans-serif-font);
-    /* padding-left: ${captionSpace};
-			padding-right: ${captionSpace}; */
   }
 </style>
 

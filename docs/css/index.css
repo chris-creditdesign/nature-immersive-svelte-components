@@ -150,6 +150,7 @@ img,
 video,
 iframe,
 svg,
+canvas,
 footer,
 a {
   max-width: none;
@@ -165,6 +166,11 @@ h2 {
 }
 h1 {
   font-size: var(--font-size-big-3);
+}
+
+/* text */
+p {
+  line-height: 1.4em;
 }
 
 /* links */
