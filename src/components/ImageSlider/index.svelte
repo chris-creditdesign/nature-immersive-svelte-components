@@ -13,20 +13,6 @@
 
   $: height = width * ratio;
 
-  let handleMousemove = event => {
-    if (mouseDown) {
-      amountToReveal = Math.round((event.offsetX / width) * 100);
-    }
-  };
-
-  let handleMousedown = () => {
-    mouseDown = true;
-  };
-
-  let handleMouseup = () => {
-    mouseDown = false;
-  };
-
   onMount(() => {
     let loadedImages = imageData.map(elem => {
       let thisImage = new Image();
@@ -151,12 +137,7 @@
 
 <Stack {className}>
   <div class="canvas-border">
-    <div
-      class="canvas-container"
-      bind:clientWidth={width}
-      on:mousemove={handleMousemove}
-      on:mousedown={handleMousedown}
-      on:mouseup={handleMouseup}>
+    <div class="canvas-container" bind:clientWidth={width}>
       <canvas bind:this={canvas} {width} {height}>
 
         <p>Interactive section used to compare two images.</p>

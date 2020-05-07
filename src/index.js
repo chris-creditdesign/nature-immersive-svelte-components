@@ -48,3 +48,8 @@ export { default as LogoNature } from "./components/LogoNature/index.svelte"
 export { default as LogoSpringerNature } from "./components/LogoSpringerNature/index.svelte"
 export { default as LogoTwitter } from "./components/LogoTwitter/index.svelte"
 
+/* ------------------------- Interactive components ------------------------- */
+
+/* ------------------------------- ImageSlider ------------------------------ */
+
+export { default as ImageSlider } from "./components/ImageSlider/index.svelte"
