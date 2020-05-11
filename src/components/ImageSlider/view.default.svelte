@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import ImageSlider from "./index.svelte";
   import { Box, Center } from "creditdesign-svelte-components";
 
