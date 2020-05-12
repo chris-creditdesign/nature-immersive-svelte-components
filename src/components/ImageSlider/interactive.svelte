@@ -9,7 +9,7 @@
   let amountToReveal = 0;
   let mouseDown = false;
   let canvas;
-  let width = 600;
+  let width = 900;
 
   $: height = width * ratio;
 
@@ -102,6 +102,10 @@
     max-width: none;
   }
 
+  canvas {
+    max-width: 100%;
+  }
+
   .canvas-container {
     margin-right: 5px;
     margin-left: 5px;
@@ -138,7 +142,7 @@
 
 <Stack {className}>
   <div class="canvas-border">
-    <div class="canvas-container" bind:clientWidth={width}>
+    <div class="canvas-container">
       <canvas bind:this={canvas} {width} {height}>
 
         <p>Interactive section used to compare two images.</p>
