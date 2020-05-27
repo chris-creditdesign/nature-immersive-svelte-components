@@ -40,6 +40,10 @@ export { default as Image } from "./components/Image/index.svelte"
 
 export { default as StaticImage } from "./components/StaticImage/index.svelte"
 
+/* ---------------------------------- SeriesArticleNav ---------------------------------- */
+
+export { default as SeriesArticleNav } from "./components/SeriesArticleNav/index.svelte"
+
 /* ---------------------------------- Logos --------------------------------- */
 
 export { default as LogoEmail } from "./components/LogoEmail/index.svelte"
