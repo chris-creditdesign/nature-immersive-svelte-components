@@ -6,7 +6,9 @@
   --black-2: #333333;
   --black-3: #666666;
   --white-0: #ffffff;
-  --white-1: #cccccc;
+  --white-1: #eeeeee;
+  --white-2: #cccccc;
+  --white-3: #aaaaaa;
 
   /* Nature Color Palette */
   --yellow-1: #efd600;
@@ -183,6 +185,15 @@ a:hover,
 a:focus {
   background-color: var(--outline);
   color: var(--link-color-active);
+  outline: 3px solid var(--outline);
+}
+
+button:hover,
+button:focus {
+  outline: 3px solid var(--outline);
+}
+
+select:focus {
   outline: 3px solid var(--outline);
 }
 
