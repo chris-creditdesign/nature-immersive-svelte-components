@@ -1,15 +1,21 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
+  import { fade } from "svelte/transition";
   import { Box, Stack, StackList } from "creditdesign-svelte-components";
   import ToggleButton from "../ToggleButton/index.svelte";
   import LogoTriangle from "../LogoTriangle/index.svelte";
 
+  const dispatch = createEventDispatcher();
+
   export let className = "";
   export let seriesArticleNavData;
+  export let prefersReducedMotion = false;
 
   let { title, blurb, articles, parentDoi } = seriesArticleNavData;
   let mounted = false;
   let expanded = true;
+
+  $: duration = prefersReducedMotion ? 0 : 300;
 
   let handleClick = () => {
     expanded = !expanded;
@@ -19,6 +25,10 @@
     mounted = true;
     expanded = false;
   });
+
+  function sayHello() {
+    dispatch("update");
+  }
 </script>
 
 <style>
@@ -108,7 +118,13 @@
 
   <nav id="menu-list">
     {#if expanded}
-      <div class="list-container">
+      <div
+        class="list-container"
+        transition:fade={{ delay: 0, duration }}
+        on:introstart={() => dispatch('update')}
+        on:outrostart={() => dispatch('update')}
+        on:introend={() => dispatch('update')}
+        on:outroend={() => dispatch('update')}>
         <StackList>
           {#each articles as { title, url, doi, published }}
             <li class:current={doi === parentDoi}>

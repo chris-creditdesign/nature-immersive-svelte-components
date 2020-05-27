@@ -3,6 +3,11 @@
 
   export let className;
   export let seriesArticleNavData;
+  export let prefersReducedMotion;
+
+  let handleUpdate = () => {
+    console.log("Update");
+  };
 </script>
 
 <style>
@@ -14,5 +19,9 @@
 </style>
 
 <div class="container">
-  <SeriesArticleNav {className} {seriesArticleNavData} />
+  <SeriesArticleNav
+    {className}
+    {seriesArticleNavData}
+    {prefersReducedMotion}
+    on:update={handleUpdate} />
 </div>
