@@ -4,11 +4,16 @@
   export let className;
   export let seriesArticleNavData;
   export let parentDoi;
-  export let prefersReducedMotion;
 </script>
 
-<SeriesArticleNav
-  {className}
-  {seriesArticleNavData}
-  {parentDoi}
-  {prefersReducedMotion} />
+<style>
+  .container {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
+<div class="container">
+  <SeriesArticleNav {className} {seriesArticleNavData} {parentDoi} />
+</div>
