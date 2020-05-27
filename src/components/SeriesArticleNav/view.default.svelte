@@ -3,7 +3,6 @@
 
   export let className;
   export let seriesArticleNavData;
-  export let parentDoi;
 </script>
 
 <style>
@@ -15,5 +14,5 @@
 </style>
 
 <div class="container">
-  <SeriesArticleNav {className} {seriesArticleNavData} {parentDoi} />
+  <SeriesArticleNav {className} {seriesArticleNavData} />
 </div>

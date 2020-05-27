@@ -6,9 +6,8 @@
 
   export let className = "";
   export let seriesArticleNavData;
-  export let parentDoi = "";
 
-  let { title, blurb, articles } = seriesArticleNavData;
+  let { title, blurb, articles, parentDoi } = seriesArticleNavData;
   let mounted = false;
   let expanded = true;
 

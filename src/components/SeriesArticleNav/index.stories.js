@@ -10,6 +10,5 @@ export const Default = () => ({
 	props: {
 		className: 'test',
 		seriesArticleNavData,
-		parentDoi: 'doi-1'
 	},
 });
