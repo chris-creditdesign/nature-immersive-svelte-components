@@ -188,6 +188,15 @@ a:focus {
   outline: 3px solid var(--outline);
 }
 
+button:hover,
+button:focus {
+  outline: 3px solid var(--outline);
+}
+
+select:focus {
+  outline: 3px solid var(--outline);
+}
+
 /* Figures */
 figure {
   margin: 0;
