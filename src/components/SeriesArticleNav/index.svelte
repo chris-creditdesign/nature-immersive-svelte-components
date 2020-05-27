@@ -12,8 +12,8 @@
   export let prefersReducedMotion = false;
 
   let { title, articles } = seriesArticleNavData;
-  let expanded = false;
   let mounted = false;
+  let expanded = true;
 
   $: duration = prefersReducedMotion ? 0 : 300;
 
@@ -23,6 +23,7 @@
 
   onMount(() => {
     mounted = true;
+    expanded = false;
   });
 </script>
 
