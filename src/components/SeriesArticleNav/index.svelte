@@ -9,14 +9,13 @@
   export let className = "";
   export let seriesArticleNavData;
   export let parentDoi = "";
+  export let prefersReducedMotion = false;
 
   let { title, articles } = seriesArticleNavData;
-  let prefersReducedMotion = true;
   let expanded = false;
   let mounted = false;
-  let duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ? 0
-    : 300;
+
+  $: duration = prefersReducedMotion ? 0 : 300;
 
   let handleClick = () => {
     expanded = !expanded;

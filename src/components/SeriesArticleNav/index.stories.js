@@ -13,3 +13,13 @@ export const Default = () => ({
 		parentDoi: 'doi-1'
 	},
 });
+
+export const ReducedMotion = () => ({
+	Component: ViewDefault,
+	props: {
+		className: 'test',
+		seriesArticleNavData,
+		parentDoi: 'doi-1',
+		prefersReducedMotion: true
+	},
+});
