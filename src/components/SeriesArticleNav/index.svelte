@@ -1,5 +1,6 @@
 <script>
-  import { onMount, createEventDispatcher } from "svelte";
+  import { onMount, createEventDispatcher, afterUpdate } from "svelte";
+
   import {
     Box,
     Stack,
@@ -25,6 +26,10 @@
   onMount(() => {
     mounted = true;
     expanded = false;
+  });
+
+  afterUpdate(() => {
+    dispatch("update");
   });
 </script>
 
