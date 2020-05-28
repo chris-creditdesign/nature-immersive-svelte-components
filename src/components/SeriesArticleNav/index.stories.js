@@ -12,12 +12,3 @@ export const Default = () => ({
 		seriesArticleNavData,
 	},
 });
-
-export const ReducedMotion = () => ({
-	Component: ViewDefault,
-	props: {
-		className: 'test',
-		seriesArticleNavData,
-		prefersReducedMotion: true,
-	},
-});
