@@ -55,7 +55,7 @@
   {/if}
 </Stack>
 
-<nav id="menu-list" hidden={expanded}>
+<nav id="menu-list" hidden={!expanded}>
   <StackList>
     {#each articles as { title, url, doi, published }}
       <li class:list-item--current={doi === parentDoi}>
