@@ -37,16 +37,6 @@
 </script>
 
 <style>
-  h1 {
-    font-size: var(--font-size-base);
-  }
-
-  .container {
-    background-color: var(--white-1);
-    padding: var(--s-1);
-    border-radius: 5px;
-  }
-
   .list-container {
     margin-top: var(--s1);
   }
@@ -60,13 +50,10 @@
 <main class={`${className} container`}>
 
   <Stack>
-    <h1>
-      {@html title}
-    </h1>
 
-    <p>
-      {@html blurb}
-    </p>
+    {@html title}
+
+    {@html blurb}
 
     {#if mounted}
       <ToggleButton
