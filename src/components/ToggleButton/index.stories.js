@@ -11,20 +11,11 @@ export const Default = () => ({
   },
 });
 
-export const Green = () => ({
+export const NoTriangle = () => ({
   Component: ViewDefault,
   props: {
     className: "test",
-	toggleButtonColorLight: "var(--seagreen-3)",
-    toggleButtonColorDark: "var(--seagreen-1)",
+    triangle: false,
   },
 });
 
-export const Orange = () => ({
-  Component: ViewDefault,
-  props: {
-    className: "test",
-	toggleButtonColorLight: "var(--orange-1)",
-    toggleButtonColorDark: "var(--orange-3)",
-  },
-});

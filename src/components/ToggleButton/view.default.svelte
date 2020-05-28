@@ -1,10 +1,9 @@
 <script>
-  import ToggleButton from "./index.svelte";
   import { Box } from "creditdesign-svelte-components";
+  import ToggleButton from "./index.svelte";
 
   export let className;
-  export let toggleButtonColorLight;
-  export let toggleButtonColorDark;
+  export let triangle;
   export let expandedMessage;
   export let message;
   export let controls;
@@ -19,9 +18,8 @@
 <Box>
   <ToggleButton
     {className}
-    {toggleButtonColorLight}
-    {toggleButtonColorDark}
     {expanded}
+    {triangle}
     {expandedMessage}
     {message}
     {controls}

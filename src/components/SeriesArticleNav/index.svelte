@@ -1,9 +1,14 @@
 <script>
   import { onMount, createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
-  import { Box, Stack, StackList } from "creditdesign-svelte-components";
+  import {
+    Box,
+    Stack,
+    StackList,
+    Grid,
+    Cluster
+  } from "creditdesign-svelte-components";
   import ToggleButton from "../ToggleButton/index.svelte";
-  import LogoTriangle from "../LogoTriangle/index.svelte";
 
   const dispatch = createEventDispatcher();
 
@@ -32,6 +37,10 @@
 </script>
 
 <style>
+  h1 {
+    font-size: var(--font-size-base);
+  }
+
   .container {
     background-color: var(--white-1);
     padding: var(--s-1);
@@ -42,79 +51,32 @@
     margin-top: var(--s1);
   }
 
-  h1 {
-    font-size: var(--font-size-base);
-    margin-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-right: var(--s-1);
-  }
-
-  p {
-    margin-top: var(--s-1);
-    margin-bottom: 0;
-  }
-
-  .current {
+  .list-item--current {
     border-left: 5px solid var(--link-color);
     padding-left: 10px;
   }
-
-  .cluster-no-margin {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-
-  :global(button.button-with-triangle) {
-    display: flex;
-    align-items: center;
-  }
-
-  :global(button.button-with-triangle > svg) {
-    fill: var(--white-1);
-    margin-right: var(--s-3);
-    transition: transform 0.3s ease;
-    transform: rotate(0deg);
-  }
-
-  /* If prefers reduced motion is set, don't animate the
-    triangle spinning */
-  @media (prefers-reduced-motion: reduce) {
-    :global(button.button-with-triangle > svg) {
-      transition: none;
-    }
-  }
-
-  :global(button.button-with-triangle[aria-expanded="true"] > svg) {
-    transform: rotate(180deg);
-  }
 </style>
 
-<div class={`${className} container`}>
+<main class={`${className} container`}>
 
-  <div class="cluster-no-margin">
-    <header>
-      <h1>
-        {@html title}
-      </h1>
+  <Stack>
+    <h1>
+      {@html title}
+    </h1>
 
-      <p>
-        {@html blurb}
-      </p>
-    </header>
+    <p>
+      {@html blurb}
+    </p>
 
     {#if mounted}
       <ToggleButton
-        className="button-with-triangle"
         {expanded}
+        message="Show articles in series"
+        expandedMessage="Hide articles in series"
         on:click={handleClick}
-        controls="menu-list">
-        <LogoTriangle height="0.5" />
-      </ToggleButton>
+        controls="menu-list" />
     {/if}
-  </div>
+  </Stack>
 
   <nav id="menu-list">
     {#if expanded}
@@ -127,7 +89,7 @@
         on:outroend={() => dispatch('update')}>
         <StackList>
           {#each articles as { title, url, doi, published }}
-            <li class:current={doi === parentDoi}>
+            <li class:list-item--current={doi === parentDoi}>
               {#if published}
                 <a aria-current={doi === parentDoi ? 'page' : null} href={url}>
                   {@html title}
@@ -142,4 +104,4 @@
     {/if}
   </nav>
 
-</div>
+</main>
