@@ -7,6 +7,8 @@
   const dispatch = createEventDispatcher();
 
   export let seriesArticleNavData;
+  export let message;
+  export let expandedMessage;
 
   let { headline, stand, articles, parentDoi } = seriesArticleNavData;
   let mounted = false;
@@ -58,8 +60,8 @@
   {#if mounted}
     <ToggleButton
       {expanded}
-      message="Show articles in series"
-      expandedMessage="Hide articles in series"
+      {message}
+      {expandedMessage}
       on:click={handleClick} />
   {/if}
 

@@ -22,3 +22,13 @@ export const NoStand = () => ({
 		seriesArticleNavData: seriesArticleNavDataNoStand,
 	},
 });
+
+export const ChangeTextInButton = () => ({
+	Component: ViewDefault,
+	props: {
+		className: 'test',
+		seriesArticleNavData: seriesArticleNavDataNoStand,
+		message: "Show articles in the series",
+  		expandedMessage: "Hide articles in the series"
+	},
+});

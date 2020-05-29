@@ -3,6 +3,8 @@
   import SeriesArticleNav from "./index.svelte";
 
   export let seriesArticleNavData;
+  export let message;
+  export let expandedMessage;
 
   let handleUpdate = () => {
     console.log("Update");
@@ -22,6 +24,10 @@
 
 <Box>
   <div class="container">
-    <SeriesArticleNav {seriesArticleNavData} on:update={handleUpdate} />
+    <SeriesArticleNav
+      {seriesArticleNavData}
+      {message}
+      {expandedMessage}
+      on:update={handleUpdate} />
   </div>
 </Box>
