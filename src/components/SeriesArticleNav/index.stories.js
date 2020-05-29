@@ -12,3 +12,13 @@ export const Default = () => ({
 		seriesArticleNavData,
 	},
 });
+
+const seriesArticleNavDataNoStand = Object.assign({}, seriesArticleNavData, { stand: undefined});
+
+export const NoStand = () => ({
+	Component: ViewDefault,
+	props: {
+		className: 'test',
+		seriesArticleNavData: seriesArticleNavDataNoStand,
+	},
+});

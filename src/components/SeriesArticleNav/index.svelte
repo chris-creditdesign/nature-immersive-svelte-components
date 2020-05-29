@@ -8,7 +8,7 @@
 
   export let seriesArticleNavData;
 
-  let { title, articles, parentDoi } = seriesArticleNavData;
+  let { headline, stand, articles, parentDoi } = seriesArticleNavData;
   let mounted = false;
   let expanded = true;
 
@@ -49,7 +49,11 @@
 
 <Stack stackSpace="var(--s0)">
 
-  {@html title}
+  {@html headline}
+
+  {#if stand}
+    {@html stand}
+  {/if}
 
   {#if mounted}
     <ToggleButton

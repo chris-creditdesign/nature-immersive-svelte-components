@@ -1,5 +1,6 @@
 const seriesArticleNavData = {
-	title: "<h2>Article series really really really long long long title</h2>",
+	headline: "<h2>Article series really really really long long long title</h2>",
+	stand: "<p>Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Hempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>",
 	parentDoi: "doi-1",
 	articles: [
 		{
