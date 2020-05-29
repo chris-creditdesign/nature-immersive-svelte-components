@@ -1,20 +1,14 @@
 <script>
   import { onMount, createEventDispatcher, afterUpdate } from "svelte";
 
-  import {
-    Box,
-    Stack,
-    StackList,
-    Grid,
-    Cluster
-  } from "creditdesign-svelte-components";
+  import { Stack, StackList } from "creditdesign-svelte-components";
   import ToggleButton from "../ToggleButton/index.svelte";
 
   const dispatch = createEventDispatcher();
 
   export let seriesArticleNavData;
 
-  let { title, blurb, articles, parentDoi } = seriesArticleNavData;
+  let { title, articles, parentDoi } = seriesArticleNavData;
   let mounted = false;
   let expanded = true;
 
@@ -34,8 +28,17 @@
 </script>
 
 <style>
-  nav {
-    margin-top: var(--s1);
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li:first-of-type {
+    margin-top: 0;
+  }
+
+  li {
+    margin-top: var(--stack-space);
   }
 
   .list-item--current {
@@ -44,24 +47,19 @@
   }
 </style>
 
-<Stack>
+<Stack stackSpace="var(--s0)">
 
   {@html title}
-
-  {@html blurb}
 
   {#if mounted}
     <ToggleButton
       {expanded}
       message="Show articles in series"
       expandedMessage="Hide articles in series"
-      on:click={handleClick}
-      controls="menu-list" />
+      on:click={handleClick} />
   {/if}
-</Stack>
 
-<nav id="menu-list" hidden={!expanded}>
-  <StackList>
+  <ul hidden={!expanded}>
     {#each articles as { title, url, doi, published }}
       <li class:list-item--current={doi === parentDoi}>
         {#if published}
@@ -73,5 +71,6 @@
         {/if}
       </li>
     {/each}
-  </StackList>
-</nav>
+  </ul>
+
+</Stack>
