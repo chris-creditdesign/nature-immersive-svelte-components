@@ -63,7 +63,13 @@
     {#each articles as { title, url, doi, published }}
       <li class:list-item--current={doi === parentDoi}>
         {#if published}
-          <a aria-current={doi === parentDoi ? 'page' : null} href={url}>
+          <a
+            aria-current={doi === parentDoi ? 'page' : null}
+            href={url}
+            data-track="click"
+            data-event-category="article-series-link"
+            data-event-action="click"
+            data-event-label={url}>
             {@html title}
           </a>
         {:else}
