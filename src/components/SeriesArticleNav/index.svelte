@@ -62,10 +62,6 @@
       {expanded}
       {message}
       {expandedMessage}
-      data-track="click"
-      data-event-category="article-series-button"
-      data-event-action="click"
-      data-event-label="expand button clicked"
       on:click={handleClick} />
   {/if}
 
