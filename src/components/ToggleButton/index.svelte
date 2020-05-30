@@ -6,7 +6,6 @@
   export let triangle = true;
   export let expandedMessage = "Close";
   export let message = "Open";
-  export let controls = "";
 </script>
 
 <style>
@@ -51,8 +50,7 @@
 <button
   class={`${className} ${triangle ? 'toggle-button-with-triangle' : ''}`}
   on:click
-  aria-expanded={expanded}
-  aria-controls={controls}>
+  aria-expanded={expanded}>
   {#if triangle}
     <LogoTriangle height="0.5" />
   {/if}

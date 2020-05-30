@@ -6,7 +6,6 @@
   export let triangle;
   export let expandedMessage;
   export let message;
-  export let controls;
 
   let expanded = false;
 
