@@ -13,6 +13,7 @@
 
 <style>
   .container {
+    font-family: var(--sans-serif-font);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;

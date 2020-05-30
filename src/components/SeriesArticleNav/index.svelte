@@ -40,7 +40,7 @@
   }
 
   li {
-    margin-top: var(--stack-space);
+    margin-top: var(--s-1);
   }
 
   .list-item--current {
@@ -49,13 +49,15 @@
   }
 </style>
 
-<Stack stackSpace="var(--s0)">
+<Stack stackSpace="var(--s1)">
 
-  {@html headline}
+  <Stack stackSpace="var(--s-3)">
+    {@html headline}
 
-  {#if stand}
-    {@html stand}
-  {/if}
+    {#if stand}
+      {@html stand}
+    {/if}
+  </Stack>
 
   {#if mounted}
     <ToggleButton
