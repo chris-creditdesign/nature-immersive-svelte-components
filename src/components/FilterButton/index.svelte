@@ -16,9 +16,9 @@
     padding: var(--s-2);
     border-width: 2px;
     border-style: solid;
-    border-color: var(--black-2);
-    color: var(--black-2);
-    fill: var(--black-2);
+    border-color: var(--black-1);
+    color: var(--black-1);
+    fill: var(--black-1);
     border-radius: 5px;
     font-weight: 600;
     background: none;
