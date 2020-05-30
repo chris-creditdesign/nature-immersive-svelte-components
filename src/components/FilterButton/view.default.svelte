@@ -3,7 +3,6 @@
   import ToggleButton from "./index.svelte";
 
   export let className;
-  export let triangle;
   export let expandedMessage;
   export let message;
 
@@ -18,7 +17,6 @@
   <ToggleButton
     {className}
     {expanded}
-    {triangle}
     {expandedMessage}
     {message}
     on:click={handleClick} />
