@@ -57,3 +57,11 @@ export { default as LogoTwitter } from "./components/LogoTwitter/index.svelte"
 /* ------------------------------- ImageSlider ------------------------------ */
 
 export { default as ImageSlider } from "./components/ImageSlider/index.svelte"
+
+/* ------------------------------- ToggleButton ------------------------------ */
+
+export { default as ToggleButton } from "./components/ToggleButton/index.svelte"
+
+/* ------------------------------- FilterButton ------------------------------ */
+
+export { default as FilterButton } from "./components/FilterButton/index.svelte"
