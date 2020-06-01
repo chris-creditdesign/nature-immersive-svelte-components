@@ -74,6 +74,7 @@
           <a
             aria-current={doi === parentDoi ? 'page' : null}
             href={url}
+            target="_parent"
             data-track="click"
             data-event-category="article-series-link"
             data-event-action="click"
