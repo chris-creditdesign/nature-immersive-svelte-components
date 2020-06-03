@@ -22,12 +22,15 @@
     fill: var(--black-1);
     border-radius: 5px;
     font-weight: 600;
-    background: none;
+    background-color: var(--white-1);
     cursor: pointer;
+    box-shadow: inset 0.2em 0.2em 0.3em rgba(255, 255, 255, 1),
+      inset -0.05em -0.05em 0.3em rgba(27, 31, 35, 0.6);
   }
 
   button[aria-expanded="true"] {
-    box-shadow: inset 0 0.1em 0.1em rgba(27, 31, 35, 0.2);
+    box-shadow: inset -0.2em -0.1em 0.3em rgba(255, 255, 255, 1),
+      inset 0 0.1em 0.3em rgba(27, 31, 35, 0.6);
   }
 
   :global(.toggle-button-with-triangle > svg) {
