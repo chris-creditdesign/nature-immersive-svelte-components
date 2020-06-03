@@ -31,21 +31,21 @@
 
 <style>
   ul {
-    list-style: none;
     padding: 0;
-  }
-
-  li:first-of-type {
-    margin-top: 0;
+    list-style: none;
   }
 
   li {
     margin-top: var(--s-1);
   }
 
+  li:first-of-type {
+    margin-top: 0;
+  }
+
   .list-item--current {
-    border-left: 5px solid var(--link-color);
     padding-left: 10px;
+    border-left: 5px solid var(--link-color);
   }
 </style>
 

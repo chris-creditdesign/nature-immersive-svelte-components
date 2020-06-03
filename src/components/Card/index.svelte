@@ -21,20 +21,19 @@
 
 <style>
   .journal-name {
-    font-size: var(--font-size-small-1);
     font-family: var(--sans-serif-font);
+    font-size: var(--font-size-small-1);
     font-style: italic;
-    /* margin: var(--s-3) 0 var(--s-3) 0; */
   }
 
   .footnote {
-    font-size: var(--font-size-small-1);
     font-family: var(--sans-serif-font);
+    font-size: var(--font-size-small-1);
   }
 
   .author-name {
-    font-size: var(--font-size-small-1);
     font-family: var(--sans-serif-font);
+    font-size: var(--font-size-small-1);
   }
 
   /* Makes sure focus ring shows up over header link */

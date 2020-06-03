@@ -37,19 +37,19 @@
   /* Fall back styles for no custom properties */
   .cover__background {
     width: 600px;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
 
   @supports (color: var(--primary)) {
     .cover__background {
-      width: inherit;
-      margin: 0;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       z-index: -999;
+      width: inherit;
+      margin: 0;
+      transform: translate(-50%, -50%);
     }
 
     /* Make the text visible over the dark background */
@@ -61,14 +61,15 @@
 
   button {
     --box-space: var(--s-2);
-    color: var(--white-0);
+
     font-size: var(--font-size-small-1);
     font-weight: bold;
+    color: var(--white-0);
     text-transform: uppercase;
-    outline: none;
-    border: 3px solid var(--white-0);
-    background: none;
     cursor: pointer;
+    background: none;
+    border: 3px solid var(--white-0);
+    outline: none;
     transition: background-color 300ms ease;
   }
 

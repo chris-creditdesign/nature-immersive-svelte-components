@@ -15,8 +15,8 @@
 <style>
   figcaption {
     box-sizing: content-box;
-    font-size: var(--font-size-small-1);
     font-family: var(--sans-serif-font);
+    font-size: var(--font-size-small-1);
   }
 </style>
 

@@ -13,19 +13,19 @@
     display: flex;
     align-items: center;
     width: max-content;
-    font-size: var(--font-size-base);
     padding: var(--s-2);
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--black-1);
-    color: var(--black-1);
-    fill: var(--black-1);
-    border-radius: 5px;
+    font-size: var(--font-size-base);
     font-weight: 600;
-    background-color: var(--white-1);
+    color: var(--black-1);
     cursor: pointer;
+    background-color: var(--white-1);
+    border-color: var(--black-1);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
     box-shadow: inset 0.2em 0.2em 0.3em rgba(255, 255, 255, 1),
       inset -0.05em -0.05em 0.3em rgba(27, 31, 35, 0.6);
+    fill: var(--black-1);
   }
 
   button[aria-expanded="true"] {

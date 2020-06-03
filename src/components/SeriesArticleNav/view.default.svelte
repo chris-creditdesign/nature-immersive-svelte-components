@@ -13,11 +13,11 @@
 
 <style>
   .container {
-    font-family: var(--sans-serif-font);
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
     padding: var(--s0);
+    margin-right: auto;
+    margin-left: auto;
+    font-family: var(--sans-serif-font);
     background-color: var(--white-1);
     border-radius: 5px;
   }

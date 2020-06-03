@@ -31,13 +31,14 @@
   }
 
   time {
+    max-width: none;
     font-family: var(--sans-serif-font);
     font-size: var(--s-1);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+
     /* Even out the line height for the date */
     line-height: 1rem;
-    max-width: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 </style>
 

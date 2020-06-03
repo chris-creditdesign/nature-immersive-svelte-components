@@ -21,6 +21,9 @@
     "babel-loader": "^8.0.6",
     "creditdesign-svelte-components": "0.0.2",
     "rollup-plugin-svelte": "^5.1.1",
+    "stylelint": "^13.5.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.1.0",
     "svelte": "^3.17.1",
     "svelte-loader": "^2.13.6"
   },

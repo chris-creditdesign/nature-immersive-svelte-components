@@ -43,19 +43,25 @@
 
 <style>
   /* Reset the default browser button styles */
+
   /* To enable the veggieburger svg to be styled */
   button {
-    font-size: var(--font-size-base);
-    border: none;
-    background: none;
     padding: 0;
+    font-size: var(--font-size-base);
     cursor: pointer;
+    background: none;
+    border: none;
   }
 
   header a {
     display: block;
     color: var(--text-color-invert);
     fill: var(--text-color-invert);
+  }
+
+  /* Make sure the focus ring doesn't extend past the link text */
+  .menu__switcher a {
+    max-width: max-content;
   }
 
   header a:hover,
@@ -76,8 +82,8 @@
   header button:hover,
   header button:focus {
     background-color: var(--outline);
-    fill: var(--text-color);
     outline: 3px solid var(--outline);
+    fill: var(--text-color);
   }
 
   /* Make sure the links are black when hovered or focused in dark and light modes */
@@ -89,9 +95,9 @@
   }
 
   ul {
-    list-style: none;
     max-width: none;
     padding: 0;
+    list-style: none;
   }
 
   li {
@@ -110,14 +116,14 @@
 
   .skip-link:not(:focus) {
     position: absolute !important;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
     width: 1px;
     height: 1px;
-    margin: -1px !important;
     padding: 0 !important;
-    opacity: 0;
+    margin: -1px !important;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
     border: 0 !important;
+    opacity: 0;
   }
 
   /* -------------------------------- Box style ------------------------------- */
@@ -131,8 +137,8 @@
   .menu__cluster {
     display: flex;
     flex-wrap: wrap;
-    justify-content: var(--menu-cluster-justify-content);
     align-items: center;
+    justify-content: var(--menu-cluster-justify-content);
   }
 
   .menu__cluster > * {
@@ -148,21 +154,18 @@
   .menu__switcher {
     display: flex;
     flex-wrap: wrap;
+
     --modifier: calc(
       var(--menu-switcher-min-width) - (100% - var(--menu-switcher-space))
     );
+
     margin: var(--s-4) 0;
   }
 
   .menu__switcher > * {
-    flex-grow: 1;
     flex-basis: calc(var(--modifier) * 999);
+    flex-grow: 1;
     margin: var(--menu-cluster-space);
-  }
-
-  /* Make sure the focus ring doesn't extend past the link text */
-  .menu__switcher a {
-    max-width: max-content;
   }
 
   /* If there are more than 7 items, stack them automatically */

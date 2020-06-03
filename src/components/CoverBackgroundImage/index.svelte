@@ -18,19 +18,19 @@
   /* Fall back styles for no custom properties */
   .cover__background {
     width: 600px;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
   }
 
   @supports (color: var(--primary)) {
     .cover__background {
-      width: inherit;
-      margin: 0;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       z-index: -999;
+      width: inherit;
+      margin: 0;
+      transform: translate(-50%, -50%);
     }
 
     /* Make the text visible over the dark background */

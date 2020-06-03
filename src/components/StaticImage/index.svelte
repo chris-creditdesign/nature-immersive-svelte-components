@@ -32,8 +32,6 @@
     const observer = new IntersectionObserver(onEnterScreen, options);
 
     steps.forEach(step => observer.observe(step));
-
-    // return () => observer.unobserve(onEnterScreen);
   });
 </script>
 
@@ -44,10 +42,10 @@
 
   @media screen and (min-width: 600px) {
     .static-image-container {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 2fr var(--s3) 1fr;
       position: relative;
+      display: grid;
+      width: 100%;
+      grid-template-columns: 2fr var(--s3) 1fr;
     }
 
     .text-container {
@@ -62,32 +60,33 @@
     }
 
     .image-container__content {
-      width: 100%;
-      margin: 0;
       position: sticky;
       position: -webkit-sticky;
       top: 10px;
+      width: 100%;
+      margin: 0;
     }
 
     /* Content contained within the 'slot' */
     :global(.step) {
-      min-height: 100vh;
-      margin-bottom: var(--s4);
       display: flex;
       align-items: center;
+      min-height: 100vh;
+      margin-bottom: var(--s4);
     }
 
     /* Don't show the images if the screen is wide enough and processed */
+
     /* Keep them available for screen readers */
     :global(.step__image) {
-      opacity: 0;
+      width: 1px;
+      height: 1px;
+      padding: 0 !important;
+      margin: -1px !important;
       overflow: hidden;
       clip: rect(0, 0, 0, 0);
-      height: 1px;
-      width: 1px;
-      margin: -1px !important;
-      padding: 0 !important;
       border: 0 !important;
+      opacity: 0;
     }
   }
 </style>

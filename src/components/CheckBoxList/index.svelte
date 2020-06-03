@@ -20,19 +20,19 @@
   }
 
   .control-indicator {
-    grid-column: 1 / 1;
-    grid-row: 1 / 1;
-    align-self: center;
     display: block;
+    align-self: center;
     width: 1rem;
     height: 1rem;
-    background-color: var(--white-1);
-    background-size: 50% 50%;
-    background-position: center center;
-    background-repeat: no-repeat;
     user-select: none;
+    background-color: var(--white-1);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
     border-radius: 0.25rem;
     transition: background-color var(--time) ease, box-shadow var(--time) ease;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
   }
 
   /* Place the label on top of the control-indicator and move it to the right */
@@ -44,8 +44,11 @@
   }
 
   /* Hover state */
+
   /* Uncomment if you need it, but be aware of the sticky iOS states. */
+
   /* Turn off if disabled */
+
   /* Turn off if checked */
   li:hover input:not(:disabled):not(:checked) ~ .control-indicator {
     color: #fff;
@@ -65,7 +68,9 @@
   }
 
   /* Active */
+
   /* The colour when the cursor is pressing down */
+
   /* Turn off if disabled */
   input[type="checkbox"]:not(:disabled):active ~ .control-indicator {
     color: #fff;
