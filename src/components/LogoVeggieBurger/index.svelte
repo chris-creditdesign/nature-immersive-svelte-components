@@ -1,4 +1,5 @@
 <script>
+  export let className = "";
   export let height = 1;
   export let title = "Menu";
 </script>
@@ -10,6 +11,7 @@
 </style>
 
 <svg
+  class={className}
   height={`${height}em`}
   viewBox="0 0 30 30"
   focusable="false"

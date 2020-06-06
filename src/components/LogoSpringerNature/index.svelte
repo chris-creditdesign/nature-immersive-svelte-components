@@ -11,12 +11,12 @@
 </style>
 
 <svg
+  class={className}
   height={`${height}em`}
   viewBox="0 0 140 14"
   role="img"
   focusable="false"
-  aria-hidden="true"
-  {className}>
+  aria-hidden="true">
   >
   <path
     d="M74.9,5.7c0-2.8-2.4-3.8-4.6-3.8c-1.1,0-2.8,0-3.8,0v11.6h2.9V10h0.9c0.2,0,0.3,0,0.5,0l0,0l0,0c0.5,0.8,1.1,2,1.3,3.5
