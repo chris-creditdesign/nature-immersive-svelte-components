@@ -51,6 +51,8 @@ export { default as LogoFacebook } from "./components/LogoFacebook/index.svelte"
 export { default as LogoNature } from "./components/LogoNature/index.svelte"
 export { default as LogoSpringerNature } from "./components/LogoSpringerNature/index.svelte"
 export { default as LogoTwitter } from "./components/LogoTwitter/index.svelte"
+export { default as LogoTriangle } from "./components/LogoTriangle/index.svelte"
+export { default as LogoFilter } from "./components/LogoFilter/index.svelte"
 
 /* ------------------------- Interactive components ------------------------- */
 
