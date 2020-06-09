@@ -1,6 +1,5 @@
 import { configure } from '@storybook/svelte';
 
-import "../static/css/fonts.css"
 import "../static/css/index.css"
 
 // automatically import all files ending in *.stories.js
