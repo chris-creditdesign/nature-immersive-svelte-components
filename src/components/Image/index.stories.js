@@ -1,4 +1,5 @@
 import ViewDefault from './view.default.svelte';
+import ViewConstrained from './view.constrained.svelte';
 
 const data = {
 	altText: "This is the alt text",
@@ -13,6 +14,17 @@ export default {
 
 export const Default = () => ({
   Component: ViewDefault,
+  props: {
+		className: 'test',
+		altText: data.altText,
+		caption: data.caption,
+		srcURL: data.srcURL,
+		captionSpace: data.captionSpace,
+	  },
+});
+
+export const ConstrainedWidth = () => ({
+  Component: ViewConstrained,
   props: {
 		className: 'test',
 		altText: data.altText,

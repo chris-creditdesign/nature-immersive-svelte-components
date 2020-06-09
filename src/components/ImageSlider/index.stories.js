@@ -1,4 +1,5 @@
 import ViewDefault from "./view.default.svelte";
+import ViewConstrained from "./view.constrained.svelte";
 
 const data = {
   imageData: [
@@ -29,8 +30,16 @@ export const Default = () => ({
   },
 });
 
+export const ConstrainedWidth = () => ({
+  Component: ViewConstrained,
+  props: {
+    className: "test",
+    ...data,
+  },
+});
+
 export const StartHalfWay = () => ({
-  Component: ViewDefault,
+  Component: ViewConstrained,
   props: {
     className: "test",
 	amountToReveal: 50,
@@ -53,7 +62,7 @@ const badImageData = [
 ];
 
 export const ImageFailsToLoad = () => ({
-  Component: ViewDefault,
+  Component: ViewConstrained,
   props: {
     className: "test",
 	imageData: badImageData,

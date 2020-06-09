@@ -1,4 +1,5 @@
 import ViewDefault from './view.default.svelte';
+import ViewConstrained from './view.constrained.svelte';
 import cardData from '../preview-content/card-data.js';
 
 const cardDataNoImage = Object.assign({}, cardData, {srcURL: undefined});
@@ -17,8 +18,16 @@ export const Default = () => ({
   },
 });
 
+export const ConstrainedWidth = () => ({
+  Component: ViewConstrained,
+  props: {
+	className: 'test',
+	cardData,
+  },
+});
+
 export const NoImage = () => ({
-  Component: ViewDefault,
+  Component: ViewConstrained,
   props: {
 	className: 'test',
 	cardData: cardDataNoImage,
@@ -26,7 +35,7 @@ export const NoImage = () => ({
 });
 
 export const NoAuthor = () => ({
-  Component: ViewDefault,
+  Component: ViewConstrained,
   props: {
 	className: 'test',
 	cardData: cardDataNoImageNoAuthor,
@@ -34,7 +43,7 @@ export const NoAuthor = () => ({
 });
 
 export const NoJournal = () => ({
-  Component: ViewDefault,
+  Component: ViewConstrained,
   props: {
 	className: 'test',
 	cardData: cardDataNoImageNoAuthorNoJournal,
