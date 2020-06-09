@@ -9,6 +9,7 @@
   export let seriesArticleNavData;
   export let message;
   export let expandedMessage;
+  export let className = "";
 
   let { headline, stand, articles, parentDoi } = seriesArticleNavData;
   let mounted = false;
@@ -30,6 +31,11 @@
 </script>
 
 <style>
+  :global(.series-article-nav) {
+    font-family: var(--sans-serif-font);
+    font-size: var(--font-size-small-1);
+  }
+
   ul {
     padding: 0;
     list-style: none;
@@ -49,7 +55,7 @@
   }
 </style>
 
-<Stack stackSpace="var(--s1)">
+<Stack className={`series-article-nav ${className}`} stackSpace="var(--s1)">
 
   <Stack stackSpace="var(--s-3)">
     {@html headline}

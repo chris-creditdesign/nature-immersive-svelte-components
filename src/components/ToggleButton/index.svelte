@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     width: max-content;
-    padding: var(--s-2);
+    padding: var(--s-3);
     font-size: var(--font-size-base);
     font-weight: 600;
     color: var(--black-1);

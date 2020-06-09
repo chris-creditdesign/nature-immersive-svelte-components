@@ -1,8 +1,9 @@
 import ViewDefault from './view.default.svelte';
+import ViewConstrained from './view.constrained.svelte';
 import seriesArticleNavData from '../preview-content/series-article-nav-data.js';
 
 export default {
-	title: 'Layout components/SeriesArticleNav',
+	title: 'Interactive components/SeriesArticleNav',
 };
 
 export const Default = () => ({
@@ -13,10 +14,18 @@ export const Default = () => ({
 	},
 });
 
+export const ConstrainedWidth = () => ({
+	Component: ViewConstrained,
+	props: {
+		className: 'test',
+		seriesArticleNavData,
+	},
+});
+
 const seriesArticleNavDataNoStand = Object.assign({}, seriesArticleNavData, { stand: undefined});
 
 export const NoStand = () => ({
-	Component: ViewDefault,
+	Component: ViewConstrained,
 	props: {
 		className: 'test',
 		seriesArticleNavData: seriesArticleNavDataNoStand,
@@ -24,7 +33,7 @@ export const NoStand = () => ({
 });
 
 export const ChangeTextInButton = () => ({
-	Component: ViewDefault,
+	Component: ViewConstrained,
 	props: {
 		className: 'test',
 		seriesArticleNavData: seriesArticleNavDataNoStand,
