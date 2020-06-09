@@ -5,16 +5,16 @@ const data = {
     {
       altText: "Scientific image containing duplicated regions.",
       caption: "The image that Elisabeth Bik was asked to review.",
-      srcURL: "img/static-a-graphic.jpg",
+      srcURL: "img/image-slider-test-a.jpg",
     },
     {
       altText: "Scientific image with duplicated regions outlined.",
       caption:
         "The coloured squares show the duplicated regions that Elisabeth Bik uncovered.",
-      srcURL: "img/static-b-graphic.jpg",
+      srcURL: "img/image-slider-test-b.jpg",
     },
   ],
-  ratio: 1.5,
+  ratio: 0.666666667,
 };
 
 export default {
@@ -29,11 +29,20 @@ export const Default = () => ({
   },
 });
 
+export const StartHalfWay = () => ({
+  Component: ViewDefault,
+  props: {
+    className: "test",
+	amountToReveal: 50,
+    ...data,
+  },
+});
+
 const badImageData = [
   {
     altText: "Scientific image containing duplicated regions.",
     caption: "The image that Elisabeth Bik was asked to review.",
-    srcURL: "img/static-a-graphic.jpg",
+    srcURL: "img/image-slider-test-a.jpg",
   },
   {
     altText: "Scientific image with duplicated regions outlined.",

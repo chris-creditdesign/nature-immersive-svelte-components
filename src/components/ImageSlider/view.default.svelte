@@ -7,6 +7,7 @@
   export let ratio;
   export let imageData;
   export let message;
+  export let amountToReveal;
 
   let mounted = false;
 
@@ -15,8 +16,14 @@
   });
 </script>
 
-<Center>
-  <Box boxSpace="var(--s3)">
-    <ImageSlider {className} {ratio} {imageData} {message} bind:mounted />
-  </Box>
-</Center>
+<!-- <Center>
+  <Box boxSpace="var(--s3)"> -->
+<ImageSlider
+  {className}
+  {ratio}
+  {imageData}
+  {message}
+  {amountToReveal}
+  bind:mounted />
+<!-- </Box>
+</Center> -->

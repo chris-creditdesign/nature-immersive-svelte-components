@@ -7,6 +7,7 @@
   export let ratio;
   export let imageData;
   export let message;
+  export let amountToReveal;
 
   let componentMap = new Map();
   componentMap.set(true, Interactive);
@@ -19,4 +20,5 @@
   {ratio}
   {imageData}
   {message}
+  {amountToReveal}
   bind:mounted />

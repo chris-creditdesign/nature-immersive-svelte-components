@@ -6,7 +6,7 @@
   export let imageData;
   export let message = "Use the slider to reveal the hidden image:";
   export let mounted;
-  let amountToReveal = 0;
+  export let amountToReveal = 0;
   let mouseDown = false;
   let canvas;
   let width = 900;
@@ -102,6 +102,11 @@
     max-width: none;
   }
 
+  :global(.image-slider) {
+    font-family: var(--sans-serif-font);
+    font-size: var(--font-size-small-1);
+  }
+
   canvas {
     max-width: 100%;
   }
@@ -140,7 +145,7 @@
   }
 </style>
 
-<Stack {className}>
+<Stack className={`image-slider ${className}`}>
   <div class="canvas-border">
     <div class="canvas-container">
       <canvas bind:this={canvas} {width} {height}>
