@@ -8,14 +8,14 @@
   let intersectingStep = 0;
   let mounted = false;
 
+  // '-50%' intercet when the item is half way up the screen
+  let options = {
+    root: null,
+    rootMargin: "-50% 0px -50% 0px"
+  };
+
   onMount(() => {
     mounted = true;
-
-    // '-50%' intercet when the item is half way up the screen
-    let options = {
-      root: null,
-      rootMargin: "-50% 0px -50% 0px"
-    };
 
     const steps = Array.from(textContainer.querySelectorAll(".step__content"));
     const onEnterScreen = (entries, observer) => {
