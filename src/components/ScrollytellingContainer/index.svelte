@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { Box, Center, Cover } from "creditdesign-svelte-components";
 
   export let className = "";
@@ -6,7 +7,6 @@
 
   let stepContainer;
   let intersectingStep = 0;
-  let mounted = false;
 
   /* '-50%' intercept when the item is half way up the screen */
   let options = {
