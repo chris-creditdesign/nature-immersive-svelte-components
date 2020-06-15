@@ -11,7 +11,7 @@
 <StaticImage {className} {steps}>
   {#each steps as { headline, content, altText, caption, srcURL }, i}
     <div class="step">
-      <div class="step__content" id={i}>
+      <div class="step__content" data-index={i}>
         <div class="step__image">
           <Image {altText} {caption} {srcURL} />
         </div>

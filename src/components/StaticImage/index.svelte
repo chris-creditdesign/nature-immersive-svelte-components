@@ -22,10 +22,9 @@
       entries
         .filter(entry => entry.isIntersecting)
         .forEach(entry => {
-          const { id } = entry.target;
-          const { isIntersecting } = entry;
+          let { index } = entry.target.dataset;
 
-          intersectingStep = parseInt(id, 10);
+          intersectingStep = parseInt(index, 10);
         });
     };
 

@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from "svelte";
   import { Box, Center, Cover } from "creditdesign-svelte-components";
 
   export let className = "";
@@ -16,8 +15,6 @@
   };
 
   onMount(() => {
-    mounted = true;
-
     let steps = Array.from(
       stepContainer.querySelectorAll(".scrollytelling-step__content")
     );
