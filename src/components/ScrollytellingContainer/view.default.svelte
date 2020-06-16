@@ -4,8 +4,6 @@
   import TestGraphic from "./test-graphic.svelte";
 
   export let scrollytellingSteps;
-
-  let intToLetter = ["a", "b", "c", "d", "e"];
 </script>
 
 <style>
@@ -20,7 +18,8 @@
   :global(.scrollytelling-step__content p) {
     padding: var(--s-1);
     margin: 0;
-    background-color: var(--white-0);
+    color: var(--text-color);
+    background-color: var(--background-color);
   }
 </style>
 

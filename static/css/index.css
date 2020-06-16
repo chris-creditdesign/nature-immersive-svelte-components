@@ -1,37 +1,3 @@
-@charset "UTF-8";
-
-@font-face {
-  font-family: "Harding";
-  src: url(../fonts/HardingText-Regular-Web.woff2) format("woff2"),
-    url(../fonts/HardingText-Regular-Web.woff) format("woff");
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: "Harding";
-  font-weight: 700;
-  src: url(../fonts/HardingText-Bold-Web.woff2) format("woff2"),
-    url(../fonts/HardingText-Bold-Web.woff) format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Harding";
-  font-style: italic;
-  src: url(../fonts/HardingText-RegularItalic-Web.woff2) format("woff2"),
-    url(../fonts/HardingText-RegularItalic-Web.woff) format("woff");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Harding";
-  font-style: italic;
-  font-weight: 700;
-  src: url(../fonts/HardingText-BoldItalic-Web.woff2) format("woff2"),
-    url(../fonts/HardingText-BoldItalic-Web.woff) format("woff");
-  font-display: swap;
-}
-
 :root {
   /* --------------------------------- Colours -------------------------------- */
 
@@ -126,23 +92,6 @@
   --space: var(--s-1);
   --cover-space: 1rem;
   --cover-height: 100vh;
-
-  /* --------------------------- Light colour scheme -------------------------- */
-  --link-color: var(--blue-1);
-  --link-color-invert: var(--orange-1);
-  --link-color-active: var(--black-0);
-  --outline: var(--yellow-1);
-  --background-color: var(--white-0);
-  --background-color-invert: var(--black-0);
-  --text-color: var(--black-0);
-  --text-color-invert: var(--white-0);
-}
-
-/* CoverBackgroundVideo and CoverBackgroundImage */
-
-/* Make the text visible over the dark background */
-.cover--with-background {
-  color: var(--text-color-invert);
 }
 
 body {

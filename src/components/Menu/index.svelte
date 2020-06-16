@@ -42,9 +42,8 @@
 </script>
 
 <style>
-  /* Reset the default browser button styles */
-
-  /* To enable the veggieburger svg to be styled */
+  /* Reset the default browser button styles
+     To enable the veggieburger svg to be styled */
   button {
     padding: 0;
     font-size: var(--font-size-base);
@@ -66,33 +65,26 @@
 
   header a:hover,
   header a:focus {
-    color: var(--text-color);
-    fill: var(--text-color);
-  }
-
-  /* Make sure the links are black when hovered or focused in dark and light modes */
-  @media (prefers-color-scheme: dark) {
-    header a:hover,
-    header a:focus {
-      color: var(--text-color-invert);
-      fill: var(--text-color-invert);
-    }
+    color: var(--link-color-active);
+    fill: var(--link-color-active);
   }
 
   header button:hover,
   header button:focus {
+    color: var(--link-color-active);
     background-color: var(--outline);
     outline: 3px solid var(--outline);
-    fill: var(--text-color);
+    fill: var(--link-color-active);
   }
 
   /* Make sure the links are black when hovered or focused in dark and light modes */
-  @media (prefers-color-scheme: dark) {
+
+  /* @media (prefers-color-scheme: dark) {
     header button:hover,
     header button:focus {
       fill: var(--text-color-invert);
     }
-  }
+  } */
 
   ul {
     max-width: none;
