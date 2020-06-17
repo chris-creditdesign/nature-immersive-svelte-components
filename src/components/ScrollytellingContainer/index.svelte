@@ -62,8 +62,11 @@
   </div>
 
   <div bind:this={stepContainer}>
-    {#each scrollytellingSteps as { text }, i}
+    {#each scrollytellingSteps as { text, data }, i}
       <Cover className="scrollytelling-step">
+        {#if data.altText}
+          <p class="visually-hidden">{data.altText}</p>
+        {/if}
         <div class="centered scrollytelling-step__content" data-index={i}>
           {@html text}
         </div>
