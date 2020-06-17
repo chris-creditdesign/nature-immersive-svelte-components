@@ -14,8 +14,7 @@
   class={className}
   height={`${height}em`}
   viewBox="0 0 200 49"
-  role="img"
-  aria-hidden="ture"
+  aria-hidden="true"
   focusable="false">
   <g>
     <path

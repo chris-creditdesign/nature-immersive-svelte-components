@@ -15,7 +15,6 @@
   height={`${height}em`}
   viewBox="0 0 30 30"
   focusable="false"
-  role="img"
   aria-hidden="true">
   <path
     d="M30,15A15,15,0,1,1,15,0,15,15,0,0,1,30,15ZM15,2A13,13,0,1,0,28,15,13,13,0,0,0,15,2Z" />

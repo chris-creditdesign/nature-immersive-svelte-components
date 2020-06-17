@@ -15,7 +15,6 @@
   height={`${height}em`}
   viewBox="0 0 30 30"
   focusable="false"
-  role="img"
   aria-hidden="true">
   <g class="closed">
     <path

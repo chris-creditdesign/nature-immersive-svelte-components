@@ -14,7 +14,6 @@
   height={`${height}em`}
   viewBox="0 0 40 30"
   focusable="false"
-  role="img"
   aria-hidden="true">
   <polygon points="0,0 40,0 20,30 " />
 </svg>

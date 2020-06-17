@@ -14,7 +14,6 @@
   class={className}
   height={`${height}em`}
   viewBox="0 0 140 14"
-  role="img"
   focusable="false"
   aria-hidden="true">
   >
