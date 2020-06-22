@@ -46,7 +46,7 @@
     margin-left: auto;
   }
 
-  .scrollytelling-container__graphic {
+  section .graphic-container {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -57,11 +57,11 @@
 
 <section class={`scrollytelling-container ${className}`}>
 
-  <div class="scrollytelling-container__graphic">
+  <div class="graphic-container">
     <slot name="graphic" {intersectingStep} />
   </div>
 
-  <div bind:this={stepContainer}>
+  <div class="step-container" bind:this={stepContainer}>
     {#each scrollytellingSteps as { text, data }, i}
       <Cover className="scrollytelling-step">
         {#if data.altText}

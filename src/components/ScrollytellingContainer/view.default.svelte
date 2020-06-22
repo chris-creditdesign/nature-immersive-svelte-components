@@ -4,6 +4,7 @@
   import TestGraphic from "./test-graphic.svelte";
 
   export let scrollytellingSteps;
+  export let className;
 </script>
 
 <style>
@@ -23,7 +24,7 @@
   }
 </style>
 
-<ScrollytellingContainer {scrollytellingSteps} let:intersectingStep>
+<ScrollytellingContainer {scrollytellingSteps} {className} let:intersectingStep>
 
   <div slot="graphic" class="graphic">
     <TestGraphic {scrollytellingSteps} {intersectingStep} />

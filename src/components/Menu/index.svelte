@@ -77,15 +77,6 @@
     fill: var(--link-color-active);
   }
 
-  /* Make sure the links are black when hovered or focused in dark and light modes */
-
-  /* @media (prefers-color-scheme: dark) {
-    header button:hover,
-    header button:focus {
-      fill: var(--text-color-invert);
-    }
-  } */
-
   ul {
     max-width: none;
     padding: 0;
