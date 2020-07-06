@@ -1,9 +1,9 @@
-import ViewDefault from './view.default.svelte';
+import ViewDefault from "./view.default.svelte";
 
 export default {
-  title: 'Logos / LogoVeggieBurger',
+  title: "Logos / LogoVeggieBurger",
 };
 
 export const Default = () => ({
-  Component: ViewDefault
+  Component: ViewDefault,
 });

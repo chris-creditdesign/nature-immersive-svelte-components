@@ -12,7 +12,7 @@
     photographer,
     publishedAt,
     publishedAtString,
-    stand
+    stand,
   } = articleData;
 
   let centerMeasure;
@@ -42,7 +42,7 @@
   }
 </style>
 
-<section class={`heading ${className}`}>
+<section class="{`heading ${className}`}">
   <Center {centerMeasure} {centerSpace}>
     <Stack {stackSpace}>
 
@@ -55,7 +55,7 @@
 
       {#if author || photographer || publishedAt}
         <div>
-          <Stack stackSpace={'var(--s-3)'}>
+          <Stack stackSpace="{'var(--s-3)'}">
             {#if author}
               <p class="author">
                 {@html author}
@@ -70,7 +70,8 @@
             {#if publishedAt}
               <time
                 itemProp="datePublished"
-                dateTime={publishedAtString || null}>
+                dateTime="{publishedAtString || null}"
+              >
                 {formatDate(publishedAt)}
               </time>
             {/if}

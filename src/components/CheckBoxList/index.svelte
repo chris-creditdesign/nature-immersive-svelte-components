@@ -98,10 +98,13 @@
       <input
         class="visually-hidden"
         type="checkbox"
-        id={category.toLowerCase().replace(/ /gi, '-')}
-        bind:checked={category.selected} />
-      <span class="control-indicator" />
-      <label for={category.toLowerCase().replace(/ /gi, '-')}>{category}</label>
+        id="{category.toLowerCase().replace(/ /gi, '-')}"
+        bind:checked="{category.selected}"
+      />
+      <span class="control-indicator"></span>
+      <label for="{category.toLowerCase().replace(/ /gi, '-')}">
+        {category}
+      </label>
     </li>
   {/each}
 </GridList>

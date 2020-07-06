@@ -3,8 +3,8 @@
   import { Stack } from "creditdesign-svelte-components";
 </script>
 
-<Stack stackSpace={'var(--s3)'}>
-  <Section headline={'Headline one'}>
+<Stack stackSpace="{'var(--s3)'}">
+  <Section headline="{'Headline one'}">
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt
       iusto eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo
@@ -12,7 +12,7 @@
     </p>
   </Section>
 
-  <Section headline={'Headline two'}>
+  <Section headline="{'Headline two'}">
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt
       iusto eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo
@@ -20,7 +20,7 @@
     </p>
   </Section>
 
-  <Section headline={'Headline three'}>
+  <Section headline="{'Headline three'}">
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt
       iusto eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo

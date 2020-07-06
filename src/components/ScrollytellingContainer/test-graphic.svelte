@@ -9,4 +9,4 @@
   }
 </style>
 
-<img src={scrollytellingSteps[intersectingStep].data.url} alt="There we go" />
+<img src="{scrollytellingSteps[intersectingStep].data.url}" alt="There we go" />

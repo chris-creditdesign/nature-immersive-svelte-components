@@ -8,6 +8,6 @@
   }
 </style>
 
-<div class={`template ${className}`}>
+<div class="{`template ${className}`}">
   <slot />
 </div>

@@ -11,11 +11,11 @@
 <StaticImage {className} {steps}>
   {#each steps as { headline, content, altText, caption, srcURL }, i}
     <div class="step">
-      <div class="step__content" data-index={i}>
+      <div class="step__content" data-index="{i}">
         <div class="step__image">
           <Image {altText} {caption} {srcURL} />
         </div>
-        <Stack stackSpace={'var(--s1)'}>
+        <Stack stackSpace="{'var(--s1)'}">
           <h2 class="border-above">
             {@html headline}
           </h2>

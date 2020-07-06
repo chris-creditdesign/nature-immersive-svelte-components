@@ -15,7 +15,7 @@
     headline,
     href,
     srcURL,
-    text
+    text,
   } = cardData;
 </script>
 
@@ -46,7 +46,7 @@
   }
 </style>
 
-<div class={`card ${className}`}>
+<div class="{`card ${className}`}">
   <Stack {stackSpace}>
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />
@@ -62,7 +62,8 @@
           data-track="click"
           data-event-category="body links"
           data-event-action="click"
-          data-event-label={headline}>
+          data-event-label="{headline}"
+        >
           <h3>
             {@html headline}
           </h3>

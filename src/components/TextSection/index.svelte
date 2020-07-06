@@ -25,7 +25,8 @@
 <Center {centerSpace} {centerMeasure}>
   <div
     class="text-section__stack"
-    style={`${textSectionStackSpace ? `--text-section-stack-space: ${textSectionStackSpace};` : ''}`}>
+    style="{`${textSectionStackSpace ? `--text-section-stack-space: ${textSectionStackSpace};` : ''}`}"
+  >
     {#each content as { type, data }}
       {#if type === 'text'}
         {@html data}

@@ -42,7 +42,7 @@ export const StartHalfWay = () => ({
   Component: ViewConstrained,
   props: {
     className: "test",
-	amountToReveal: 50,
+    amountToReveal: 50,
     ...data,
   },
 });
@@ -65,8 +65,7 @@ export const ImageFailsToLoad = () => ({
   Component: ViewConstrained,
   props: {
     className: "test",
-	imageData: badImageData,
-	ratio: data.ratio,
+    imageData: badImageData,
+    ratio: data.ratio,
   },
 });
-

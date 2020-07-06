@@ -8,7 +8,7 @@
   export let headline;
 </script>
 
-<section class={`${className}`}>
+<section class="{`${className}`}">
   <Center {centerSpace} {centerMeasure}>
     <Stack {stackSpace}>
       {#if headline}

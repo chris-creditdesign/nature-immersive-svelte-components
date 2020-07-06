@@ -11,8 +11,8 @@
   let { altText, caption, footnote, headline, href, srcURL, text } = cardData;
 </script>
 
-<div class={`card ${className}`}>
-  <Box className={'invert'}>
+<div class="{`card ${className}`}">
+  <Box className="{'invert'}">
     <CardSideImage {cardData} {stackSpace} {gridSpace} />
   </Box>
 </div>

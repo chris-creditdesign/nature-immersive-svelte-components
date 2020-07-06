@@ -55,7 +55,7 @@
   }
 </style>
 
-<Stack className={`series-article-nav ${className}`} stackSpace="var(--s1)">
+<Stack className="{`series-article-nav ${className}`}" stackSpace="var(--s1)">
 
   <Stack stackSpace="var(--s-3)">
     {@html headline}
@@ -70,21 +70,23 @@
       {expanded}
       {message}
       {expandedMessage}
-      on:click={handleClick} />
+      on:click="{handleClick}"
+    />
   {/if}
 
-  <ul hidden={!expanded}>
+  <ul hidden="{!expanded}">
     {#each articles as { title, url, doi, published }}
-      <li class:list-item--current={doi === parentDoi}>
+      <li class:list-item--current="{doi === parentDoi}">
         {#if published}
           <a
-            aria-current={doi === parentDoi ? 'page' : null}
-            href={url}
+            aria-current="{doi === parentDoi ? 'page' : null}"
+            href="{url}"
             target="_parent"
             data-track="click"
             data-event-category="article-series-link"
             data-event-action="click"
-            data-event-label={`from ${parentDoi} to ${url}`}>
+            data-event-label="{`from ${parentDoi} to ${url}`}"
+          >
             {@html title}
           </a>
         {:else}

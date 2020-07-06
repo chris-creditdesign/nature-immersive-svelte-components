@@ -14,11 +14,11 @@
   let cardDataNoImage = Object.assign({}, cardData, { srcURL: undefined });
 </script>
 
-<div class={`card ${className}`}>
-  <Grid gridRowSpace={gridSpace} gridColumnSpace={gridSpace} {minWidth}>
+<div class="{`card ${className}`}">
+  <Grid gridRowSpace="{gridSpace}" gridColumnSpace="{gridSpace}" {minWidth}>
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />
     {/if}
-    <Card cardData={cardDataNoImage} {stackSpace} />
+    <Card cardData="{cardDataNoImage}" {stackSpace} />
   </Grid>
 </div>

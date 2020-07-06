@@ -1,7 +1,7 @@
 import ViewDefault from "./view.default.svelte";
 
 export default {
-  title: 'Layout components/Footer',
+  title: "Layout components/Footer",
 };
 
 export const Default = () => ({

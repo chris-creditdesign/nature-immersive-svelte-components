@@ -23,7 +23,7 @@
 <footer class="footer invert" role="contentinfo">
   <Box>
     <Stack className="footer-logo-container" stackSpace="var(--s-1)">
-      <LogoSpringerNature height={1.5} />
+      <LogoSpringerNature height="{1.5}" />
 
       <ClusterList>
         <li>

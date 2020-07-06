@@ -17,4 +17,5 @@
   {message}
   {expandedMessage}
   {className}
-  on:update={handleUpdate} />
+  on:update="{handleUpdate}"
+/>

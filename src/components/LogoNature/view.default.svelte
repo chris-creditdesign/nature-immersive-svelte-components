@@ -6,6 +6,6 @@
 
 {#each sizes as size}
   <div>
-    <LogoNature height={size * ratio} />
+    <LogoNature height="{size * ratio}" />
   </div>
 {/each}

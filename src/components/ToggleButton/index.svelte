@@ -53,13 +53,14 @@
 </style>
 
 <button
-  class={`${className} ${triangle ? 'toggle-button-with-triangle' : ''}`}
+  class="{`${className} ${triangle ? 'toggle-button-with-triangle' : ''}`}"
   on:click
-  aria-expanded={expanded}
+  aria-expanded="{expanded}"
   data-track="click"
   data-event-category="toggle-button"
   data-event-action="click"
-  data-event-label="Custom toggle button clicked">
+  data-event-label="Custom toggle button clicked"
+>
 
   {#if triangle}
     <LogoTriangle height="0.5" />

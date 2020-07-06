@@ -38,13 +38,14 @@
 </style>
 
 <button
-  class={`${className} filter-button`}
+  class="{`${className} filter-button`}"
   on:click
-  aria-expanded={expanded}
+  aria-expanded="{expanded}"
   data-track="click"
   data-event-category="filter-button"
   data-event-action="click"
-  data-event-label="Custom filter button clicked">
+  data-event-label="Custom filter button clicked"
+>
 
   <LogoFilter height="0.8" />
 

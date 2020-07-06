@@ -14,7 +14,7 @@
   $: height = width * ratio;
 
   onMount(() => {
-    let loadedImages = imageData.map(elem => {
+    let loadedImages = imageData.map((elem) => {
       let thisImage = new Image();
       thisImage.src = elem.srcURL;
 
@@ -84,7 +84,7 @@
         .then(() => {
           loop();
         })
-        .catch(encodingError => {
+        .catch((encodingError) => {
           console.log(encodingError);
           mounted = false;
         });
@@ -145,10 +145,10 @@
   }
 </style>
 
-<Stack className={`image-slider ${className}`}>
+<Stack className="{`image-slider ${className}`}">
   <div class="canvas-border">
     <div class="canvas-container">
-      <canvas bind:this={canvas} {width} {height}>
+      <canvas bind:this="{canvas}" {width} {height}>
 
         <p>Interactive section used to compare two images.</p>
         <dl>
@@ -169,8 +169,9 @@
       id="image-reveal"
       min="0"
       max="100"
-      bind:value={amountToReveal}
-      step="1" />
+      bind:value="{amountToReveal}"
+      step="1"
+    />
     <label class="visually-hidden" for="image-reveal">
       {amountToReveal}% of the second image is revealed.
     </label>

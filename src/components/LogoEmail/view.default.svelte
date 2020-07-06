@@ -6,6 +6,6 @@
 
 {#each sizes as size}
   <div>
-    <LogoEmail height={size * ratio} />
+    <LogoEmail height="{size * ratio}" />
   </div>
 {/each}

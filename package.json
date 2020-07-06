@@ -8,6 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
+    "prettier": "prettier --write --plugin-search-dir=. src/components/**/*",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -s ./static",
     "build-storybook": "build-storybook -s ./static -o docs"
@@ -20,6 +21,8 @@
     "@storybook/svelte": "^5.3.19",
     "babel-loader": "^8.1.0",
     "creditdesign-svelte-components": "0.0.3",
+    "prettier": "^2.0.5",
+    "prettier-plugin-svelte": "^1.1.0",
     "rollup-plugin-svelte": "^5.2.2",
     "stylelint": "^13.6.0",
     "stylelint-config-standard": "^20.0.0",

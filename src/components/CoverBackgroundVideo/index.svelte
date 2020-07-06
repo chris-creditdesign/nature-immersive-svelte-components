@@ -87,27 +87,28 @@
 
   {#if mounted}
     <video
-      bind:this={video}
-      poster={srcIMG}
+      bind:this="{video}"
+      poster="{srcIMG}"
       playsinline="true"
       muted="true"
-      autoplay={!prefersReducedMotion}
+      autoplay="{!prefersReducedMotion}"
       loop="true"
       class="cover__background"
-      aria-label={alt}
-      bind:paused>
-      <source src={srcWEBM} type="video/webm" />
-      <source src={srcMP4} type="video/mp4" />
+      aria-label="{alt}"
+      bind:paused
+    >
+      <source src="{srcWEBM}" type="video/webm" />
+      <source src="{srcMP4}" type="video/mp4" />
     </video>
   {:else}
-    <img class="cover__background" src={srcURL} {alt} />
+    <img class="cover__background" src="{srcURL}" {alt} />
   {/if}
 
   <slot />
 
   {#if mounted}
     <Cluster clusterJustifyContent="flex-end">
-      <button class="box" type="button" on:click={handleBtnClick}>
+      <button class="box" type="button" on:click="{handleBtnClick}">
         {paused ? 'Play video' : 'Pause video'}
       </button>
     </Cluster>

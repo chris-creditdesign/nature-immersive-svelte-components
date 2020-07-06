@@ -13,4 +13,5 @@
   {centerSpace}
   {textSectionStackSpace}
   {centerMeasure}
-  {content} />
+  {content}
+/>

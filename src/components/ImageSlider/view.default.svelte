@@ -21,4 +21,5 @@
   {imageData}
   {message}
   {amountToReveal}
-  bind:mounted />
+  bind:mounted
+/>

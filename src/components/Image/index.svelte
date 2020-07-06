@@ -20,8 +20,8 @@
   }
 </style>
 
-<figure class={`${className}`}>
-  <img {src} alt={altText} />
+<figure class="{`${className}`}">
+  <img {src} alt="{altText}" />
   <figcaption>
     {@html caption}
   </figcaption>

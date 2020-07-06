@@ -11,7 +11,7 @@
   // '-50%' intercet when the item is half way up the screen
   let options = {
     root: null,
-    rootMargin: "-50% 0px -50% 0px"
+    rootMargin: "-50% 0px -50% 0px",
   };
 
   onMount(() => {
@@ -20,8 +20,8 @@
     const steps = Array.from(textContainer.querySelectorAll(".step__content"));
     const onEnterScreen = (entries, observer) => {
       entries
-        .filter(entry => entry.isIntersecting)
-        .forEach(entry => {
+        .filter((entry) => entry.isIntersecting)
+        .forEach((entry) => {
           let { index } = entry.target.dataset;
 
           intersectingStep = parseInt(index, 10);
@@ -30,7 +30,7 @@
 
     const observer = new IntersectionObserver(onEnterScreen, options);
 
-    steps.forEach(step => observer.observe(step));
+    steps.forEach((step) => observer.observe(step));
   });
 </script>
 
@@ -90,8 +90,8 @@
   }
 </style>
 
-<div class={`static-image-container ${className}`}>
-  <div class="text-container" bind:this={textContainer}>
+<div class="{`static-image-container ${className}`}">
+  <div class="text-container" bind:this="{textContainer}">
     <slot />
   </div>
 
@@ -99,9 +99,10 @@
     <div class="image-container">
       <div class="image-container__content">
         <Image
-          altText={steps[intersectingStep]['altText']}
-          caption={steps[intersectingStep]['caption']}
-          srcURL={steps[intersectingStep]['srcURL'].replace(/-small/, '')} />
+          altText="{steps[intersectingStep]['altText']}"
+          caption="{steps[intersectingStep]['caption']}"
+          srcURL="{steps[intersectingStep]['srcURL'].replace(/-small/, '')}"
+        />
       </div>
     </div>
   {/if}

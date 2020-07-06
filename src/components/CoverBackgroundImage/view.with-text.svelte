@@ -35,7 +35,7 @@
   </Center>
 
   <CoverBackgroundImage {srcURL} {alt} {coverSpace} {coverHeight}>
-    <Heading className={'centered'} {articleData} />
+    <Heading className="{'centered'}" {articleData} />
   </CoverBackgroundImage>
 
   <Center>

@@ -6,6 +6,6 @@
 
 {#each sizes as size}
   <div>
-    <LogoVeggieBurger height={size * ratio} />
+    <LogoVeggieBurger height="{size * ratio}" />
   </div>
 {/each}

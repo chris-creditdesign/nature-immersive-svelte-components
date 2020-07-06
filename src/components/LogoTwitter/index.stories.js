@@ -1,9 +1,9 @@
-import ViewDefault from './view.default.svelte';
+import ViewDefault from "./view.default.svelte";
 
 export default {
-  title: 'Logos / LogoTwitter',
+  title: "Logos / LogoTwitter",
 };
 
 export const Default = () => ({
-  Component: ViewDefault
+  Component: ViewDefault,
 });

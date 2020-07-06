@@ -9,7 +9,7 @@
 <StaticImage {className} {steps}>
   {#each steps as { text, altText, caption, srcURL }, i}
     <div class="step">
-      <div class="step__content" data-index={i}>
+      <div class="step__content" data-index="{i}">
         <div class="step__image">
           <Image {altText} {caption} {srcURL} />
         </div>

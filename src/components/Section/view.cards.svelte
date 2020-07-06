@@ -8,8 +8,8 @@
   import cardData from "../preview-content/card-data.js";
 </script>
 
-<Section headline={'Headline one'}>
-  <Stack stackSpace={'var(--s2)'}>
+<Section headline="{'Headline one'}">
+  <Stack stackSpace="{'var(--s2)'}">
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt
       iusto eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo

@@ -22,7 +22,7 @@
     stand,
     title,
     description,
-    menuLinks
+    menuLinks,
   } = articleData;
 
   let { facebookURL, twitterURL, emailURL } = generateSocialURLs(
@@ -186,63 +186,69 @@
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <header
   role="banner"
-  class={`menu menu--box invert ${className}`}
-  style={`--menu-cluster-space: ${menuClusterSpace}; --menu-cluster-justify-content: ${menuClusterJustifyContent}; --menu-switcher-space: ${menuSwitcherSpace}; --menu-switcher-min-width: ${menuSwitcherMinWidth}; --menu-box-space: ${menuBoxSpace};`}>
+  class="{`menu menu--box invert ${className}`}"
+  style="{`--menu-cluster-space: ${menuClusterSpace}; --menu-cluster-justify-content: ${menuClusterJustifyContent}; --menu-switcher-space: ${menuSwitcherSpace}; --menu-switcher-min-width: ${menuSwitcherMinWidth}; --menu-box-space: ${menuBoxSpace};`}"
+>
   <div class="menu__cluster">
     <a
       href="https://www.nature.com"
       data-track="click"
       data-event-category="menu"
       data-event-action="click"
-      data-event-label="nature.com">
-      <LogoNature height={1.6} />
+      data-event-label="nature.com"
+    >
+      <LogoNature height="{1.6}" />
     </a>
 
-    <div class="menu__cluster__split-after" />
+    <div class="menu__cluster__split-after"></div>
 
     <ul class="menu__cluster">
       <li>
         <a
-          href={facebookURL}
+          href="{facebookURL}"
           data-track="click"
           data-event-category="menu social"
           data-event-action="click"
-          data-event-label="facebook">
-          <LogoFacebook height={1.6} />
+          data-event-label="facebook"
+        >
+          <LogoFacebook height="{1.6}" />
         </a>
       </li>
       <li>
         <a
-          href={twitterURL}
+          href="{twitterURL}"
           data-track="click"
           data-event-category="menu social"
           data-event-action="click"
-          data-event-label="twitter">
-          <LogoTwitter height={1.6} />
+          data-event-label="twitter"
+        >
+          <LogoTwitter height="{1.6}" />
         </a>
       </li>
       <li>
         <a
-          href={emailURL}
+          href="{emailURL}"
           data-track="click"
           data-event-category="menu social"
           data-event-action="click"
-          data-event-label="email">
-          <LogoEmail height={1.6} />
+          data-event-label="email"
+        >
+          <LogoEmail height="{1.6}" />
         </a>
       </li>
     </ul>
 
     {#if menuLinks}
       <button
-        on:click={handleButtonClick}
+        on:click="{handleButtonClick}"
         class="menu__button"
-        aria-expanded={menuExpanded}
+        aria-expanded="{menuExpanded}"
         aria-controls="menu-list"
         data-event-category="menu"
         data-event-action="click"
-        data-event-label="button">
-        <LogoVeggieBurger height={1.6} />
+        data-event-label="button"
+      >
+        <LogoVeggieBurger height="{1.6}" />
       </button>
     {/if}
   </div>
@@ -255,7 +261,8 @@
             {href}
             data-event-category="menu"
             data-event-action="click"
-            data-event-label={text}>
+            data-event-label="{text}"
+          >
             {text}
           </a>
         </li>

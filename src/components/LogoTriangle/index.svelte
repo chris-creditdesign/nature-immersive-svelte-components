@@ -10,10 +10,11 @@
 </style>
 
 <svg
-  class={className}
-  height={`${height}em`}
+  class="{className}"
+  height="{`${height}em`}"
   viewBox="0 0 40 30"
   focusable="false"
-  aria-hidden="true">
-  <polygon points="0,0 40,0 20,30 " />
+  aria-hidden="true"
+>
+  <polygon points="0,0 40,0 20,30 "></polygon>
 </svg>

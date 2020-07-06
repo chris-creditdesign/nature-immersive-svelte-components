@@ -19,5 +19,6 @@
     {expanded}
     {expandedMessage}
     {message}
-    on:click={handleClick} />
+    on:click="{handleClick}"
+  />
 </Box>

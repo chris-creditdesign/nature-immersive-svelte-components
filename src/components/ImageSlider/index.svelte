@@ -15,10 +15,11 @@
 </script>
 
 <svelte:component
-  this={componentMap.get(mounted)}
+  this="{componentMap.get(mounted)}"
   {className}
   {ratio}
   {imageData}
   {message}
   {amountToReveal}
-  bind:mounted />
+  bind:mounted
+/>
