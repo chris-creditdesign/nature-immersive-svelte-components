@@ -15,6 +15,7 @@
 	* http://useiconic.com/open
  */
 
+  /* stylelint-disable */
   li {
     display: grid;
   }

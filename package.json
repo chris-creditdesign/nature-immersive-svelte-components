@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
     "prettier": "prettier --write --plugin-search-dir=. src/components/**/*",
+    "stylelint": "stylelint --fix src/components/**/* static/css/**/*.css",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -s ./static",
     "build-storybook": "build-storybook -s ./static -o docs"

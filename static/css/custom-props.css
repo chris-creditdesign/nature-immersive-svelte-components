@@ -69,8 +69,15 @@
 
   /* Harding is the defalut font, otherwise apply the sans serif font */
   --serif-font-family: harding, palatino, times, "Times New Roman", serif;
-  --sans-serif-font: -apple-system, blinkmacsystemfont, "Segoe UI", roboto,
-    oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+  --sans-serif-font: -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    roboto,
+    oxygen-sans,
+    ubuntu,
+    cantarell,
+    "Helvetica Neue",
+    sans-serif;
   --font-size-small-3: var(--s-3);
   --font-size-small-2: var(--s-2);
   --font-size-small-1: var(--s-1);

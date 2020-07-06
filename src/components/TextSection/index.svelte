@@ -3,16 +3,14 @@
   import Image from "../Image/index.svelte";
 
   export let centerSpace = "var(--s1)";
-  export let textSectionStackSpace = "";
+  export let textSectionStackSpace = "var(--s0)";
   export let centerMeasure = "var(--measure)";
   export let content = [];
+
+  let style = `--text-section-stack-space: ${textSectionStackSpace};`
 </script>
 
 <style>
-  :global(:root) {
-    --text-section-stack-space: var(--s0);
-  }
-
   :global(.text-section__stack > *) {
     margin: 0;
   }
@@ -25,7 +23,7 @@
 <Center {centerSpace} {centerMeasure}>
   <div
     class="text-section__stack"
-    style="{`${textSectionStackSpace ? `--text-section-stack-space: ${textSectionStackSpace};` : ''}`}"
+    style="{style}"
   >
     {#each content as { type, data }}
       {#if type === 'text'}

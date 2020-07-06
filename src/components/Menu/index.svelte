@@ -25,6 +25,14 @@
     menuLinks,
   } = articleData;
 
+  let style = `
+    --menu-cluster-space: ${menuClusterSpace};
+    --menu-cluster-justify-content: ${menuClusterJustifyContent};
+    --menu-switcher-space: ${menuSwitcherSpace};
+    --menu-switcher-min-width: ${menuSwitcherMinWidth};
+    --menu-box-space: ${menuBoxSpace};
+  `;
+
   let { facebookURL, twitterURL, emailURL } = generateSocialURLs(
     doi,
     articleURL,
@@ -184,11 +192,7 @@
 </style>
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
-<header
-  role="banner"
-  class="{`menu menu--box invert ${className}`}"
-  style="{`--menu-cluster-space: ${menuClusterSpace}; --menu-cluster-justify-content: ${menuClusterJustifyContent}; --menu-switcher-space: ${menuSwitcherSpace}; --menu-switcher-min-width: ${menuSwitcherMinWidth}; --menu-box-space: ${menuBoxSpace};`}"
->
+<header role="banner" class="{`menu menu--box invert ${className}`}" {style}>
   <div class="menu__cluster">
     <a
       href="https://www.nature.com"
