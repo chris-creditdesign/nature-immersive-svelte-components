@@ -7,7 +7,7 @@
   export let centerMeasure = "var(--measure)";
   export let content = [];
 
-  let style = `--text-section-stack-space: ${textSectionStackSpace};`
+  let style = `--text-section-stack-space: ${textSectionStackSpace};`;
 </script>
 
 <style>
@@ -21,10 +21,7 @@
 </style>
 
 <Center {centerSpace} {centerMeasure}>
-  <div
-    class="text-section__stack"
-    style="{style}"
-  >
+  <div class="text-section__stack" {style}>
     {#each content as { type, data }}
       {#if type === 'text'}
         {@html data}

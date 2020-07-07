@@ -22,7 +22,10 @@ export const ConstrainedWidth = () => ({
   },
 });
 
-const seriesArticleNavDataNoStand = { ...seriesArticleNavData, stand: undefined };
+const seriesArticleNavDataNoStand = {
+  ...seriesArticleNavData,
+  stand: undefined,
+};
 
 export const NoStand = () => ({
   Component: ViewConstrained,
