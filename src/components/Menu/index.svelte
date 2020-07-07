@@ -15,17 +15,11 @@
   export let menuBoxSpace = "var(--s-4)";
   export let articleData;
 
-  let {
-    doi,
-    articleURL,
-    headline,
-    stand,
-    title,
-    description,
-    menuLinks,
-  } = articleData;
+  let { doi, articleURL, title, description, menuLinks } = articleData;
 
-  let style = `
+  let menuExpanded = true;
+
+  const style = `
     --menu-cluster-space: ${menuClusterSpace};
     --menu-cluster-justify-content: ${menuClusterJustifyContent};
     --menu-switcher-space: ${menuSwitcherSpace};
@@ -40,13 +34,15 @@
     description
   );
 
-  let menuExpanded = true;
-
-  let handleButtonClick = () => {
+  const handleButtonClick = () => {
     menuExpanded = !menuExpanded;
   };
 
-  onMount(() => (menuExpanded = false));
+  const handleMenuExpanded = () => {
+    menuExpanded = false;
+  };
+
+  onMount(handleMenuExpanded);
 </script>
 
 <style>

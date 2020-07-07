@@ -1,6 +1,6 @@
 <script>
-  import Section from "./index.svelte";
   import { Stack } from "creditdesign-svelte-components";
+  import Section from "./index.svelte";
 </script>
 
 <Stack stackSpace="{'var(--s3)'}">

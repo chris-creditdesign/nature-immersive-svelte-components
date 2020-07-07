@@ -1,7 +1,7 @@
 <script>
   import { onMount, createEventDispatcher, afterUpdate } from "svelte";
 
-  import { Stack, StackList } from "creditdesign-svelte-components";
+  import { Stack } from "creditdesign-svelte-components";
   import ToggleButton from "../ToggleButton/index.svelte";
 
   const dispatch = createEventDispatcher();

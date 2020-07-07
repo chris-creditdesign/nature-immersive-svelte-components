@@ -1,5 +1,6 @@
 <script>
   import Image from "../Image/index.svelte";
+
   export let imageData = [];
 </script>
 

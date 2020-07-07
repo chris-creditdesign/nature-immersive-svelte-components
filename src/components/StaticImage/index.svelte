@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Image from "../Image/index.svelte";
+
   export let className = "";
   export let steps;
 
@@ -8,7 +9,7 @@
   let intersectingStep = 0;
   let mounted = false;
 
-  // '-50%' intercet when the item is half way up the screen
+  // '-50%' intercept when the item is half way up the screen
   let options = {
     root: null,
     rootMargin: "-50% 0px -50% 0px",
@@ -17,8 +18,10 @@
   onMount(() => {
     mounted = true;
 
-    const steps = Array.from(textContainer.querySelectorAll(".step__content"));
-    const onEnterScreen = (entries, observer) => {
+    const renderedSteps = Array.from(
+      textContainer.querySelectorAll(".step__content")
+    );
+    const onEnterScreen = (entries) => {
       entries
         .filter((entry) => entry.isIntersecting)
         .forEach((entry) => {
@@ -30,7 +33,7 @@
 
     const observer = new IntersectionObserver(onEnterScreen, options);
 
-    steps.forEach((step) => observer.observe(step));
+    renderedSteps.forEach((step) => observer.observe(step));
   });
 </script>
 
@@ -99,9 +102,9 @@
     <div class="image-container">
       <div class="image-container__content">
         <Image
-          altText="{steps[intersectingStep]['altText']}"
-          caption="{steps[intersectingStep]['caption']}"
-          srcURL="{steps[intersectingStep]['srcURL'].replace(/-small/, '')}"
+          altText="{steps[intersectingStep].altText}"
+          caption="{steps[intersectingStep].caption}"
+          srcURL="{steps[intersectingStep].srcURL.replace(/-small/, '')}"
         />
       </div>
     </div>

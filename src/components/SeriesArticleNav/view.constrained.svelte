@@ -8,6 +8,7 @@
   export let className;
 
   let handleUpdate = () => {
+    /* eslint-disable no-console */
     console.log("Update");
   };
 </script>

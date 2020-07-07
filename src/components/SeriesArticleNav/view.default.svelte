@@ -1,5 +1,4 @@
 <script>
-  import { Box } from "creditdesign-svelte-components";
   import SeriesArticleNav from "./index.svelte";
 
   export let seriesArticleNavData;
@@ -8,6 +7,7 @@
   export let className;
 
   let handleUpdate = () => {
+    /* eslint-disable no-console */
     console.log("Update");
   };
 </script>

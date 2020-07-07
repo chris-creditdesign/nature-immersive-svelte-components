@@ -9,9 +9,9 @@
   export let gridSpace = "var(--s-1)";
   export let minWidth = "20ch";
 
-  let { altText, caption, footnote, headline, href, srcURL, text } = cardData;
+  let { altText, caption, srcURL } = cardData;
 
-  let cardDataNoImage = Object.assign({}, cardData, { srcURL: undefined });
+  let cardDataNoImage = { ...cardData, srcURL: undefined };
 </script>
 
 <div class="{`card ${className}`}">

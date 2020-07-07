@@ -1,5 +1,4 @@
 <script>
-  import { Center } from "creditdesign-svelte-components";
   import ScrollytellingContainer from "./index.svelte";
   import TestGraphic from "./test-graphic.svelte";
 

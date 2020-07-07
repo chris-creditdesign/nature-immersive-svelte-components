@@ -2,16 +2,18 @@ import ViewDefault from "./view.default.svelte";
 import ViewConstrained from "./view.constrained.svelte";
 import cardData from "../preview-content/card-data.js";
 
-const cardDataNoImage = Object.assign({}, cardData, { srcURL: undefined });
-const cardDataNoImageNoAuthor = Object.assign({}, cardData, {
+const cardDataNoImage = { ...cardData, srcURL: undefined };
+const cardDataNoImageNoAuthor = {
+  ...cardData,
   srcURL: undefined,
   authorName: undefined,
-});
-const cardDataNoImageNoAuthorNoJournal = Object.assign({}, cardData, {
+};
+const cardDataNoImageNoAuthorNoJournal = {
+  ...cardData,
   srcURL: undefined,
   authorName: undefined,
   journal: undefined,
-});
+};
 
 export default {
   title: "Layout components/Card/Card",

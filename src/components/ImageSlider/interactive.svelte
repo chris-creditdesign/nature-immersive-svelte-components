@@ -1,13 +1,14 @@
 <script>
   import { onMount } from "svelte";
   import { Stack } from "creditdesign-svelte-components";
+
   export let className = "";
   export let ratio = 0.5625;
   export let imageData;
   export let message = "Use the slider to reveal the hidden image:";
   export let mounted;
   export let amountToReveal = 0;
-  let mouseDown = false;
+
   let canvas;
   let width = 900;
 
@@ -85,6 +86,7 @@
           loop();
         })
         .catch((encodingError) => {
+          /* eslint-disable-next-line no-console */
           console.log(encodingError);
           mounted = false;
         });

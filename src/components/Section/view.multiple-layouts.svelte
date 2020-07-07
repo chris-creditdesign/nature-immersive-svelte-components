@@ -1,6 +1,6 @@
 <script>
-  import Section from "./index.svelte";
   import { Stack, Grid } from "creditdesign-svelte-components";
+  import Section from "./index.svelte";
   import Card from "../Card/index.svelte";
   import CardBox from "../CardBox/index.svelte";
   import CardSideImage from "../CardSideImage/index.svelte";

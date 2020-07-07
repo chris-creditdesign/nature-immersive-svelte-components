@@ -13,9 +13,7 @@ export const Default = () => ({
   },
 });
 
-const articleDataNoMenuLinks = Object.assign({}, articleData, {
-  menuLinks: undefined,
-});
+const articleDataNoMenuLinks = { ...articleData, menuLinks: undefined };
 
 export const NoMenuLinks = () => ({
   Component: ViewDefault,
@@ -40,7 +38,7 @@ const menuLinks = [
   { text: "Menu link twelve", href: "#" },
 ];
 
-const articleDataManyMenuLinks = Object.assign({}, articleData, { menuLinks });
+const articleDataManyMenuLinks = { ...articleData, menuLinks };
 
 export const manyMenuLinks = () => ({
   Component: ViewDefault,

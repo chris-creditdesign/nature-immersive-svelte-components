@@ -22,9 +22,7 @@ export const ConstrainedWidth = () => ({
   },
 });
 
-const seriesArticleNavDataNoStand = Object.assign({}, seriesArticleNavData, {
-  stand: undefined,
-});
+const seriesArticleNavDataNoStand = { ...seriesArticleNavData, stand: undefined };
 
 export const NoStand = () => ({
   Component: ViewConstrained,

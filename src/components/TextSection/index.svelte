@@ -1,5 +1,5 @@
 <script>
-  import { Center, Stack } from "creditdesign-svelte-components";
+  import { Center } from "creditdesign-svelte-components";
   import Image from "../Image/index.svelte";
 
   export let centerSpace = "var(--s1)";

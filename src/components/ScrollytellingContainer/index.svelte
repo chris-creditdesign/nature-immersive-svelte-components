@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { Box, Center, Cover } from "creditdesign-svelte-components";
+  import { Cover } from "creditdesign-svelte-components";
 
   export let className = "";
   export let scrollytellingSteps;
@@ -19,7 +19,7 @@
       stepContainer.querySelectorAll(".scrollytelling-step__content")
     );
 
-    let onEnterScreen = (entries, observer) => {
+    let onEnterScreen = (entries) => {
       entries
         .filter((entry) => entry.isIntersecting)
         .forEach((entry) => {
