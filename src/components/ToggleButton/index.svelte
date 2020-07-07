@@ -3,7 +3,7 @@
 
   export let className = "";
   export let expanded = false;
-  export let triangle = true;
+  export let showTriangle = true;
   export let expandedMessage = "Close";
   export let message = "Open";
 </script>
@@ -53,7 +53,7 @@
 </style>
 
 <button
-  class="{`${className} ${triangle ? 'toggle-button-with-triangle' : ''}`}"
+  class="{`${className} ${showTriangle ? 'toggle-button-with-triangle' : ''}`}"
   on:click
   aria-expanded="{expanded}"
   data-track="click"
@@ -62,7 +62,7 @@
   data-event-label="Custom toggle button clicked"
 >
 
-  {#if triangle}
+  {#if showTriangle}
     <LogoTriangle height="0.5" />
   {/if}
   {#if expanded}{expandedMessage}{:else}{message}{/if}

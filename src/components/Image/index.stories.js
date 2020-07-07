@@ -1,35 +1,34 @@
-import ViewDefault from "./view.default.svelte";
-import ViewConstrained from "./view.constrained.svelte";
-
-const data = {
-  altText: "This is the alt text",
-  caption: "This is the caption",
-  srcURL: "img/image-small.jpg",
-  captionSpace: "",
-};
+import ViewDefault from "./index.svelte";
+import Image from "./view.constrained.svelte";
+import docs from "./docs.mdx";
 
 export default {
   title: "Layout components/Image",
+  parameters: {
+    docs: {
+      page: docs,
+    },
+  },
 };
 
 export const Default = () => ({
   Component: ViewDefault,
   props: {
     className: "test",
-    altText: data.altText,
-    caption: data.caption,
-    srcURL: data.srcURL,
-    captionSpace: data.captionSpace,
+    altText: "This is the alt text",
+    caption: "This is the caption",
+    srcURL: "img/image-small.jpg",
+    captionSpace: "" /* What is this? */,
   },
 });
 
 export const ConstrainedWidth = () => ({
-  Component: ViewConstrained,
+  Component: Image,
   props: {
     className: "test",
-    altText: data.altText,
-    caption: data.caption,
-    srcURL: data.srcURL,
-    captionSpace: data.captionSpace,
+    altText: "This is the alt text",
+    caption: "This is the caption",
+    srcURL: "img/image-small.jpg",
+    captionSpace: "" /* What is this? */,
   },
 });

@@ -4,10 +4,10 @@
 
   export let mounted = false;
   export let className = "";
-  export let ratio;
+  export let ratio = 0.5625;
   export let imageData;
-  export let message;
-  export let amountToReveal;
+  export let message = "Use the slider to reveal the hidden image:";
+  export let amountToReveal = 0;
 
   let componentMap = new Map();
   componentMap.set(true, Interactive);

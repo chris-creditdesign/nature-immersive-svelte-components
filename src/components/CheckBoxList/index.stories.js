@@ -1,14 +1,18 @@
 import ViewDefault from "./view.default.svelte";
+import docs from "./docs.mdx";
 
 export default {
   title: "Interactive components/CheckBoxList",
+  parameters: {
+    docs: {
+      page: docs,
+    },
+  },
 };
-
-let categories = ["one", "two", "three", "four", "five", "six"];
 
 export const Default = () => ({
   Component: ViewDefault,
   props: {
-    categories,
+    categories: ["one", "two", "three", "four", "five", "six"],
   },
 });

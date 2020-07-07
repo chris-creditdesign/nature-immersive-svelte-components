@@ -1,6 +1,7 @@
-import ViewDefault from "./view.default.svelte";
-import ViewConstrained from "./view.constrained.svelte";
+import ViewDefault from "./index.svelte";
+import Card from "./view.constrained.svelte";
 import cardData from "../preview-content/card-data.js";
+import docs from "./docs.mdx";
 
 const cardDataNoImage = { ...cardData, srcURL: undefined };
 const cardDataNoImageNoAuthor = {
@@ -17,6 +18,11 @@ const cardDataNoImageNoAuthorNoJournal = {
 
 export default {
   title: "Layout components/Card/Card",
+  parameters: {
+    docs: {
+      page: docs,
+    },
+  },
 };
 
 export const Default = () => ({
@@ -28,15 +34,28 @@ export const Default = () => ({
 });
 
 export const ConstrainedWidth = () => ({
-  Component: ViewConstrained,
+  Component: Card,
   props: {
     className: "test",
-    cardData,
+    stackSpace: "var(--s-1)" /* default */,
+    cardData: {
+      authorName: "Author Name <i>et al</i>.",
+      journal: "Journal Name",
+      altText: "This is the alt text",
+      caption: "This is the caption",
+      srcURL: "img/image.jpg",
+      captionSpace: "" /* What is this? */,
+      footnote: "Footnote",
+      headline: "Headline",
+      href: "https://www.nature.com",
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus. Qui beatae, id quasi neque veniam sequi doloremque, officia voluptatibus expedita optio repudiandae quos ad! Aut, rerum.",
+    },
   },
 });
 
 export const NoImage = () => ({
-  Component: ViewConstrained,
+  Component: Card,
   props: {
     className: "test",
     cardData: cardDataNoImage,
@@ -44,7 +63,7 @@ export const NoImage = () => ({
 });
 
 export const NoAuthor = () => ({
-  Component: ViewConstrained,
+  Component: Card,
   props: {
     className: "test",
     cardData: cardDataNoImageNoAuthor,
@@ -52,7 +71,7 @@ export const NoAuthor = () => ({
 });
 
 export const NoJournal = () => ({
-  Component: ViewConstrained,
+  Component: Card,
   props: {
     className: "test",
     cardData: cardDataNoImageNoAuthorNoJournal,

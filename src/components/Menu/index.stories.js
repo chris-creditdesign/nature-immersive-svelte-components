@@ -1,22 +1,41 @@
-import ViewDefault from "./view.default.svelte";
+import Menu from "./index.svelte";
 import articleData from "../preview-content/article-data.js";
+import docs from "./docs.mdx";
 
 export default {
   title: "Layout components/Menu",
+  parameters: {
+    docs: {
+      page: docs,
+    },
+  },
 };
 
 export const Default = () => ({
-  Component: ViewDefault,
+  Component: Menu,
   props: {
     className: "test",
-    articleData,
+    articleData: {
+      doi: "123459789",
+      articleURL: "https://www.nature.com/articles/",
+      title: "Page title",
+      description: "Page description.",
+      menuLinks: [
+        { text: "View animation", href: "#" },
+        { text: "Controls", href: "#" },
+        { text: "Replay intro", href: "#" },
+        { text: "About Nature", href: "#" },
+        { text: "Credits", href: "#" },
+        { text: "Download data", href: "dat/data.zip" },
+      ],
+    },
   },
 });
 
 const articleDataNoMenuLinks = { ...articleData, menuLinks: undefined };
 
 export const NoMenuLinks = () => ({
-  Component: ViewDefault,
+  Component: Menu,
   props: {
     className: "test",
     articleData: articleDataNoMenuLinks,
@@ -41,7 +60,7 @@ const menuLinks = [
 const articleDataManyMenuLinks = { ...articleData, menuLinks };
 
 export const manyMenuLinks = () => ({
-  Component: ViewDefault,
+  Component: Menu,
   props: {
     className: "test",
     articleData: articleDataManyMenuLinks,

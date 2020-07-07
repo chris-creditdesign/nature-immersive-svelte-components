@@ -1,27 +1,32 @@
-import ViewDefault from "./view.default.svelte";
+import CoverBackgroundVideo from "./view.default.svelte";
 import ViewWithText from "./view.with-text.svelte";
-import articleData from "../preview-content/article-data.js";
+import docs from "./docs.mdx";
 
 export default {
   title: "Layout components/CoverBackgroundVideo",
+  parameters: {
+    docs: {
+      page: docs,
+    },
+  },
 };
 
 export const Default = () => ({
-  Component: ViewDefault,
+  Component: CoverBackgroundVideo,
   props: {
     srcURL: "video/video-small.jpg",
     alt: "This is the alt text",
-    articleData,
+    coverSpace: "1rem" /* default */,
+    coverHeight: "100vh" /* default */,
   },
 });
 
 export const HalfHeight = () => ({
-  Component: ViewDefault,
+  Component: CoverBackgroundVideo,
   props: {
     srcURL: "video/video-small.jpg",
     alt: "This is the alt text",
     coverHeight: "50vh",
-    articleData,
   },
 });
 
@@ -31,6 +36,5 @@ export const WithText = () => ({
     srcURL: "video/video-small.jpg",
     alt: "This is the alt text",
     coverHeight: "50vh",
-    articleData,
   },
 });

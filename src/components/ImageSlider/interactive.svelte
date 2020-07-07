@@ -3,11 +3,11 @@
   import { Stack } from "creditdesign-svelte-components";
 
   export let className = "";
-  export let ratio = 0.5625;
+  export let ratio;
   export let imageData;
-  export let message = "Use the slider to reveal the hidden image:";
+  export let message;
   export let mounted;
-  export let amountToReveal = 0;
+  export let amountToReveal;
 
   let canvas;
   let width = 900;

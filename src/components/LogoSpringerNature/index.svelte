@@ -1,7 +1,7 @@
 <script>
   export let className = "";
   export let height = 1;
-  export let title = "SpringerNature";
+  export let title = "Springer Nature";
 </script>
 
 <style>

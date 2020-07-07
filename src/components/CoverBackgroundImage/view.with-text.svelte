@@ -2,12 +2,12 @@
   import { Center, Stack } from "creditdesign-svelte-components";
   import CoverBackgroundImage from "./index.svelte";
   import Heading from "../Heading/index.svelte";
+  import articleData from "../preview-content/article-data.js";
 
   export let srcURL;
   export let alt;
   export let coverSpace;
   export let coverHeight;
-  export let articleData;
 </script>
 
 <Stack stackSpace="var(--s3)">

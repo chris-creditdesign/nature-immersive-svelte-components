@@ -60,7 +60,7 @@
   }
 
   button {
-    --box-space: var(--s-2);
+    padding: var(--s-2);
 
     font-size: var(--font-size-small-1);
     font-weight: bold;
