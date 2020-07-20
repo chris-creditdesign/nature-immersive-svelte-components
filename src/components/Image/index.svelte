@@ -14,8 +14,12 @@
 </script>
 
 <style>
+  img {
+    display: block;
+  }
+
   figcaption {
-    box-sizing: content-box;
+    margin-top: var(--s-3);
     font-family: var(--sans-serif-font);
     font-size: var(--font-size-small-1);
   }
