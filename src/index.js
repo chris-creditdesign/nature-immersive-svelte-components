@@ -36,6 +36,10 @@ export { default as Menu } from "./components/Menu/index.svelte"
 
 export { default as Image } from "./components/Image/index.svelte"
 
+/* ---------------------------------- Video ---------------------------------- */
+
+export { default as Video } from "./components/Video/index.svelte"
+
 /* ---------------------------------- StaticImage ---------------------------------- */
 
 export { default as StaticImage } from "./components/StaticImage/index.svelte"
