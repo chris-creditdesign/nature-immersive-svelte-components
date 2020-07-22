@@ -3,7 +3,12 @@
   import Image from "../Image/index.svelte";
 
   export let className = "";
+  export let justifyContent = "";
   export let steps;
+
+  let style = justifyContent
+    ? `--static-image-justify-content--component: ${justifyContent}`
+    : "";
 
   let textContainer;
   let intersectingStep = 0;
@@ -38,6 +43,10 @@
 </script>
 
 <style>
+  :global(:root) {
+    --static-image-justify-content--global: center;
+  }
+
   :global(.image-container) {
     display: none;
   }
@@ -64,8 +73,15 @@
     .image-container__content {
       position: sticky;
       position: -webkit-sticky;
-      top: 10px;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: var(
+        --static-image-justify-content--component,
+        var(--static-image-justify-content--global, center)
+      );
       width: 100%;
+      height: 100vh;
       margin: 0;
     }
 
@@ -93,7 +109,7 @@
   }
 </style>
 
-<div class="{`static-image-container ${className}`}">
+<div class="{`static-image-container ${className}`}" {style}>
   <div class="text-container" bind:this="{textContainer}">
     <slot />
   </div>

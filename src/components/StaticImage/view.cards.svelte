@@ -5,10 +5,11 @@
   import Card from "../Card/index.svelte";
 
   export let className = "";
+  export let justifyContent;
   export let steps;
 </script>
 
-<StaticImage {className} {steps}>
+<StaticImage {className} {justifyContent} {steps}>
   {#each steps as { headline, content, altText, caption, srcURL }, i}
     <div class="step">
       <div class="step__content" data-index="{i}">
