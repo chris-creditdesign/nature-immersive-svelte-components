@@ -4,11 +4,27 @@
 
   export let className = "";
   export let justifyContent = "";
+  export let textWidth = "";
+  export let imageWidth = "";
+  export let gridGap = "";
+  export let rootMargin = "-50% 0px -50% 0px";
   export let steps;
 
-  let style = justifyContent
-    ? `--static-image-justify-content--component: ${justifyContent}`
+  let justifyContentComponent = justifyContent
+    ? `--static-image-justify-content--component: ${justifyContent};`
     : "";
+
+  let textWidthComponent = textWidth
+    ? `--static-image-text-width--component: ${textWidth};`
+    : "";
+  let imageWidthComponent = imageWidth
+    ? `--static-image-image-width--component: ${imageWidth};`
+    : "";
+  let gridGapComponent = gridGap
+    ? `--static-image-grid-gap--component: ${gridGap};`
+    : "";
+
+  let style = `${justifyContentComponent} ${textWidthComponent} ${imageWidthComponent} ${gridGapComponent}`;
 
   let textContainer;
   let intersectingStep = 0;
@@ -17,7 +33,7 @@
   // '-50%' intercept when the item is half way up the screen
   let options = {
     root: null,
-    rootMargin: "-50% 0px -50% 0px",
+    rootMargin,
   };
 
   onMount(() => {
@@ -45,10 +61,18 @@
 <style>
   :global(:root) {
     --static-image-justify-content--global: center;
+    --static-image-text-width--global: 2fr;
+    --static-image-image-width--global: 1fr;
+    --static-image-grid-gap--global: var(--s3);
   }
 
   :global(.image-container) {
     display: none;
+
+    --static-image-grid-gap--component: initial;
+    --static-image-text-width--component: initial;
+    --static-image-image-width--component: initial;
+    --static-image-grid-gap--component: initial;
   }
 
   @media screen and (min-width: 600px) {
@@ -56,17 +80,29 @@
       position: relative;
       display: grid;
       width: 100%;
-      grid-template-columns: 2fr var(--s3) 1fr;
+      grid-gap: var(
+        --static-image-grid-gap--component,
+        var(--static-image-grid-gap--global, var(--s3, 1rem))
+      );
+      grid-template-columns:
+        var(
+          --static-image-text-width--component,
+          var(--static-image-text-width--global, 2fr)
+        )
+        var(
+          --static-image-image-width--component,
+          var(--static-image-image-width--global, 1fr)
+        );
     }
 
     .text-container {
-      grid-column: 1 / span 1;
+      grid-column: 1 / 2;
       grid-row: 1;
     }
 
     .image-container {
       display: block;
-      grid-column: 3 / span 1;
+      grid-column: 2 / 3;
       grid-row: 1;
     }
 

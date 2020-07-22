@@ -6,10 +6,22 @@
 
   export let className = "";
   export let justifyContent;
+  export let textWidth;
+  export let imageWidth;
+  export let gridGap;
+  export let rootMargin;
   export let steps;
 </script>
 
-<StaticImage {className} {justifyContent} {steps}>
+<StaticImage
+  {className}
+  {justifyContent}
+  {textWidth}
+  {imageWidth}
+  {gridGap}
+  {rootMargin}
+  {steps}
+>
   {#each steps as { headline, content, altText, caption, srcURL }, i}
     <div class="step">
       <div class="step__content" data-index="{i}">

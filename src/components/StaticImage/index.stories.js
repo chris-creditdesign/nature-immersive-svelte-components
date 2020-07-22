@@ -1,5 +1,6 @@
 import StaticImage from "./view.default.svelte";
 import StaticImageWithCards from "./view.cards.svelte";
+import ViewConstrained from "./view.constrained.svelte";
 import docs from "./docs.mdx";
 
 export default {
@@ -16,6 +17,59 @@ export const Default = () => ({
   props: {
     className: "test",
     justifyContent: "center" /* default */,
+    textWidth: "2fr" /* default */,
+    imageWidth: "1fr" /* default */,
+    gridGap: "var(--s3)" /* default */,
+    rootMargin: "-50% 0px -50% 0px" /* default */,
+    steps: [
+      {
+        text:
+          "A: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-a-graphic-small.jpg",
+      },
+      {
+        text:
+          "B: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-b-graphic-small.jpg",
+      },
+      {
+        text:
+          "C: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-c-graphic-small.jpg",
+      },
+      {
+        text:
+          "D: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-d-graphic-small.jpg",
+      },
+      {
+        text:
+          "E: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-e-graphic-small.jpg",
+      },
+    ],
+  },
+});
+
+export const ConstrainedWidth = () => ({
+  Component: ViewConstrained,
+  props: {
+    className: "test",
+    justifyContent: "center" /* default */,
+    textWidth: "2fr" /* default */,
+    imageWidth: "1fr" /* default */,
+    gridGap: "var(--s3)" /* default */,
+    rootMargin: "-50% 0px -50% 0px" /* default */,
     steps: [
       {
         text:
@@ -61,6 +115,10 @@ export const WithCards = () => ({
   props: {
     className: "test",
     justifyContent: "center" /* default */,
+    textWidth: "2fr" /* default */,
+    imageWidth: "1fr" /* default */,
+    gridGap: "var(--s3)" /* default */,
+    rootMargin: "-50% 0px -50% 0px" /* default */,
     steps: [
       {
         headline: "Section 1",
@@ -227,10 +285,14 @@ export const WithCards = () => ({
 });
 
 export const ImageAtTop = () => ({
-  Component: StaticImage,
+  Component: ViewConstrained,
   props: {
     className: "test",
     justifyContent: "flex-start",
+    textWidth: "2fr" /* default */,
+    imageWidth: "1fr" /* default */,
+    gridGap: "var(--s3)" /* default */,
+    rootMargin: "-50% 0px -50% 0px" /* default */,
     steps: [
       {
         text:
@@ -272,10 +334,210 @@ export const ImageAtTop = () => ({
 });
 
 export const ImageAtBottom = () => ({
-  Component: StaticImage,
+  Component: ViewConstrained,
   props: {
     className: "test",
     justifyContent: "flex-end",
+    textWidth: "2fr" /* default */,
+    imageWidth: "1fr" /* default */,
+    gridGap: "var(--s3)" /* default */,
+    rootMargin: "-50% 0px -50% 0px" /* default */,
+    steps: [
+      {
+        text:
+          "A: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-a-graphic-small.jpg",
+      },
+      {
+        text:
+          "B: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-b-graphic-small.jpg",
+      },
+      {
+        text:
+          "C: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-c-graphic-small.jpg",
+      },
+      {
+        text:
+          "D: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-d-graphic-small.jpg",
+      },
+      {
+        text:
+          "E: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-e-graphic-small.jpg",
+      },
+    ],
+  },
+});
+
+export const SetMaxWidthForImage = () => ({
+  Component: ViewConstrained,
+  props: {
+    className: "test",
+    justifyContent: "center",
+    textWidth: "2fr" /* default */,
+    imageWidth: "min(1fr, 600px)",
+    gridGap: "var(--s3)" /* default */,
+    rootMargin: "-50% 0px -50% 0px" /* default */,
+    steps: [
+      {
+        text:
+          "A: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-a-graphic-small.jpg",
+      },
+      {
+        text:
+          "B: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-b-graphic-small.jpg",
+      },
+      {
+        text:
+          "C: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-c-graphic-small.jpg",
+      },
+      {
+        text:
+          "D: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-d-graphic-small.jpg",
+      },
+      {
+        text:
+          "E: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-e-graphic-small.jpg",
+      },
+    ],
+  },
+});
+
+export const TriggerOnChangeTextEnter = () => ({
+  Component: ViewConstrained,
+  props: {
+    className: "test",
+    justifyContent: "center",
+    textWidth: "2fr" /* default */,
+    imageWidth: "1fr" /* default */,
+    gridGap: "var(--s3)" /* default */,
+    rootMargin: "0px",
+    steps: [
+      {
+        text:
+          "A: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-a-graphic-small.jpg",
+      },
+      {
+        text:
+          "B: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-b-graphic-small.jpg",
+      },
+      {
+        text:
+          "C: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-c-graphic-small.jpg",
+      },
+      {
+        text:
+          "D: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-d-graphic-small.jpg",
+      },
+      {
+        text:
+          "E: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-e-graphic-small.jpg",
+      },
+    ],
+  },
+});
+
+export const ExtraWideGap = () => ({
+  Component: ViewConstrained,
+  props: {
+    className: "test",
+    justifyContent: "center" /* default */,
+    textWidth: "2fr" /* default */,
+    imageWidth: "1fr" /* default */,
+    gridGap: "var(--s6)" /* default */,
+    rootMargin: "-50% 0px -50% 0px" /* default */,
+    steps: [
+      {
+        text:
+          "A: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-a-graphic-small.jpg",
+      },
+      {
+        text:
+          "B: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-b-graphic-small.jpg",
+      },
+      {
+        text:
+          "C: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-c-graphic-small.jpg",
+      },
+      {
+        text:
+          "D: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-d-graphic-small.jpg",
+      },
+      {
+        text:
+          "E: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis neque vero earum. Voluptatum corporis modi eveniet reprehenderit laboriosam? Ad vero, magni soluta maiores veniam incidunt rem earumdistinctio velit tenetur?",
+        altText: "This is the alt text",
+        caption: "This is the caption",
+        srcURL: "img/static-e-graphic-small.jpg",
+      },
+    ],
+  },
+});
+
+export const ThinTextWidth = () => ({
+  Component: ViewConstrained,
+  props: {
+    className: "test",
+    justifyContent: "center" /* default */,
+    textWidth: "1fr" /* default */,
+    imageWidth: "1fr" /* default */,
+    gridGap: "var(--s3)" /* default */,
+    rootMargin: "-50% 0px -50% 0px" /* default */,
     steps: [
       {
         text:
