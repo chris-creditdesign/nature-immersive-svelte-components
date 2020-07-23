@@ -1,5 +1,6 @@
 import ViewDefault from "./index.svelte";
 import Video from "./view.constrained.svelte";
+import ViewTwoVideos from "./view.two-videos.svelte";
 import docs from "./docs.mdx";
 
 export default {
@@ -14,14 +15,9 @@ export default {
 export const Default = () => ({
   Component: ViewDefault,
   props: {
-    className: "test",
     altText: "This is the alt text",
     caption: "This is the caption",
     srcURL: "video/video-small.jpg",
-    autoplay: true /* default */,
-    loop: true /* default */,
-    buttonAtTop: false /* defualt */,
-    buttonOnLeft: false /* default */,
   },
 });
 
@@ -36,61 +32,48 @@ export const ConstrainedWidth = () => ({
     loop: true /* default */,
     buttonAtTop: false /* defualt */,
     buttonOnLeft: false /* default */,
+    playingMessage: "Pause video" /* defualt */,
+    pausedMessage: "Play video" /* defualt */,
   },
 });
 
 export const NoAutoplay = () => ({
   Component: Video,
   props: {
-    className: "test",
     altText: "This is the alt text",
     caption: "This is the caption",
     srcURL: "video/video-small.jpg",
     autoplay: false,
-    loop: true /* default */,
-    buttonAtTop: false /* defualt */,
-    buttonOnLeft: false /* default */,
   },
 });
 
 export const NoLoop = () => ({
   Component: Video,
   props: {
-    className: "test",
     altText: "This is the alt text",
     caption: "This is the caption",
     srcURL: "video/video-small.jpg",
-    autoplay: true /* default */,
     loop: false,
-    buttonAtTop: false /* defualt */,
-    buttonOnLeft: false /* default */,
+	pausedMessage: "Resume video"
   },
 });
 
 export const ButtonAtTop = () => ({
   Component: Video,
   props: {
-    className: "test",
     altText: "This is the alt text",
     caption: "This is the caption",
     srcURL: "video/video-small.jpg",
-    autoplay: true /* default */,
-    loop: true /* default */,
     buttonAtTop: true,
-    buttonOnLeft: false /* default */,
   },
 });
 
 export const ButtonOnLeft = () => ({
   Component: Video,
   props: {
-    className: "test",
     altText: "This is the alt text",
     caption: "This is the caption",
     srcURL: "video/video-small.jpg",
-    autoplay: true /* default */,
-    loop: true /* default */,
-    buttonAtTop: false /* default */,
     buttonOnLeft: true,
   },
 });
@@ -98,13 +81,20 @@ export const ButtonOnLeft = () => ({
 export const ButtonAtTopLeft = () => ({
   Component: Video,
   props: {
+    altText: "This is the alt text",
+    caption: "This is the caption",
+    srcURL: "video/video-small.jpg",
+    buttonAtTop: true,
+    buttonOnLeft: true,
+  },
+});
+
+export const TwoVideosOnPage = () => ({
+  Component: ViewTwoVideos,
+  props: {
     className: "test",
     altText: "This is the alt text",
     caption: "This is the caption",
     srcURL: "video/video-small.jpg",
-    autoplay: true /* default */,
-    loop: true /* default */,
-    buttonAtTop: true,
-    buttonOnLeft: true,
   },
 });

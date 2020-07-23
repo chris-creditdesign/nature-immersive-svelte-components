@@ -11,6 +11,8 @@
   export let loop;
   export let buttonAtTop;
   export let buttonOnLeft;
+  export let playingMessage;
+  export let pausedMessage;
 </script>
 
 <Center centerMeasure="600px">
@@ -25,6 +27,8 @@
       {loop}
       {buttonAtTop}
       {buttonOnLeft}
+      {playingMessage}
+      {pausedMessage}
     />
   </Box>
 </Center>

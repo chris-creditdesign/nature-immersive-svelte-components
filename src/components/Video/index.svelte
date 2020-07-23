@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import VideoButton from "../VideoButton/index.svelte";
 
   export let className = "";
   export let altText;
@@ -9,6 +10,8 @@
   export let loop = true;
   export let buttonAtTop = false;
   export let buttonOnLeft = false;
+  export let playingMessage;
+  export let pausedMessage;
 
   let buttonVerticalPosition = buttonAtTop
     ? `--video-button-row--component: 2 / 3;`
@@ -61,24 +64,7 @@
     grid-template-rows: var(--s-1) auto 1fr auto var(--s-1);
   }
 
-  video {
-    max-width: 100%;
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-  }
-
-  button {
-    z-index: 1; /* Make sure button is above video */
-    padding: var(--s-3);
-    font-size: var(--font-size-small-1);
-    font-weight: bold;
-    color: var(--white-0);
-    text-transform: uppercase;
-    cursor: pointer;
-    background: none;
-    border: 3px solid var(--white-0);
-    outline: none;
-    transition: background-color 300ms ease;
+  :global(.video-button) {
     grid-column: var(
       --video-button-column--component,
       var(--video-button-column--global, 4 / 5)
@@ -89,19 +75,16 @@
     );
   }
 
+  video {
+    max-width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+  }
+
   figcaption {
     margin-top: var(--s-3);
     font-family: var(--sans-serif-font);
     font-size: var(--font-size-small-1);
-  }
-
-  button:hover {
-    background-color: var(--black-3);
-  }
-
-  button:focus {
-    background-color: var(--black-3);
-    border: 3px solid var(--outline);
   }
 </style>
 
@@ -129,9 +112,13 @@
     {/if}
 
     {#if mounted}
-      <button class="box" type="button" on:click="{handleBtnClick}">
-        {paused ? 'Play video' : 'Pause video'}
-      </button>
+      <VideoButton
+        className="video-button"
+        {playingMessage}
+        {pausedMessage}
+        {paused}
+        on:click="{handleBtnClick}"
+      />
     {/if}
   </div>
 
