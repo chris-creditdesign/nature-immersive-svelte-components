@@ -12,7 +12,7 @@
   export let menuClusterJustifyContent = "flex-start";
   export let menuSwitcherSpace = "var(--s-1)";
   export let menuSwitcherMinWidth = "var(--measure-big)";
-  export let menuBoxSpace = "var(--s-4)";
+  export let menuBoxSpace = "var(--s-6)";
   export let articleData;
 
   let { doi, articleURL, title, description, menuLinks } = articleData;
@@ -146,7 +146,7 @@
       var(--menu-switcher-min-width) - (100% - var(--menu-switcher-space))
     );
 
-    margin: var(--s-4) 0;
+    margin: 0 0 var(--s-4) 0;
   }
 
   .menu__switcher > * {

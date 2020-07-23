@@ -15,6 +15,11 @@ export const Default = () => ({
   Component: Menu,
   props: {
     className: "test",
+    menuClusterSpace: "var(--s-4)" /* default */,
+    menuClusterJustifyContent: "flex-start" /* default */,
+    menuSwitcherSpace: "var(--s-1)" /* default */,
+    menuSwitcherMinWidth: "var(--measure-big)" /* default */,
+    menuBoxSpace: "var(--s-6)" /* default */,
     articleData: {
       doi: "123459789",
       articleURL: "https://www.nature.com/articles/",

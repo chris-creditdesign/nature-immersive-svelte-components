@@ -7,6 +7,7 @@
   export let textWidth = "";
   export let imageWidth = "";
   export let gridGap = "";
+  /* '-50%' intercept when the item is half way up the screen */
   export let rootMargin = "-50% 0px -50% 0px";
   export let placeImageOnLeft = false;
   export let steps;
@@ -35,7 +36,6 @@
   let intersectingStep = 0;
   let mounted = false;
 
-  // '-50%' intercept when the item is half way up the screen
   let options = {
     root: null,
     rootMargin
