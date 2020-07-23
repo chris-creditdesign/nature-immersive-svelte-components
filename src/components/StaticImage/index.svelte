@@ -8,6 +8,7 @@
   export let imageWidth = "";
   export let gridGap = "";
   export let rootMargin = "-50% 0px -50% 0px";
+  export let placeImageOnLeft = false;
   export let steps;
 
   let justifyContentComponent = justifyContent
@@ -24,7 +25,11 @@
     ? `--static-image-grid-gap--component: ${gridGap};`
     : "";
 
-  let style = `${justifyContentComponent} ${textWidthComponent} ${imageWidthComponent} ${gridGapComponent}`;
+  let imagePlacment = placeImageOnLeft
+    ? `--static-image-text-column--component: 2 / 3; --static-image-image-column--component: 1 / 2;`
+    : "";
+
+  let style = `${justifyContentComponent} ${textWidthComponent} ${imageWidthComponent} ${gridGapComponent} ${imagePlacment}`;
 
   let textContainer;
   let intersectingStep = 0;
@@ -33,7 +38,7 @@
   // '-50%' intercept when the item is half way up the screen
   let options = {
     root: null,
-    rootMargin,
+    rootMargin
   };
 
   onMount(() => {
@@ -42,10 +47,11 @@
     const renderedSteps = Array.from(
       textContainer.querySelectorAll(".step__content")
     );
-    const onEnterScreen = (entries) => {
+
+    const onEnterScreen = entries => {
       entries
-        .filter((entry) => entry.isIntersecting)
-        .forEach((entry) => {
+        .filter(entry => entry.isIntersecting)
+        .forEach(entry => {
           let { index } = entry.target.dataset;
 
           intersectingStep = parseInt(index, 10);
@@ -54,7 +60,7 @@
 
     const observer = new IntersectionObserver(onEnterScreen, options);
 
-    renderedSteps.forEach((step) => observer.observe(step));
+    renderedSteps.forEach(step => observer.observe(step));
   });
 </script>
 
@@ -64,15 +70,21 @@
     --static-image-text-width--global: 2fr;
     --static-image-image-width--global: 1fr;
     --static-image-grid-gap--global: var(--s3);
+    --static-image-text-column--global: 1 / 2;
+    --static-image-image-column--global: 2 / 3;
   }
 
-  :global(.image-container) {
-    display: none;
-
+  :global(.static-image-container) {
     --static-image-grid-gap--component: initial;
     --static-image-text-width--component: initial;
     --static-image-image-width--component: initial;
     --static-image-grid-gap--component: initial;
+    --static-image-text-column--component: initial;
+    --static-image-image-column--component: initial;
+  }
+
+  :global(.image-container) {
+    display: none;
   }
 
   @media screen and (min-width: 600px) {
@@ -96,13 +108,19 @@
     }
 
     .text-container {
-      grid-column: 1 / 2;
+      grid-column: var(
+        --static-image-text-column--component,
+        var(--static-image-text-column--global, 1 / 2)
+      );
       grid-row: 1;
     }
 
     .image-container {
       display: block;
-      grid-column: 2 / 3;
+      grid-column: var(
+        --static-image-image-column--component,
+        var(--static-image-image-column--global, 2 / 3)
+      );
       grid-row: 1;
     }
 

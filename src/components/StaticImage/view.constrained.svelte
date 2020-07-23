@@ -9,6 +9,7 @@
   export let imageWidth;
   export let gridGap;
   export let rootMargin;
+  export let placeImageOnLeft;
   export let steps;
 </script>
 
@@ -20,6 +21,7 @@
     {imageWidth}
     {gridGap}
     {rootMargin}
+    {placeImageOnLeft}
     {steps}
   >
     {#each steps as { text, altText, caption, srcURL }, i}

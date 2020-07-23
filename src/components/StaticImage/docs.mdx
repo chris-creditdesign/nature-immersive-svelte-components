@@ -1,11 +1,26 @@
 import { Story, Preview } from "@storybook/addon-docs/blocks";
 
-TODO: Notes about building cards inside slot space.
-
 <Preview>
-  <Story id="layout-components-staticimage--default" />
+  <Story id="layout-components-staticimage--constrained-width" />
 </Preview>
 
-<Preview>
-  <Story id="layout-components-staticimage--with-cards" />
-</Preview>
+The `steps` prop must be an array of objects each containing `altText`, `caption`, `srcURL` properties. These are used to build the static images.
+
+The scrolling text content is created via a separate component which is passed in as a `slot` to the `StaticImage` component.
+
+The child component must create html elements with a class of html elements with the class `.step`. CSS will be applied to make these at least 100vh tall and to vertially center the content.
+
+Inside there should be a html elemnt with the class of `.step__content` and `data-index` attribute. This is used by the component's javascript to trigger the changes in the static image.
+
+If there is an image present, it should be given a class of `.step__image` or contained within an element with that class. This will apply a 'vissually hidden' style when the screen is wider than 600px.
+
+```
+<div class="step">
+	<div class="step__content" data-index="1">
+		<div class="step__image">
+			<img />
+		</div>
+		<p>...</p>
+	</div>
+</div>
+```

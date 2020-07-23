@@ -8,6 +8,7 @@
   export let imageWidth;
   export let gridGap;
   export let rootMargin;
+  export let placeImageOnLeft;
   export let steps;
 </script>
 
@@ -18,14 +19,13 @@
   {imageWidth}
   {gridGap}
   {rootMargin}
+  {placeImageOnLeft}
   {steps}
 >
   {#each steps as { text, altText, caption, srcURL }, i}
     <div class="step">
       <div class="step__content" data-index="{i}">
-        <div class="step__image">
-          <Image {altText} {caption} {srcURL} />
-        </div>
+        <Image className="step__image" {altText} {caption} {srcURL} />
         <p>
           {@html text}
         </p>
