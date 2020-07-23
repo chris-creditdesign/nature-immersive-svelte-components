@@ -9,6 +9,8 @@
   export let captionSpace;
   export let autoplay;
   export let loop;
+  export let buttonAtTop;
+  export let buttonOnLeft;
 </script>
 
 <Center centerMeasure="600px">
@@ -21,6 +23,8 @@
       {captionSpace}
       {autoplay}
       {loop}
+      {buttonAtTop}
+      {buttonOnLeft}
     />
   </Box>
 </Center>

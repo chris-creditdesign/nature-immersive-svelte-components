@@ -7,6 +7,18 @@
   export let srcURL;
   export let autoplay = true;
   export let loop = true;
+  export let buttonAtTop = false;
+  export let buttonOnLeft = false;
+
+  let buttonVerticalPosition = buttonAtTop
+    ? `--video-button-row--component: 2 / 3;`
+    : "";
+
+  let buttonHorizontalPosition = buttonOnLeft
+    ? `--video-button-column--component: 2 / 3;`
+    : "";
+
+  let style = `${buttonHorizontalPosition} ${buttonVerticalPosition}`;
 
   let video;
   let mounted = false;
@@ -35,16 +47,24 @@
 </script>
 
 <style>
+  :global(:root) {
+    --video-button-column--global: 4 / 5;
+    --video-button-row--global: 4 / 5;
+  }
+
   .video-container {
+    --video-button-column--component: initial;
+    --video-button-row--component: initial;
+
     display: grid;
-    grid-template-columns: var(--s-1) 1fr auto var(--s-1);
-    grid-template-rows: var(--s-1) 1fr auto var(--s-1);
+    grid-template-columns: var(--s-1) auto 1fr auto var(--s-1);
+    grid-template-rows: var(--s-1) auto 1fr auto var(--s-1);
   }
 
   video {
     max-width: 100%;
-    grid-column: 1 / 5;
-    grid-row: 1 / 5;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
   }
 
   button {
@@ -59,8 +79,14 @@
     border: 3px solid var(--white-0);
     outline: none;
     transition: background-color 300ms ease;
-    grid-column: 3 / 4;
-    grid-row: 3 / 4;
+    grid-column: var(
+      --video-button-column--component,
+      var(--video-button-column--global, 4 / 5)
+    );
+    grid-row: var(
+      --video-button-row--component,
+      var(--video-button-row--global, 4 / 5)
+    );
   }
 
   figcaption {
@@ -81,7 +107,7 @@
 
 <figure class="{`${className}`}">
 
-  <div class="video-container">
+  <div class="video-container" {style}>
 
     {#if mounted}
       <video
