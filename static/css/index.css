@@ -45,7 +45,7 @@ h2 {
 }
 
 h1 {
-  font-size: var(--font-size-big-3);
+  font-size: var(--font-size-big-4);
 }
 
 /* text */
@@ -133,11 +133,9 @@ sub {
 /* Dropcap */
 .drop-cap::first-letter {
   float: left;
-  padding-top: 8px;
-  padding-right: 3px;
-  padding-left: 0;
-  font-size: 88px;
-  line-height: 62px;
+  padding-top: 0.55rem;
+  font-size: 4.85rem;
+  line-height: 3rem;
 }
 
 /* -------------------------------- Utilities ------------------------------- */

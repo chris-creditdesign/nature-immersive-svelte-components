@@ -25,6 +25,10 @@
     text-align: center;
   }
 
+  .stand-first {
+    font-size: var(--font-size-big-1);
+  }
+
   .author,
   .photographer {
     font-weight: 800;
@@ -49,7 +53,7 @@
       <h1>
         {@html headline}
       </h1>
-      <p>
+      <p class="stand-first">
         {@html stand}
       </p>
 
