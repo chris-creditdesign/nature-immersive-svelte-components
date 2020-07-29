@@ -1,8 +1,15 @@
 <script>
   export let className = "";
   export let paused = true;
-  export let playingMessage = "Pause video";
-  export let pausedMessage = "Play video";
+  export let playingMessage = "";
+  export let pausedMessage = "";
+
+  let playingMessageComponent = playingMessage.length
+    ? playingMessage
+    : "Pause video";
+  let pausedMessageComponent = pausedMessage.length
+    ? pausedMessage
+    : "Play video";
 </script>
 
 <style>
@@ -31,5 +38,5 @@
 </style>
 
 <button class="{className}" type="button" on:click>
-  {#if paused}{pausedMessage}{:else}{playingMessage}{/if}
+  {#if paused}{pausedMessageComponent}{:else}{playingMessageComponent}{/if}
 </button>

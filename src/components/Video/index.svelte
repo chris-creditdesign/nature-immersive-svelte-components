@@ -10,8 +10,8 @@
   export let loop = true;
   export let buttonAtTop = false;
   export let buttonOnLeft = false;
-  export let playingMessage;
-  export let pausedMessage;
+  export let playingMessage = "";
+  export let pausedMessage = "";
 
   let buttonVerticalPosition = buttonAtTop
     ? `--video-button-row--component: 2 / 3;`
