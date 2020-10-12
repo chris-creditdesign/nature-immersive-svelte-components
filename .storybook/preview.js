@@ -1,4 +1,10 @@
-import { configure } from '@storybook/svelte';
+import { configure, addParameters } from '@storybook/svelte';
+
+addParameters({
+  docs: {
+    iframeHeight: 600,
+  },
+});
 
 import "../static/css/harding.css"
 import "../static/css/custom-props.css"
