@@ -4,6 +4,8 @@
 
 export { default as Card } from "./components/Card/index.svelte"
 export { default as CardBox } from "./components/CardBox/index.svelte"
+export { default as CardImageBelow } from "./components/CardImageBelow/index.svelte"
+export { default as CardImageBelowBox } from "./components/CardImageBelowBox/index.svelte"
 export { default as CardSideImage } from "./components/CardSideImage/index.svelte"
 export { default as CardSideImageBox } from "./components/CardSideImageBox/index.svelte"
 

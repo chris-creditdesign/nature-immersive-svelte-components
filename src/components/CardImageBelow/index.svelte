@@ -1,9 +1,11 @@
 <script>
-  import { Stack } from "creditdesign-svelte-components";
+  import { Stack, Grid } from "creditdesign-svelte-components";
   import Image from "../Image/index.svelte";
 
   export let className = "";
   export let stackSpace = "var(--s-1)";
+  export let gridSpace = "var(--s-1)";
+  export let minWidth = "20ch";
   export let cardData;
 
   let {
@@ -48,10 +50,6 @@
 
 <div class="{`card ${className}`}">
   <Stack {stackSpace}>
-    {#if srcURL}
-      <Image {altText} {caption} {srcURL} />
-    {/if}
-
     <header>
       <Stack stackSpace="var(--s-4)">
         {#if journal}
@@ -78,16 +76,24 @@
       </Stack>
     </header>
 
-    {#if text}
-      <p>
-        {@html text}
-      </p>
-    {/if}
+    <Grid gridRowSpace="{gridSpace}" gridColumnSpace="{gridSpace}" {minWidth}>
+      {#if srcURL}
+        <Image {altText} {caption} {srcURL} />
+      {/if}
+      <Stack {stackSpace}>
+        {#if text}
+          <p>
+            {@html text}
+          </p>
+        {/if}
 
-    {#if footnote}
-      <p class="footnote">
-        {@html footnote}
-      </p>
-    {/if}
+        {#if footnote}
+          <p class="footnote">
+            {@html footnote}
+          </p>
+        {/if}
+      </Stack>
+    </Grid>
+
   </Stack>
 </div>
