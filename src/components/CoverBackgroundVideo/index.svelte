@@ -53,7 +53,7 @@
     }
 
     /* Make the text visible over the dark background */
-    :global(.cover--with-background) {
+    .cover--with-background {
       color: var(--white-0);
       background-color: rgba(10, 4, 4, 0.4);
     }
@@ -82,35 +82,37 @@
   }
 </style>
 
-<Cover className="cover--with-background" {coverSpace} {coverHeight}>
+<div class="cover--with-background">
+  <Cover {coverSpace} {coverHeight}>
 
-  {#if mounted}
-    <video
-      bind:this="{video}"
-      poster="{srcIMG}"
-      playsinline="true"
-      muted="true"
-      autoplay="{!prefersReducedMotion}"
-      loop="true"
-      class="cover__background"
-      aria-label="{alt}"
-      bind:paused
-    >
-      <source src="{srcWEBM}" type="video/webm" />
-      <source src="{srcMP4}" type="video/mp4" />
-    </video>
-  {:else}
-    <img class="cover__background" src="{srcURL}" {alt} />
-  {/if}
+    {#if mounted}
+      <video
+        bind:this="{video}"
+        poster="{srcIMG}"
+        playsinline="true"
+        muted="true"
+        autoplay="{!prefersReducedMotion}"
+        loop="true"
+        class="cover__background"
+        aria-label="{alt}"
+        bind:paused
+      >
+        <source src="{srcWEBM}" type="video/webm" />
+        <source src="{srcMP4}" type="video/mp4" />
+      </video>
+    {:else}
+      <img class="cover__background" src="{srcURL}" {alt} />
+    {/if}
 
-  <slot />
+    <slot />
 
-  {#if mounted}
-    <Cluster clusterJustifyContent="flex-end">
-      <button class="box" type="button" on:click="{handleBtnClick}">
-        {paused ? 'Play video' : 'Pause video'}
-      </button>
-    </Cluster>
-  {/if}
+    {#if mounted}
+      <Cluster clusterJustifyContent="flex-end">
+        <button class="box" type="button" on:click="{handleBtnClick}">
+          {paused ? 'Play video' : 'Pause video'}
+        </button>
+      </Cluster>
+    {/if}
 
-</Cover>
+  </Cover>
+</div>

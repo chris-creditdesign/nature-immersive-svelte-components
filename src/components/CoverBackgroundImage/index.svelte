@@ -34,14 +34,16 @@
     }
 
     /* Make the text visible over the dark background */
-    :global(.cover--with-background) {
+    .cover--with-background {
       color: var(--white-0);
       background-color: rgba(10, 4, 4, 0.4);
     }
   }
 </style>
 
-<Cover className="cover--with-background" {coverSpace} {coverHeight}>
-  <img class="cover__background" {src} {alt} />
-  <slot />
-</Cover>
+<div class="cover--with-background">
+  <Cover {coverSpace} {coverHeight}>
+    <img class="cover__background" {src} {alt} />
+    <slot />
+  </Cover>
+</div>

@@ -38,7 +38,7 @@
 
   let options = {
     root: null,
-    rootMargin
+    rootMargin,
   };
 
   onMount(() => {
@@ -48,10 +48,10 @@
       textContainer.querySelectorAll(".step__content")
     );
 
-    const onEnterScreen = entries => {
+    const onEnterScreen = (entries) => {
       entries
-        .filter(entry => entry.isIntersecting)
-        .forEach(entry => {
+        .filter((entry) => entry.isIntersecting)
+        .forEach((entry) => {
           let { index } = entry.target.dataset;
 
           intersectingStep = parseInt(index, 10);
@@ -60,7 +60,7 @@
 
     const observer = new IntersectionObserver(onEnterScreen, options);
 
-    renderedSteps.forEach(step => observer.observe(step));
+    renderedSteps.forEach((step) => observer.observe(step));
   });
 </script>
 

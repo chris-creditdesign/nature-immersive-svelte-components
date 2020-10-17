@@ -7,8 +7,8 @@
   export let stackSpace = "var(--s-1)";
 </script>
 
-<div class="{`card ${className}`}">
-  <Box className="{'invert'}">
+<div class="{`card invert ${className}`}">
+  <Box>
     <Card {cardData} {stackSpace} />
   </Box>
 </div>

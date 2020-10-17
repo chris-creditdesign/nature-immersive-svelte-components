@@ -54,7 +54,7 @@ export const NoLoop = () => ({
     caption: "This is the caption",
     srcURL: "video/video-small.jpg",
     loop: false,
-	pausedMessage: "Resume video"
+    pausedMessage: "Resume video",
   },
 });
 

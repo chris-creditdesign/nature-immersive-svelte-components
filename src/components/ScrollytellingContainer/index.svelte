@@ -36,7 +36,7 @@
 </script>
 
 <style>
-  :global(.scrollytelling-step) {
+  .scrollytelling-step {
     margin-bottom: var(--s4);
   }
 
@@ -63,14 +63,16 @@
 
   <div class="step-container" bind:this="{stepContainer}">
     {#each scrollytellingSteps as { text, data }, i}
-      <Cover className="scrollytelling-step">
-        {#if data.altText}
-          <p class="visually-hidden">{data.altText}</p>
-        {/if}
-        <div class="centered scrollytelling-step__content" data-index="{i}">
-          {@html text}
-        </div>
-      </Cover>
+      <div class="scrollytelling-step">
+        <Cover>
+          {#if data.altText}
+            <p class="visually-hidden">{data.altText}</p>
+          {/if}
+          <div class="centered scrollytelling-step__content" data-index="{i}">
+            {@html text}
+          </div>
+        </Cover>
+      </div>
     {/each}
   </div>
 

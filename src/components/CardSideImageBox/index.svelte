@@ -8,8 +8,8 @@
   export let gridSpace = "var(--s-1)";
 </script>
 
-<div class="{`card ${className}`}">
-  <Box className="{'invert'}">
+<div class="{`card invert ${className}`}">
+  <Box>
     <CardSideImage {cardData} {stackSpace} {gridSpace} />
   </Box>
 </div>

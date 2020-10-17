@@ -9,8 +9,8 @@
   export let minWidth = "20ch";
 </script>
 
-<div class="{`card ${className}`}">
-  <Box className="{'invert'}">
+<div class="{`card invert ${className}`}">
+  <Box>
     <CardImageBelow {cardData} {stackSpace} {gridSpace} {minWidth} />
   </Box>
 </div>

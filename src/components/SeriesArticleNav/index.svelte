@@ -55,45 +55,47 @@
   }
 </style>
 
-<Stack className="{`series-article-nav ${className}`}" stackSpace="var(--s1)">
+<div class="{`series-article-nav ${className}`}">
+  <Stack stackSpace="var(--s1)">
 
-  <Stack stackSpace="var(--s-3)">
-    {@html headline}
+    <Stack stackSpace="var(--s-3)">
+      {@html headline}
 
-    {#if stand}
-      {@html stand}
+      {#if stand}
+        {@html stand}
+      {/if}
+    </Stack>
+
+    {#if mounted}
+      <ToggleButton
+        {expanded}
+        {message}
+        {expandedMessage}
+        on:click="{handleClick}"
+      />
     {/if}
-  </Stack>
 
-  {#if mounted}
-    <ToggleButton
-      {expanded}
-      {message}
-      {expandedMessage}
-      on:click="{handleClick}"
-    />
-  {/if}
-
-  <ul hidden="{!expanded}">
-    {#each articles as { title, url, doi, published }}
-      <li class:list-item--current="{doi === parentDoi}">
-        {#if published}
-          <a
-            aria-current="{doi === parentDoi ? 'page' : null}"
-            href="{url}"
-            target="_parent"
-            data-track="click"
-            data-event-category="article-series-link"
-            data-event-action="click"
-            data-event-label="{`from ${parentDoi} to ${url}`}"
-          >
+    <ul hidden="{!expanded}">
+      {#each articles as { title, url, doi, published }}
+        <li class:list-item--current="{doi === parentDoi}">
+          {#if published}
+            <a
+              aria-current="{doi === parentDoi ? 'page' : null}"
+              href="{url}"
+              target="_parent"
+              data-track="click"
+              data-event-category="article-series-link"
+              data-event-action="click"
+              data-event-label="{`from ${parentDoi} to ${url}`}"
+            >
+              {@html title}
+            </a>
+          {:else}
             {@html title}
-          </a>
-        {:else}
-          {@html title}
-        {/if}
-      </li>
-    {/each}
-  </ul>
+          {/if}
+        </li>
+      {/each}
+    </ul>
 
-</Stack>
+  </Stack>
+</div>

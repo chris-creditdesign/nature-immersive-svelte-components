@@ -37,9 +37,9 @@ export const ConstrainedWidth = () => ({
   Component: CardImageBelow,
   props: {
     className: "test",
-    stackSpace: "var(--s-1)", /* default */
-    gridSpace: "var(--s-1)", /* default */
-    minWidth: "20ch", /* default - mid width of grid items */
+    stackSpace: "var(--s-1)" /* default */,
+    gridSpace: "var(--s-1)" /* default */,
+    minWidth: "20ch" /* default - mid width of grid items */,
     cardData: {
       authorName: "Author Name <i>et al</i>.",
       journal: "<span class='test'>Journal</span> Name",

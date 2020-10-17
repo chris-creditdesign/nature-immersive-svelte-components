@@ -8,22 +8,20 @@
     margin-top: var(--s4);
     font-family: var(--sans-serif-font);
     font-size: var(--font-size-small-1);
+    align-items: flex-start;
   }
 
   a {
     color: var(--text-color-invert);
   }
-
-  /* Make sure the SVG logo is aligned left */
-  :global(.footer-logo-container) {
-    align-items: flex-start;
-  }
 </style>
 
 <footer class="footer invert" role="contentinfo">
   <Box>
-    <Stack className="footer-logo-container" stackSpace="var(--s-1)">
-      <LogoSpringerNature height="{1.5}" />
+    <Stack stackSpace="var(--s-1)">
+      <div>
+        <LogoSpringerNature height="{1.5}" />
+      </div>
 
       <ClusterList>
         <li>

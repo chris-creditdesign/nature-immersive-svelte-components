@@ -104,7 +104,7 @@
     max-width: none;
   }
 
-  :global(.image-slider) {
+  .image-slider {
     font-family: var(--sans-serif-font);
     font-size: var(--font-size-small-1);
   }
@@ -147,35 +147,37 @@
   }
 </style>
 
-<Stack className="{`image-slider ${className}`}">
-  <div class="canvas-border">
-    <div class="canvas-container">
-      <canvas bind:this="{canvas}" {width} {height}>
+<div class="image-slider">
+  <Stack {className}>
+    <div class="canvas-border">
+      <div class="canvas-container">
+        <canvas bind:this="{canvas}" {width} {height}>
 
-        <p>Interactive section used to compare two images.</p>
-        <dl>
-          <dt>Image one</dt>
-          <dd>{imageData[0].altText}</dd>
-          <dt>Image two</dt>
-          <dd>{imageData[1].altText}</dd>
-        </dl>
+          <p>Interactive section used to compare two images.</p>
+          <dl>
+            <dt>Image one</dt>
+            <dd>{imageData[0].altText}</dd>
+            <dt>Image two</dt>
+            <dd>{imageData[1].altText}</dd>
+          </dl>
 
-      </canvas>
+        </canvas>
+      </div>
     </div>
-  </div>
 
-  <fieldset class="stack--fieldset">
-    <legend class="bold">{message}</legend>
-    <input
-      type="range"
-      id="image-reveal"
-      min="0"
-      max="100"
-      bind:value="{amountToReveal}"
-      step="1"
-    />
-    <label class="visually-hidden" for="image-reveal">
-      {amountToReveal}% of the second image is revealed.
-    </label>
-  </fieldset>
-</Stack>
+    <fieldset class="stack--fieldset">
+      <legend class="bold">{message}</legend>
+      <input
+        type="range"
+        id="image-reveal"
+        min="0"
+        max="100"
+        bind:value="{amountToReveal}"
+        step="1"
+      />
+      <label class="visually-hidden" for="image-reveal">
+        {amountToReveal}% of the second image is revealed.
+      </label>
+    </fieldset>
+  </Stack>
+</div>
