@@ -1,11 +1,14 @@
 <script>
-  import { Stack, Grid } from "creditdesign-svelte-components";
-  import Image from "../Image/index.svelte";
+  import { Stack } from "creditdesign-svelte-components";
+  import CardImageBelowSidebar from "./components/CardImageBelowSidebar.svelte";
+  import CardImageBelowStack from "./components/CardImageBelowStack.svelte";
 
   export let className = "";
   export let stackSpace = "var(--s-1)";
-  export let gridSpace = "var(--s-1)";
-  export let minWidth = "20ch";
+  export let sidebarWidth = "20ch";
+  export let sidebarContentMinWidth;
+  export let sidebarSpace;
+  export let sidebarOnLeft;
   export let cardData;
 
   let {
@@ -26,11 +29,6 @@
     font-family: var(--sans-serif-font);
     font-size: var(--font-size-small-1);
     font-style: italic;
-  }
-
-  .footnote {
-    font-family: var(--sans-serif-font);
-    font-size: var(--font-size-small-1);
   }
 
   .author-name {
@@ -76,24 +74,22 @@
       </Stack>
     </header>
 
-    <Grid gridRowSpace="{gridSpace}" gridColumnSpace="{gridSpace}" {minWidth}>
-      {#if srcURL}
-        <Image {altText} {caption} {srcURL} />
-      {/if}
-      <Stack {stackSpace}>
-        {#if text}
-          <p>
-            {@html text}
-          </p>
-        {/if}
-
-        {#if footnote}
-          <p class="footnote">
-            {@html footnote}
-          </p>
-        {/if}
-      </Stack>
-    </Grid>
+    {#if srcURL}
+      <CardImageBelowSidebar
+        {altText}
+        {caption}
+        {footnote}
+        {sidebarContentMinWidth}
+        {sidebarOnLeft}
+        {sidebarSpace}
+        {sidebarWidth}
+        {srcURL}
+        {stackSpace}
+        {text}
+      />
+    {:else}
+      <CardImageBelowStack {stackSpace} {text} {footnote} />
+    {/if}
 
   </Stack>
 </div>

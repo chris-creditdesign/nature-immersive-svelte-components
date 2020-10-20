@@ -5,8 +5,10 @@
   export let className;
   export let cardData;
   export let stackSpace;
-  export let gridSpace;
-  export let minWidth;
+  export let sidebarWidth;
+  export let sidebarContentMinWidth;
+  export let sidebarSpace;
+  export let sidebarOnLeft;
 </script>
 
 <Center centerMeasure="800px">
@@ -15,8 +17,10 @@
       {className}
       {cardData}
       {stackSpace}
-      {gridSpace}
-      {minWidth}
+      {sidebarWidth}
+      {sidebarContentMinWidth}
+      {sidebarSpace}
+      {sidebarOnLeft}
     />
   </Box>
 </Center>

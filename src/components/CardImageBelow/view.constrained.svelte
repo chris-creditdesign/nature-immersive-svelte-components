@@ -4,11 +4,23 @@
 
   export let className;
   export let stackSpace;
+  export let sidebarWidth;
+  export let sidebarContentMinWidth;
+  export let sidebarSpace;
+  export let sidebarOnRight;
   export let cardData;
 </script>
 
-<Center centerMeasure="600px">
+<Center centerMeasure="800px">
   <Box>
-    <CardImageBelow {className} {stackSpace} {cardData} />
+    <CardImageBelow
+      {className}
+      {stackSpace}
+      {sidebarWidth}
+      {sidebarContentMinWidth}
+      {sidebarSpace}
+      {sidebarOnRight}
+      {cardData}
+    />
   </Box>
 </Center>

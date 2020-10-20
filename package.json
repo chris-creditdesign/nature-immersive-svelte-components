@@ -23,7 +23,7 @@
     "@storybook/addon-docs": "^6.0.26",
     "@storybook/svelte": "^6.0.26",
     "babel-loader": "^8.1.0",
-    "creditdesign-svelte-components": "0.0.3",
+    "creditdesign-svelte-components": "^0.1.1",
     "eslint": "^7.4.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
