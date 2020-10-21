@@ -3,16 +3,14 @@
   import Image from "../../Image/index.svelte";
   import CardImageBelowStack from "./CardImageBelowStack.svelte";
 
-  export let altText;
-  export let caption;
-  export let footnote;
+  export let cardData;
   export let sidebarContentMinWidth;
   export let sidebarOnLeft;
   export let sidebarSpace;
   export let sidebarWidth;
-  export let srcURL;
   export let stackSpace;
-  export let text;
+
+  let { altText, caption, srcURL } = cardData;
 </script>
 
 <Sidebar {sidebarWidth} {sidebarContentMinWidth} {sidebarSpace} {sidebarOnLeft}>
@@ -20,6 +18,6 @@
     <Image {altText} {caption} {srcURL} />
   </div>
   <div slot="main-content">
-    <CardImageBelowStack {stackSpace} {text} {footnote} />
+    <CardImageBelowStack {stackSpace} {cardData} />
   </div>
 </Sidebar>

@@ -1,7 +1,7 @@
 <script>
   import { Stack } from "creditdesign-svelte-components";
 
-  export let id;
+  export let id = null;
   export let cardData;
 
   let { eyebrow, subHead, headline, href } = cardData;

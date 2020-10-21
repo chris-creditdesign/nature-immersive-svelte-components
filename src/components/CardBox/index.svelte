@@ -2,7 +2,7 @@
   import { Box } from "creditdesign-svelte-components";
   import Card from "../Card/index.svelte";
 
-  export let id;
+  export let id = null;
   export let className = "";
   export let cardData;
   export let stackSpace = "var(--s-1)";
