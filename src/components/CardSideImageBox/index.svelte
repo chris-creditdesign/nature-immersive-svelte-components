@@ -2,6 +2,7 @@
   import { Box } from "creditdesign-svelte-components";
   import CardSideImage from "../CardSideImage/index.svelte";
 
+  export let id;
   export let className = "";
   export let cardData;
   export let stackSpace = "var(--s-1)";
@@ -10,6 +11,6 @@
 
 <div class="{`card invert ${className}`}">
   <Box>
-    <CardSideImage {cardData} {stackSpace} {gridSpace} />
+    <CardSideImage {id} {cardData} {stackSpace} {gridSpace} />
   </Box>
 </div>

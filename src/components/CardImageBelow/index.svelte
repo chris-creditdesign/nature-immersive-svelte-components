@@ -3,6 +3,7 @@
   import CardImageBelowSidebar from "./components/CardImageBelowSidebar.svelte";
   import CardImageBelowStack from "./components/CardImageBelowStack.svelte";
 
+  export let id = null;
   export let className = "";
   export let stackSpace = "var(--s-1)";
   export let sidebarWidth = "20ch";
@@ -35,7 +36,7 @@
   }
 </style>
 
-<div class="{`card ${className}`}">
+<div {id} tabindex="{id ? '-1' : null}" class="{`card ${className}`}">
   <Stack {stackSpace}>
     <header>
       <Stack stackSpace="var(--s-4)">

@@ -2,6 +2,7 @@
   import { Stack } from "creditdesign-svelte-components";
   import Image from "../Image/index.svelte";
 
+  export let id = null;
   export let className = "";
   export let stackSpace = "var(--s-1)";
   export let cardData;
@@ -30,7 +31,7 @@
   }
 </style>
 
-<div class="{`card ${className}`}">
+<div {id} tabindex="{id ? '-1' : null}" class="{`card ${className}`}">
   <Stack {stackSpace}>
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />

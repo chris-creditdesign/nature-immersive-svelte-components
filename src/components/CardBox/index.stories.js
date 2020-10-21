@@ -32,6 +32,7 @@ export const ConstrainedWidth = () => ({
   Component: CardBox,
   props: {
     className: "test",
+	id: "test",
     stackSpace: "var(--s-1)" /* default */,
     cardData: {
       authorName: "Author Name <i>et al</i>.",
@@ -44,7 +45,7 @@ export const ConstrainedWidth = () => ({
       headline: "Headline",
       href: "https://www.nature.com",
       text:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus. Qui beatae, id quasi neque veniam sequi doloremque, officia voluptatibus expedita optio repudiandae quos ad! Aut, rerum.",
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus. Qui beatae, id quasi neque veniam sequi doloremque, officia voluptatibus expedita optio repudiandae quos ad! Aut, rerum. <a href='https://www.nature.com'>Read more.</a>",
     },
   },
 });

@@ -1,7 +1,8 @@
 <script>
   import { Box, Center } from "creditdesign-svelte-components";
-  import CardSideImageBox from "./index.svelte";
+  import CardImageBelowBox from "./index.svelte";
 
+  export let id;
   export let className;
   export let cardData;
   export let stackSpace;
@@ -13,7 +14,8 @@
 
 <Center centerMeasure="800px">
   <Box>
-    <CardSideImageBox
+    <CardImageBelowBox
+      {id}
       {className}
       {cardData}
       {stackSpace}
@@ -24,3 +26,7 @@
     />
   </Box>
 </Center>
+
+{#if id}
+  <a href="#test">Click to focus</a>
+{/if}

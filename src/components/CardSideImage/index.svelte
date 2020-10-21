@@ -3,6 +3,7 @@
   import Card from "../Card/index.svelte";
   import Image from "../Image/index.svelte";
 
+  export let id = null;
   export let className = "";
   export let cardData;
   export let stackSpace = "var(--s-1)";
@@ -14,7 +15,7 @@
   let cardDataNoImage = { ...cardData, srcURL: undefined };
 </script>
 
-<div class="{`card ${className}`}">
+<div {id} tabindex="{id ? '-1' : null}" class="{`card ${className}`}">
   <Grid gridRowSpace="{gridSpace}" gridColumnSpace="{gridSpace}" {minWidth}>
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />
