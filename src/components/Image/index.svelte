@@ -20,14 +20,12 @@
 
   figcaption {
     margin-top: var(--s-3);
-    font-family: var(--sans-serif-font);
-    font-size: var(--font-size-small-1);
   }
 </style>
 
 <figure class="{`${className}`}">
   <img {src} alt="{altText}" />
-  <figcaption>
+  <figcaption class="font-size:small font-family:sans-serif">
     {@html caption}
   </figcaption>
 </figure>

@@ -91,15 +91,7 @@
     padding: 0;
   }
 
-  .menu {
-    font-family: var(--sans-serif-font);
-  }
-
   /* -------------------------- Skip to main content -------------------------- */
-
-  .skip-link {
-    font-family: var(--sans-serif-font);
-  }
 
   .skip-link:not(:focus) {
     position: absolute !important;
@@ -187,8 +179,14 @@
   }
 </style>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
-<header role="banner" class="{`menu menu--box invert ${className}`}" {style}>
+<a href="#main-content" class="skip-link font-family:sans-serif">
+  Skip to main content
+</a>
+<header
+  role="banner"
+  class="{`menu menu--box invert font-family:sans-serif ${className}`}"
+  {style}
+>
   <div class="menu__cluster">
     <a
       href="https://www.nature.com"

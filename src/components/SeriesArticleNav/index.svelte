@@ -31,11 +31,6 @@
 </script>
 
 <style>
-  :global(.series-article-nav) {
-    font-family: var(--sans-serif-font);
-    font-size: var(--font-size-small-1);
-  }
-
   ul {
     padding: 0;
     list-style: none;
@@ -55,7 +50,9 @@
   }
 </style>
 
-<div class="{`series-article-nav ${className}`}">
+<div
+  class="{`series-article-nav font-size:small font-family:sans-serif ${className}`}"
+>
   <Stack stackSpace="var(--s1)">
 
     <Stack stackSpace="var(--s-3)">

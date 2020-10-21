@@ -20,28 +20,12 @@
 </script>
 
 <style>
-  .journal-name {
-    font-family: var(--sans-serif-font);
-    font-size: var(--font-size-small-1);
-    font-style: italic;
-  }
-
-  .footnote {
-    font-family: var(--sans-serif-font);
-    font-size: var(--font-size-small-1);
-  }
-
-  .author-name {
-    font-family: var(--sans-serif-font);
-    font-size: var(--font-size-small-1);
-  }
-
   /* Makes sure focus ring shows up over header link */
   header a {
     display: block;
   }
 
-  h3 {
+  .headline {
     margin: 0;
   }
 </style>
@@ -55,7 +39,7 @@
     <header>
       <Stack stackSpace="var(--s-4)">
         {#if journal}
-          <p class="journal-name">
+          <p class="journal font-size:small font-family:sans-serif">
             {@html journal}
           </p>
         {/if}
@@ -66,12 +50,12 @@
           data-event-action="click"
           data-event-label="{headline}"
         >
-          <h3>
+          <h3 class="headline">
             {@html headline}
           </h3>
         </a>
         {#if authorName}
-          <p class="author-name">
+          <p class="author font-size:small font-family:sans-serif">
             {@html authorName}
           </p>
         {/if}
@@ -85,7 +69,7 @@
     {/if}
 
     {#if footnote}
-      <p class="footnote">
+      <p class="footnote font-size:small font-family:sans-serif">
         {@html footnote}
       </p>
     {/if}

@@ -5,10 +5,8 @@
 
 <style>
   .footer {
-    margin-top: var(--s4);
-    font-family: var(--sans-serif-font);
-    font-size: var(--font-size-small-1);
     align-items: flex-start;
+    margin-top: var(--s4);
   }
 
   a {
@@ -16,7 +14,10 @@
   }
 </style>
 
-<footer class="footer invert" role="contentinfo">
+<footer
+  class="footer invert font-size:small font-family:sans-serif"
+  role="contentinfo"
+>
   <Box>
     <Stack stackSpace="var(--s-1)">
       <div>

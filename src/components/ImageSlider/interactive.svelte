@@ -104,11 +104,6 @@
     max-width: none;
   }
 
-  .image-slider {
-    font-family: var(--sans-serif-font);
-    font-size: var(--font-size-small-1);
-  }
-
   canvas {
     max-width: 100%;
   }
@@ -147,7 +142,7 @@
   }
 </style>
 
-<div class="image-slider">
+<div class="image-slider font-size:small font-family:sans-serif">
   <Stack {className}>
     <div class="canvas-border">
       <div class="canvas-container">

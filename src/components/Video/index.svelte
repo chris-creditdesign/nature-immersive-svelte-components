@@ -83,8 +83,6 @@
 
   figcaption {
     margin-top: var(--s-3);
-    font-family: var(--sans-serif-font);
-    font-size: var(--font-size-small-1);
   }
 </style>
 
@@ -123,7 +121,7 @@
   </div>
 
   {#if caption.length}
-    <figcaption>
+    <figcaption class="font-size:small font-family:sans-serif">
       {@html caption}
     </figcaption>
   {/if}

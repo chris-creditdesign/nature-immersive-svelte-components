@@ -156,3 +156,16 @@ sub {
   border: 0 !important;
   opacity: 0;
 }
+
+/* Text utilities */
+.font-size\:small {
+  font-size: var(--font-size-small-1);
+}
+
+.font-family\:sans-serif {
+  font-family: var(--sans-serif-font);
+}
+
+.font-style\:italic {
+  font-style: italic;
+}
