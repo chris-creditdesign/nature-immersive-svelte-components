@@ -6,7 +6,7 @@ addParameters({
   },
 });
 
-import "../static/css/harding.css"
+import "../static/css/fonts.css"
 import "../static/css/custom-props.css"
 import "../static/css/light-theme.css"
 import "../static/css/index.css"
