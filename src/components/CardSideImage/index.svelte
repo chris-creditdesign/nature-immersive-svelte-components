@@ -15,11 +15,11 @@
   let cardDataNoImage = { ...cardData, srcURL: undefined };
 </script>
 
-<div {id} tabindex="{id ? '-1' : null}" class="{`card ${className}`}">
+<div class="{`card ${className}`}">
   <Grid gridRowSpace="{gridSpace}" gridColumnSpace="{gridSpace}" {minWidth}>
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />
     {/if}
-    <Card cardData="{cardDataNoImage}" {stackSpace} />
+    <Card {id} cardData="{cardDataNoImage}" {stackSpace} />
   </Grid>
 </div>
