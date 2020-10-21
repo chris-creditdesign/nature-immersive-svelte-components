@@ -8,8 +8,8 @@
   export let cardData;
 
   let {
-    journal,
-    authorName,
+    eyebrow,
+    subHead,
     altText,
     caption,
     footnote,
@@ -39,9 +39,9 @@
 
     <header>
       <Stack stackSpace="var(--s-4)">
-        {#if journal}
-          <p class="journal font-size:small font-family:sans-serif">
-            {@html journal}
+        {#if eyebrow}
+          <p class="eyebrow font-size:small font-family:sans-serif">
+            {@html eyebrow}
           </p>
         {/if}
         <a
@@ -55,9 +55,9 @@
             {@html headline}
           </h3>
         </a>
-        {#if authorName}
+        {#if subHead}
           <p class="author font-size:small font-family:sans-serif">
-            {@html authorName}
+            {@html subHead}
           </p>
         {/if}
       </Stack>

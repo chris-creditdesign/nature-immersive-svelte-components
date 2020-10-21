@@ -4,16 +4,14 @@ import cardData from "../preview-content/card-data.js";
 import docs from "./docs.mdx";
 
 const cardDataNoImage = { ...cardData, srcURL: undefined };
-const cardDataNoImageNoAuthor = {
+const cardDataNoAuthor = {
   ...cardData,
-  srcURL: undefined,
-  authorName: undefined,
+  subHead: undefined,
 };
-const cardDataNoImageNoAuthorNoJournal = {
+const cardDataNoAuthorNoJournal = {
   ...cardData,
-  srcURL: undefined,
-  authorName: undefined,
-  journal: undefined,
+  subHead: undefined,
+  eyebrow: undefined,
 };
 
 export default {
@@ -40,8 +38,8 @@ export const ConstrainedWidth = () => ({
     id: "test",
     stackSpace: "var(--s-1)" /* default */,
     cardData: {
-      authorName: "Author Name <i>et al</i>.",
-      journal: "Journal Name",
+      subHead: "Author Name <i>et al</i>.",
+      eyebrow: "Journal Name",
       altText: "This is the alt text",
       caption: "This is the caption",
       srcURL: "img/image.jpg",
@@ -67,14 +65,14 @@ export const NoAuthor = () => ({
   Component: Card,
   props: {
     className: "test",
-    cardData: cardDataNoImageNoAuthor,
+    cardData: cardDataNoAuthor,
   },
 });
 
-export const NoJournal = () => ({
+export const NoJournalNoJournal = () => ({
   Component: Card,
   props: {
     className: "test",
-    cardData: cardDataNoImageNoAuthorNoJournal,
+    cardData: cardDataNoAuthorNoJournal,
   },
 });

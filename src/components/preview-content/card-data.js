@@ -1,6 +1,6 @@
 const cardData = {
-  authorName: "Author Name <i>et al</i>.",
-  journal: "Journal Name",
+  subHead: "Author Name <i>et al</i>.",
+  eyebrow: "Journal Name",
   altText: "This is the alt text",
   caption: "This is the caption",
   srcURL: "img/image.jpg",

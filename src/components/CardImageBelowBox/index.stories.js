@@ -24,7 +24,7 @@ export const ImageOnRight = () => ({
   Component: ViewDefault,
   props: {
     className: "test",
-	sidebarOnLeft: false,
+    sidebarOnLeft: false,
     cardData,
   },
 });
@@ -33,15 +33,15 @@ export const ConstrainedWidth = () => ({
   Component: CardImageBelowBox,
   props: {
     className: "test",
-	id: "test",
+    id: "test",
     stackSpace: "var(--s-1)" /* default */,
     sidebarWidth: "20ch" /* default */,
     sidebarContentMinWidth: "50%;" /* default */,
     sidebarSpace: "var(--s-1)" /* default */,
     sidebarOnLeft: true /* default */,
     cardData: {
-      authorName: "Author Name <i>et al</i>.",
-      journal: "<span class='test'>Journal</span> Name",
+      subHead: "Author Name <i>et al</i>.",
+      eyebrow: "<span class='test'>Journal</span> Name",
       altText: "This is the alt text",
       caption: "This is the caption",
       srcURL: "img/image.jpg",
@@ -60,8 +60,8 @@ export const NoImage = () => ({
   props: {
     className: "test",
     cardData: {
-      authorName: "Author Name <i>et al</i>.",
-      journal: "<span class='test'>Journal</span> Name",
+      subHead: "Author Name <i>et al</i>.",
+      eyebrow: "<span class='test'>Journal</span> Name",
       altText: "This is the alt text",
       caption: "This is the caption",
       srcURL: undefined,
@@ -80,8 +80,8 @@ export const NoAuthor = () => ({
   props: {
     className: "test",
     cardData: {
-      authorName: undefined,
-      journal: "<span class='test'>Journal</span> Name",
+      subHead: undefined,
+      eyebrow: "<span class='test'>Journal</span> Name",
       altText: "This is the alt text",
       caption: "This is the caption",
       srcURL: "img/image.jpg",
@@ -100,8 +100,8 @@ export const NoJournal = () => ({
   props: {
     className: "test",
     cardData: {
-      authorName: "Author Name <i>et al</i>.",
-      journal: undefined,
+      subHead: "Author Name <i>et al</i>.",
+      eyebrow: undefined,
       altText: "This is the alt text",
       caption: "This is the caption",
       srcURL: "img/image.jpg",
