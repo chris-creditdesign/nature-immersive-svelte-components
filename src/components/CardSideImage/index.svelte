@@ -4,6 +4,7 @@
   import Image from "../Image/index.svelte";
 
   export let id = null;
+  export let headerLevel = "h2";
   export let className = "";
   export let cardData;
   export let stackSpace = "var(--s-1)";
@@ -20,6 +21,6 @@
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />
     {/if}
-    <Card {id} cardData="{cardDataNoImage}" {stackSpace} />
+    <Card {headerLevel} {id} cardData="{cardDataNoImage}" {stackSpace} />
   </Grid>
 </div>

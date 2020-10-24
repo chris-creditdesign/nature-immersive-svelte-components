@@ -5,6 +5,7 @@
   import CardImageBelowStack from "./components/CardImageBelowStack.svelte";
 
   export let id = null;
+  export let headerLevel = "h2";
   export let className = "";
   export let cardData;
   export let stackSpace = "var(--s-1)";
@@ -18,7 +19,7 @@
 
 <div class="{`card ${className}`}">
   <Stack {stackSpace}>
-    <CardHeader {id} {cardData} />
+    <CardHeader {headerLevel} {id} {cardData} />
 
     {#if srcURL}
       <CardImageBelowSidebar

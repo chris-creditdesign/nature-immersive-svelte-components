@@ -3,6 +3,7 @@
   import CardImageBelowBox from "./index.svelte";
 
   export let id;
+  export let headerLevel;
   export let className;
   export let cardData;
   export let stackSpace;
@@ -15,6 +16,7 @@
 <Center centerMeasure="800px">
   <Box>
     <CardImageBelowBox
+      {headerLevel}
       {id}
       {className}
       {cardData}

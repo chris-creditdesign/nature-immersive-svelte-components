@@ -4,6 +4,7 @@
   import { Stack } from "creditdesign-svelte-components";
 
   export let id = null;
+  export let headerLevel = "h2";
   export let className = "";
   export let stackSpace = "var(--s-1)";
   export let cardData;
@@ -17,7 +18,7 @@
       <Image {altText} {caption} {srcURL} />
     {/if}
 
-    <CardHeader {id} {cardData} />
+    <CardHeader {headerLevel} {id} {cardData} />
 
     {#if text}
       <p>

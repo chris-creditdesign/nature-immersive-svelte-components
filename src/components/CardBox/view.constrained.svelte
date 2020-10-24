@@ -3,6 +3,7 @@
   import CardBox from "./index.svelte";
 
   export let id;
+  export let headerLevel;
   export let className;
   export let cardData;
   export let stackSpace;
@@ -10,7 +11,7 @@
 
 <Center centerMeasure="600px">
   <Box>
-    <CardBox {id} {className} {cardData} {stackSpace} />
+    <CardBox {headerLevel} {id} {className} {cardData} {stackSpace} />
   </Box>
 </Center>
 

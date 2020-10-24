@@ -3,6 +3,7 @@
   import CardImageBelow from "../CardImageBelow/index.svelte";
 
   export let id = null;
+  export let headerLevel = "h2";
   export let className = "";
   export let cardData;
   export let stackSpace = "var(--s-1)";
@@ -15,6 +16,7 @@
 <div class="{`card invert ${className}`}">
   <Box>
     <CardImageBelow
+      {headerLevel}
       {id}
       {cardData}
       {stackSpace}

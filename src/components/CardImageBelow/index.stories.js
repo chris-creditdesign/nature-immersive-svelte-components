@@ -34,6 +34,7 @@ export const ConstrainedWidth = () => ({
   props: {
     className: "test",
     id: "test",
+    headerLevel: "h2" /* default */,
     stackSpace: "var(--s-1)" /* default */,
     sidebarWidth: "20ch" /* default */,
     sidebarContentMinWidth: "50%;" /* default */,
@@ -60,6 +61,7 @@ export const NoLink = () => ({
   props: {
     className: "test",
     id: "test",
+    headerLevel: "h2" /* default */,
     stackSpace: "var(--s-1)" /* default */,
     sidebarWidth: "20ch" /* default */,
     sidebarContentMinWidth: "50%;" /* default */,
@@ -75,6 +77,33 @@ export const NoLink = () => ({
       footnote: "Footnote",
       headline: "Headline",
       href: undefined,
+      text:
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus. Qui beatae, id quasi neque veniam sequi doloremque, officia voluptatibus expedita optio repudiandae quos ad! Aut, rerum. <a href='https://www.nature.com'>Read more.</a>",
+    },
+  },
+});
+
+export const HeaderLevelThree = () => ({
+  Component: CardImageBelow,
+  props: {
+    className: "test",
+    id: "test",
+    headerLevel: "h3",
+    stackSpace: "var(--s-1)" /* default */,
+    sidebarWidth: "20ch" /* default */,
+    sidebarContentMinWidth: "50%;" /* default */,
+    sidebarSpace: "var(--s-1)" /* default */,
+    sidebarOnLeft: true /* default */,
+    cardData: {
+      subHead: "Author Name <i>et al</i>.",
+      eyebrow: "<span class='test'>Journal</span> Name",
+      altText: "This is the alt text",
+      caption: "This is the caption",
+      srcURL: "img/image.jpg",
+      captionSpace: "" /* What is this? */,
+      footnote: "Footnote",
+      headline: "Headline",
+      href: "https://www.nature.com",
       text:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus. Qui beatae, id quasi neque veniam sequi doloremque, officia voluptatibus expedita optio repudiandae quos ad! Aut, rerum. <a href='https://www.nature.com'>Read more.</a>",
     },
