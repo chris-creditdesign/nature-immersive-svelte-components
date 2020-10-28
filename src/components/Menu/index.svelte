@@ -23,11 +23,14 @@
 </script>
 
 <style>
-  /* Special case for links and button in header */
+  /* Special case for links and button in header 
+     Set all links to be white or black initially - rather than the normal link color.
+     On hover or focus add a coloured border rather than the default outline as 
+     this is being clipped by the negative margins.
+  */
 
   header {
     --link-color-invert: var(--text-color-invert);
-    --link-color-active: var(--outline);
   }
 
   :global(header a, header button) {
@@ -40,13 +43,8 @@
 
   :global(header a:hover, header a:focus, header button:hover, header
       button:focus) {
-    text-decoration: none;
-    background-color: var(--background-color-invert);
-    outline: none;
-  }
-
-  :global(header a:focus, header button:focus) {
     border: 2px solid var(--outline);
+    outline: none;
   }
 
   /* -------------------------- Skip to main content -------------------------- */

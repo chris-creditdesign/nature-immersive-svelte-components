@@ -12,12 +12,12 @@
   button {
     font-size: var(--font-size-base);
     cursor: pointer;
-    background: none;
+    background-color: inherit;
   }
 
   button:hover,
   button:focus {
-    color: var(--link-color-active);
+    background-color: var(--outline);
     fill: var(--link-color-active);
   }
 
