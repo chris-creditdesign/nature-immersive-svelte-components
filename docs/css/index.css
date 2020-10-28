@@ -45,7 +45,7 @@ h2 {
 }
 
 h1 {
-  font-size: var(--font-size-big-3);
+  font-size: var(--font-size-big-4);
 }
 
 /* text */
@@ -57,6 +57,7 @@ p {
 a {
   color: var(--link-color);
   text-decoration: underline;
+  fill: var(--link-color);
 }
 
 a:hover,
@@ -64,6 +65,7 @@ a:focus {
   color: var(--link-color-active);
   background-color: var(--outline);
   outline: 3px solid var(--outline);
+  fill: var(--link-color-active);
 }
 
 button:hover,
@@ -117,11 +119,13 @@ sub {
 
 .invert a {
   color: var(--link-color-invert);
+  fill: var(--link-color-invert);
 }
 
 .invert a:hover,
 .invert a:focus {
   color: var(--link-color-active);
+  fill: var(--link-color-active);
 }
 
 /* Borders */
@@ -133,11 +137,9 @@ sub {
 /* Dropcap */
 .drop-cap::first-letter {
   float: left;
-  padding-top: 8px;
-  padding-right: 3px;
-  padding-left: 0;
-  font-size: 88px;
-  line-height: 62px;
+  padding-top: 0.55rem;
+  font-size: 4.85rem;
+  line-height: 3rem;
 }
 
 /* -------------------------------- Utilities ------------------------------- */
@@ -157,4 +159,17 @@ sub {
   clip: rect(0, 0, 0, 0);
   border: 0 !important;
   opacity: 0;
+}
+
+/* Text utilities */
+.font-size\:small {
+  font-size: var(--font-size-small-1);
+}
+
+.font-family\:sans-serif {
+  font-family: var(--sans-serif-font);
+}
+
+.font-style\:italic {
+  font-style: italic;
 }
