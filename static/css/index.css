@@ -57,6 +57,7 @@ p {
 a {
   color: var(--link-color);
   text-decoration: underline;
+  fill: var(--link-color);
 }
 
 a:hover,
@@ -64,6 +65,7 @@ a:focus {
   color: var(--link-color-active);
   background-color: var(--outline);
   outline: 3px solid var(--outline);
+  fill: var(--link-color-active);
 }
 
 button:hover,
@@ -117,11 +119,13 @@ sub {
 
 .invert a {
   color: var(--link-color-invert);
+  fill: var(--link-color-invert);
 }
 
 .invert a:hover,
 .invert a:focus {
   color: var(--link-color-active);
+  fill: var(--link-color-active);
 }
 
 /* Borders */
