@@ -1,5 +1,7 @@
 <script>
   import { onMount } from "svelte";
+  import { slide } from "svelte/transition";
+  import { quintOut } from "svelte/easing";
   import { Box, Stack, Sidebar, Cluster } from "creditdesign-svelte-components";
   import LogoNature from "../LogoNature/index.svelte";
   import SocialLinks from "./components/SocialLinks/index.svelte";
@@ -96,10 +98,16 @@
         </div>
       </Sidebar>
       {#if menuExpanded && menuLinks}
-        <div class="menu-list" id="menu-list">
+        <div
+          class="menu-list"
+          id="menu-list"
+          transition:slide="{{ duration: 300, easing: quintOut }}"
+        >
           <MenuList {menuLinks} />
         </div>
       {/if}
     </Stack>
   </Box>
 </header>
+
+<p>Content below</p>
