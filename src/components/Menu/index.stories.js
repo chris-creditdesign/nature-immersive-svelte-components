@@ -1,4 +1,5 @@
 import Menu from "./index.svelte";
+import ViewWithHeadingAsSlot from "./view.with-heading-as-slot.svelte";
 import articleData from "../preview-content/article-data.js";
 import docs from "./docs.mdx";
 
@@ -69,5 +70,31 @@ export const manyMenuLinks = () => ({
   props: {
     className: "test",
     articleData: articleDataManyMenuLinks,
+  },
+});
+
+export const withHeadingAsSlot = () => ({
+  Component: ViewWithHeadingAsSlot,
+  props: {
+    className: "test",
+    menuClusterSpace: "var(--s-4)" /* default */,
+    menuClusterJustifyContent: "flex-start" /* default */,
+    menuSwitcherSpace: "var(--s-1)" /* default */,
+    menuSwitcherMinWidth: "var(--measure-big)" /* default */,
+    menuBoxSpace: "var(--s-6)" /* default */,
+    articleData: {
+      doi: "123459789",
+      articleURL: "https://www.nature.com/articles/",
+      title: "Page title",
+      description: "Page description.",
+      menuLinks: [
+        { text: "View animation", href: "#" },
+        { text: "Controls", href: "#" },
+        { text: "Replay intro", href: "#" },
+        { text: "About Nature", href: "#" },
+        { text: "Credits", href: "#" },
+        { text: "Download data", href: "dat/data.zip" },
+      ],
+    },
   },
 });

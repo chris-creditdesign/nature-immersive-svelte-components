@@ -65,41 +65,44 @@
   Skip to main content
 </a>
 
-<header class="invert font-family:sans-serif">
-  <Box>
-    <Stack>
-      <Sidebar sidebarOnLeft="{false}">
-        <div slot="main-content">
-          <a
-            class="header__link--svg"
-            href="https://www.nature.com"
-            data-track="click"
-            data-event-category="menu"
-            data-event-action="click"
-            data-event-label="nature.com"
-          >
-            <LogoNature height="{1.6}" />
-          </a>
-        </div>
+<header>
+  <div class="menu__inner invert font-family:sans-serif">
+    <Box>
+      <Stack>
+        <Sidebar sidebarOnLeft="{false}">
+          <div slot="main-content">
+            <a
+              class="header__link--svg"
+              href="https://www.nature.com"
+              data-track="click"
+              data-event-category="menu"
+              data-event-action="click"
+              data-event-label="nature.com"
+            >
+              <LogoNature height="{1.6}" />
+            </a>
+          </div>
 
-        <div slot="sidebar">
-          <Cluster clusterSpace="var(--s-3)">
-            <SocialLinks {articleData} />
+          <div slot="sidebar">
+            <Cluster clusterSpace="var(--s-3)">
+              <SocialLinks {articleData} />
 
-            {#if menuLinks && mounted}
-              <ExpandButton
-                {menuExpanded}
-                on:menu-button-click="{handleButtonClick}"
-              />
-            {/if}
-          </Cluster>
-        </div>
-      </Sidebar>
-      {#if menuExpanded && menuLinks}
-        <div class="menu-list" id="menu-list">
-          <MenuList {menuLinks} />
-        </div>
-      {/if}
-    </Stack>
-  </Box>
+              {#if menuLinks && mounted}
+                <ExpandButton
+                  {menuExpanded}
+                  on:menu-button-click="{handleButtonClick}"
+                />
+              {/if}
+            </Cluster>
+          </div>
+        </Sidebar>
+        {#if menuExpanded && menuLinks}
+          <div class="menu-list" id="menu-list">
+            <MenuList {menuLinks} />
+          </div>
+        {/if}
+      </Stack>
+    </Box>
+  </div>
+  <slot />
 </header>

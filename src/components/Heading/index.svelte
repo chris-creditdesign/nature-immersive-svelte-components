@@ -46,7 +46,7 @@
   }
 </style>
 
-<section class="{`heading ${className}`}">
+<div class="{`heading ${className}`}">
   <Center {centerMeasure} {centerSpace}>
     <Stack {stackSpace}>
 
@@ -85,4 +85,4 @@
 
     </Stack>
   </Center>
-</section>
+</div>
