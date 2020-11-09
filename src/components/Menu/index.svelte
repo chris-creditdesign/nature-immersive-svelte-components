@@ -47,6 +47,12 @@
     outline: none;
   }
 
+  /* If menu wraps, make sure social buttons and button are on the left */
+  .sidebar {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   /* -------------------------- Skip to main content -------------------------- */
   .skip-link:not(:focus) {
     position: absolute !important;
@@ -83,7 +89,7 @@
             </a>
           </div>
 
-          <div slot="sidebar">
+          <div class="sidebar" slot="sidebar">
             <Cluster clusterSpace="var(--s-3)">
               <SocialLinks {articleData} />
 
