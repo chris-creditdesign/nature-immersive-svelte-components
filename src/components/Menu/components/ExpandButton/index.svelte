@@ -50,7 +50,6 @@
 <button
   on:click="{() => dispatch('menu-button-click')}"
   class="menu__button"
-  id="menu-expand-button"
   aria-expanded="{menuExpanded}"
   aria-controls="menu-list"
   data-event-category="menu"

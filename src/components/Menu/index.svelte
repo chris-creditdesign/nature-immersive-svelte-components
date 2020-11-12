@@ -102,11 +102,15 @@
             </Cluster>
           </div>
         </Sidebar>
-        {#if menuExpanded && menuLinks}
-          <div class="menu-list" id="menu-list">
-            <MenuList {menuLinks} />
-          </div>
-        {/if}
+
+        <div
+          class="menu-list"
+          id="menu-list"
+          hidden="{!(menuExpanded && menuLinks)}"
+        >
+          <MenuList {menuLinks} />
+        </div>
+
       </Stack>
     </Box>
   </div>
