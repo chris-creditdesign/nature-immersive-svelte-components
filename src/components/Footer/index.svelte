@@ -14,10 +14,7 @@
   }
 </style>
 
-<footer
-  class="footer invert font-size:small font-family:sans-serif"
-  role="contentinfo"
->
+<footer class="footer invert font-size:small font-family:sans-serif">
   <Box>
     <Stack stackSpace="var(--s-1)">
       <div>
