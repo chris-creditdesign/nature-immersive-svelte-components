@@ -25,7 +25,9 @@
 
 <figure class="{`${className}`}">
   <img {src} alt="{altText}" />
-  <figcaption class="font-size:small font-family:sans-serif">
-    {@html caption}
-  </figcaption>
+  {#if caption}
+    <figcaption class="font-size:small font-family:sans-serif">
+      {@html caption}
+    </figcaption>
+  {/if}
 </figure>
