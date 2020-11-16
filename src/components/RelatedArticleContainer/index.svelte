@@ -27,6 +27,9 @@
   }
 
   .related-article-container {
+    --related-article-flex-gap--component: initial;
+    --related-article-flex-basis--component: initial;
+
     display: flex;
     flex-wrap: wrap;
     gap: var(
