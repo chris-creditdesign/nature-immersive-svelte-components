@@ -56,10 +56,18 @@ export const Default = () => ({
   },
 });
 
-export const DifferentTitle = () => ({
+export const DifferentHeadline = () => ({
   Component: RelatedArticleContainer,
   props: {
     headline: "More like this",
+    relatedArticles: [cardData, cardData, cardData],
+  },
+});
+
+export const NoHeadline = () => ({
+  Component: RelatedArticleContainer,
+  props: {
+    headline: null,
     relatedArticles: [cardData, cardData, cardData],
   },
 });

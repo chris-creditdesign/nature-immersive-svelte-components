@@ -29,39 +29,50 @@
   .related-article-container {
     --related-article-flex-gap--component: initial;
     --related-article-flex-basis--component: initial;
-
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(
+    --related-article-flex-gap: var(
       --related-article-flex-gap--component,
       var(--related-article-flex-gap--global)
     );
-  }
-
-  .related-article-container__article {
-    flex-basis: var(
+    --related-article-flex-basis: var(
       --related-article-flex-basis--component,
       var(--related-article-flex-basis--global)
     );
+  }
+
+  .related-article-containe__inner {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    margin: calc(var(--related-article-flex-gap) / 2 * -1);
+  }
+
+  .related-article-container__article {
+    flex-basis: var(--related-article-flex-basis);
     flex-shrink: 1;
     flex-grow: 1;
+    margin: 1rem;
+    margin: calc(var(--related-article-flex-gap) / 2);
   }
 </style>
 
 <Stack>
-  <h2 class="font-family:sans-serif border-above">
-    {@html headline}
-  </h2>
+  {#if headline}
+    <h2 class="font-family:sans-serif border-above">
+      {@html headline}
+    </h2>
+  {/if}
   <div class="related-article-container" {style}>
-    {#each relatedArticles as cardData}
-      <div class="related-article-container__article">
-        <CardSideImageBox
-          headerLevel="h3"
-          {cardData}
-          stackSpace="{cardStackSpace}"
-          gridSpace="{cardGridSpace}"
-        />
-      </div>
-    {/each}
+    <div class="related-article-containe__inner">
+      {#each relatedArticles as cardData}
+        <div class="related-article-container__article">
+          <CardSideImageBox
+            headerLevel="h3"
+            {cardData}
+            stackSpace="{cardStackSpace}"
+            gridSpace="{cardGridSpace}"
+          />
+        </div>
+      {/each}
+    </div>
   </div>
 </Stack>
