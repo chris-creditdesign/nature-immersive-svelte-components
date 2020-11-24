@@ -34,7 +34,7 @@ export const Default = () => ({
         headline: "Article 1",
         href: "https://www.nature.com",
         text:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus.",
+          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus.",
       },
       {
         altText: "This is the alt text",

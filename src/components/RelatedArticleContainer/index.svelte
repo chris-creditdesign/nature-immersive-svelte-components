@@ -47,9 +47,11 @@
   }
 
   .related-article-container__article {
+    display: flex;
     flex-basis: var(--related-article-flex-basis);
     flex-shrink: 1;
     flex-grow: 1;
+    align-items: stretch;
     margin: 1rem;
     margin: calc(var(--related-article-flex-gap) / 2);
   }
