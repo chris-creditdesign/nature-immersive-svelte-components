@@ -1,6 +1,6 @@
 <script>
-  import { Stack } from "creditdesign-svelte-components";
-  import CardSideImageBox from "../CardSideImageBox/index.svelte";
+  import { Stack, Box } from "creditdesign-svelte-components";
+  import CardSideImage from "../CardSideImage/index.svelte";
 
   export let headline = "Related articles";
   export let relatedArticleFlexBasis = "";
@@ -66,13 +66,15 @@
   <div class="related-article-container" {style}>
     <div class="related-article-containe__inner">
       {#each relatedArticles as cardData}
-        <div class="related-article-container__article">
-          <CardSideImageBox
-            headerLevel="h3"
-            {cardData}
-            stackSpace="{cardStackSpace}"
-            gridSpace="{cardGridSpace}"
-          />
+        <div class="related-article-container__article invert">
+          <Box>
+            <CardSideImage
+              headerLevel="h3"
+              {cardData}
+              stackSpace="{cardStackSpace}"
+              gridSpace="{cardGridSpace}"
+            />
+          </Box>
         </div>
       {/each}
     </div>
