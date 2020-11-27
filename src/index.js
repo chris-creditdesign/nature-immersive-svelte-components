@@ -42,6 +42,10 @@ export { default as Image } from "./components/Image/index.svelte";
 
 export { default as Video } from "./components/Video/index.svelte";
 
+/* --------------------------------- YouTube -------------------------------- */
+
+export { default as YouTube } from "./components/YouTube/index.svelte";
+
 /* ---------------------------------- StaticImage ---------------------------------- */
 
 export { default as StaticImage } from "./components/StaticImage/index.svelte";
