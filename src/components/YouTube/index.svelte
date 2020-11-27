@@ -1,25 +1,7 @@
-<script context="module">
-  import { youTubeIframeAPIReady } from "./stores/youtube-iframe-api-ready.js";
-
-  // https://developers.google.com/youtube/iframe_api_reference
-  // This code loads the IFrame Player API code asynchronously.
-  if (document !== undefined) {
-    let tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    let firstScriptTag = document.getElementsByTagName("script")[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  }
-
-  if (window !== undefined) {
-    window.onYouTubeIframeAPIReady = function () {
-      youTubeIframeAPIReady.set(true);
-    };
-  }
-</script>
-
 <script>
-  import { afterUpdate, onDestroy } from "svelte";
+  import { onMount, afterUpdate } from "svelte";
   import { Frame } from "creditdesign-svelte-components";
+  import { youTubeIframeAPIReady } from "./stores/youtube-iframe-api-ready.js";
   import { youTubePlayerReady } from "./stores/youtube-player-ready.js";
   import { container, width } from "./stores/resize.js";
 
@@ -35,6 +17,32 @@
     youTubePlayerReady.set(true);
   };
 
+  onMount(() => {
+    // https://developers.google.com/youtube/iframe_api_reference
+    // This code loads the IFrame Player API code asynchronously.
+    let script;
+    if (!$youTubeIframeAPIReady) {
+      script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(script);
+    }
+
+    window.onYouTubeIframeAPIReady = function () {
+      youTubeIframeAPIReady.set(true);
+    };
+
+    return () => {
+      if (script) {
+        script.parentNode.removeChild(script);
+      }
+      if (player) {
+        player.destroy();
+      }
+      youTubePlayerReady.set(false);
+    };
+  });
+
   afterUpdate(() => {
     // Would this be better with async await?
     if (!player && $youTubeIframeAPIReady) {
@@ -49,11 +57,6 @@
     if ($youTubePlayerReady && $width) {
       player.setSize($width, $width * heightOverWidthRatio);
     }
-  });
-
-  onDestroy(() => {
-    player.destroy();
-    youTubePlayerReady.set(false);
   });
 </script>
 
