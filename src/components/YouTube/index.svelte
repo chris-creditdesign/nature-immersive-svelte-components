@@ -28,8 +28,12 @@
     // https://developers.google.com/youtube/iframe_api_reference
     // This code loads the IFrame Player API code asynchronously.
     let script;
-    if (!$youTubeIframeAPIReady) {
+    let scriptAddedToPage = document.getElementById(
+      "nature-immersive-youtube-api"
+    );
+    if (!$youTubeIframeAPIReady && !scriptAddedToPage) {
       script = document.createElement("script");
+      script.setAttribute("id", "nature-immersive-youtube-api");
       script.type = "text/javascript";
       script.src = "https://www.youtube.com/iframe_api";
       document.head.appendChild(script);
