@@ -73,7 +73,7 @@
 
 <header>
   <div class="menu__inner invert font-family:sans-serif">
-    <Box>
+    <Box boxSpace="var(--s-3)">
       <Stack>
         <Sidebar sidebarOnLeft="{false}">
           <div slot="main-content">
@@ -90,7 +90,7 @@
           </div>
 
           <div class="sidebar" slot="sidebar">
-            <Cluster clusterSpace="var(--s-3)">
+            <Cluster clusterSpace="0">
               <SocialLinks {articleData} />
 
               {#if menuLinks && mounted}
@@ -103,13 +103,15 @@
           </div>
         </Sidebar>
 
-        <div
-          class="menu-list"
-          id="menu-list"
-          hidden="{!(menuExpanded && menuLinks)}"
-        >
-          <MenuList {menuLinks} />
-        </div>
+        {#if menuLinks}
+          <div
+            class="menu-list"
+            id="menu-list"
+            hidden="{!(menuExpanded && menuLinks)}"
+          >
+            <MenuList {menuLinks} />
+          </div>
+        {/if}
 
       </Stack>
     </Box>

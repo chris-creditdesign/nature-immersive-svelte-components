@@ -4,6 +4,7 @@ addParameters({
   docs: {
     iframeHeight: 600,
   },
+  layout: "fullscreen",
 });
 
 import "../static/css/fonts.css";

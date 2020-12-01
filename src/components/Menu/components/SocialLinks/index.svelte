@@ -18,7 +18,7 @@
   );
 </script>
 
-<ClusterList clusterSpace="var(--s-3)">
+<ClusterList clusterSpace="0">
   <li>
     <a
       href="{facebookURL}"
