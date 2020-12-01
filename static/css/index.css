@@ -161,7 +161,8 @@ sub {
   opacity: 0;
 }
 
-/* Text utilities */
+/* ----------------------------- Text utilities ----------------------------- */
+
 .font-size\:small {
   font-size: var(--font-size-small-1);
 }
@@ -172,4 +173,16 @@ sub {
 
 .font-style\:italic {
   font-style: italic;
+}
+
+.text-transform\:uppercase {
+  text-transform: uppercase;
+}
+
+.text-decoration\:none {
+  text-decoration: none;
+}
+
+.text-decoration\:underline {
+  text-decoration: underline;
 }
