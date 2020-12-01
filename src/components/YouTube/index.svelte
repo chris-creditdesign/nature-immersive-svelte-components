@@ -9,6 +9,7 @@
   export let videoRatioHeight = 9;
   export let videoRatioWidth = 16;
 
+  let mounted = false;
   let heightOverWidthRatio = videoRatioHeight / videoRatioWidth;
   let player;
   let uniqueVideoId = `${videoId}-${Date.now().toString(36)}`;
@@ -17,7 +18,13 @@
     youTubePlayerReady.set(true);
   };
 
+  let onPlayerError = (error) => {
+    mounted = false;
+  };
+
   onMount(() => {
+    mounted = true;
+
     // https://developers.google.com/youtube/iframe_api_reference
     // This code loads the IFrame Player API code asynchronously.
     let script;
@@ -50,6 +57,7 @@
         videoId,
         events: {
           onReady: onPlayerReady,
+          onError: onPlayerError,
         },
       });
     }
@@ -67,4 +75,14 @@
   <div bind:this="{$container}">
     <div id="{uniqueVideoId}"></div>
   </div>
+
+  {#if !mounted}
+    <div class="invert">
+      <p class="font-family:sans-serif">
+        Please visit
+        <a href="https://youtu.be/{videoId}">YouTube</a>
+        to view this video.
+      </p>
+    </div>
+  {/if}
 </Frame>

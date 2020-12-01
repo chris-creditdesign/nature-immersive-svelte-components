@@ -33,3 +33,12 @@ export const ConstrainedWidth = () => ({
 export const MultipleVideos = () => ({
   Component: ViewMultiple,
 });
+
+export const Error = () => ({
+  Component: ViewConstrained,
+  props: {
+    videoId: "12334",
+    videoRatioHeight: 9 /* default */,
+    videoRatioWidth: 16 /* default */,
+  },
+});
