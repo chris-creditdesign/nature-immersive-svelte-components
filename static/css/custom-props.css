@@ -44,7 +44,7 @@
   /*	The fallback size is 16px */
 
   font-size: 16px;
-  font-size: min(calc(1rem + 0.5vw), 18px);
+  font-size: min(max(calc(0.5rem + 1vw), 16px), 18px);
 
   /* Sizes to use */
   --ratio: 1.5;
@@ -70,9 +70,7 @@
   /* Harding is the defalut font, otherwise apply the sans serif font */
   --serif-font-family: harding, palatino, times, "Times New Roman", serif;
   --sans-serif-font: "Graphik Nature l Web", arial, helvetica, sans-serif;
-  --font-size-small-3: var(--s-3);
-  --font-size-small-2: var(--s-2);
-  --font-size-small-1: var(--s-1);
+  --font-size-small-1: calc(var(--s0) / 1.2);
   --font-size-base: var(--s0);
   --font-size-big-1: var(--s1);
   --font-size-big-2: var(--s2);

@@ -73,7 +73,7 @@
 
 <header>
   <div class="menu__inner invert font-family:sans-serif">
-    <Box boxSpace="var(--s-3)">
+    <Box boxSpace="var(--s-1)">
       <Stack>
         <Sidebar sidebarOnLeft="{false}">
           <div slot="main-content">
@@ -90,7 +90,7 @@
           </div>
 
           <div class="sidebar" slot="sidebar">
-            <Cluster clusterSpace="0">
+            <Cluster clusterSpace="var(--s-4)">
               <SocialLinks {articleData} />
 
               {#if menuLinks && mounted}
