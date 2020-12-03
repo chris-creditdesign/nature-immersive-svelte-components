@@ -53,7 +53,8 @@ h2 {
 }
 
 h1 {
-  font-size: var(--font-size-big-4);
+  font-size: var(--font-size-big-3);
+  letter-spacing: -0.02em;
 }
 
 /* text */
@@ -147,6 +148,7 @@ sub {
   float: left;
   padding-top: 0.55rem;
   font-size: 4.85rem;
+  font-style: normal;
   line-height: 3rem;
 }
 
@@ -169,14 +171,14 @@ sub {
   opacity: 0;
 }
 
-/* ----------------------------- Text utilities ----------------------------- */
-
-.font-size\:small {
-  font-size: var(--font-size-small-1);
-}
+/* -------------------------- Text style utilities -------------------------- */
 
 .font-family\:sans-serif {
   font-family: var(--sans-serif-font);
+}
+
+.font-weight\:bold {
+  font-weight: 800;
 }
 
 .font-style\:italic {
@@ -193,4 +195,26 @@ sub {
 
 .text-decoration\:underline {
   text-decoration: underline;
+}
+
+/* --------------------------- Text size utilities -------------------------- */
+
+.font-size\:small {
+  font-size: var(--font-size-small-1);
+}
+
+.font-size\:base {
+  font-size: var(--font-size-base);
+}
+.font-size\:big-1 {
+  font-size: var(--font-size-big-1);
+}
+.font-size\:big-2 {
+  font-size: var(--font-size-big-2);
+}
+.font-size\:big-3 {
+  font-size: var(--font-size-big-3);
+}
+.font-size\:big-4 {
+  font-size: var(--font-size-big-4);
 }

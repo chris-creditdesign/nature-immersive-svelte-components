@@ -15,9 +15,11 @@
     stand,
   } = articleData;
 
-  let centerMeasure;
-  let centerSpace = "0";
-  let stackSpace = "var(--s2)";
+  export let centerMeasure = "var(--measure-big)";
+  export let centerSpace = "0";
+  export let stackSpace = "var(--s2)";
+  export let stackSpaceBetweenHeadAndStand = "var(--s2)";
+  export let stackSpaceBetweenCredits = "var(--s-3)";
 </script>
 
 <style>
@@ -25,23 +27,21 @@
     text-align: center;
   }
 
+  h1,
+  p {
+    max-width: none;
+  }
+
   .stand-first {
     font-size: var(--font-size-big-1);
   }
 
-  .author,
-  .photographer {
-    font-weight: 800;
-  }
-
   time {
     max-width: none;
-    font-family: var(--sans-serif-font);
-    font-size: var(--s-1);
 
     /* Even out the line height for the date */
+
     line-height: 1rem;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 </style>
@@ -50,37 +50,39 @@
   <Center {centerMeasure} {centerSpace}>
     <Stack {stackSpace}>
 
-      <h1>
-        {@html headline}
-      </h1>
-      <p class="stand-first">
-        {@html stand}
-      </p>
+      <Stack stackSpace="{stackSpaceBetweenHeadAndStand}">
+        <h1>
+          {@html headline}
+        </h1>
+        <p class="stand-first">
+          {@html stand}
+        </p>
+      </Stack>
 
       {#if author || photographer || publishedAt}
-        <div>
-          <Stack stackSpace="{'var(--s-3)'}">
-            {#if author}
-              <p class="author">
-                {@html author}
-              </p>
-            {/if}
-            {#if photographer}
-              <p class="photographer">
-                {@html photographer}
-              </p>
-            {/if}
+        <Stack stackSpace="{stackSpaceBetweenCredits}">
+          {#if author}
+            <p class="author font-weight:bold">
+              {@html author}
+            </p>
+          {/if}
+          {#if photographer}
+            <p class="photographer font-weight:bold">
+              {@html photographer}
+            </p>
+          {/if}
 
-            {#if publishedAt}
-              <time
-                itemProp="datePublished"
-                dateTime="{publishedAtString || null}"
-              >
-                {formatDate(publishedAt)}
-              </time>
-            {/if}
-          </Stack>
-        </div>
+          {#if publishedAt}
+            <time
+              class="font-family:sans-serif font-size:small
+              text-transform:uppercase"
+              itemProp="datePublished"
+              dateTime="{publishedAtString || null}"
+            >
+              {formatDate(publishedAt)}
+            </time>
+          {/if}
+        </Stack>
       {/if}
 
     </Stack>
