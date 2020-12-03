@@ -3,12 +3,12 @@
   import { Frame } from "creditdesign-svelte-components";
   import { youTubeIframeAPIReady } from "./stores/youtube-iframe-api-ready.js";
   import { youTubePlayerReady } from "./stores/youtube-player-ready.js";
-  import { container, width } from "./stores/resize.js";
 
   export let videoId;
   export let videoRatioHeight = 9;
   export let videoRatioWidth = 16;
 
+  let width = 600;
   let mounted = false;
   let heightOverWidthRatio = videoRatioHeight / videoRatioWidth;
   let player;
@@ -18,7 +18,7 @@
     youTubePlayerReady.set(true);
   };
 
-  let onPlayerError = (error) => {
+  let onPlayerError = () => {
     mounted = false;
   };
 
@@ -66,8 +66,8 @@
       });
     }
 
-    if ($youTubePlayerReady && $width) {
-      player.setSize($width, $width * heightOverWidthRatio);
+    if ($youTubePlayerReady) {
+      player.setSize(width, width * heightOverWidthRatio);
     }
   });
 </script>
@@ -76,7 +76,7 @@
   frameRatioHeight="{videoRatioHeight}"
   frameRatioWidth="{videoRatioWidth}"
 >
-  <div bind:this="{$container}">
+  <div bind:clientWidth="{width}">
     <div id="{uniqueVideoId}"></div>
   </div>
 

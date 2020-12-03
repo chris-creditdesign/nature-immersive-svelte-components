@@ -1,4 +1,6 @@
 /* eslint-disable consistent-return */
+// Not compatable with iOS safari versions < 13.7
+// Use Svelte's bind:clientWidth for now, consider upgrading in the future
 import { writable, derived } from "svelte/store";
 
 export const container = writable();
