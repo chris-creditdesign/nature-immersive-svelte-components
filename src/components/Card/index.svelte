@@ -8,6 +8,7 @@
   export let className = "";
   export let stackSpace = "var(--s-1)";
   export let cardData;
+  export let headerStackSpace;
 
   let { altText, caption, footnote, srcURL, text } = cardData;
 </script>
@@ -18,7 +19,7 @@
       <Image {altText} {caption} {srcURL} />
     {/if}
 
-    <CardHeader {headerLevel} {id} {cardData} />
+    <CardHeader {headerLevel} {id} {cardData} stackSpace="{headerStackSpace}" />
 
     {#if text}
       <p>

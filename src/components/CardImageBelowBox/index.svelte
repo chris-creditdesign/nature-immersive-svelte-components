@@ -7,14 +7,16 @@
   export let className = "";
   export let cardData;
   export let stackSpace = "var(--s-1)";
-  export let sidebarWidth = "30ch";
+  export let sidebarWidth = "25ch";
   export let sidebarContentMinWidth = "";
   export let sidebarSpace = "";
   export let sidebarOnLeft = "";
+  export let headerStackSpace;
+  export let boxSpace;
 </script>
 
 <div class="{`card invert ${className}`}">
-  <Box>
+  <Box {boxSpace}>
     <CardImageBelow
       {headerLevel}
       {id}
@@ -24,6 +26,7 @@
       {sidebarContentMinWidth}
       {sidebarSpace}
       {sidebarOnLeft}
+      {headerStackSpace}
     />
   </Box>
 </div>

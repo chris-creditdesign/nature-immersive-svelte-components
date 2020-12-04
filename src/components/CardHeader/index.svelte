@@ -4,6 +4,7 @@
   export let id = null;
   export let headerLevel = "h2";
   export let cardData;
+  export let stackSpace = "var(--s-4)";
 
   let { eyebrow, subHead, headline, href } = cardData;
 </script>
@@ -20,7 +21,7 @@
 </style>
 
 <header>
-  <Stack stackSpace="var(--s-6)">
+  <Stack {stackSpace}>
     {#if eyebrow}
       <p class="eyebrow font-size:small font-family:sans-serif">
         {@html eyebrow}

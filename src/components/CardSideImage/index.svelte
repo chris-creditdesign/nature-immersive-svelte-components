@@ -10,6 +10,7 @@
   export let stackSpace = "var(--s-1)";
   export let gridSpace = "var(--s-1)";
   export let minWidth = "20ch";
+  export let headerStackSpace;
 
   let { altText, caption, srcURL } = cardData;
 
@@ -21,6 +22,12 @@
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />
     {/if}
-    <Card {headerLevel} {id} cardData="{cardDataNoImage}" {stackSpace} />
+    <Card
+      {headerLevel}
+      {id}
+      cardData="{cardDataNoImage}"
+      {stackSpace}
+      {headerStackSpace}
+    />
   </Grid>
 </div>

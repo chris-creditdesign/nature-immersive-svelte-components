@@ -7,10 +7,12 @@
   export let className = "";
   export let cardData;
   export let stackSpace = "var(--s-1)";
+  export let headerStackSpace;
+  export let boxSpace;
 </script>
 
 <div class="{`card invert ${className}`}">
-  <Box>
-    <Card {headerLevel} {id} {cardData} {stackSpace} />
+  <Box {boxSpace}>
+    <Card {headerLevel} {id} {cardData} {stackSpace} {headerStackSpace} />
   </Box>
 </div>
