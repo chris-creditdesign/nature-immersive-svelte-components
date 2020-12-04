@@ -36,7 +36,6 @@
   :global(header a, header button) {
     display: block;
     width: max-content;
-    padding: 2px;
     text-decoration: none;
     border: 2px solid var(--background-color-invert);
   }

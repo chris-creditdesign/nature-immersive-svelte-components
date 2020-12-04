@@ -10,6 +10,7 @@
   /* Reset the default browser button styles
      To enable the veggieburger svg to be styled */
   button {
+    padding: 0;
     font-size: var(--font-size-base);
     cursor: pointer;
     background-color: inherit;
