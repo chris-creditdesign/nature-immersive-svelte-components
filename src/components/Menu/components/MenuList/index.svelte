@@ -3,7 +3,7 @@
 </script>
 
 <style>
-  .switcher--list {
+  .menu--list {
     --switcher-space: var(--s-1);
     --switcher-min-width: var(--measure);
     --modifier: calc(
@@ -11,7 +11,7 @@
     );
   }
 
-  .switcher--list__inner {
+  .menu--list__inner {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -21,30 +21,27 @@
     list-style: none;
   }
 
-  :global(.switcher--list__inner > *) {
+  .menu--list__inner > li {
     flex-basis: calc(var(--modifier) * 999);
-
-    /* flex-grow: 1; */
+    padding: 0;
     margin: calc(var(--switcher-space) / 2);
   }
 
-  :global(.switcher--list__inner > li) {
-    /* Remove default padding */
-    padding: 0;
-  }
-
   /* If there are more than 7 items, stack them automatically */
-  :global(.switcher--list__inner > :nth-last-child(n + 8)) {
+
+  /* :global(.menu--list__inner > :nth-last-child(n + 8)) { */
+  .menu--list__inner > li:nth-last-child(n + 8) {
     flex-basis: 100%;
   }
 
-  :global(.switcher--list__inner > :nth-last-child(n + 8) ~ *) {
+  /* :global(.menu--list__inner > :nth-last-child(n + 8) ~ *) { */
+  .menu--list__inner > li:nth-last-child(n + 8) ~ * {
     flex-basis: 100%;
   }
 </style>
 
-<div class="switcher--list">
-  <ul class="switcher--list__inner">
+<div class="menu--list">
+  <ul class="menu--list__inner">
     {#each menuLinks as { text, href }}
       <li>
         <a
