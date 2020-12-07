@@ -29,18 +29,18 @@
      this is being clipped by the negative margins.
   */
 
-  header {
+  .menu {
     --link-color-invert: var(--text-color-invert);
   }
 
-  :global(header a, header button) {
+  :global(.menu a, .menu button) {
     display: block;
     width: max-content;
     text-decoration: none;
     border: 2px solid var(--background-color-invert);
   }
 
-  :global(header a:hover, header a:focus, header button:hover, header
+  :global(.menu a:hover, .menu a:focus, .menu button:hover, .menu
       button:focus) {
     border: 2px solid var(--outline);
     outline: none;
@@ -70,14 +70,13 @@
   Skip to main content
 </a>
 
-<header>
+<header class="menu">
   <div class="menu__inner invert font-family:sans-serif">
     <Box boxSpace="var(--s-1)">
       <Stack>
         <Sidebar sidebarOnLeft="{false}">
           <div slot="main-content">
             <a
-              class="header__link--svg"
               href="https://www.nature.com"
               data-track="click"
               data-event-category="menu"
@@ -103,11 +102,7 @@
         </Sidebar>
 
         {#if menuLinks}
-          <div
-            class="menu-list"
-            id="menu-list"
-            hidden="{!(menuExpanded && menuLinks)}"
-          >
+          <div id="menu-list" hidden="{!(menuExpanded && menuLinks)}">
             <MenuList {menuLinks} />
           </div>
         {/if}
