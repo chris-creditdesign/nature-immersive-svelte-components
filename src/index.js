@@ -62,6 +62,10 @@ export { default as SeriesArticleNav } from "./components/SeriesArticleNav/index
 
 export { default as RelatedArticleContainer } from "./components/RelatedArticleContainer/index.svelte";
 
+/* ----------------------------- NatureBriefing ----------------------------- */
+
+export { default as NatureBriefing } from "./components/NatureBriefing/index.svelte";
+
 /* ---------------------------------- Logos --------------------------------- */
 
 export { default as LogoEmail } from "./components/LogoEmail/index.svelte";
