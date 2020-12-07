@@ -17,8 +17,8 @@
   }
 </style>
 
-<div class="invert">
-  <Box>
+<div class="invert font-family:sans-serif">
+  <Box boxSpace="var(--s1)">
     <Stack>
       <div>
         <LogoNatureBriefing height="3" />
@@ -33,7 +33,7 @@
       </p>
       <Cluster clusterJustifyContent="flex-end">
         <a
-          class="text-decoration:none font-family:sans-serif"
+          class="text-decoration:none "
           href="https://www.nature.com/briefing/signup/"
           data-track="click"
           data-track-category="briefing"
