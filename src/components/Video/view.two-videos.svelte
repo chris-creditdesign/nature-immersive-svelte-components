@@ -16,39 +16,44 @@
 </script>
 
 <Stack>
-  <Center centerMeasure="600px">
-    <Box>
-      <Video
-        {className}
-        {altText}
-        {caption}
-        {srcURL}
-        {captionSpace}
-        {autoplay}
-        {loop}
-        {buttonAtTop}
-        {buttonOnLeft}
-        {playingMessage}
-        {pausedMessage}
-      />
-    </Box>
-  </Center>
+  <div>
+    <Center centerMeasure="600px">
+      <Box>
+        <Video
+          {className}
+          {altText}
+          {caption}
+          {srcURL}
+          {captionSpace}
+          {autoplay}
+          {loop}
+          {buttonAtTop}
+          {buttonOnLeft}
+          {playingMessage}
+          {pausedMessage}
+        />
+      </Box>
+    </Center>
+  </div>
 
-  <Center centerMeasure="600px">
-    <Box>
-      <Video
-        {className}
-        {altText}
-        caption="Dies ist die Beschriftung"
-        {srcURL}
-        {captionSpace}
-        {autoplay}
-        {loop}
-        buttonAtTop="true"
-        buttonOnLeft="true"
-        playingMessage="Video anhalten"
-        pausedMessage="Video abspielen"
-      />
-    </Box>
-  </Center>
+  <div>
+
+    <Center centerMeasure="600px">
+      <Box>
+        <Video
+          {className}
+          {altText}
+          caption="Dies ist die Beschriftung"
+          {srcURL}
+          {captionSpace}
+          {autoplay}
+          {loop}
+          buttonAtTop="true"
+          buttonOnLeft="true"
+          playingMessage="Video anhalten"
+          pausedMessage="Video abspielen"
+        />
+      </Box>
+    </Center>
+  </div>
 </Stack>

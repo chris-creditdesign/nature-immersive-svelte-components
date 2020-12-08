@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import { Frame } from "creditdesign-svelte-components";
   import VideoButton from "../VideoButton/index.svelte";
 
   export let className = "";
@@ -12,6 +13,8 @@
   export let buttonOnLeft = false;
   export let playingMessage = "";
   export let pausedMessage = "";
+  export let frameRatioHeight;
+  export let frameRatioWidth;
 
   let buttonVerticalPosition = buttonAtTop
     ? `--video-button-row--component: 2 / 3;`
@@ -75,10 +78,12 @@
     );
   }
 
-  video {
+  video,
+  img {
+    width: 100%;
     max-width: 100%;
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
+    grid-column: 1 / 6;
+    grid-row: 1 / 6;
   }
 
   figcaption {
@@ -87,42 +92,47 @@
 </style>
 
 <figure class="{`${className}`}">
+  <Frame {frameRatioHeight} {frameRatioWidth}>
+    <div class="video-container" {style}>
+      {#if mounted}
+        <video
+          bind:this="{video}"
+          poster="{srcIMG}"
+          playsinline="true"
+          muted="true"
+          autoplay="{!prefersReducedMotion && autoplay}"
+          {loop}
+          aria-label="{altText}"
+          bind:paused
+          on:click="{handleBtnClick}"
+        >
+          <source src="{srcWEBM}" type="video/webm" />
+          <source src="{srcMP4}" type="video/mp4" />
+        </video>
+      {:else}
+        <img src="{srcURL}" alt="{altText}" />
+      {/if}
 
-  <div class="video-container" {style}>
-
-    {#if mounted}
-      <video
-        bind:this="{video}"
-        poster="{srcIMG}"
-        playsinline="true"
-        muted="true"
-        autoplay="{!prefersReducedMotion && autoplay}"
-        {loop}
-        aria-label="{altText}"
-        bind:paused
-        on:click="{handleBtnClick}"
-      >
-        <source src="{srcWEBM}" type="video/webm" />
-        <source src="{srcMP4}" type="video/mp4" />
-      </video>
-    {:else}
-      <img src="{srcURL}" alt="{altText}" />
-    {/if}
-
-    {#if mounted}
-      <VideoButton
-        className="video-button"
-        {playingMessage}
-        {pausedMessage}
-        {paused}
-        on:click="{handleBtnClick}"
-      />
-    {/if}
-  </div>
+      {#if mounted}
+        <VideoButton
+          className="video-button"
+          {playingMessage}
+          {pausedMessage}
+          {paused}
+          on:click="{handleBtnClick}"
+        />
+      {/if}
+    </div>
+  </Frame>
 
   {#if caption.length}
     <figcaption class="font-size:small font-family:sans-serif">
       {@html caption}
+      {#if !mounted}
+        Here is a
+        <a href="{srcMP4}">link to the video file</a>
+        .
+      {/if}
     </figcaption>
   {/if}
 </figure>
