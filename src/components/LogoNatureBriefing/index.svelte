@@ -7,6 +7,7 @@
 <style>
   svg {
     display: block;
+    max-width: 100%;
     overflow: visible;
   }
 </style>

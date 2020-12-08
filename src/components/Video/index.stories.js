@@ -34,6 +34,8 @@ export const ConstrainedWidth = () => ({
     buttonOnLeft: false /* default */,
     playingMessage: "Pause video" /* defualt */,
     pausedMessage: "Play video" /* defualt */,
+    frameRatioHeight: 9 /* default */,
+    frameRatioWidth: 16 /* default */,
   },
 });
 
