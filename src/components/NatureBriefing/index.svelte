@@ -4,16 +4,19 @@
 </script>
 
 <style>
+  /* Adds !important to override styles when used in Shorthand */
   a {
     padding: var(--s-1);
-    color: var(--text-color);
-    background-color: #fff;
-    outline: none;
+    color: var(--text-color) !important;
+    text-decoration: none !important;
+    background-color: #fff !important;
+    outline: none !important;
   }
 
   a:hover,
   a:focus {
-    background-color: var(--outline);
+    background-color: var(--outline) !important;
+    outline: none !important;
   }
 </style>
 
@@ -33,7 +36,6 @@
       </p>
       <Cluster clusterJustifyContent="flex-end">
         <a
-          class="text-decoration:none "
           href="https://www.nature.com/briefing/signup/"
           data-track="click"
           data-track-category="briefing"
