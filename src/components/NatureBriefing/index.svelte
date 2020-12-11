@@ -1,10 +1,15 @@
 <script>
-  import { Box, Cluster } from "creditdesign-svelte-components";
+  import { Box } from "creditdesign-svelte-components";
   import LogoNatureBriefing from "../LogoNatureBriefing/index.svelte";
 </script>
 
 <style>
   /* Adds !important to override styles when used in Shorthand */
+  p {
+    margin-top: var(--s-1) !important;
+    margin-bottom: 0 !important;
+  }
+
   a {
     padding: var(--s-1);
     color: var(--text-color) !important;
@@ -21,27 +26,30 @@
     outline: none !important;
   }
 
-  p {
+  .sign-up-link {
+    display: flex;
+    justify-content: flex-end;
     margin-top: var(--s-1) !important;
     margin-bottom: 0 !important;
   }
 </style>
 
-<div class="invert font-family:sans-serif">
+<div class="invert">
   <Box boxSpace="var(--s1)">
 
     <LogoNatureBriefing height="3" />
 
-    <p>
+    <p class="font-family:sans-serif">
       Signup for the free daily
       <i>Nature Briefing.</i>
     </p>
-    <p>
+    <p class="font-family:sans-serif">
       An essential round-up of science news, opinion and analysis, free in your
       inbox every weekday.
     </p>
-    <Cluster clusterJustifyContent="flex-end">
+    <div class="sign-up-link">
       <a
+        class="font-family:sans-serif"
         href="https://www.nature.com/briefing/signup/"
         data-track="click"
         data-track-category="briefing"
@@ -52,6 +60,7 @@
       >
         Sign up for Nature Briefing
       </a>
-    </Cluster>
+    </div>
+
   </Box>
 </div>
