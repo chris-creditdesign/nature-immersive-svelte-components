@@ -37,7 +37,7 @@
 <div class="invert">
   <Box boxSpace="var(--s1)">
 
-    <LogoNatureBriefing height="3" />
+    <LogoNatureBriefing height="2.5" />
 
     <p class="font-family:sans-serif">
       Signup for the free daily
