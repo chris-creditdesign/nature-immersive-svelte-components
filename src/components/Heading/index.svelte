@@ -44,6 +44,16 @@
     line-height: 1rem;
     letter-spacing: 0.05em;
   }
+
+  @media (max-width: 740px) {
+    h1 {
+      font-size: var(--font-size-big-2);
+    }
+
+    .stand-first {
+      font-size: var(--font-size-base);
+    }
+  }
 </style>
 
 <div class="{`heading ${className}`}">
