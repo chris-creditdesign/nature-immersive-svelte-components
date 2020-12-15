@@ -36,6 +36,26 @@ export const ConstrainedWidth = () => ({
     pausedMessage: "Play video" /* defualt */,
     frameRatioHeight: 9 /* default */,
     frameRatioWidth: 16 /* default */,
+    captionSpace: 0 /* defalut */,
+  },
+});
+
+export const WithCaptionSpace = () => ({
+  Component: Video,
+  props: {
+    className: "test",
+    altText: "This is the alt text",
+    caption: "This is the caption",
+    srcURL: "video/video-small.jpg",
+    autoplay: true /* default */,
+    loop: true /* default */,
+    buttonAtTop: false /* defualt */,
+    buttonOnLeft: false /* default */,
+    playingMessage: "Pause video" /* defualt */,
+    pausedMessage: "Play video" /* defualt */,
+    frameRatioHeight: 9 /* default */,
+    frameRatioWidth: 16 /* default */,
+    captionSpace: "var(--s3)",
   },
 });
 

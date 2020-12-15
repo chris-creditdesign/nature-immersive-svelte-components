@@ -15,6 +15,7 @@
   export let pausedMessage = "";
   export let frameRatioHeight;
   export let frameRatioWidth;
+  export let captionSpace;
 
   let buttonVerticalPosition = buttonAtTop
     ? `--video-button-row--component: 2 / 3;`
@@ -24,7 +25,12 @@
     ? `--video-button-column--component: 2 / 3;`
     : "";
 
+  let videoCaptionSpace = captionSpace
+    ? `--video-caption-space--component: ${captionSpace};`
+    : "";
+
   let style = `${buttonHorizontalPosition} ${buttonVerticalPosition}`;
+  let captionStyle = `${videoCaptionSpace}`;
 
   let video;
   let mounted = false;
@@ -56,6 +62,15 @@
   :global(:root) {
     --video-button-column--global: 4 / 5;
     --video-button-row--global: 4 / 5;
+    --video-caption-space--global: 0;
+  }
+
+  figcaption {
+    --video-caption-space--component: initial;
+    --video-caption-space: var(
+      --video-caption-space--component,
+      var(--video-caption-space--global, 0)
+    );
   }
 
   .video-container {
@@ -88,6 +103,8 @@
 
   figcaption {
     margin-top: var(--s-3);
+    margin-right: var(--video-caption-space);
+    margin-left: var(--video-caption-space);
   }
 </style>
 
@@ -126,7 +143,10 @@
   </Frame>
 
   {#if caption.length}
-    <figcaption class="font-size:small font-family:sans-serif">
+    <figcaption
+      class="font-size:small font-family:sans-serif"
+      style="{captionStyle}"
+    >
       {@html caption}
       {#if !mounted}
         Here is a
