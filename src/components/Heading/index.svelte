@@ -61,7 +61,7 @@
     <Stack {stackSpace}>
 
       <Stack stackSpace="{stackSpaceBetweenHeadAndStand}">
-        <h1>
+        <h1 class="letter-spacing:tight">
           {@html headline}
         </h1>
         <p class="stand-first">

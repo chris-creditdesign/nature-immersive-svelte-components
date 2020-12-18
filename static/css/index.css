@@ -54,7 +54,6 @@ h2 {
 
 h1 {
   font-size: var(--font-size-big-3);
-  letter-spacing: -0.02em;
 }
 
 /* text */
@@ -195,6 +194,10 @@ sub {
 
 .text-decoration\:underline {
   text-decoration: underline;
+}
+
+.letter-spacing\:tight {
+  letter-spacing: -0.02em;
 }
 
 /* --------------------------- Text size utilities -------------------------- */
