@@ -1,12 +1,10 @@
 <script>
-  import { Stack, Box } from "creditdesign-svelte-components";
-  import CardSideImage from "../CardSideImage/index.svelte";
+  import { Stack } from "creditdesign-svelte-components";
+  import CardSideImageBox from "../CardSideImageBox/index.svelte";
 
   export let headline = "Related articles";
   export let relatedArticleFlexBasis = "";
   export let relatedArticleFlexGap = "";
-  export let cardStackSpace;
-  export let cardGridSpace;
   export let relatedArticles;
 
   let relatedArticleFlexGapComponent = relatedArticleFlexGap
@@ -23,7 +21,7 @@
 <style>
   :global(:root) {
     --related-article-flex-gap--global: var(--s-1);
-    --related-article-flex-basis--global: 20ch;
+    --related-article-flex-basis--global: var(--s-6);
   }
 
   .related-article-container {
@@ -55,29 +53,28 @@
   }
 </style>
 
-<Stack>
-  {#if headline}
-    <h2 class="font-family:sans-serif border-above">
-      {@html headline}
-    </h2>
-  {/if}
-  <div class="related-article-container" {style}>
-    <div class="related-article-containe__inner">
-      {#each relatedArticles as cardData}
-        <div
-          class="related-article-container__article font-family:sans-serif
-          invert"
-        >
-          <Box>
-            <CardSideImage
-              headerLevel="h3"
+<aside>
+  <Stack>
+    {#if headline}
+      <h2 class="font-family:sans-serif border-above">
+        {@html headline}
+      </h2>
+    {/if}
+    <div class="related-article-container" {style}>
+      <div class="related-article-containe__inner">
+        {#each relatedArticles as cardData}
+          <div
+            class="related-article-container__article font-family:sans-serif
+            invert"
+          >
+            <CardSideImageBox
+              headerLevel="none"
+              headlineFontSize="big-1"
               {cardData}
-              stackSpace="{cardStackSpace}"
-              gridSpace="{cardGridSpace}"
             />
-          </Box>
-        </div>
-      {/each}
+          </div>
+        {/each}
+      </div>
     </div>
-  </div>
-</Stack>
+  </Stack>
+</aside>

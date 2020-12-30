@@ -1,4 +1,11 @@
+import { object, select, text, withKnobs } from "@storybook/addon-knobs";
 import RelatedArticleContainer from "./index.svelte";
+import {
+  headerLevelOptions,
+  fontSizeOptions,
+  measureOptions,
+  spaceOptions,
+} from "../preview-content/options.js";
 import docs from "./docs.mdx";
 
 let cardData = {
@@ -16,66 +23,47 @@ export default {
     docs: {
       page: docs,
     },
+    knobs: {
+      escapeHTML: false,
+    },
   },
 };
 
 export const Default = () => ({
   Component: RelatedArticleContainer,
+  decorators: [withKnobs],
   props: {
-    headline: "Related articles" /* default */,
-    relatedArticleFlexBasis: "20ch" /* default */,
-    relatedArticleFlexGap: "var(--s-1)" /* default */,
-    cardStackSpace: "var(--s-1)" /* default */,
-    cardGridSpace: "var(--s-1)" /* default */,
-    relatedArticles: [
-      {
-        altText: "This is the alt text",
-        srcURL: "img/image.jpg",
-        headline: "Article 1",
-        href: "https://www.nature.com",
-        text:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus.",
-      },
-      {
-        altText: "This is the alt text",
-        srcURL: "img/image.jpg",
-        headline: "Article 2",
-        href: "https://www.nature.com",
-        text:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus.",
-      },
-      {
-        altText: "This is the alt text",
-        srcURL: "img/image.jpg",
-        headline: "Article 3",
-        href: "https://www.nature.com",
-        text:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus.",
-      },
-    ],
-  },
-});
-
-export const DifferentHeadline = () => ({
-  Component: RelatedArticleContainer,
-  props: {
-    headline: "More like this",
-    relatedArticles: [cardData, cardData, cardData],
-  },
-});
-
-export const NoHeadline = () => ({
-  Component: RelatedArticleContainer,
-  props: {
-    headline: null,
-    relatedArticles: [cardData, cardData, cardData],
+    headline: text("headline", "Related articles"),
+    relatedArticleFlexBasis: select(
+      "relatedArticleFlexBasis",
+      measureOptions,
+      "var(--s6)"
+    ),
+    relatedArticleFlexGap: select(
+      "relatedArticleFlexGap",
+      spaceOptions,
+      "var(--s-1)"
+    ),
+    relatedArticles: object("relatedArticles", [cardData, cardData, cardData]),
   },
 });
 
 export const ManyArticles = () => ({
   Component: RelatedArticleContainer,
+  decorators: [withKnobs],
   props: {
-    relatedArticles: [
+    headline: text("headline", "Related articles"),
+    relatedArticleFlexBasis: select(
+      "relatedArticleFlexBasis",
+      measureOptions,
+      "var(--s6)"
+    ),
+    relatedArticleFlexGap: select(
+      "relatedArticleFlexGap",
+      spaceOptions,
+      "var(--s-1)"
+    ),
+    relatedArticles: object("relatedArticles", [
       cardData,
       cardData,
       cardData,
@@ -83,30 +71,25 @@ export const ManyArticles = () => ({
       cardData,
       cardData,
       cardData,
-    ],
+    ]),
   },
 });
 
 export const OneArticle = () => ({
   Component: RelatedArticleContainer,
+  decorators: [withKnobs],
   props: {
-    relatedArticles: [cardData],
-  },
-});
-
-export const LargerGap = () => ({
-  Component: RelatedArticleContainer,
-  props: {
-    relatedArticleFlexGap: "var(--s3)",
-    cardGridSpace: "var(--s3)",
-    relatedArticles: [cardData, cardData, cardData],
-  },
-});
-
-export const WiderBoxes = () => ({
-  Component: RelatedArticleContainer,
-  props: {
-    relatedArticleFlexBasis: "40ch",
-    relatedArticles: [cardData, cardData, cardData],
+    headline: text("headline", "Related articles"),
+    relatedArticleFlexBasis: select(
+      "relatedArticleFlexBasis",
+      measureOptions,
+      "var(--s6)"
+    ),
+    relatedArticleFlexGap: select(
+      "relatedArticleFlexGap",
+      spaceOptions,
+      "var(--s-1)"
+    ),
+    relatedArticles: object("relatedArticles", [cardData]),
   },
 });
