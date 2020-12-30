@@ -1,13 +1,13 @@
 const cardData = {
-  subHead: "Author Name <i>et al</i>.",
-  eyebrow: "Journal Name",
   altText: "This is the alt text",
   caption: "This is the caption",
-  srcURL: "img/image.jpg",
   captionSpace: "",
+  eyebrow: "Journal Name",
   footnote: "Footnote",
   headline: "Headline",
   href: "https://www.nature.com",
+  srcURL: "img/image.jpg",
+  subHead: "Author Name <i>et al</i>.",
   text:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, corrupti aut. Natus, ducimus. Qui beatae, id quasi neque veniam sequi doloremque, officia voluptatibus expedita optio repudiandae quos ad! Aut, rerum.",
 };

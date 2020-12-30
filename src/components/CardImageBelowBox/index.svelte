@@ -2,31 +2,33 @@
   import { Box } from "creditdesign-svelte-components";
   import CardImageBelow from "../CardImageBelow/index.svelte";
 
-  export let id = null;
-  export let headerLevel = "h2";
-  export let className = "";
-  export let cardData;
-  export let stackSpace = "var(--s-1)";
-  export let sidebarWidth = "25ch";
-  export let sidebarContentMinWidth = "";
-  export let sidebarSpace = "";
-  export let sidebarOnLeft = "";
-  export let headerStackSpace;
   export let boxSpace;
+  export let cardData;
+  export let cardHeaderStackSpace;
+  export let className = "";
+  export let headerLevel;
+  export let headlineFontSize;
+  export let id;
+  export let sidebarContentMinWidth;
+  export let sidebarOnLeft;
+  export let sidebarSpace;
+  export let sidebarWidth;
+  export let stackSpace;
 </script>
 
-<div class="{`card invert ${className}`}">
+<div class="{`card--image-below-box invert ${className}`}">
   <Box {boxSpace}>
     <CardImageBelow
-      {headerLevel}
-      {id}
       {cardData}
-      {stackSpace}
-      {sidebarWidth}
+      {cardHeaderStackSpace}
+      {headerLevel}
+      {headlineFontSize}
+      {id}
       {sidebarContentMinWidth}
-      {sidebarSpace}
       {sidebarOnLeft}
-      {headerStackSpace}
+      {sidebarSpace}
+      {sidebarWidth}
+      {stackSpace}
     />
   </Box>
 </div>

@@ -1,31 +1,20 @@
 <script>
-  export let id = "";
+  export let cardData;
   export let headerLevel = "h2";
   export let headlineFontSize = "big-2";
-  export let cardData;
+  export let id = "";
 
   let { href } = cardData;
 
-  let useId = id.length ? id : null;
+  let useId = id.length && !href.length ? id : null;
   let tabindex = id.length && !href.length ? "-1" : null;
 </script>
-
-<style>
-  h1,
-  h2,
-  h3,
-  h4,
-  span {
-    margin-top: 0;
-    margin-left: 0;
-  }
-</style>
 
 {#if headerLevel === 'h1'}
   <h1
     id="{useId}"
     {tabindex}
-    class="{`font-size:${headlineFontSize} font-weight:bold`}"
+    class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />
   </h1>
@@ -33,7 +22,7 @@
   <h2
     id="{useId}"
     {tabindex}
-    class="{`font-size:${headlineFontSize} font-weight:bold`}"
+    class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />
   </h2>
@@ -41,7 +30,7 @@
   <h3
     id="{useId}"
     {tabindex}
-    class="{`font-size:${headlineFontSize} font-weight:bold`}"
+    class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />
   </h3>
@@ -49,7 +38,7 @@
   <h4
     id="{useId}"
     {tabindex}
-    class="{`font-size:${headlineFontSize} font-weight:bold`}"
+    class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />
   </h4>
@@ -57,7 +46,7 @@
   <span
     id="{useId}"
     {tabindex}
-    class="{`font-size:${headlineFontSize} font-weight:bold`}"
+    class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />
   </span>

@@ -1,5 +1,5 @@
 import { withKnobs, object, text, select } from "@storybook/addon-knobs";
-import ViewDefault from "./view.default.svelte";
+import CardHeadline from "./view.default.svelte";
 import docs from "./docs.mdx";
 import cardData from "../preview-content/card-data.js";
 import {
@@ -22,12 +22,12 @@ export default {
 let { href } = cardData;
 
 export const Default = () => ({
-  Component: ViewDefault,
+  Component: CardHeadline,
   decorators: [withKnobs],
   props: {
-    id: text("id", "card-id"),
     cardData: object("cardData", { href }),
-    headerLevel: select("headerLevel", headerLevelOptions, "h2"),
     headlineFontSize: select("headlineFontSize", fontSizeOptions, "big-2"),
+    headerLevel: select("headerLevel", headerLevelOptions, "h2"),
+    id: text("id", "card-id"),
   },
 });

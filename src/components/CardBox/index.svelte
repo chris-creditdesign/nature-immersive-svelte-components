@@ -2,17 +2,25 @@
   import { Box } from "creditdesign-svelte-components";
   import Card from "../Card/index.svelte";
 
-  export let id = null;
-  export let headerLevel = "h2";
-  export let className = "";
-  export let cardData;
-  export let stackSpace = "var(--s-1)";
-  export let headerStackSpace;
   export let boxSpace;
+  export let cardData;
+  export let cardHeaderStackSpace;
+  export let className = "";
+  export let headerLevel;
+  export let headlineFontSize;
+  export let id;
+  export let stackSpace;
 </script>
 
-<div class="{`card invert ${className}`}">
+<div class="{`card--box invert ${className}`}">
   <Box {boxSpace}>
-    <Card {headerLevel} {id} {cardData} {stackSpace} {headerStackSpace} />
+    <Card
+      {cardData}
+      {cardHeaderStackSpace}
+      {headerLevel}
+      {headlineFontSize}
+      {id}
+      {stackSpace}
+    />
   </Box>
 </div>
