@@ -32,7 +32,7 @@ export const Default = () => ({
     relatedArticleFlexBasis: select(
       "relatedArticleFlexBasis",
       measureOptions,
-      "var(--s6)"
+      "20ch"
     ),
     relatedArticleFlexGap: select(
       "relatedArticleFlexGap",
@@ -51,7 +51,7 @@ export const ManyArticles = () => ({
     relatedArticleFlexBasis: select(
       "relatedArticleFlexBasis",
       measureOptions,
-      "var(--s6)"
+      "20ch"
     ),
     relatedArticleFlexGap: select(
       "relatedArticleFlexGap",
@@ -78,7 +78,7 @@ export const OneArticle = () => ({
     relatedArticleFlexBasis: select(
       "relatedArticleFlexBasis",
       measureOptions,
-      "var(--s6)"
+      "20ch"
     ),
     relatedArticleFlexGap: select(
       "relatedArticleFlexGap",

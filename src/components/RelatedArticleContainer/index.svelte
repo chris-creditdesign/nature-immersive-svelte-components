@@ -21,7 +21,7 @@
 <style>
   :global(:root) {
     --related-article-flex-gap--global: var(--s-1);
-    --related-article-flex-basis--global: var(--s6);
+    --related-article-flex-basis--global: 20ch;
   }
 
   .related-article-container {

@@ -32,6 +32,8 @@ export let measureOptions = [
   "var(--s5)",
   "var(--s6)",
   "var(--s7)",
+  "20ch",
+  "30ch",
   "var(--measure-small)",
   "var(--measure)",
   "var(--measure-big)",
