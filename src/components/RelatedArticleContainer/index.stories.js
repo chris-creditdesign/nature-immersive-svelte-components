@@ -1,11 +1,6 @@
 import { object, select, text, withKnobs } from "@storybook/addon-knobs";
 import RelatedArticleContainer from "./index.svelte";
-import {
-  headerLevelOptions,
-  fontSizeOptions,
-  measureOptions,
-  spaceOptions,
-} from "../preview-content/options.js";
+import { measureOptions, spaceOptions } from "../preview-content/options.js";
 import docs from "./docs.mdx";
 
 let cardData = {
