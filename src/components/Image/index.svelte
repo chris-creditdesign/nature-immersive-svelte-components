@@ -11,24 +11,29 @@
   $: src = srcURL;
 
   onMount(() => {
-    let options = {
-      root: null,
-      rootMargin: "0px 0px 0px 0px",
-    };
+    if ("loading" in HTMLImageElement.prototype) {
+      // Browser supports `loading`..
+      src = srcURL.replace(/-small/, "");
+    } else {
+      // Use Intersection Observer for lazy loading instead
+      let options = {
+        root: null,
+        rootMargin: "0px 0px 0px 0px",
+      };
 
-    let onEnterScreen = ([entry]) => {
-      if (entry.isIntersecting) {
-        console.log(entry.target);
-        src = srcURL.replace(/-small/, "");
-        observer.unobserve(image);
-      }
-    };
+      let onEnterScreen = ([entry]) => {
+        if (entry.isIntersecting) {
+          src = srcURL.replace(/-small/, "");
+          observer.unobserve(image);
+        }
+      };
 
-    const observer = new IntersectionObserver(onEnterScreen, options);
+      const observer = new IntersectionObserver(onEnterScreen, options);
 
-    observer.observe(image);
+      observer.observe(image);
 
-    return () => observer.disconnect();
+      return () => observer.disconnect();
+    }
   });
 </script>
 
@@ -43,7 +48,7 @@
 </style>
 
 <figure class="{`${className}`}">
-  <img {src} alt="{altText}" bind:this="{image}" />
+  <img {src} alt="{altText}" bind:this="{image}" loading="lazy" />
   {#if caption}
     <figcaption class="font-size:small font-family:sans-serif">
       {@html caption}

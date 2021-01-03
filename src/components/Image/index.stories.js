@@ -1,5 +1,6 @@
 import { select, text, withKnobs } from "@storybook/addon-knobs";
 import Image from "./index.svelte";
+import ViewMultiple from "./view.multiple.svelte";
 import docs from "./docs.mdx";
 import { spaceOptions } from "../preview-content/options.js";
 
@@ -25,4 +26,8 @@ export const Default = () => ({
     className: text("className", "image-class"),
     srcURL: text("srcURL", "img/image-small.jpg"),
   },
+});
+
+export const MultipleImages = () => ({
+  Component: ViewMultiple,
 });
