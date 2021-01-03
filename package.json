@@ -1,6 +1,6 @@
 {
   "name": "nature-immersive-svelte-components",
-  "version": "0.2.46",
+  "version": "0.2.47",
   "description": "Collection of svelte components to build nature immersive articles",
   "svelte": "src/index.js",
   "main": "dist/index.js",

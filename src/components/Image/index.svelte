@@ -1,15 +1,34 @@
 <script>
   import { onMount } from "svelte";
 
-  export let className = "";
   export let altText;
   export let caption;
+  export let className = "";
   export let srcURL;
+
+  let image;
 
   $: src = srcURL;
 
   onMount(() => {
-    src = srcURL.replace(/-small/, "");
+    let options = {
+      root: null,
+      rootMargin: "0px 0px 0px 0px",
+    };
+
+    let onEnterScreen = ([entry]) => {
+      if (entry.isIntersecting) {
+        console.log(entry.target);
+        src = srcURL.replace(/-small/, "");
+        observer.unobserve(image);
+      }
+    };
+
+    const observer = new IntersectionObserver(onEnterScreen, options);
+
+    observer.observe(image);
+
+    return () => observer.disconnect();
   });
 </script>
 
@@ -24,7 +43,7 @@
 </style>
 
 <figure class="{`${className}`}">
-  <img {src} alt="{altText}" />
+  <img {src} alt="{altText}" bind:this="{image}" />
   {#if caption}
     <figcaption class="font-size:small font-family:sans-serif">
       {@html caption}
