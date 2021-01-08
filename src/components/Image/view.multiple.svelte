@@ -10,6 +10,5 @@
     <Image srcURL="img/static-c-graphic-small.jpg" />
     <Image srcURL="img/static-d-graphic-small.jpg" />
     <Image srcURL="img/static-e-graphic-small.jpg" />
-
   </Stack>
 </Center>

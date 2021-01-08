@@ -1,5 +1,5 @@
 /* --------------------------- Dark colour scheme --------------------------- */
-:root {
+body.dark {
   --link-color: var(--orange-1);
   --link-color-invert: var(--blue-1);
   --link-color-active: var(--black-0);
