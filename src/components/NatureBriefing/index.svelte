@@ -14,7 +14,7 @@
     padding: var(--s-1);
     color: var(--text-color) !important;
     text-decoration: none !important;
-    background-color: #fff !important;
+    background-color: var(--text-color-invert) !important;
     border-bottom: none !important;
     outline: none !important;
   }
@@ -26,7 +26,7 @@
     outline: none !important;
   }
 
-  .sign-up-link {
+  .sign-up-link-cotainer {
     display: flex;
     justify-content: flex-end;
     margin-top: var(--s-1) !important;
@@ -47,7 +47,7 @@
       An essential round-up of science news, opinion and analysis, free in your
       inbox every weekday.
     </p>
-    <div class="sign-up-link">
+    <div class="sign-up-link-cotainer">
       <a
         class="font-family:sans-serif"
         href="https://www.nature.com/briefing/signup/"
