@@ -1,10 +1,13 @@
 import { object, select, text, withKnobs } from "@storybook/addon-knobs";
 import CardBox from "./index.svelte";
+import ViewNested from "./view.nested.svelte";
 import cardData from "../preview-content/card-data.js";
 import {
-  headerLevelOptions,
   fontSizeOptions,
+  headerLevelOptions,
+  slotOptions,
   spaceOptions,
+  themeOptions,
 } from "../preview-content/options.js";
 import docs from "./docs.mdx";
 
@@ -36,5 +39,14 @@ export const Default = () => ({
     headlineFontSize: select("headlineFontSize", fontSizeOptions, "big-2"),
     id: text("id", "card-id"),
     stackSpace: select("stackSpace", spaceOptions, "var(--s-1)"),
+    theme: select("theme", themeOptions, "invert"),
+  },
+});
+
+export const Nested = () => ({
+  Component: ViewNested,
+  decorators: [withKnobs],
+  props: {
+    slot: select("slot", slotOptions, "CardBox"),
   },
 });

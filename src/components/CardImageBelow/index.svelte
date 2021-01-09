@@ -15,11 +15,12 @@
   export let sidebarSpace;
   export let sidebarWidth;
   export let stackSpace;
+  export let theme = "";
 
   let { srcURL } = cardData;
 </script>
 
-<div class="{`card--image-below ${className}`}">
+<div class="{`card--image-below ${className}`}" data-theme="{theme}">
   <Stack {stackSpace}>
     <CardHeader
       {cardData}
@@ -41,6 +42,8 @@
     {:else}
       <CardImageBelowStack {stackSpace} {cardData} />
     {/if}
+
+    <slot />
 
   </Stack>
 </div>

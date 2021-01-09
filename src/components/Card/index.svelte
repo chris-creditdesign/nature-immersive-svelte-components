@@ -10,11 +10,12 @@
   export let headlineFontSize;
   export let id;
   export let stackSpace = "var(--s-1)";
+  export let theme = "";
 
   let { altText, caption, footnote, srcURL, text } = cardData;
 </script>
 
-<div class="{`card ${className}`}">
+<div class="{`card ${className}`}" data-theme="{theme}">
   <Stack {stackSpace}>
     {#if srcURL}
       <Image {altText} {caption} {srcURL} />
@@ -39,5 +40,7 @@
         {@html footnote}
       </p>
     {/if}
+
+    <slot />
   </Stack>
 </div>

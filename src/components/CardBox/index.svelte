@@ -10,9 +10,10 @@
   export let headlineFontSize;
   export let id;
   export let stackSpace;
+  export let theme = "invert";
 </script>
 
-<div class="{`card--box invert ${className}`}">
+<div class="{`card--box ${className}`}" data-theme="{theme}">
   <Box {boxSpace}>
     <Card
       {cardData}
@@ -21,6 +22,9 @@
       {headlineFontSize}
       {id}
       {stackSpace}
-    />
+      {theme}
+    >
+      <slot />
+    </Card>
   </Box>
 </div>

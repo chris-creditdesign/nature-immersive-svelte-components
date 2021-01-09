@@ -6,6 +6,7 @@ import {
   boolean,
 } from "@storybook/addon-knobs";
 import CardImageBelow from "./index.svelte";
+import ViewNested from "./view.nested.svelte";
 import cardData from "../preview-content/card-data.js";
 import {
   fontSizeOptions,
@@ -13,6 +14,7 @@ import {
   measureOptions,
   percentOptions,
   spaceOptions,
+  themeOptions,
 } from "../preview-content/options.js";
 import docs from "./docs.mdx";
 
@@ -51,5 +53,10 @@ export const Default = () => ({
     sidebarSpace: select("sidebarSpace", spaceOptions, "var(--s-1)"),
     sidebarWidth: select("sidebarWidth", measureOptions, "var(--s7)"),
     stackSpace: select("stackSpace", spaceOptions, "var(--s-1)"),
+    theme: select("theme", themeOptions, ""),
   },
+});
+
+export const Nested = () => ({
+  Component: ViewNested,
 });

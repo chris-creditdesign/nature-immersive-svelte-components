@@ -14,9 +14,10 @@
   export let sidebarSpace;
   export let sidebarWidth;
   export let stackSpace;
+  export let theme = "invert";
 </script>
 
-<div class="{`card invert ${className}`}">
+<div class="{`card invert ${className}`}" data-theme="{theme}">
   <Box {boxSpace}>
     <CardSideImage
       {cardData}
@@ -29,6 +30,9 @@
       {sidebarSpace}
       {sidebarWidth}
       {stackSpace}
-    />
+      {theme}
+    >
+      <slot />
+    </CardSideImage>
   </Box>
 </div>

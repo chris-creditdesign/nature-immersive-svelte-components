@@ -1,5 +1,5 @@
 <script>
-  import { Sidebar } from "creditdesign-svelte-components";
+  import { Sidebar, Stack } from "creditdesign-svelte-components";
   import Card from "../Card/index.svelte";
   import Image from "../Image/index.svelte";
 
@@ -14,35 +14,49 @@
   export let sidebarSpace;
   export let sidebarWidth = "var(--s7)";
   export let stackSpace;
+  export let theme = "";
 
   let { altText, caption, srcURL } = cardData;
 
   let cardDataNoImage = { ...cardData, srcURL: undefined };
 </script>
 
-<div class="{`card--side-image ${className}`}">
+<div class="{`card--side-image ${className}`}" data-theme="{theme}">
   {#if srcURL}
-    <Sidebar
-      {sidebarContentMinWidth}
-      {sidebarOnLeft}
-      {sidebarSpace}
-      {sidebarWidth}
-    >
-      <div slot="sidebar">
-        <Image {altText} {caption} {srcURL} />
-      </div>
-      <div slot="main-content">
-        <Card
-          {cardHeaderStackSpace}
-          {headerLevel}
-          {headlineFontSize}
-          {id}
-          {stackSpace}
-          cardData="{cardDataNoImage}"
-        />
-      </div>
-    </Sidebar>
+    <Stack {stackSpace}>
+      <Sidebar
+        {sidebarContentMinWidth}
+        {sidebarOnLeft}
+        {sidebarSpace}
+        {sidebarWidth}
+      >
+        <div slot="sidebar">
+          <Image {altText} {caption} {srcURL} />
+        </div>
+        <div slot="main-content">
+          <Card
+            {cardHeaderStackSpace}
+            {headerLevel}
+            {headlineFontSize}
+            {id}
+            {stackSpace}
+            cardData="{cardDataNoImage}"
+            {theme}
+          />
+        </div>
+      </Sidebar>
+      <slot />
+    </Stack>
   {:else}
-    <Card {cardData} {cardHeaderStackSpace} {headerLevel} {id} {stackSpace} />
+    <Card
+      {cardData}
+      {cardHeaderStackSpace}
+      {headerLevel}
+      {id}
+      {stackSpace}
+      {theme}
+    >
+      <slot />
+    </Card>
   {/if}
 </div>

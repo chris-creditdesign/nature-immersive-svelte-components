@@ -57,3 +57,7 @@ export let frameRatioOptions = {
   max: 16,
   step: 1,
 };
+
+export let themeOptions = ["", "invert", "custom (to be defined in CSS)"];
+
+export let slotOptions = ["CardBox", "CardImageBelowBox", "CardSideImageBox"];

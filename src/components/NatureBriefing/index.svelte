@@ -34,7 +34,7 @@
   }
 </style>
 
-<div class="invert">
+<div data-theme="invert">
   <Box boxSpace="var(--s1)">
 
     <LogoNatureBriefing height="2.5" />

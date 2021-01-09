@@ -71,7 +71,7 @@
 </a>
 
 <header class="menu">
-  <div class="menu__inner invert font-family:sans-serif">
+  <div class="menu__inner font-family:sans-serif" data-theme="invert">
     <Box boxSpace="var(--s-1)">
       <Stack>
         <Sidebar sidebarOnLeft="{false}">

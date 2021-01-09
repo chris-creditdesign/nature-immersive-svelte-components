@@ -117,25 +117,44 @@ sub {
   top: 0.4em;
 }
 
+/* --------------------------------- Themes --------------------------------- */
+
+[data-theme] {
+  --color--component: initial;
+  --color--global: var(--text-color);
+  --link-color--component: initial;
+  --link-color--global: var(--link-color);
+  --link-color-active--component: initial;
+  --link-color-active--global: var(--link-color-active);
+  --background-color--component: initial;
+  --background-color--global: var(--background-color);
+
+  color: var(--color--component, var(--color--global));
+  background: var(
+    --background-color--component,
+    var(--background-color--global)
+  );
+  fill: var(--color--component, var(--color--global));
+}
+
+[data-theme] a {
+  color: var(--link-color--component, var(--link-color--global));
+  fill: var(--link-color--component, var(--link-color--global));
+}
+
+[data-theme] a:hover,
+[data-theme] a:active {
+  color: var(--link-color-active--component, var(--link-color-active--global));
+  fill: var(--link-color-active--component, var(--link-color-active--global));
+}
+
+[data-theme="invert"] {
+  --color--component: var(--text-color-invert);
+  --link-color--component: var(--link-color-invert);
+  --background-color--component: var(--background-color-invert);
+}
+
 /* -------------------------------- Modifiers ------------------------------- */
-
-/* Background colors */
-.invert {
-  color: var(--text-color-invert);
-  background-color: var(--background-color-invert);
-  fill: var(--text-color-invert);
-}
-
-.invert a {
-  color: var(--link-color-invert);
-  fill: var(--link-color-invert);
-}
-
-.invert a:hover,
-.invert a:focus {
-  color: var(--link-color-active);
-  fill: var(--link-color-active);
-}
 
 /* Borders */
 .border-above {
