@@ -6,8 +6,8 @@
 
   let { href } = cardData;
 
-  let useId = id.length && !href.length ? id : null;
-  let tabindex = id.length && !href.length ? "-1" : null;
+  let useId = id.length && href !== undefined ? id : null;
+  let tabindex = id.length && href !== undefined ? "-1" : null;
 </script>
 
 {#if headerLevel === 'h1'}
