@@ -21,6 +21,7 @@
 
   a:hover,
   a:focus {
+    color: var(--link-color-active) !important;
     background-color: var(--outline) !important;
     border-bottom: none !important;
     outline: none !important;

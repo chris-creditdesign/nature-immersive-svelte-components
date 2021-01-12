@@ -49,6 +49,8 @@
           data-event-category="menu"
           data-event-action="click"
           data-event-label="{text}"
+          on:focus
+          on:blur
         >
           {text}
         </a>

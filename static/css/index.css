@@ -145,7 +145,7 @@ sub {
 }
 
 [data-theme] a:hover,
-[data-theme] a:active {
+[data-theme] a:focus {
   color: var(--link-color-active--component, var(--link-color-active--global));
   fill: var(--link-color-active--component, var(--link-color-active--global));
 }

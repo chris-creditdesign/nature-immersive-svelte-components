@@ -11,9 +11,17 @@
   let { menuLinks } = articleData;
   let menuExpanded = true;
   let mounted = false;
+  let menuLinkFocused = false;
 
   let handleButtonClick = () => {
     menuExpanded = !menuExpanded;
+  };
+
+  let handleMenuLinkFocus = () => {
+    menuLinkFocused = true;
+  };
+  let handleMenuLinkBlur = () => {
+    menuLinkFocused = false;
   };
 
   onMount(() => {
@@ -94,6 +102,7 @@
               {#if menuLinks && mounted}
                 <ExpandButton
                   {menuExpanded}
+                  {menuLinkFocused}
                   on:menu-button-click="{handleButtonClick}"
                 />
               {/if}
@@ -103,7 +112,11 @@
 
         {#if menuLinks}
           <div id="menu-list" hidden="{!(menuExpanded && menuLinks)}">
-            <MenuList {menuLinks} />
+            <MenuList
+              {menuLinks}
+              on:focus="{handleMenuLinkFocus}"
+              on:blur="{handleMenuLinkBlur}"
+            />
           </div>
         {/if}
 

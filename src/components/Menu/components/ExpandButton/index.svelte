@@ -3,7 +3,18 @@
   import LogoVeggieBurger from "../../../LogoVeggieBurger/index.svelte";
 
   export let menuExpanded;
+  export let menuLinkFocused;
+  export let menuButtonRef = null;
   let dispatch = createEventDispatcher();
+
+  let handleKeydown = (event) => {
+    if (event.key === "Escape" && menuExpanded && menuLinkFocused) {
+      dispatch("menu-button-click");
+      menuButtonRef.focus();
+      return;
+    }
+    return;
+  };
 </script>
 
 <style>
@@ -48,6 +59,8 @@
   }
 </style>
 
+<svelte:window on:keydown="{handleKeydown}" />
+
 <button
   on:click="{() => dispatch('menu-button-click')}"
   class="menu__button"
@@ -56,6 +69,7 @@
   data-event-category="menu"
   data-event-action="click"
   data-event-label="button"
+  bind:this="{menuButtonRef}"
 >
   <LogoVeggieBurger height="{1.6}" />
 </button>
