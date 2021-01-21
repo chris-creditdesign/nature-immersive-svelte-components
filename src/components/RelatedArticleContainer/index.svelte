@@ -64,8 +64,8 @@
       <div class="related-article-containe__inner">
         {#each relatedArticles as cardData}
           <div
-            class="related-article-container__article font-family:sans-serif
-            invert"
+            class="related-article-container__article font-family:sans-serif"
+            data-theme="invert"
           >
             <CardSideImageBox
               headerLevel="none"
