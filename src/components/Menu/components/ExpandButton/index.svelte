@@ -1,11 +1,9 @@
 <script>
-  import { createEventDispatcher } from "svelte";
   import LogoVeggieBurger from "../../../LogoVeggieBurger/index.svelte";
 
   export let menuExpanded;
   export let menuLinkFocused;
   export let menuButtonRef = null;
-  let dispatch = createEventDispatcher();
 
   let handleKeydown = (event) => {
     if (event.key === "Escape" && menuExpanded && menuLinkFocused) {
@@ -62,7 +60,7 @@
 <svelte:window on:keydown="{handleKeydown}" />
 
 <button
-  on:click="{() => dispatch('menu-button-click')}"
+  on:click
   class="menu__button"
   aria-expanded="{menuExpanded}"
   aria-controls="menu-list"

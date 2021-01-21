@@ -103,7 +103,7 @@
                 <ExpandButton
                   {menuExpanded}
                   {menuLinkFocused}
-                  on:menu-button-click="{handleButtonClick}"
+                  on:click="{handleButtonClick}"
                 />
               {/if}
             </Cluster>
