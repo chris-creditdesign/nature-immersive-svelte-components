@@ -1,5 +1,5 @@
 /* --------------------------- Light colour scheme -------------------------- */
-body.light {
+body {
   --link-color: var(--blue-1);
   --link-color-invert: var(--orange-1);
   --link-color-active: var(--black-0);
@@ -12,6 +12,6 @@ body.light {
 
 /* CoverBackgroundVideo and CoverBackgroundImage
    Make the text visible over the dark background */
-body.light .cover--with-background {
+body .cover--with-background {
   color: var(--text-color-invert);
 }
