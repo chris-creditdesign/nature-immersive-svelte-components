@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { SwitcherList } from "creditdesign-svelte-components";
+  import ExpandButton from "./components/ExpandButton/index.svelte";
   import LogoNature from "../LogoNature/index.svelte";
 
   let menuExpanded = true;
@@ -63,22 +64,6 @@
     justify-content: space-between;
   }
 
-  button {
-    height: 100%;
-    padding: 0 var(--s-1);
-    font-size: inherit;
-    color: var(--link-color-invert);
-    background: none;
-    background-color: var(--background-color-invert);
-    border: none;
-  }
-
-  button:hover,
-  button:focus {
-    color: var(--link-color-active);
-    background-color: var(--outline);
-  }
-
   .link-with-svg {
     font-size: 1.6em;
   }
@@ -126,9 +111,11 @@
     </li>
 
     <li class="list-item-with-menu">
-      <button bind:this="{menuButtonRef}" on:click="{handleButtonClick}">
-        Menu
-      </button>
+      <ExpandButton
+        bind:menuButtonRef
+        on:click="{handleButtonClick}"
+        expanded="{menuExpanded}"
+      />
       {#if menuExpanded}
         <nav data-theme="invert">
           <SwitcherList>

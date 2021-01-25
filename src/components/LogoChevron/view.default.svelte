@@ -1,5 +1,5 @@
 <script>
-  import LogoVeggieBurger from "./index.svelte";
+  import LogoChevron from "./index.svelte";
 
   const sizes = [1, 2, 3, 4, 5];
   const ratio = 1.6;
@@ -7,6 +7,6 @@
 
 {#each sizes as size}
   <div>
-    <LogoVeggieBurger height="{size * ratio}" />
+    <LogoChevron height="{size * ratio}" />
   </div>
 {/each}

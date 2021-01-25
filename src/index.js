@@ -69,6 +69,7 @@ export { default as NatureBriefing } from "./components/NatureBriefing/index.sve
 /* ---------------------------------- Logos --------------------------------- */
 
 export { default as LogoEmail } from "./components/LogoEmail/index.svelte";
+export { default as LogoChevron } from "./components/LogoChevron/index.svelte";
 export { default as LogoFacebook } from "./components/LogoFacebook/index.svelte";
 export { default as LogoNature } from "./components/LogoNature/index.svelte";
 export { default as LogoSpringerNature } from "./components/LogoSpringerNature/index.svelte";
