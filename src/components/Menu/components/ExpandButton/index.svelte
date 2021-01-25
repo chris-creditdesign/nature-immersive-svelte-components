@@ -16,7 +16,6 @@
     background: none;
     background-color: var(--background-color-invert);
     border: none;
-    gap: var(--s-2);
   }
 
   button:hover,
@@ -33,6 +32,7 @@
   }
 
   .toggle-icon {
+    margin-left: var(--s-2);
     transition: transform 0.3s ease;
     transform: rotate(0deg);
   }
