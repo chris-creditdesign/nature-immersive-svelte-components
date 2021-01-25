@@ -5,9 +5,10 @@
   import MenuList from "./components/MenuList/index.svelte";
   import SocialLinks from "./components/SocialLinks/index.svelte";
   import LogoNature from "../LogoNature/index.svelte";
+  import LogoDownloadFile from "../LogoDownloadFile/index.svelte";
 
   export let articleData;
-  let { menuLinks } = articleData;
+  let { menuLinks, pdfAvailable, doi } = articleData;
 
   let mounted = false;
   let menuExpanded = true;
@@ -91,6 +92,15 @@
     font-size: 1.6em;
   }
 
+  .pdf-link {
+    display: flex;
+    align-items: center;
+  }
+
+  .pdf-icon {
+    margin-left: var(--s-2);
+  }
+
   :global(.menu-list) {
     display: flex;
     align-items: center;
@@ -133,11 +143,22 @@
       </a>
     </li>
 
+    {#if pdfAvailable}
+      <li>
+        <a class="pdf-link" href="{`pdf/${doi}.pdf`}">
+          <span>PDF download</span>
+          <span class="pdf-icon">
+            <LogoDownloadFile height="1.6" />
+          </span>
+        </a>
+      </li>
+    {/if}
+
     <li>
       <SocialLinks {articleData} />
     </li>
 
-    {#if mounted && menuLinks}
+    {#if mounted && menuLinks && menuLinks.length}
       <li class="position:relative">
         <ExpandButton
           bind:menuButtonRef

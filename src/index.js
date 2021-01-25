@@ -76,6 +76,7 @@ export { default as LogoSpringerNature } from "./components/LogoSpringerNature/i
 export { default as LogoTwitter } from "./components/LogoTwitter/index.svelte";
 export { default as LogoTriangle } from "./components/LogoTriangle/index.svelte";
 export { default as LogoFilter } from "./components/LogoFilter/index.svelte";
+export { default as LogoDownloadFile } from "./components/LogoDownloadFile/index.svelte";
 
 /* ------------------------- Interactive components ------------------------- */
 
