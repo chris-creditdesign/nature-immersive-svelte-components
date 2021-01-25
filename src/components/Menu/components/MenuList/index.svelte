@@ -20,7 +20,7 @@
     width: 100%;
     max-width: none;
     padding: var(--s-1);
-    background-color: red;
+    background-color: var(--black-2);
   }
 </style>
 

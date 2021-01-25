@@ -15,20 +15,11 @@ export const menuHeight = derived(
     if (!$menuElement) return;
 
     const ro = new ResizeObserver(([entry]) => {
-      console.log("resizing....");
       let roundedHeight = getRoundedHeight(entry);
       set(roundedHeight);
-      //   if (entry.contentRect.width > 740) {
-      //     set(true);
-      //   } else {
-      //     set(false);
-      //   }
     });
 
     ro.observe($menuElement);
-
-    // let roundedHeight = getRoundedHeight($menuElement);
-    // set(roundedHeight);
 
     return () => ro.disconnect();
   },

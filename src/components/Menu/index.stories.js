@@ -1,7 +1,5 @@
 import { object, text, withKnobs, boolean } from "@storybook/addon-knobs";
-import Menu from "./index.svelte";
-import ViewWithHeadingAsSlot from "./view.with-heading-as-slot.svelte";
-import articleData from "../preview-content/article-data.js";
+import Menu from "./view.default.svelte";
 import docs from "./docs.mdx";
 
 export default {

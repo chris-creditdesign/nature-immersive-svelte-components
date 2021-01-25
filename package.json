@@ -22,7 +22,7 @@
     "@rollup/plugin-node-resolve": "^7.1.3",
     "@storybook/addon-docs": "^6.1.10",
     "@storybook/addon-knobs": "^6.1.10",
-    "@storybook/svelte": "^6.1.10",
+    "@storybook/svelte": "^6.1.15",
     "@whitespace/storybook-addon-html": "^4.0.2",
     "babel-loader": "^8.1.0",
     "creditdesign-svelte-components": "^0.2.4",
@@ -39,8 +39,8 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
-    "svelte": "^3.23.2",
-    "svelte-loader": "^2.13.6"
+    "svelte": "^3.31.2",
+    "svelte-loader": "^3.0.0"
   },
   "keywords": [
     "svelte"

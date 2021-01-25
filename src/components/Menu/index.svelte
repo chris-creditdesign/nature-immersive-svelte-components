@@ -3,6 +3,7 @@
   import { menuElement, menuHeight } from "./stores/check-menu-dimensions.js";
   import ExpandButton from "./components/ExpandButton/index.svelte";
   import MenuList from "./components/MenuList/index.svelte";
+  import MenuListStatic from "./components/MenuListStatic/index.svelte";
   import SocialLinks from "./components/SocialLinks/index.svelte";
   import LogoNature from "../LogoNature/index.svelte";
   import LogoDownloadFile from "../LogoDownloadFile/index.svelte";
@@ -16,6 +17,7 @@
   let menuButtonRef = null;
   let lastMenuLink = null;
   let handleButtonBlur;
+  let noJSMenu = MenuListStatic;
 
   let closeMenu = () => {
     menuExpanded = false;
@@ -158,27 +160,37 @@
       <SocialLinks {articleData} />
     </li>
 
-    {#if mounted && menuLinks && menuLinks.length}
-      <li class="position:relative">
-        <ExpandButton
-          bind:menuButtonRef
-          on:click="{handleButtonClick}"
-          on:blur="{handleButtonBlur}"
-          expanded="{menuExpanded}"
-        />
-        {#if menuExpanded && menuLinks}
-          <MenuList
-            bind:lastMenuLink
-            on:focus="{handleMenuLinkFocus}"
-            on:blur="{handleMenuLinkBlur}"
-            menuHeight="{$menuHeight}"
-            {menuLinks}
+    {#if menuLinks && menuLinks.length}
+      {#if mounted}
+        <li class="position:relative">
+          <ExpandButton
+            bind:menuButtonRef
+            on:click="{handleButtonClick}"
+            on:blur="{handleButtonBlur}"
+            expanded="{menuExpanded}"
           />
-        {/if}
-      </li>
+          {#if menuExpanded}
+            <MenuList
+              bind:lastMenuLink
+              on:focus="{handleMenuLinkFocus}"
+              on:blur="{handleMenuLinkBlur}"
+              menuHeight="{$menuHeight}"
+              {menuLinks}
+            />
+          {/if}
+        </li>
+      {:else}
+        <li>
+          <a href="#menu">Menu</a>
+        </li>
+      {/if}
     {/if}
   </ul>
 
 </header>
 
-<a href="https://www.nature.come">Next focusable item...</a>
+<slot />
+
+{#if !mounted}
+  <MenuListStatic {menuLinks} />
+{/if}
