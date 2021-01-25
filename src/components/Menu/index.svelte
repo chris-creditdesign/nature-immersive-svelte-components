@@ -1,9 +1,14 @@
 <script>
   import { onMount } from "svelte";
-  import { SwitcherList } from "creditdesign-svelte-components";
+  import { menuElement, menuHeight } from "./stores/check-menu-dimensions.js";
   import ExpandButton from "./components/ExpandButton/index.svelte";
+  import MenuList from "./components/MenuList/index.svelte";
   import LogoNature from "../LogoNature/index.svelte";
 
+  export let articleData;
+  let { menuLinks } = articleData;
+
+  let mounted = false;
   let menuExpanded = true;
   let menuLinkFocused = false;
   let menuButtonRef = null;
@@ -37,6 +42,7 @@
   };
 
   onMount(() => {
+    mounted = true;
     menuExpanded = false;
 
     // `window` is not available for static render,
@@ -85,16 +91,6 @@
     position: relative;
   }
 
-  nav {
-    position: fixed;
-    top: calc(1.6em + var(--s-1) + var(--s-1));
-    left: 0;
-    width: 100%;
-    max-width: none;
-    padding: var(--s-1);
-    background-color: red;
-  }
-
   .skip-link:not(:focus) {
     /* visibly hidden */
     position: absolute !important;
@@ -115,7 +111,7 @@
   Skip to main content
 </a>
 
-<header data-theme="invert">
+<header data-theme="invert" bind:this="{$menuElement}">
   <ul class="header__list">
     <li>
       <a class="link-with-svg" href="https://www.nature.com">
@@ -123,66 +119,25 @@
       </a>
     </li>
 
-    <li class="list-item-with-menu">
-      <ExpandButton
-        bind:menuButtonRef
-        on:click="{handleButtonClick}"
-        on:blur="{handleButtonBlur}"
-        expanded="{menuExpanded}"
-      />
-      {#if menuExpanded}
-        <nav data-theme="invert">
-          <SwitcherList>
-            <li>
-              <a
-                href="https://www.nature.com"
-                on:focus="{handleMenuLinkFocus}"
-                on:blur="{handleMenuLinkBlur}"
-              >
-                One
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.nature.com"
-                on:focus="{handleMenuLinkFocus}"
-                on:blur="{handleMenuLinkBlur}"
-              >
-                Two
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.nature.com"
-                on:focus="{handleMenuLinkFocus}"
-                on:blur="{handleMenuLinkBlur}"
-              >
-                Three
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.nature.com"
-                on:focus="{handleMenuLinkFocus}"
-                on:blur="{handleMenuLinkBlur}"
-              >
-                Four
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.nature.com"
-                bind:this="{lastMenuLink}"
-                on:focus="{handleMenuLinkFocus}"
-                on:blur|preventDefault="{handleMenuLinkBlur}"
-              >
-                Five
-              </a>
-            </li>
-          </SwitcherList>
-        </nav>
-      {/if}
-    </li>
+    {#if mounted && menuLinks}
+      <li class="list-item-with-menu">
+        <ExpandButton
+          bind:menuButtonRef
+          on:click="{handleButtonClick}"
+          on:blur="{handleButtonBlur}"
+          expanded="{menuExpanded}"
+        />
+        {#if menuExpanded && menuLinks}
+          <MenuList
+            bind:lastMenuLink
+            on:focus="{handleMenuLinkFocus}"
+            on:blur="{handleMenuLinkBlur}"
+            menuHeight="{$menuHeight}"
+            {menuLinks}
+          />
+        {/if}
+      </li>
+    {/if}
   </ul>
 
 </header>

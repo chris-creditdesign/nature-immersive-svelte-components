@@ -1,62 +1,45 @@
 <script>
+  import { SwitcherList } from "creditdesign-svelte-components";
+
   export let menuLinks;
+  export let lastMenuLink;
+  export let menuHeight;
+
+  let style = `top: ${menuHeight}px;`;
 </script>
 
 <style>
-  /* .menu__list {
-    --switcher-space: var(--s-1);
-    --switcher-min-width: var(--measure);
-    --modifier: calc(
-      var(--switcher-min-width) - (100% - var(--switcher-space))
-    );
-  } */
+  a {
+    text-decoration: none;
+  }
 
-  /* .menu__list__inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  nav {
+    position: fixed;
+    top: calc(1.6em + var(--s-1) + var(--s-1));
+    left: 0;
+    width: 100%;
     max-width: none;
-    padding: 0;
-    margin: calc((var(--switcher-space) / 2) * -1);
-    list-style: none;
-  } */
-
-  /* .menu__list__inner > li {
-    flex-basis: calc(var(--modifier) * 999);
-    padding: 0;
-    margin: calc(var(--switcher-space) / 2);
-  } */
-
-  /* If there are more than 7 items, stack them automatically */
-
-  /* :global(.menu__list__inner > :nth-last-child(n + 8)) { */
-
-  /* .menu__list__inner > li:nth-last-child(n + 8) {
-    flex-basis: 100%;
-  } */
-
-  /* :global(.menu__list__inner > :nth-last-child(n + 8) ~ *) { */
-
-  /* .menu__list__inner > li:nth-last-child(n + 8) ~ * {
-    flex-basis: 100%;
-  } */
+    padding: var(--s-1);
+    background-color: red;
+  }
 </style>
 
-<div class="menu__list">
-  <ul class="menu__list__inner">
-    {#each menuLinks as { text, href }}
-      <li>
-        <a
-          {href}
-          data-event-category="menu"
-          data-event-action="click"
-          data-event-label="{text}"
-          on:focus
-          on:blur
-        >
-          {text}
-        </a>
-      </li>
+<nav data-theme="invert" {style}>
+  <SwitcherList>
+    {#each menuLinks as { text, href }, i}
+      {#if i !== menuLinks.length - 1}
+        <li>
+          <a {href} on:focus on:blur>
+            {@html text}
+          </a>
+        </li>
+      {:else}
+        <li>
+          <a {href} on:focus on:blur bind:this="{lastMenuLink}">
+            {@html text}
+          </a>
+        </li>
+      {/if}
     {/each}
-  </ul>
-</div>
+  </SwitcherList>
+</nav>
