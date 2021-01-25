@@ -1,17 +1,12 @@
 <script>
   import { onMount } from "svelte";
-  import { Box, Stack, Sidebar, Cluster } from "creditdesign-svelte-components";
+  import { SwitcherList } from "creditdesign-svelte-components";
   import LogoNature from "../LogoNature/index.svelte";
-  import SocialLinks from "./components/SocialLinks/index.svelte";
-  import ExpandButton from "./components/ExpandButton/index.svelte";
-  import MenuList from "./components/MenuList/index.svelte";
 
-  export let articleData;
-
-  let { menuLinks } = articleData;
   let menuExpanded = true;
-  let mounted = false;
   let menuLinkFocused = false;
+  let menuButtonRef = null;
+  let lastMenuLink = null;
 
   let handleButtonClick = () => {
     menuExpanded = !menuExpanded;
@@ -20,48 +15,90 @@
   let handleMenuLinkFocus = () => {
     menuLinkFocused = true;
   };
-  let handleMenuLinkBlur = () => {
+
+  let handleMenuLinkBlur = (event) => {
     menuLinkFocused = false;
+    if (event.target === lastMenuLink) {
+      closeMenu();
+    }
+  };
+
+  let handleKeydown = (event) => {
+    if (event.key === "Escape" && menuExpanded && menuLinkFocused) {
+      closeMenu();
+    }
+  };
+
+  let closeMenu = () => {
+    menuExpanded = false;
+    menuButtonRef.focus();
   };
 
   onMount(() => {
     menuExpanded = false;
-    mounted = true;
   });
 </script>
 
 <style>
-  /* Special case for links and button in header 
-     Set all links to be white or black initially - rather than the normal link color.
-     On hover or focus add a coloured border rather than the default outline as 
-     this is being clipped by the negative margins.
-  */
-
-  .menu {
+  header {
     --link-color-invert: var(--text-color-invert);
+
+    padding: var(--s-1);
+    font-family: var(--sans-serif-font);
   }
 
-  :global(.menu a, .menu button) {
-    display: block;
-    width: max-content;
+  a {
     text-decoration: none;
-    border: 2px solid var(--background-color-invert);
   }
 
-  :global(.menu a:hover, .menu a:focus, .menu button:hover, .menu
-      button:focus) {
-    border: 2px solid var(--outline);
-    outline: none;
+  ul {
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
-  /* If menu wraps, make sure social buttons and button are on the left */
-  .sidebar {
+  .header__list {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
   }
 
-  /* -------------------------- Skip to main content -------------------------- */
+  button {
+    height: 100%;
+    padding: 0 var(--s-1);
+    font-size: inherit;
+    color: var(--link-color-invert);
+    background: none;
+    background-color: var(--background-color-invert);
+    border: none;
+  }
+
+  button:hover,
+  button:focus {
+    color: var(--link-color-active);
+    background-color: var(--outline);
+  }
+
+  .link-with-svg {
+    font-size: 1.6em;
+  }
+
+  .list-item-with-menu {
+    position: relative;
+  }
+
+  nav {
+    position: fixed;
+    top: calc(1.6em + var(--s-1) + var(--s-1));
+    left: 0;
+    width: 100%;
+    max-width: none;
+    padding: var(--s-1);
+    background-color: red;
+  }
+
   .skip-link:not(:focus) {
+    /* visibly hidden */
     position: absolute !important;
     width: 1px;
     height: 1px;
@@ -74,54 +111,79 @@
   }
 </style>
 
+<svelte:window on:keydown="{handleKeydown}" />
+
 <a href="#main-content" class="skip-link font-family:sans-serif">
   Skip to main content
 </a>
 
-<header class="menu">
-  <div class="menu__inner font-family:sans-serif" data-theme="invert">
-    <Box boxSpace="var(--s-1)">
-      <Stack>
-        <Sidebar sidebarOnLeft="{false}">
-          <div slot="main-content">
-            <a
-              href="https://www.nature.com"
-              data-track="click"
-              data-event-category="menu"
-              data-event-action="click"
-              data-event-label="nature.com"
-            >
-              <LogoNature height="{1.6}" />
-            </a>
-          </div>
+<header data-theme="invert">
+  <ul class="header__list">
+    <li>
+      <a class="link-with-svg" href="https://www.nature.com">
+        <LogoNature />
+      </a>
+    </li>
 
-          <div class="sidebar" slot="sidebar">
-            <Cluster clusterSpace="var(--s-4)">
-              <SocialLinks {articleData} />
+    <li class="list-item-with-menu">
+      <button bind:this="{menuButtonRef}" on:click="{handleButtonClick}">
+        Menu
+      </button>
+      {#if menuExpanded}
+        <nav data-theme="invert">
+          <SwitcherList>
+            <li>
+              <a
+                href="https://www.nature.com"
+                on:focus="{handleMenuLinkFocus}"
+                on:blur="{handleMenuLinkBlur}"
+              >
+                One
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.nature.com"
+                on:focus="{handleMenuLinkFocus}"
+                on:blur="{handleMenuLinkBlur}"
+              >
+                Two
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.nature.com"
+                on:focus="{handleMenuLinkFocus}"
+                on:blur="{handleMenuLinkBlur}"
+              >
+                Three
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.nature.com"
+                on:focus="{handleMenuLinkFocus}"
+                on:blur="{handleMenuLinkBlur}"
+              >
+                Four
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.nature.com"
+                bind:this="{lastMenuLink}"
+                on:focus="{handleMenuLinkFocus}"
+                on:blur|preventDefault="{handleMenuLinkBlur}"
+              >
+                Five
+              </a>
+            </li>
+          </SwitcherList>
+        </nav>
+      {/if}
+    </li>
+  </ul>
 
-              {#if menuLinks && mounted}
-                <ExpandButton
-                  {menuExpanded}
-                  {menuLinkFocused}
-                  on:click="{handleButtonClick}"
-                />
-              {/if}
-            </Cluster>
-          </div>
-        </Sidebar>
-
-        {#if menuLinks}
-          <div id="menu-list" hidden="{!(menuExpanded && menuLinks)}">
-            <MenuList
-              {menuLinks}
-              on:focus="{handleMenuLinkFocus}"
-              on:blur="{handleMenuLinkBlur}"
-            />
-          </div>
-        {/if}
-
-      </Stack>
-    </Box>
-  </div>
-  <slot />
 </header>
+
+<a href="https://www.creditdesign.co.uk">Hello</a>
