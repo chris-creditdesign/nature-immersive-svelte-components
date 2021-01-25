@@ -50,7 +50,7 @@
   }
 </style>
 
-<button aria-expanded="{expanded}" bind:this="{menuButtonRef}" on:click>
+<button aria-expanded="{expanded}" bind:this="{menuButtonRef}" on:click on:blur>
   <span>Menu</span>
   <span class="toggle-icon">
     <LogoChevron height="0.3" />

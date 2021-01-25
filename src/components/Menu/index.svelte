@@ -8,6 +8,12 @@
   let menuLinkFocused = false;
   let menuButtonRef = null;
   let lastMenuLink = null;
+  let handleButtonBlur;
+
+  let closeMenu = () => {
+    menuExpanded = false;
+    menuButtonRef.focus();
+  };
 
   let handleButtonClick = () => {
     menuExpanded = !menuExpanded;
@@ -30,13 +36,20 @@
     }
   };
 
-  let closeMenu = () => {
-    menuExpanded = false;
-    menuButtonRef.focus();
-  };
-
   onMount(() => {
     menuExpanded = false;
+
+    // `window` is not available for static render,
+    // so wait till onMount to define this function
+    // 'blur' event doesn't seem to fire on firefox using MocOS using mouse clicks
+    // https://github.com/facebook/react/issues/12993#issuecomment-413949427
+    handleButtonBlur = () => {
+      window.setTimeout(() => {
+        if (!menuLinkFocused) {
+          menuExpanded = false;
+        }
+      }, 0);
+    };
   });
 </script>
 
@@ -114,6 +127,7 @@
       <ExpandButton
         bind:menuButtonRef
         on:click="{handleButtonClick}"
+        on:blur="{handleButtonBlur}"
         expanded="{menuExpanded}"
       />
       {#if menuExpanded}
@@ -173,4 +187,4 @@
 
 </header>
 
-<a href="https://www.creditdesign.co.uk">Hello</a>
+<a href="https://www.nature.come">Next focusable item...</a>
