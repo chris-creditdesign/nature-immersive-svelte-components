@@ -6,6 +6,7 @@
 
 <style>
   svg {
+    display: block;
     overflow: visible;
   }
 </style>

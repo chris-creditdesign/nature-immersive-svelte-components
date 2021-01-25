@@ -1,5 +1,4 @@
 <script>
-  import { ClusterList } from "creditdesign-svelte-components";
   import LogoFacebook from "../../../LogoFacebook/index.svelte";
   import LogoTwitter from "../../../LogoTwitter/index.svelte";
   import LogoEmail from "../../../LogoEmail/index.svelte";
@@ -18,38 +17,24 @@
   );
 </script>
 
-<ClusterList clusterSpace="var(--s-4)">
+<ul class="menu-list">
+  <h2 class="visually-hidden">Sharing links</h2>
   <li>
-    <a
-      href="{facebookURL}"
-      data-track="click"
-      data-event-category="menu social"
-      data-event-action="click"
-      data-event-label="facebook"
-    >
-      <LogoFacebook height="{1.6}" />
+    <a class="link-with-svg" href="{twitterURL}">
+      <LogoTwitter />
+    </a>
+
+  </li>
+
+  <li>
+    <a class="link-with-svg" href="{facebookURL}">
+      <LogoFacebook />
     </a>
   </li>
+
   <li>
-    <a
-      href="{twitterURL}"
-      data-track="click"
-      data-event-category="menu social"
-      data-event-action="click"
-      data-event-label="twitter"
-    >
-      <LogoTwitter height="{1.6}" />
+    <a class="link-with-svg" href="{emailURL}">
+      <LogoEmail />
     </a>
   </li>
-  <li>
-    <a
-      href="{emailURL}"
-      data-track="click"
-      data-event-category="menu social"
-      data-event-action="click"
-      data-event-label="email"
-    >
-      <LogoEmail height="{1.6}" />
-    </a>
-  </li>
-</ClusterList>
+</ul>

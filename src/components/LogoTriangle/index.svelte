@@ -5,7 +5,7 @@
 
 <style>
   svg {
-    display: block;
+    /* display: block; */
     overflow: visible;
   }
 </style>

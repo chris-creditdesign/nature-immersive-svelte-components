@@ -3,6 +3,7 @@
   import { menuElement, menuHeight } from "./stores/check-menu-dimensions.js";
   import ExpandButton from "./components/ExpandButton/index.svelte";
   import MenuList from "./components/MenuList/index.svelte";
+  import SocialLinks from "./components/SocialLinks/index.svelte";
   import LogoNature from "../LogoNature/index.svelte";
 
   export let articleData;
@@ -63,32 +64,45 @@
   header {
     --link-color-invert: var(--text-color-invert);
 
-    padding: var(--s-1);
+    padding: var(--s-2);
     font-family: var(--sans-serif-font);
   }
 
   a {
+    max-width: max-content;
     text-decoration: none;
   }
 
-  ul {
+  .flex-wrap\:wrap {
+    flex-wrap: wrap;
+  }
+
+  .flex-grow {
+    flex-grow: 2;
+    max-width: none;
+  }
+
+  .position\:relative {
+    position: relative;
+  }
+
+  :global(.link-with-svg) {
+    display: block;
+    font-size: 1.6em;
+  }
+
+  :global(.menu-list) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     max-width: none;
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
-  .header__list {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .link-with-svg {
-    font-size: 1.6em;
-  }
-
-  .list-item-with-menu {
-    position: relative;
+  :global(.menu-list li) {
+    padding: var(--s-4);
   }
 
   .skip-link:not(:focus) {
@@ -112,15 +126,19 @@
 </a>
 
 <header data-theme="invert" bind:this="{$menuElement}">
-  <ul class="header__list">
-    <li>
+  <ul class="menu-list flex-wrap:wrap">
+    <li class="flex-grow">
       <a class="link-with-svg" href="https://www.nature.com">
         <LogoNature />
       </a>
     </li>
 
+    <li>
+      <SocialLinks {articleData} />
+    </li>
+
     {#if mounted && menuLinks}
-      <li class="list-item-with-menu">
+      <li class="position:relative">
         <ExpandButton
           bind:menuButtonRef
           on:click="{handleButtonClick}"

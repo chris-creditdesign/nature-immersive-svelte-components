@@ -9,25 +9,29 @@
   button {
     display: flex;
     align-items: center;
-    height: 100%;
+    height: 1.8em;
     padding: 0 var(--s-1);
     font-size: inherit;
     color: var(--link-color-invert);
     background: none;
     background-color: var(--background-color-invert);
-    border: none;
+    border-color: var(--link-color-invert);
+    border-style: solid;
+    border-width: 1px;
   }
 
   button:hover,
   button:focus {
     color: var(--link-color-active);
     background-color: var(--outline);
+    border-color: var(--link-color-active);
     fill: var(--link-color-active);
   }
 
   button[aria-expanded="true"] {
     color: var(--link-color-active);
     background-color: var(--white-2);
+    border-color: var(--link-color-active);
     fill: var(--link-color-active);
   }
 
