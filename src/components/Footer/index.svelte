@@ -6,7 +6,6 @@
 <style>
   .footer {
     align-items: flex-start;
-    margin-top: var(--s4);
   }
 
   a {
