@@ -37,7 +37,7 @@
 
   .toggle-icon {
     margin-left: var(--s-2);
-    transition: transform 0.3s ease;
+    transition: transform 250ms ease;
     transform: rotate(0deg);
   }
 

@@ -1,4 +1,6 @@
 <script>
+  import { slide } from "svelte/transition";
+  import { quadIn, quadOut } from "svelte/easing";
   import { SwitcherList } from "creditdesign-svelte-components";
 
   export let menuLinks;
@@ -22,9 +24,23 @@
     padding: var(--s-1);
     border-top: 1px solid var(--text-color-invert);
   }
+
+  /* If prefers reduced motion is set, don't animate the
+    triangle spinning */
+  @media (prefers-reduced-motion: reduce) {
+    nav {
+      animation-duration: 1ms !important;
+      animation-delay: 0ms !important;
+    }
+  }
 </style>
 
-<nav data-theme="invert" {style}>
+<nav
+  data-theme="invert"
+  {style}
+  in:slide="{{ duration: 250, easing: quadOut }}"
+  out:slide="{{ duration: 250, easing: quadIn }}"
+>
   <SwitcherList>
     {#each menuLinks as { text, href }, i}
       {#if i !== menuLinks.length - 1}
