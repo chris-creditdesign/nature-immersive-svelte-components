@@ -1,13 +1,9 @@
 /* eslint-disable consistent-return */
 import { writable, derived } from "svelte/store";
 
-const getRoundedHeight = (elem) => {
-  let { offsetHeight } = elem.target;
-  let roundedHeight = Math.round(offsetHeight);
-  return roundedHeight;
-};
-
 export const menuElement = writable();
+
+export const buttonElement = writable();
 
 export const menuHeight = derived(
   menuElement,
@@ -15,8 +11,8 @@ export const menuHeight = derived(
     if (!$menuElement) return;
 
     const ro = new ResizeObserver(([entry]) => {
-      let roundedHeight = getRoundedHeight(entry);
-      set(roundedHeight);
+      let { offsetHeight } = entry.target;
+      set(offsetHeight);
     });
 
     ro.observe($menuElement);

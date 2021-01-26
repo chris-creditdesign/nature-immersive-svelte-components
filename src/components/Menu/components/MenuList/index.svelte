@@ -14,13 +14,13 @@
   }
 
   nav {
-    position: fixed;
+    position: absolute;
     top: calc(1.6em + var(--s-1) + var(--s-1));
     left: 0;
-    width: 100%;
+    width: 100vw;
     max-width: none;
     padding: var(--s-1);
-    background-color: var(--black-2);
+    border-top: 1px solid var(--text-color-invert);
   }
 </style>
 

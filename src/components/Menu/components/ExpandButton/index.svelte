@@ -1,7 +1,7 @@
 <script>
   import LogoChevron from "../../../LogoChevron/index.svelte";
+  import { buttonElement } from "../../stores/menu-stores.js";
 
-  export let menuButtonRef;
   export let expanded = false;
 </script>
 
@@ -54,7 +54,12 @@
   }
 </style>
 
-<button aria-expanded="{expanded}" bind:this="{menuButtonRef}" on:click on:blur>
+<button
+  aria-expanded="{expanded}"
+  bind:this="{$buttonElement}"
+  on:click
+  on:blur
+>
   <span>Menu</span>
   <span class="toggle-icon">
     <LogoChevron height="0.3" />

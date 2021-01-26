@@ -1,6 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  import { menuElement, menuHeight } from "./stores/check-menu-dimensions.js";
+  import { fade } from "svelte/transition";
+  import {
+    menuElement,
+    buttonElement,
+    menuHeight,
+  } from "./stores/menu-stores.js";
   import ExpandButton from "./components/ExpandButton/index.svelte";
   import MenuList from "./components/MenuList/index.svelte";
   import MenuListStatic from "./components/MenuListStatic/index.svelte";
@@ -14,14 +19,12 @@
   let mounted = false;
   let menuExpanded = true;
   let menuLinkFocused = false;
-  let menuButtonRef = null;
   let lastMenuLink = null;
   let handleButtonBlur;
-  let noJSMenu = MenuListStatic;
 
   let closeMenu = () => {
     menuExpanded = false;
-    menuButtonRef.focus();
+    $buttonElement.focus();
   };
 
   let handleButtonClick = () => {
@@ -67,6 +70,7 @@
   header {
     --link-color-invert: var(--text-color-invert);
 
+    position: relative;
     padding: var(--s-2);
     font-family: var(--sans-serif-font);
   }
@@ -83,10 +87,6 @@
   .flex-grow {
     flex-grow: 2;
     max-width: none;
-  }
-
-  .position\:relative {
-    position: relative;
   }
 
   :global(.link-with-svg) {
@@ -162,9 +162,8 @@
 
     {#if menuLinks && menuLinks.length}
       {#if mounted}
-        <li class="position:relative">
+        <li>
           <ExpandButton
-            bind:menuButtonRef
             on:click="{handleButtonClick}"
             on:blur="{handleButtonBlur}"
             expanded="{menuExpanded}"
