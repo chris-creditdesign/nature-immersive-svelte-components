@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import { fade } from "svelte/transition";
   import {
     menuElement,
     buttonElement,
@@ -67,7 +66,7 @@
 </script>
 
 <style>
-  header {
+  .menu-container {
     --link-color-invert: var(--text-color-invert);
 
     position: relative;
@@ -137,8 +136,12 @@
   Skip to main content
 </a>
 
-<header data-theme="invert" bind:this="{$menuElement}">
-  <ul class="menu-list flex-wrap:wrap">
+<header>
+  <ul
+    class="menu-list menu-container flex-wrap:wrap"
+    data-theme="invert"
+    bind:this="{$menuElement}"
+  >
     <li class="flex-grow">
       <a
         class="link-with-svg"
@@ -199,6 +202,8 @@
       {/if}
     {/if}
   </ul>
+
+  <slot name="heading" />
 
 </header>
 

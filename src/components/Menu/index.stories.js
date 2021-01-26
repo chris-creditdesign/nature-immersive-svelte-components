@@ -1,5 +1,6 @@
 import { object, text, withKnobs, boolean } from "@storybook/addon-knobs";
 import Menu from "./view.default.svelte";
+import ViewWithHeading from "./view.with-heading.svelte";
 import docs from "./docs.mdx";
 
 export default {
@@ -92,6 +93,36 @@ export const manyMenuLinks = () => ({
           { text: "Menu link ten", href: "#" },
           { text: "Menu link eleven", href: "#" },
           { text: "Menu link twelve", href: "#" },
+        ],
+        "articleData"
+      ),
+    },
+  },
+});
+
+export const WithHeading = () => ({
+  Component: ViewWithHeading,
+  decorators: [withKnobs],
+  props: {
+    articleData: {
+      doi: text("doi", "123459789", "articleData"),
+      articleURL: text(
+        "articleURL",
+        "https://www.nature.com/articles/",
+        "articleData"
+      ),
+      title: text("title", "Page title", "articleData"),
+      description: text("description", "Page description.", "articleData"),
+      pdfAvailable: boolean("pdfAvailable", true, "articleData"),
+      menuLinks: object(
+        "menuLinks",
+        [
+          { text: "View animation", href: "#" },
+          { text: "Controls", href: "#" },
+          { text: "Replay intro", href: "#" },
+          { text: "About Nature", href: "#" },
+          { text: "Credits", href: "#" },
+          { text: "Download data", href: "dat/data.zip" },
         ],
         "articleData"
       ),
