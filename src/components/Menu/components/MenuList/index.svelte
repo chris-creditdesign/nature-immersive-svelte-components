@@ -45,13 +45,28 @@
     {#each menuLinks as { text, href }, i}
       {#if i !== menuLinks.length - 1}
         <li>
-          <a {href} on:focus on:blur>
+          <a
+            {href}
+            on:focus
+            on:blur
+            data-event-category="menu"
+            data-event-action="click"
+            data-event-label="{text}"
+          >
             {@html text}
           </a>
         </li>
       {:else}
         <li>
-          <a {href} on:focus on:blur bind:this="{lastMenuLink}">
+          <a
+            {href}
+            on:focus
+            on:blur
+            bind:this="{lastMenuLink}"
+            data-event-category="menu"
+            data-event-action="click"
+            data-event-label="{text}"
+          >
             {@html text}
           </a>
         </li>

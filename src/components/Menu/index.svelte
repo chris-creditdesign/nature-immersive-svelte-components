@@ -140,14 +140,28 @@
 <header data-theme="invert" bind:this="{$menuElement}">
   <ul class="menu-list flex-wrap:wrap">
     <li class="flex-grow">
-      <a class="link-with-svg" href="https://www.nature.com">
+      <a
+        class="link-with-svg"
+        href="https://www.nature.com"
+        data-track="click"
+        data-event-category="menu"
+        data-event-action="click"
+        data-event-label="nature.com"
+      >
         <LogoNature />
       </a>
     </li>
 
     {#if pdfAvailable}
       <li>
-        <a class="pdf-link" href="{`pdf/${doi}.pdf`}">
+        <a
+          class="pdf-link"
+          href="{`pdf/${doi}.pdf`}"
+          data-track="click"
+          data-event-category="menu"
+          data-event-action="click"
+          data-event-label="PDF dowload"
+        >
           <span>PDF download</span>
           <span class="pdf-icon">
             <LogoDownloadFile height="1.6" />

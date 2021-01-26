@@ -59,6 +59,9 @@
   bind:this="{$buttonElement}"
   on:click
   on:blur
+  data-event-category="menu"
+  data-event-action="click"
+  data-event-label="button"
 >
   <span>Menu</span>
   <span class="toggle-icon">
