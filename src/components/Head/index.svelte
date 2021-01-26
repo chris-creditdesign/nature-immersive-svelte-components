@@ -39,19 +39,19 @@
   <link
     rel="apple-touch-icon"
     sizes="180x180"
-    href="{immersiveURL}{doi}/img/apple-touch-icon.png"
+    href="img/apple-touch-icon.png"
   />
   <link
     rel="icon"
     type="image/png"
     sizes="32x32"
-    href="{immersiveURL}{doi}/img/favicon-32x32.png"
+    href="img/favicon-32x32.png"
   />
   <link
     rel="icon"
     type="image/png"
     sizes="16x16"
-    href="{immersiveURL}{doi}/img/favicon-16x16.png"
+    href="img/favicon-16x16.png"
   />
 
 </svelte:head>
