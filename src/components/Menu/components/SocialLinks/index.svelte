@@ -17,8 +17,8 @@
   );
 </script>
 
+<h2 class="visually-hidden">Sharing links</h2>
 <ul class="menu-list">
-  <h2 class="visually-hidden">Sharing links</h2>
   <li>
     <a class="link-with-svg" href="{twitterURL}">
       <LogoTwitter />
