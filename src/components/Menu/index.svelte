@@ -16,40 +16,49 @@
   let { menuLinks, pdfAvailable, doi } = articleData;
 
   let mounted = false;
-  let menuExpanded = true;
-  let menuLinkFocused = false;
-  let lastMenuLink = null;
+  let menuIsExpanded = true;
+  let menuLinkIsFocused = false;
+  let buttonIsFocused = false;
+  let lastMenuLinkElem = null;
   let handleButtonBlur;
 
   let closeMenu = () => {
-    menuExpanded = false;
+    menuIsExpanded = false;
     $buttonElement.focus();
   };
 
   let handleButtonClick = () => {
-    menuExpanded = !menuExpanded;
+    menuIsExpanded = !menuIsExpanded;
   };
 
   let handleMenuLinkFocus = () => {
-    menuLinkFocused = true;
+    menuLinkIsFocused = true;
+  };
+
+  let handleButtonFocus = () => {
+    buttonIsFocused = true;
   };
 
   let handleMenuLinkBlur = (event) => {
-    menuLinkFocused = false;
-    if (event.target === lastMenuLink) {
+    menuLinkIsFocused = false;
+    if (event.target === lastMenuLinkElem) {
       closeMenu();
     }
   };
 
   let handleKeydown = (event) => {
-    if (event.key === "Escape" && menuExpanded && menuLinkFocused) {
+    let { key } = event;
+    let escapeIsPressed = key === "Escape";
+    let menuLinkOrButtonAreFocused = menuLinkIsFocused || buttonIsFocused;
+
+    if (escapeIsPressed && menuIsExpanded && menuLinkOrButtonAreFocused) {
       closeMenu();
     }
   };
 
   onMount(() => {
     mounted = true;
-    menuExpanded = false;
+    menuIsExpanded = false;
 
     // `window` is not available for static render,
     // so wait till onMount to define this function
@@ -57,8 +66,8 @@
     // https://github.com/facebook/react/issues/12993#issuecomment-413949427
     handleButtonBlur = () => {
       window.setTimeout(() => {
-        if (!menuLinkFocused) {
-          menuExpanded = false;
+        if (!menuLinkIsFocused) {
+          menuIsExpanded = false;
         }
       }, 0);
     };
@@ -182,12 +191,13 @@
         <li>
           <ExpandButton
             on:click="{handleButtonClick}"
+            on:focus="{handleButtonFocus}"
             on:blur="{handleButtonBlur}"
-            expanded="{menuExpanded}"
+            expanded="{menuIsExpanded}"
           />
-          {#if menuExpanded}
+          {#if menuIsExpanded}
             <MenuList
-              bind:lastMenuLink
+              bind:lastMenuLinkElem
               on:focus="{handleMenuLinkFocus}"
               on:blur="{handleMenuLinkBlur}"
               menuHeight="{$menuHeight}"

@@ -58,6 +58,7 @@
   aria-expanded="{expanded}"
   bind:this="{$buttonElement}"
   on:click
+  on:focus
   on:blur
   data-event-category="menu"
   data-event-action="click"
