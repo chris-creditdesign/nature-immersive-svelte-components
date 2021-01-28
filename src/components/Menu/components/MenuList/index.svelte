@@ -3,7 +3,7 @@
   import { quadIn, quadOut } from "svelte/easing";
 
   export let menuLinks;
-  export let lastMenuLink;
+  export let lastMenuLinkElem;
   export let menuHeight;
 
   let style = `top: ${menuHeight}px;`;
@@ -96,7 +96,7 @@
               {href}
               on:focus
               on:blur
-              bind:this="{lastMenuLink}"
+              bind:this="{lastMenuLinkElem}"
               data-event-category="menu"
               data-event-action="click"
               data-event-label="{text}"
