@@ -133,7 +133,7 @@
         />
       {/if}
       {#if expanded}
-        <div class="card-container" transition:fade>
+        <div class="card-container" out:fade>
           <PdfDownloadContent
             on:focus="{handlePdfLinkFocus}"
             on:blur="{handlePdfLinkBlur}"
