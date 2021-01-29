@@ -78,6 +78,10 @@ export { default as LogoTriangle } from "./components/LogoTriangle/index.svelte"
 export { default as LogoFilter } from "./components/LogoFilter/index.svelte";
 export { default as LogoDownloadFile } from "./components/LogoDownloadFile/index.svelte";
 
+/* ---------------------------- PdfDownloadSlider --------------------------- */
+
+export { default as PdfDownloadSlider } from "./components/PdfDownloadSlider/index.svelte";
+
 /* ------------------------- Interactive components ------------------------- */
 
 /* ------------------------------- ImageSlider ------------------------------ */
