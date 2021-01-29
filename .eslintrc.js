@@ -3,22 +3,17 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  extends: [
-    'airbnb-base',
-    'prettier'
-  ],
+  extends: ["airbnb-base", "prettier"],
   parserOptions: {
     ecmaVersion: 11,
-    sourceType: 'module',
+    sourceType: "module",
   },
-  plugins: [
-    'svelte3'
-  ],
+  plugins: ["svelte3"],
   overrides: [
     {
-      files: ['*.svelte'],
-      processor: 'svelte3/svelte3'
-    }
+      files: ["*.svelte"],
+      processor: "svelte3/svelte3",
+    },
   ],
   rules: {
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
