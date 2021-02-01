@@ -15,6 +15,7 @@
 </style>
 
 <div class="container">
+  <a href="https://www.nature.com">Previous focusable item</a>
   <PdfDownloadSlider
     cardData="{cardData}"
     articleData="{articleData}"

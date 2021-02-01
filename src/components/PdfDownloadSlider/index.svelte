@@ -15,6 +15,7 @@
   let buttonIsFocused = false;
   let pdfLinkIsFocused = false;
   let handleButtonBlur;
+  let handlePdfLinkBlur;
 
   let close = () => {
     expanded = false;
@@ -36,10 +37,6 @@
     pdfLinkIsFocused = true;
   };
 
-  let handlePdfLinkBlur = () => {
-    pdfLinkIsFocused = false;
-  };
-
   let handleKeydown = (event) => {
     let { key } = event;
     let escapeIsPressed = key === "Escape";
@@ -56,9 +53,19 @@
     expanded = false;
 
     handleButtonBlur = () => {
+      buttonIsFocused = false;
       window.setTimeout(() => {
         if (!pdfLinkIsFocused) {
           expanded = false;
+        }
+      }, 0);
+    };
+
+    handlePdfLinkBlur = () => {
+      pdfLinkIsFocused = false;
+      window.setTimeout(() => {
+        if (!buttonIsFocused) {
+          close();
         }
       }, 0);
     };
