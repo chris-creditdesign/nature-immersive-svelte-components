@@ -24,6 +24,9 @@
 
   let closeMenu = () => {
     menuIsExpanded = false;
+  };
+
+  let focusButton = () => {
     $buttonElement.focus();
   };
 
@@ -41,6 +44,7 @@
 
   let handleMenuLinkBlur = (event) => {
     menuLinkIsFocused = false;
+
     if (event.target === lastMenuLinkElem) {
       closeMenu();
     }
@@ -53,6 +57,7 @@
 
     if (escapeIsPressed && menuIsExpanded && menuLinkOrButtonAreFocused) {
       closeMenu();
+      focusButton();
     }
   };
 
@@ -67,7 +72,7 @@
     handleButtonBlur = () => {
       window.setTimeout(() => {
         if (!menuLinkIsFocused) {
-          menuIsExpanded = false;
+          closeMenu();
         }
       }, 0);
     };
@@ -183,7 +188,7 @@
     {/if}
 
     <li>
-      <SocialLinks {articleData} />
+      <SocialLinks articleData="{articleData}" />
     </li>
 
     {#if menuLinks && menuLinks.length}
@@ -201,7 +206,7 @@
               on:focus="{handleMenuLinkFocus}"
               on:blur="{handleMenuLinkBlur}"
               menuHeight="{$menuHeight}"
-              {menuLinks}
+              menuLinks="{menuLinks}"
             />
           {/if}
         </li>
@@ -214,11 +219,10 @@
   </ul>
 
   <slot name="heading" />
-
 </header>
 
 <slot />
 
 {#if !mounted}
-  <MenuListStatic {menuLinks} />
+  <MenuListStatic menuLinks="{menuLinks}" />
 {/if}
