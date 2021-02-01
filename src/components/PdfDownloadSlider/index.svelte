@@ -18,6 +18,9 @@
 
   let close = () => {
     expanded = false;
+  };
+
+  let focusButton = () => {
     $buttonElement.focus();
   };
 
@@ -35,7 +38,6 @@
 
   let handlePdfLinkBlur = () => {
     pdfLinkIsFocused = false;
-    close();
   };
 
   let handleKeydown = (event) => {
@@ -45,6 +47,7 @@
 
     if (escapeIsPressed && expanded && pdfLinkOrButtonAreFocused) {
       close();
+      focusButton();
     }
   };
 
