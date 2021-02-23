@@ -88,6 +88,10 @@ export { default as PdfDownloadSlider } from "./components/PdfDownloadSlider/ind
 
 export { default as ImageSlider } from "./components/ImageSlider/index.svelte";
 
+/* ------------------------------- SimpleButton ------------------------------ */
+
+export { default as SimpleButton } from "./components/SimpleButton/index.svelte";
+
 /* ------------------------------- ToggleButton ------------------------------ */
 
 export { default as ToggleButton } from "./components/ToggleButton/index.svelte";
