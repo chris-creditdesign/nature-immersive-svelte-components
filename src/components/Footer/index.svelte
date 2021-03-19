@@ -47,8 +47,7 @@
         </li>
       </ClusterList>
 
-      <small>© 2020 Springer Nature Limited. All rights reserved.</small>
+      <small>© 2021 Springer Nature Limited. All rights reserved.</small>
     </Stack>
   </Box>
-
 </footer>
