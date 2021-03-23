@@ -10,42 +10,42 @@
   let tabindex = id.length && href !== undefined ? "-1" : null;
 </script>
 
-{#if headerLevel === 'h1'}
+{#if headerLevel === "h1"}
   <h1
     id="{useId}"
-    {tabindex}
+    tabindex="{tabindex}"
     class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />
   </h1>
-{:else if headerLevel === 'h2'}
+{:else if headerLevel === "h2"}
   <h2
     id="{useId}"
-    {tabindex}
+    tabindex="{tabindex}"
     class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />
   </h2>
-{:else if headerLevel === 'h3'}
+{:else if headerLevel === "h3"}
   <h3
     id="{useId}"
-    {tabindex}
+    tabindex="{tabindex}"
     class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />
   </h3>
-{:else if headerLevel === 'h4'}
+{:else if headerLevel === "h4"}
   <h4
     id="{useId}"
-    {tabindex}
+    tabindex="{tabindex}"
     class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />
   </h4>
-{:else if headerLevel === 'none'}
+{:else if headerLevel === "none"}
   <span
     id="{useId}"
-    {tabindex}
+    tabindex="{tabindex}"
     class="{`card__headline font-size:${headlineFontSize} font-weight:bold`}"
   >
     <slot />

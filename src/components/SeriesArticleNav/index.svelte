@@ -1,17 +1,22 @@
 <script>
   import { onMount, createEventDispatcher, afterUpdate } from "svelte";
-
   import { Stack } from "creditdesign-svelte-components";
+  import Header from "../Header/index.svelte";
   import ToggleButton from "../ToggleButton/index.svelte";
 
   const dispatch = createEventDispatcher();
 
+  export let articleData;
   export let seriesArticleNavData;
-  export let message;
-  export let expandedMessage;
+  export let message = "Open";
+  export let expandedMessage = "Close";
+  export let headerLevel = "h2";
+  export let headlineFontSize = "big-2";
+  export let headlineFontWeight = "bold";
   export let className = "";
 
-  let { headline, stand, articles, parentDoi } = seriesArticleNavData;
+  let { headline, stand, articles } = seriesArticleNavData;
+  let { doi: parentDoi } = articleData;
   let mounted = false;
   let expanded = true;
 
@@ -54,20 +59,26 @@
   class="{`series-article-nav font-size:small font-family:sans-serif ${className}`}"
 >
   <Stack stackSpace="var(--s1)">
-
     <Stack stackSpace="var(--s-3)">
-      {@html headline}
+      <Header
+        text="{headline}"
+        headerLevel="{headerLevel}"
+        headlineFontSize="{headlineFontSize}"
+        headlineFontWeight="{headlineFontWeight}"
+      />
 
       {#if stand}
-        {@html stand}
+        <p>
+          {@html stand}
+        </p>
       {/if}
     </Stack>
 
     {#if mounted}
       <ToggleButton
-        {expanded}
-        {message}
-        {expandedMessage}
+        expanded="{expanded}"
+        message="{message}"
+        expandedMessage="{expandedMessage}"
         on:click="{handleClick}"
       />
     {/if}
@@ -93,6 +104,5 @@
         </li>
       {/each}
     </ul>
-
   </Stack>
 </div>

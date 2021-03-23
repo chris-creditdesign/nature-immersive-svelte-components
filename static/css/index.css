@@ -202,6 +202,10 @@ sub {
   font-weight: 800;
 }
 
+.font-weight\:normal {
+  font-weight: 200;
+}
+
 .font-style\:italic {
   font-style: italic;
 }

@@ -9,6 +9,8 @@ export let fontSizeOptions = [
   "big-4",
 ];
 
+export let fontWeightOptions = ["bold", "normal"];
+
 export let spaceOptions = [
   "",
   "0",
