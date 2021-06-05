@@ -22,6 +22,10 @@ export { default as Section } from "./components/Section/index.svelte";
 
 export { default as Heading } from "./components/Heading/index.svelte";
 
+/* --------------------------------- Header -------------------------------- */
+
+export { default as Header } from "./components/Header/index.svelte";
+
 /* --------------------------------- Head -------------------------------- */
 
 export { default as Head } from "./components/Head/index.svelte";

@@ -3,13 +3,21 @@
 
   export let className = "";
   export let expanded = false;
+  /**
+   * Text that will be displayed in the button when it is expanded
+   */
   export let expandedMessage = "Close";
+  /**
+   * Text that will be displayed in the button when it is not expanded
+   */
   export let message = "Open";
+  export let theme = "";
 </script>
 
 <style>
   button {
     display: flex;
+    gap: var(--s-3);
     align-items: center;
     width: max-content;
     padding: var(--s-3);
@@ -32,22 +40,25 @@
       inset 0 0.1em 0.3em rgba(27, 31, 35, 0.6);
   }
 
-  :global(.filter-button > svg) {
-    margin-right: var(--s-3);
+  :global(.no-flexbox-gap .filter-button > * + *) {
+    margin-left: var(--s-3);
   }
 </style>
 
 <button
-  class="{`${className} filter-button`}"
-  on:click
-  aria-expanded="{expanded}"
-  data-track="click"
-  data-event-category="filter-button"
+  aria-expanded={expanded}
+  class={`filter-button ${className}`}
   data-event-action="click"
-  data-event-label="Custom filter button clicked"
+  data-event-category={message}
+  data-event-label="Filter button clicked"
+  data-theme={theme}
+  data-track="click"
+  on:click
+  type="button"
 >
-
   <LogoFilter height="0.8" />
 
-  {#if expanded}{expandedMessage}{:else}{message}{/if}
+  <span>
+    {#if expanded}{expandedMessage}{:else}{message}{/if}
+  </span>
 </button>

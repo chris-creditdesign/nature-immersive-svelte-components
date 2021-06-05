@@ -20,7 +20,7 @@
   <Box>
     <Stack stackSpace="var(--s-1)">
       <div>
-        <LogoSpringerNature height="{1.5}" />
+        <LogoSpringerNature height={1.5} />
       </div>
 
       <ClusterList>
@@ -47,8 +47,7 @@
         </li>
       </ClusterList>
 
-      <small>© 2020 Springer Nature Limited. All rights reserved.</small>
+      <small>© 2021 Springer Nature Limited. All rights reserved.</small>
     </Stack>
   </Box>
-
 </footer>

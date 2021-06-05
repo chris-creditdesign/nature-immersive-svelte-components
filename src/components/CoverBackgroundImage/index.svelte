@@ -4,10 +4,19 @@
 
   export let srcURL;
   export let alt;
-  export let coverSpace = "1rem";
+  /**
+   * Side padding of sloted content
+   */
+  export let coverSpace = "var(--s0)";
   export let coverHeight = "100vh";
 
   $: src = srcURL;
+
+  let slotPresent = Object.keys($$slots).length > 0;
+
+  // If the slot is present add the css class to add a semi-transparent
+  // background and make the text color white.
+  let className = slotPresent ? "cover-with-background" : null;
 
   onMount(() => {
     src = srcURL.replace(/-small/, "");
@@ -16,14 +25,14 @@
 
 <style>
   /* Fall back styles for no custom properties */
-  .cover__background {
+  img {
     width: 600px;
     margin-right: auto;
     margin-left: auto;
   }
 
   @supports (color: var(--primary)) {
-    .cover__background {
+    img {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -33,17 +42,20 @@
       transform: translate(-50%, -50%);
     }
 
-    /* Make the text visible over the dark background */
-    .cover--with-background {
+    /* Make the text visible over the dark background
+       Only applied if there is a slot present */
+    .cover-with-background {
       color: var(--white-0);
       background-color: rgba(10, 4, 4, 0.4);
     }
   }
 </style>
 
-<div class="cover--with-background">
+<div class={className}>
   <Cover {coverSpace} {coverHeight}>
-    <img class="cover__background" {src} {alt} />
-    <slot />
+    <img {src} {alt} />
+    <div class="cover__centered">
+      <slot />
+    </div>
   </Cover>
 </div>

@@ -8,10 +8,6 @@ body {
   --background-color-invert: var(--black-0);
   --text-color: var(--black-0);
   --text-color-invert: var(--white-0);
-}
-
-/* CoverBackgroundVideo and CoverBackgroundImage
-   Make the text visible over the dark background */
-body .cover--with-background {
-  color: var(--text-color-invert);
+  --button-color-expanded: var(--link-color-active);
+  --button-background-color-expanded: var(--white-2);
 }

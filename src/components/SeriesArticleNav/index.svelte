@@ -1,17 +1,23 @@
 <script>
   import { onMount, createEventDispatcher, afterUpdate } from "svelte";
-
   import { Stack } from "creditdesign-svelte-components";
+  import Header from "../Header/index.svelte";
   import ToggleButton from "../ToggleButton/index.svelte";
 
   const dispatch = createEventDispatcher();
 
-  export let seriesArticleNavData;
-  export let message;
-  export let expandedMessage;
+  export let articleData;
+  export let articles;
   export let className = "";
+  export let expandedMessage = "Close";
+  export let headerLevel = "h2";
+  export let headline;
+  export let headlineFontSize = "big-2";
+  export let headlineFontWeight = "bold";
+  export let message = "Open";
+  export let stand;
 
-  let { headline, stand, articles, parentDoi } = seriesArticleNavData;
+  let { doi: parentDoi } = articleData;
   let mounted = false;
   let expanded = true;
 
@@ -51,15 +57,21 @@
 </style>
 
 <div
-  class="{`series-article-nav font-size:small font-family:sans-serif ${className}`}"
+  class={`series-article-nav font-size:small font-family:sans-serif ${className}`}
 >
   <Stack stackSpace="var(--s1)">
-
     <Stack stackSpace="var(--s-3)">
-      {@html headline}
+      <Header
+        text={headline}
+        {headerLevel}
+        {headlineFontSize}
+        {headlineFontWeight}
+      />
 
       {#if stand}
-        {@html stand}
+        <p>
+          {@html stand}
+        </p>
       {/if}
     </Stack>
 
@@ -68,22 +80,22 @@
         {expanded}
         {message}
         {expandedMessage}
-        on:click="{handleClick}"
+        on:click={handleClick}
       />
     {/if}
 
-    <ul hidden="{!expanded}">
+    <ul hidden={!expanded}>
       {#each articles as { title, url, doi, published }}
-        <li class:list-item--current="{doi === parentDoi}">
+        <li class:list-item--current={doi === parentDoi}>
           {#if published}
             <a
-              aria-current="{doi === parentDoi ? 'page' : null}"
-              href="{url}"
+              aria-current={doi === parentDoi ? "page" : null}
+              href={url}
               target="_parent"
               data-track="click"
               data-event-category="article-series-link"
               data-event-action="click"
-              data-event-label="{`from ${parentDoi} to ${url}`}"
+              data-event-label={`from ${parentDoi} to ${url}`}
             >
               {@html title}
             </a>
@@ -93,6 +105,5 @@
         </li>
       {/each}
     </ul>
-
   </Stack>
 </div>

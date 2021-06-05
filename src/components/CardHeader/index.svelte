@@ -2,17 +2,27 @@
   import { Stack } from "creditdesign-svelte-components";
   import CardHeadline from "../CardHeadline/index.svelte";
 
+  /**
+   * - eyebrow
+   * - subHead
+   * - headline
+   * - href
+   */
   export let cardData;
+
+  /**
+   * Space between eyebrow, headline and sub-head
+   */
   export let cardHeaderStackSpace = "var(--s-4)";
-  export let headerLevel;
-  export let headlineFontSize;
+  export let headerLevel = "h2";
+  export let headlineFontSize = "big-2";
   export let id = "";
 
   let { eyebrow, subHead, headline, href } = cardData;
 </script>
 
 <header class="card__header">
-  <Stack stackSpace="{cardHeaderStackSpace}">
+  <Stack stackSpace={cardHeaderStackSpace}>
     {#if eyebrow}
       <p class="eyebrow font-size:small font-family:sans-serif">
         {@html eyebrow}
@@ -23,11 +33,11 @@
       {#if href}
         <a
           {href}
-          id="{id.length ? id : null}"
+          id={id.length ? id : null}
           data-track="click"
           data-event-category="body links"
           data-event-action="click"
-          data-event-label="{headline}"
+          data-event-label={headline}
         >
           {@html headline}
         </a>
@@ -41,6 +51,5 @@
         {@html subHead}
       </p>
     {/if}
-
   </Stack>
 </header>

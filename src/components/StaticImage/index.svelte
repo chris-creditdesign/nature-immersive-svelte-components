@@ -3,14 +3,14 @@
   import Image from "../Image/index.svelte";
 
   export let className = "";
-  export let justifyContent = "";
-  export let textWidth = "";
-  export let imageWidth = "";
   export let gridGap = "";
+  export let imageWidth = "";
+  export let justifyContent = "";
+  export let placeImageOnLeft = false;
   /* '-50%' intercept when the item is half way up the screen */
   export let rootMargin = "-50% 0px -50% 0px";
-  export let placeImageOnLeft = false;
   export let steps;
+  export let textWidth = "";
 
   let justifyContentComponent = justifyContent
     ? `--static-image-justify-content--component: ${justifyContent};`
@@ -163,8 +163,8 @@
   }
 </style>
 
-<div class="{`static-image-container ${className}`}" {style}>
-  <div class="text-container" bind:this="{textContainer}">
+<div class={`static-image-container ${className}`} {style}>
+  <div class="text-container" bind:this={textContainer}>
     <slot />
   </div>
 
@@ -172,9 +172,9 @@
     <div class="image-container">
       <div class="image-container__content">
         <Image
-          altText="{steps[intersectingStep].altText}"
-          caption="{steps[intersectingStep].caption}"
-          srcURL="{steps[intersectingStep].srcURL.replace(/-small/, '')}"
+          altText={steps[intersectingStep].altText}
+          caption={steps[intersectingStep].caption}
+          srcURL={steps[intersectingStep].srcURL.replace(/-small/, "")}
         />
       </div>
     </div>

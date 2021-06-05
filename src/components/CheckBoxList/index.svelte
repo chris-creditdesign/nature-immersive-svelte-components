@@ -2,7 +2,7 @@
   import { GridList } from "creditdesign-svelte-components";
 
   /* eslint-disable import/prefer-default-export */
-  export let categories = [];
+  export let categories = ["one", "two", "three", "four", "five", "six"];
 </script>
 
 <style>
@@ -100,11 +100,11 @@
       <input
         class="visually-hidden"
         type="checkbox"
-        id="{category.toLowerCase().replace(/ /gi, '-')}"
-        bind:checked="{category.selected}"
+        id={category.toLowerCase().replace(/ /gi, "-")}
+        bind:checked={category.selected}
       />
-      <span class="control-indicator"></span>
-      <label for="{category.toLowerCase().replace(/ /gi, '-')}">
+      <span class="control-indicator" />
+      <label for={category.toLowerCase().replace(/ /gi, "-")}>
         {category}
       </label>
     </li>

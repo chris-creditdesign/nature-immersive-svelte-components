@@ -3,19 +3,19 @@
   import { Frame } from "creditdesign-svelte-components";
   import VideoButton from "../VideoButton/index.svelte";
 
-  export let className = "";
   export let altText;
-  export let caption;
-  export let srcURL;
   export let autoplay = true;
-  export let loop = true;
   export let buttonAtTop = false;
   export let buttonOnLeft = false;
-  export let playingMessage = "";
-  export let pausedMessage = "";
+  export let caption;
+  export let captionSpace;
+  export let className = "";
   export let frameRatioHeight;
   export let frameRatioWidth;
-  export let captionSpace;
+  export let loop = true;
+  export let pausedMessage = "";
+  export let playingMessage = "";
+  export let srcURL;
 
   let buttonVerticalPosition = buttonAtTop
     ? `--video-button-row--component: 2 / 3;`
@@ -108,26 +108,26 @@
   }
 </style>
 
-<figure class="{`${className}`}">
+<figure class={`${className}`}>
   <Frame {frameRatioHeight} {frameRatioWidth}>
     <div class="video-container" {style}>
       {#if mounted}
         <video
-          bind:this="{video}"
-          poster="{srcIMG}"
+          bind:this={video}
+          poster={srcIMG}
           playsinline="true"
           muted="true"
-          autoplay="{!prefersReducedMotion && autoplay}"
+          autoplay={!prefersReducedMotion && autoplay}
           {loop}
-          aria-label="{altText}"
+          aria-label={altText}
           bind:paused
-          on:click="{handleBtnClick}"
+          on:click={handleBtnClick}
         >
-          <source src="{srcWEBM}" type="video/webm" />
-          <source src="{srcMP4}" type="video/mp4" />
+          <source src={srcWEBM} type="video/webm" />
+          <source src={srcMP4} type="video/mp4" />
         </video>
       {:else}
-        <img src="{srcURL}" alt="{altText}" />
+        <img src={srcURL} alt={altText} />
       {/if}
 
       {#if mounted}
@@ -136,7 +136,7 @@
           {playingMessage}
           {pausedMessage}
           {paused}
-          on:click="{handleBtnClick}"
+          on:click={handleBtnClick}
         />
       {/if}
     </div>
@@ -145,12 +145,12 @@
   {#if caption.length}
     <figcaption
       class="font-size:small font-family:sans-serif"
-      style="{captionStyle}"
+      style={captionStyle}
     >
       {@html caption}
       {#if !mounted}
         Here is a
-        <a href="{srcMP4}">link to the video file</a>
+        <a href={srcMP4}>link to the video file</a>
         .
       {/if}
     </figcaption>

@@ -3,8 +3,6 @@ import { writable, derived } from "svelte/store";
 
 export const menuElement = writable();
 
-export const buttonElement = writable();
-
 export const menuHeight = derived(
   menuElement,
   ($menuElement, set) => {
