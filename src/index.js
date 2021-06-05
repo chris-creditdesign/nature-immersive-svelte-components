@@ -103,3 +103,7 @@ export { default as ToggleButton } from "./components/ToggleButton/index.svelte"
 /* ------------------------------- FilterButton ------------------------------ */
 
 export { default as FilterButton } from "./components/FilterButton/index.svelte";
+
+/* ------------------------------ ButtonSwitch ------------------------------ */
+
+export { default as ButtonSwitch } from "./components/ButtonSwitch/index.svelte";
