@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   export let altText;
-  export let caption;
+  export let caption = "";
   export let className = "";
   export let srcURL;
 
@@ -47,9 +47,9 @@
   }
 </style>
 
-<figure class="{`${className}`}">
-  <img {src} alt="{altText}" bind:this="{image}" loading="lazy" />
-  {#if caption}
+<figure class={`${className}`}>
+  <img {src} alt={altText} bind:this={image} loading="lazy" />
+  {#if caption.length}
     <figcaption class="font-size:small font-family:sans-serif">
       {@html caption}
     </figcaption>

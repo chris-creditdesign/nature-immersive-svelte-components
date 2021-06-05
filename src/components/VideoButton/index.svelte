@@ -1,8 +1,8 @@
 <script>
   export let className = "";
   export let paused = true;
-  export let playingMessage = "";
   export let pausedMessage = "";
+  export let playingMessage = "";
 
   let playingMessageComponent = playingMessage.length
     ? playingMessage
@@ -37,6 +37,6 @@
   }
 </style>
 
-<button class="{className}" type="button" on:click>
+<button class={className} type="button" on:click>
   {#if paused}{pausedMessageComponent}{:else}{playingMessageComponent}{/if}
 </button>

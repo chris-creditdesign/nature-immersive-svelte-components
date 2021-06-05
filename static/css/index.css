@@ -79,10 +79,28 @@ a:focus {
   fill: var(--link-color-active);
 }
 
+/* Buttons */
+
+button {
+  cursor: pointer;
+}
+
 button:hover,
 button:focus {
+  color: var(--link-color-active);
+  background-color: var(--outline);
+  border-color: var(--link-color-active);
   outline: 3px solid var(--outline);
+  fill: var(--link-color-active);
 }
+
+button[aria-expanded="true"] {
+  color: var(--button-color-expanded);
+  background-color: var(--button-background-color-expanded);
+  fill: var(--button-color-expanded);
+}
+
+/* Form elements */
 
 select:focus {
   outline: 3px solid var(--outline);
@@ -150,10 +168,23 @@ sub {
   fill: var(--link-color-active--component, var(--link-color-active--global));
 }
 
+/* Invert */
+
 [data-theme="invert"] {
   --color--component: var(--text-color-invert);
   --link-color--component: var(--link-color-invert);
   --background-color--component: var(--background-color-invert);
+}
+
+/* Menu */
+
+[data-theme="menu"] {
+  --color--component: var(--text-color-invert);
+  --link-color-invert: var(--text-color-invert);
+  --link-color--component: var(--link-color-invert);
+  --background-color--component: var(--background-color-invert);
+  --button-color-expanded: var(--text-color-invert);
+  --button-background-color-expanded: var(--background-color-invert);
 }
 
 /* -------------------------------- Modifiers ------------------------------- */
@@ -246,4 +277,10 @@ sub {
 }
 .font-size\:big-4 {
   font-size: var(--font-size-big-4);
+}
+
+/* --------------------------------- Flexbox -------------------------------- */
+
+.flex-wrap\:wrap {
+  flex-wrap: wrap;
 }

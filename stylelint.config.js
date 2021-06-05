@@ -12,6 +12,7 @@ module.exports = {
       "box-sizing",
       "display",
       "flex",
+      "gap",
       "flex-align",
       "flex-basis",
       "flex-direction",

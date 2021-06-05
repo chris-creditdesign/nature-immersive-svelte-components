@@ -3,9 +3,9 @@
 
   export let className = "";
   export let expanded = false;
-  export let showTriangle = true;
   export let expandedMessage = "Close";
   export let message = "Open";
+  export let showTriangle = true;
 </script>
 
 <style>
@@ -53,15 +53,14 @@
 </style>
 
 <button
-  class="{`${className} ${showTriangle ? 'toggle-button-with-triangle' : ''}`}"
+  class={`${className} ${showTriangle ? "toggle-button-with-triangle" : ""}`}
   on:click
-  aria-expanded="{expanded}"
+  aria-expanded={expanded}
   data-track="click"
   data-event-category="toggle-button"
   data-event-action="click"
   data-event-label="Custom toggle button clicked"
 >
-
   {#if showTriangle}
     <LogoTriangle height="0.5" />
   {/if}

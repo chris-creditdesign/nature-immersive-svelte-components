@@ -7,6 +7,11 @@
 
   export let cardData;
   export let articleData;
+  /**
+   * Boolean for the parent Component to report if it is not wide enough for the slider.
+   * Normally set in App.svelte and accessed via a store.
+   * If not wide enough, hide the button and show the contents.
+   */
   export let wideEnough = true;
 
   let { doi } = articleData;
@@ -129,36 +134,36 @@
   }
 </style>
 
-<svelte:window on:keydown="{handleKeydown}" />
+<svelte:window on:keydown={handleKeydown} />
 
 <div class="pdf-download">
   {#if wideEnough}
     <div class="inner" class:expanded>
       {#if mounted}
         <PdfDownloadButton
-          on:click="{handleButtonClick}"
-          on:focus="{handleButtonFocus}"
-          on:blur="{handleButtonBlur}"
-          expanded="{expanded}"
+          on:click={handleButtonClick}
+          on:focus={handleButtonFocus}
+          on:blur={handleButtonBlur}
+          {expanded}
         />
       {/if}
       {#if expanded}
         <div class="card-container" out:fade>
           <PdfDownloadContent
-            on:focus="{handlePdfLinkFocus}"
-            on:blur="{handlePdfLinkBlur}"
-            cardData="{cardData}"
-            doi="{doi}"
+            on:focus={handlePdfLinkFocus}
+            on:blur={handlePdfLinkBlur}
+            {cardData}
+            {doi}
           />
         </div>
       {/if}
     </div>
   {:else}
     <PdfDownloadContent
-      cardData="{cardData}"
-      doi="{doi}"
-      on:focus="{handlePdfLinkFocus}"
-      on:blur="{handlePdfLinkBlur}"
+      {cardData}
+      {doi}
+      on:focus={handlePdfLinkFocus}
+      on:blur={handlePdfLinkBlur}
     />
   {/if}
 </div>

@@ -1,8 +1,12 @@
 <script>
   import { Stack } from "creditdesign-svelte-components";
 
+  /**
+   * - text
+   * - footnote
+   */
   export let cardData;
-  export let stackSpace;
+  export let stackSpace = "var(--s-1)";
 
   let { footnote, text } = cardData;
 </script>

@@ -1,6 +1,4 @@
 <script>
-  import { Box, Stack } from "creditdesign-svelte-components";
-
   export let cardData;
   export let doi;
 
@@ -38,11 +36,10 @@
 
 <div data-theme="invert" class="font-family:sans-serif">
   <h2 class="font-size:base">{headline}</h2>
-  <a href="{`pdf/${doi}.pdf`}" on:blur on:focus>
-    <img src="{srcURL}" alt="" />
+  <a href={`pdf/${doi}.pdf`} on:blur on:focus>
+    <img src={srcURL} alt="" />
     <span>
       {@html text}
     </span>
   </a>
-
 </div>

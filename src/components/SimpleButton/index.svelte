@@ -1,6 +1,14 @@
 <script>
+  /**
+   * Class name applied to the button element
+   */
   export let className = "";
+
+  /**
+   * Text that will be displayed in the button
+   */
   export let message = "Click";
+  export let theme = "";
 </script>
 
 <style>
@@ -34,12 +42,14 @@
 </style>
 
 <button
-  class="{`${className} simple-button`}"
-  on:click
-  data-track="click"
-  data-event-category="button"
+  class={className}
   data-event-action="click"
+  data-event-category={message}
   data-event-label="Button clicked"
+  data-theme={theme}
+  data-track="click"
+  on:click
+  type="button"
 >
   {message}
 </button>

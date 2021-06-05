@@ -1,6 +1,6 @@
 module.exports = {
   svelteSortOrder: "scripts-styles-markup",
-  svelteStrictMode: true,
+  svelteStrictMode: false,
   svelteBracketNewLine: true,
   svelteAllowShorthand: true,
   svelteIndentScriptAndStyle: true,

@@ -3,23 +3,21 @@
 
   import formatDate from "../utils/format-date.js";
 
-  export let className = "";
   export let articleData;
-
-  let {
-    author,
-    headline,
-    photographer,
-    publishedAt,
-    publishedAtString,
-    stand,
-  } = articleData;
-
-  export let centerMeasure = "var(--measure-big)";
+  export let className = "";
+  export let maxWidth = "var(--measure-big)";
+  /**
+   * Padding to left and right of the heading
+   */
   export let centerSpace = "0";
-  export let stackSpace = "var(--s2)";
-  export let stackSpaceBetweenHeadAndStand = "var(--s2)";
-  export let stackSpaceBetweenCredits = "var(--s-3)";
+  /**
+   * Space between head and stand block and bylines and date block
+   */
+  export let headAndCreditsStackSpace = "var(--s2)";
+  export let headStandStackSpace = "var(--s2)";
+  export let creditsStackSpace = "var(--s-3)";
+
+  let { author, headline, photographer, publishedAt, stand } = articleData;
 </script>
 
 <style>
@@ -56,11 +54,10 @@
   }
 </style>
 
-<div class="{`heading ${className}`}">
-  <Center {centerMeasure} {centerSpace}>
-    <Stack {stackSpace}>
-
-      <Stack stackSpace="{stackSpaceBetweenHeadAndStand}">
+<div class={`heading ${className}`}>
+  <Center centerMeasure={maxWidth} {centerSpace}>
+    <Stack stackSpace={headAndCreditsStackSpace}>
+      <Stack stackSpace={headStandStackSpace}>
         <h1 class="letter-spacing:tight">
           {@html headline}
         </h1>
@@ -70,7 +67,7 @@
       </Stack>
 
       {#if author || photographer || publishedAt}
-        <Stack stackSpace="{stackSpaceBetweenCredits}">
+        <Stack stackSpace={creditsStackSpace}>
           {#if author}
             <p class="author font-weight:bold">
               {@html author}
@@ -87,14 +84,13 @@
               class="font-family:sans-serif font-size:small
               text-transform:uppercase"
               itemProp="datePublished"
-              dateTime="{publishedAtString || null}"
+              dateTime={formatDate(publishedAt, "iso-string")}
             >
-              {formatDate(publishedAt)}
+              {formatDate(publishedAt, "day-month-year")}
             </time>
           {/if}
         </Stack>
       {/if}
-
     </Stack>
   </Center>
 </div>

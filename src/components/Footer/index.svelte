@@ -20,7 +20,7 @@
   <Box>
     <Stack stackSpace="var(--s-1)">
       <div>
-        <LogoSpringerNature height="{1.5}" />
+        <LogoSpringerNature height={1.5} />
       </div>
 
       <ClusterList>

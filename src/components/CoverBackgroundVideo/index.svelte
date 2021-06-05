@@ -4,8 +4,17 @@
 
   export let srcURL;
   export let alt;
-  export let coverSpace = "1rem";
+  /**
+   * Side padding of sloted content
+   */
+  export let coverSpace = "var(--s0)";
   export let coverHeight = "100vh";
+
+  let slotPresent = Object.keys($$slots).length > 0;
+
+  // If the slot is present add the css class to add a semi-transparent
+  // background and make the text color white.
+  let className = slotPresent ? "cover-with-background" : null;
 
   let mounted = false;
   let paused = true;
@@ -35,14 +44,16 @@
 
 <style>
   /* Fall back styles for no custom properties */
-  .cover__background {
+  img,
+  video {
     width: 600px;
     margin-right: auto;
     margin-left: auto;
   }
 
   @supports (color: var(--primary)) {
-    .cover__background {
+    img,
+    video {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -52,8 +63,9 @@
       transform: translate(-50%, -50%);
     }
 
-    /* Make the text visible over the dark background */
-    .cover--with-background {
+    /* Make the text visible over the dark background
+       Only applied if there is a slot present */
+    .cover-with-background {
       color: var(--white-0);
       background-color: rgba(10, 4, 4, 0.4);
     }
@@ -82,37 +94,36 @@
   }
 </style>
 
-<div class="cover--with-background">
+<div class={className}>
   <Cover {coverSpace} {coverHeight}>
-
     {#if mounted}
       <video
-        bind:this="{video}"
-        poster="{srcIMG}"
+        bind:this={video}
+        poster={srcIMG}
         playsinline="true"
         muted="true"
-        autoplay="{!prefersReducedMotion}"
+        autoplay={!prefersReducedMotion}
         loop="true"
-        class="cover__background"
-        aria-label="{alt}"
+        aria-label={alt}
         bind:paused
       >
-        <source src="{srcWEBM}" type="video/webm" />
-        <source src="{srcMP4}" type="video/mp4" />
+        <source src={srcWEBM} type="video/webm" />
+        <source src={srcMP4} type="video/mp4" />
       </video>
     {:else}
-      <img class="cover__background" src="{srcURL}" {alt} />
+      <img src={srcURL} {alt} />
     {/if}
 
-    <slot />
+    <div class="cover__centered">
+      <slot />
+    </div>
 
     {#if mounted}
       <Cluster clusterJustifyContent="flex-end">
-        <button class="box" type="button" on:click="{handleBtnClick}">
-          {paused ? 'Play video' : 'Pause video'}
+        <button class="box" type="button" on:click={handleBtnClick}>
+          {paused ? "Play video" : "Pause video"}
         </button>
       </Cluster>
     {/if}
-
   </Cover>
 </div>

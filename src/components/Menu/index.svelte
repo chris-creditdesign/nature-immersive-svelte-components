@@ -1,20 +1,22 @@
 <script>
   import { onMount } from "svelte";
-  import {
-    menuElement,
-    buttonElement,
-    menuHeight,
-  } from "./stores/menu-stores.js";
-  import ExpandButton from "./components/ExpandButton/index.svelte";
-  import MenuList from "./components/MenuList/index.svelte";
-  import MenuListStatic from "./components/MenuListStatic/index.svelte";
-  import SocialLinks from "./components/SocialLinks/index.svelte";
+  import { menuElement, menuHeight } from "./stores/menu-stores.js";
+  import MenuList from "../MenuList/index.svelte";
+  import MenuListStatic from "../MenuListStatic/index.svelte";
+  import MenuSocialLinks from "../MenuSocialLinks/index.svelte";
+  import ExpandButton from "../ExpandButton/index.svelte";
   import LogoNature from "../LogoNature/index.svelte";
-  import LogoDownloadFile from "../LogoDownloadFile/index.svelte";
+  import MenuPdfDownload from "../MenuPdfDownload/index.svelte";
 
+  /**
+   * - menuLinks
+   * - pdfAvailable
+   * - doi
+   */
   export let articleData;
   let { menuLinks, pdfAvailable, doi } = articleData;
 
+  let logoHeight = 1.6;
   let mounted = false;
   let menuIsExpanded = true;
   let menuLinkIsFocused = false;
@@ -27,7 +29,7 @@
   };
 
   let focusButton = () => {
-    $buttonElement.focus();
+    buttonElement.focus();
   };
 
   let handleButtonClick = () => {
@@ -81,20 +83,15 @@
 
 <style>
   .menu-container {
-    --link-color-invert: var(--text-color-invert);
-
     position: relative;
     padding: var(--s-2);
     font-family: var(--sans-serif-font);
   }
 
   a {
+    display: block;
     max-width: max-content;
     text-decoration: none;
-  }
-
-  .flex-wrap\:wrap {
-    flex-wrap: wrap;
   }
 
   .flex-grow {
@@ -102,21 +99,7 @@
     max-width: none;
   }
 
-  :global(.link-with-svg) {
-    display: block;
-    font-size: 1.6em;
-  }
-
-  .pdf-link {
-    display: flex;
-    align-items: center;
-  }
-
-  .pdf-icon {
-    margin-left: var(--s-2);
-  }
-
-  :global(.menu-list) {
+  ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -126,7 +109,7 @@
     list-style: none;
   }
 
-  :global(.menu-list li) {
+  li {
     padding: var(--s-4);
   }
 
@@ -144,7 +127,7 @@
   }
 </style>
 
-<svelte:window on:keydown="{handleKeydown}" />
+<svelte:window on:keydown={handleKeydown} />
 
 <a href="#main-content" class="skip-link font-family:sans-serif">
   Skip to main content
@@ -152,61 +135,52 @@
 
 <header>
   <ul
-    class="menu-list menu-container flex-wrap:wrap"
-    data-theme="invert"
-    bind:this="{$menuElement}"
+    class="menu-container flex-wrap:wrap"
+    data-theme="menu"
+    bind:this={$menuElement}
   >
     <li class="flex-grow">
       <a
         class="link-with-svg"
-        href="https://www.nature.com"
-        data-track="click"
-        data-event-category="menu"
         data-event-action="click"
+        data-event-category="menu"
         data-event-label="nature.com"
+        data-track="click"
+        href="https://www.nature.com"
       >
-        <LogoNature />
+        <LogoNature height={logoHeight} />
       </a>
     </li>
 
     {#if pdfAvailable}
-      <li>
-        <a
-          class="pdf-link"
-          href="{`pdf/${doi}.pdf`}"
-          data-track="click"
-          data-event-category="menu"
-          data-event-action="click"
-          data-event-label="PDF dowload"
-        >
-          <span>PDF download</span>
-          <span class="pdf-icon">
-            <LogoDownloadFile height="1.6" />
-          </span>
-        </a>
-      </li>
+      <li><MenuPdfDownload {logoHeight} {doi} /></li>
     {/if}
 
     <li>
-      <SocialLinks articleData="{articleData}" />
+      <MenuSocialLinks {articleData} />
     </li>
 
     {#if menuLinks && menuLinks.length}
       {#if mounted}
         <li>
           <ExpandButton
-            on:click="{handleButtonClick}"
-            on:focus="{handleButtonFocus}"
-            on:blur="{handleButtonBlur}"
-            expanded="{menuIsExpanded}"
+            expanded={menuIsExpanded}
+            expandedMessage="Menu"
+            let:buttonElement
+            message="Menu"
+            on:blur={handleButtonBlur}
+            on:click={handleButtonClick}
+            on:focus={handleButtonFocus}
+            theme="menu"
           />
           {#if menuIsExpanded}
             <MenuList
+              {logoHeight}
+              {menuLinks}
               bind:lastMenuLinkElem
-              on:focus="{handleMenuLinkFocus}"
-              on:blur="{handleMenuLinkBlur}"
-              menuHeight="{$menuHeight}"
-              menuLinks="{menuLinks}"
+              menuHeight={$menuHeight}
+              on:blur={handleMenuLinkBlur}
+              on:focus={handleMenuLinkFocus}
             />
           {/if}
         </li>
@@ -224,5 +198,5 @@
 <slot />
 
 {#if !mounted}
-  <MenuListStatic menuLinks="{menuLinks}" />
+  <MenuListStatic {menuLinks} />
 {/if}

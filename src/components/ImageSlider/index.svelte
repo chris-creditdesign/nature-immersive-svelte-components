@@ -1,25 +1,74 @@
 <script>
-  import Interactive from "./interactive.svelte";
-  import Static from "./static.svelte";
+  import { onMount } from "svelte";
+  import Static from "../ImageSliderStatic/index.svelte";
+  import Interactive from "../ImageSliderInteractive/index.svelte";
 
-  export let mounted = false;
-  export let className = "";
-  export let ratio = 0.5625;
-  export let imageData;
-  export let message = "Use the slider to reveal the hidden image:";
+  /**
+   * Aria-label to apply to canvas element.
+   */
+  export let altText = "Interactive section used to compare two images.";
+  /**
+   * Percentage of imageA that should be showing over imageB
+   * when the component loads.
+   */
   export let amountToReveal = 0;
+  /**
+   * Array of objects containing:
+   *
+   * - srcURL
+   * - altText
+   * - caption
+   */
+  export let imageData;
+  /**
+   * Text to sit above the slider
+   */
+  export let message = "Use the slider to reveal the hidden image:";
 
+  let ratio;
+  let loadedImages = [];
+  let mounted = false;
   let componentMap = new Map();
-  componentMap.set(true, Interactive);
   componentMap.set(false, Static);
+  componentMap.set(true, Interactive);
+
+  $: selectedComponent = componentMap.get(mounted);
+
+  onMount(() => {
+    loadedImages = imageData.map((elem) => {
+      let thisImage = new Image();
+      thisImage.src = elem.srcURL;
+      thisImage.alt = elem.altText;
+      thisImage.decode();
+      return thisImage;
+    });
+
+    // Wait for the images to decode so we can access their data
+    Promise.all([loadedImages[0].decode(), loadedImages[1].decode()])
+      .then(() => {
+        // Now we know the width and the height of images
+        // we can update the ratio
+        let { height, width } = loadedImages[0];
+        ratio = height / width;
+
+        mounted = true;
+      })
+      .catch((encodingError) => {
+        console.log("Hello...", encodingError);
+        console.log({ mounted });
+
+        mounted = false;
+      });
+  });
 </script>
 
 <svelte:component
-  this="{componentMap.get(mounted)}"
-  {className}
-  {ratio}
+  this={selectedComponent}
+  {altText}
+  {amountToReveal}
+  imageA={loadedImages[0]}
+  imageB={loadedImages[1]}
   {imageData}
   {message}
-  {amountToReveal}
-  bind:mounted
+  {ratio}
 />

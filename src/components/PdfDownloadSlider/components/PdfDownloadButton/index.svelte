@@ -28,17 +28,14 @@
     border-color: var(--outline);
     outline: none;
   }
-
-  /* button[aria-expanded="true"] {
-  } */
 </style>
 
 <button
-  bind:this="{$buttonElement}"
+  bind:this={$buttonElement}
   on:click
   on:focus
   on:blur
-  aria-expanded="{expanded}"
+  aria-expanded={expanded}
 >
-  <PdfDownloadSVG width="{30}" title="Download PDF" />
+  <PdfDownloadSVG width={30} title="Download PDF" />
 </button>

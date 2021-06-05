@@ -1,0 +1,65 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { spaceOptions, measureOptions } from "../preview-content/options.js";
+
+<Meta title="Example/Measurements" />
+
+<style>
+  {`
+.stack > * {
+  margin-top: 0;
+}
+
+.stack > * + * {
+  margin-top: var(--s-4);
+}
+
+.content {
+  margin-right: var(--s-1);
+  background-color: var(--white-3);
+  height: var(--s0);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.container--measure {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.label {
+  margin: 0;
+  font-family: var(--sans-serif-font);
+  font-size: small;
+}
+`}
+</style>
+
+# Measurements
+
+These are the default measurement values available as CSS custom properties.
+
+## Space
+
+<div class="stack">
+  {spaceOptions.slice(2).map((space) => (
+    <div class="container">
+      <span class="content" style={{ width: space }}></span>
+      <p class="label">{space}</p>
+    </div>
+  ))}
+</div>
+
+## Measure
+
+<div class="stack">
+  {measureOptions.slice(4).map((space) => (
+    <div class="container--measure">
+      <span class="content" style={{ width: space, minWidth: space }}></span>
+      <p class="label">{space}</p>
+    </div>
+  ))}
+</div>
