@@ -6,6 +6,10 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  darkMode: {
+    classTarget: "body",
+    stylePreview: true,
+  },
 };
 
 import "../static/css/fonts.css";

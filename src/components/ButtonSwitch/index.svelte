@@ -5,6 +5,7 @@
   export let clusterJustifyContent = "flex-start";
   export let message;
   export let checked = false;
+  export let theme = "";
 
   let id = `${message
     .toLowerCase()
@@ -21,6 +22,7 @@
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
+    outline: none;
   }
 
   span {
@@ -32,6 +34,11 @@
     color: var(--text-color-invert);
     background: var(--background-color-invert);
   }
+
+  button[role="switch"][aria-checked="true"]:not(:hover, :focus) :last-child,
+  button[role="switch"][aria-checked="false"]:not(:hover, :focus) :first-child {
+    color: var(--text-color-disabled);
+  }
 </style>
 
 <Cluster {clusterJustifyContent}>
@@ -41,6 +48,7 @@
     aria-checked={checked}
     aria-labelledby={id}
     class={`switch-button font-family:sans-serif ${className}`}
+    data-theme={theme}
     on:click
     role="switch"
     type="button"

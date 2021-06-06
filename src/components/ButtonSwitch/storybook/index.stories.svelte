@@ -3,6 +3,7 @@
   import { action } from "@storybook/addon-actions";
   import ButtonSwitch from "../index.svelte";
   import { justifyContentOptions } from "../../../preview-content/options.js";
+  import { themeOptions } from "../../../preview-content/options.js";
 
   let checked = false;
 
@@ -25,13 +26,14 @@
     },
     checked: { control: "boolean" },
     message: { control: "text" },
+    theme: { control: { type: "select", options: themeOptions } },
   }}
 />
 
 <Story
   name="Default"
   let:args
-  args={{ className: "example-class", message: "Show animation:" }}
+  args={{ className: "example-class", message: "Animation:" }}
 >
   <ButtonSwitch {...args} {checked} on:click={handleClick} />
 </Story>
