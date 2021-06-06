@@ -82,8 +82,6 @@
   .pdf-download {
     position: sticky;
     top: 0;
-    display: flex;
-    justify-content: flex-end;
     width: 250px;
     height: 100vh;
     padding-right: 0;
