@@ -2,6 +2,7 @@
   import { Cluster } from "creditdesign-svelte-components";
 
   export let className = "";
+  export let clusterJustifyContent = "flex-start";
   export let message;
   export let checked = false;
 
@@ -33,7 +34,7 @@
   }
 </style>
 
-<Cluster>
+<Cluster {clusterJustifyContent}>
   <span class="font-family:sans-serif" {id}>{message}</span>
 
   <button

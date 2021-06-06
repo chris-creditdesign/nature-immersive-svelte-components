@@ -2,6 +2,7 @@
   import { Meta, Story } from "@storybook/addon-svelte-csf";
   import { action } from "@storybook/addon-actions";
   import ButtonSwitch from "../index.svelte";
+  import { justifyContentOptions } from "../../../preview-content/options.js";
 
   let checked = false;
 
@@ -16,6 +17,12 @@
   component={ButtonSwitch}
   argTypes={{
     className: { control: "text" },
+    clusterJustifyContent: {
+      control: {
+        type: "select",
+        options: justifyContentOptions,
+      },
+    },
     checked: { control: "boolean" },
     message: { control: "text" },
   }}

@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
+  import { Stack } from "creditdesign-svelte-components";
   import { buttonElement } from "./stores/pdf-download-stores.js";
   import PdfDownloadButton from "./components/PdfDownloadButton/index.svelte";
   import PdfDownloadContent from "./components/PdfDownloadContent/index.svelte";
@@ -81,13 +82,15 @@
   .pdf-download {
     position: sticky;
     top: 0;
+    display: flex;
+    justify-content: flex-end;
     width: 250px;
     height: 100vh;
-    padding-right: none;
-    padding-left: none;
-    margin-top: none;
-    margin-right: none;
-    margin-left: none;
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
     overflow: hidden;
   }
 
@@ -138,26 +141,30 @@
 
 <div class="pdf-download">
   {#if wideEnough}
-    <div class="inner" class:expanded>
-      {#if mounted}
-        <PdfDownloadButton
-          on:click={handleButtonClick}
-          on:focus={handleButtonFocus}
-          on:blur={handleButtonBlur}
-          {expanded}
-        />
-      {/if}
-      {#if expanded}
-        <div class="card-container" out:fade>
-          <PdfDownloadContent
-            on:focus={handlePdfLinkFocus}
-            on:blur={handlePdfLinkBlur}
-            {cardData}
-            {doi}
+    <Stack>
+      <slot name="above" />
+      <div class="inner stack__split-after" class:expanded>
+        {#if mounted}
+          <PdfDownloadButton
+            on:click={handleButtonClick}
+            on:focus={handleButtonFocus}
+            on:blur={handleButtonBlur}
+            {expanded}
           />
-        </div>
-      {/if}
-    </div>
+        {/if}
+        {#if expanded}
+          <div class="card-container" out:fade>
+            <PdfDownloadContent
+              on:focus={handlePdfLinkFocus}
+              on:blur={handlePdfLinkBlur}
+              {cardData}
+              {doi}
+            />
+          </div>
+        {/if}
+      </div>
+      <slot name="below" />
+    </Stack>
   {:else}
     <PdfDownloadContent
       {cardData}
