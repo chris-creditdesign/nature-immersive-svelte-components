@@ -31,9 +31,23 @@
         options: spaceOptions,
       },
     },
+    relatedLinksStackSpace: {
+      control: {
+        type: "select",
+        options: spaceOptions,
+      },
+    },
   };
 
-  let { altText, caption, footnote, srcURL, text } = cardData;
+  let {
+    altText,
+    caption,
+    footnote,
+    srcURL,
+    text,
+    relatedLinksHeadline,
+    relatedLinks,
+  } = cardData;
 </script>
 
 <Meta
@@ -45,7 +59,17 @@
 <Story
   name="Default"
   let:args
-  args={{ cardData: { altText, caption, footnote, srcURL, text } }}
+  args={{
+    cardData: {
+      altText,
+      caption,
+      footnote,
+      srcURL,
+      text,
+      relatedLinksHeadline,
+      relatedLinks,
+    },
+  }}
 >
   <CardImageBelowSidebar {...args} />
 </Story>

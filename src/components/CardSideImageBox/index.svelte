@@ -39,6 +39,7 @@
    * Stack space within the text block
    */
   export let stackSpace = "var(--s-1)";
+  export let relatedLinksStackSpace = "var(--s-3)";
   export let theme = "invert";
 </script>
 
@@ -55,6 +56,7 @@
       {sidebarSpace}
       {imageWidth}
       {stackSpace}
+      {relatedLinksStackSpace}
       {theme}
     >
       <slot />

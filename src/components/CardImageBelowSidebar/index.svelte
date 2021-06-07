@@ -30,6 +30,7 @@
    * Stack space within the text block
    */
   export let stackSpace = "var(--s-1)";
+  export let relatedLinksStackSpace = "var(--s-3)";
 
   let { altText, caption, srcURL } = cardData;
 </script>
@@ -44,6 +45,6 @@
     <Image {altText} {caption} {srcURL} />
   </div>
   <div slot="main-content">
-    <CardImageBelowStack {cardData} {stackSpace} />
+    <CardImageBelowStack {cardData} {stackSpace} {relatedLinksStackSpace} />
   </div>
 </Sidebar>

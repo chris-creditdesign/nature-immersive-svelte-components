@@ -35,6 +35,9 @@
     sidebarSpace: { control: { type: "select", options: spaceOptions } },
     imageWidth: { control: { type: "select", options: measureOptions } },
     stackSpace: { control: { type: "select", options: spaceOptions } },
+    relatedLinksStackSpace: {
+      control: { type: "select", options: spaceOptions },
+    },
     theme: { control: { type: "select", options: themeOptions } },
   };
 </script>

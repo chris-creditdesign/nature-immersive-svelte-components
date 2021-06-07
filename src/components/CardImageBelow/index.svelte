@@ -40,6 +40,7 @@
    * Stack space within the text block
    */
   export let stackSpace = "var(--s-1)";
+  export let relatedLinksStackSpace = "var(--s-3)";
   export let theme = "";
 
   let { srcURL } = cardData;
@@ -63,9 +64,10 @@
         {sidebarSpace}
         {imageWidth}
         {stackSpace}
+        {relatedLinksStackSpace}
       />
     {:else}
-      <CardImageBelowStack {stackSpace} {cardData} />
+      <CardImageBelowStack {stackSpace} {cardData} {relatedLinksStackSpace} />
     {/if}
 
     <slot />

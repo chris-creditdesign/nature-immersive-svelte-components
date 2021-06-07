@@ -39,6 +39,7 @@
    * Stack space within the text block
    */
   export let stackSpace = "var(--s-1)";
+  export let relatedLinksStackSpace = "var(--s-3)";
   export let theme = "";
 
   let { altText, caption, srcURL } = cardData;
@@ -65,6 +66,7 @@
             {headlineFontSize}
             {id}
             {stackSpace}
+            {relatedLinksStackSpace}
             cardData={cardDataNoImage}
             {theme}
           />
@@ -79,6 +81,7 @@
       {headerLevel}
       {id}
       {stackSpace}
+      {relatedLinksStackSpace}
       {theme}
     >
       <slot />

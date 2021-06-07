@@ -28,6 +28,9 @@
     },
     id: { control: "text" },
     stackSpace: { control: { type: "select", options: spaceOptions } },
+    relatedLinksStackSpace: {
+      control: { type: "select", options: spaceOptions },
+    },
     theme: { control: { type: "select", options: themeOptions } },
   };
 </script>

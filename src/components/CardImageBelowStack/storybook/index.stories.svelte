@@ -14,9 +14,15 @@
         options: spaceOptions,
       },
     },
+    relatedLinksStackSpace: {
+      control: {
+        type: "select",
+        options: spaceOptions,
+      },
+    },
   };
 
-  let { text, footnote } = cardData;
+  let { text, footnote, relatedLinks, relatedLinksHeadline } = cardData;
 </script>
 
 <Meta
@@ -25,6 +31,10 @@
   {argTypes}
 />
 
-<Story name="Default" let:args args={{ cardData: { text, footnote } }}>
+<Story
+  name="Default"
+  let:args
+  args={{ cardData: { text, footnote, relatedLinks, relatedLinksHeadline } }}
+>
   <CardImageBelowStack {...args} />
 </Story>
