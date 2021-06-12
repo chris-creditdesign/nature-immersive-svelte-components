@@ -8,7 +8,7 @@ body {
   --background-color-invert: var(--black-0);
   --text-color: var(--black-0);
   --text-color-invert: var(--white-0);
-  --text-color-disabled: var(--white-3);
+  --text-color-disabled: var(--black-2);
   --button-color-expanded: var(--link-color-active);
   --button-background-color-expanded: var(--white-2);
 }

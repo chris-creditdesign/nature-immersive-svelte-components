@@ -3,7 +3,10 @@
   import { action } from "@storybook/addon-actions";
   import ButtonSwitch from "../index.svelte";
   import { justifyContentOptions } from "../../../preview-content/options.js";
-  import { themeOptions } from "../../../preview-content/options.js";
+  import {
+    themeOptions,
+    spaceOptions,
+  } from "../../../preview-content/options.js";
 
   let checked = false;
 
@@ -24,6 +27,12 @@
         options: justifyContentOptions,
       },
     },
+    clusterSpace: {
+      control: {
+        type: "select",
+        options: spaceOptions,
+      },
+    },
     checked: { control: "boolean" },
     message: { control: "text" },
     theme: { control: { type: "select", options: themeOptions } },
@@ -36,4 +45,19 @@
   args={{ className: "example-class", message: "Animation:" }}
 >
   <ButtonSwitch {...args} {checked} on:click={handleClick} />
+</Story>
+
+<Story
+  name="Constrained width"
+  let:args
+  args={{
+    className: "example-class",
+    message: "Animation:",
+    clusterJustifyContent: "center",
+    clusterSpace: "var(--s-4)",
+  }}
+>
+  <div style="width: 160px; border: 1px dashed red;">
+    <ButtonSwitch {...args} {checked} on:click={handleClick} />
+  </div>
 </Story>
