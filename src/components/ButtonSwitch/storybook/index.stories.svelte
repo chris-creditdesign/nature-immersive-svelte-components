@@ -61,3 +61,18 @@
     <ButtonSwitch {...args} {checked} on:click={handleClick} />
   </div>
 </Story>
+
+<Story
+  name="On coloured background"
+  let:args
+  args={{
+    className: "example-class",
+    message: "Animation:",
+    clusterJustifyContent: "center",
+    clusterSpace: "var(--s-4)",
+  }}
+>
+  <div style="padding: 50px; background-color: green;">
+    <ButtonSwitch {...args} {checked} on:click={handleClick} />
+  </div>
+</Story>

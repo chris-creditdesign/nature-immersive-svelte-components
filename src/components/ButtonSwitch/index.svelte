@@ -1,5 +1,5 @@
 <script>
-  import { Cluster } from "creditdesign-svelte-components";
+  import TempCluster from "./temp-components/temp-cluster.svelte";
 
   export let className = "";
   export let clusterJustifyContent = "flex-start";
@@ -20,6 +20,7 @@
     padding: 0;
     overflow: hidden;
     font-size: inherit;
+    background-color: var(--background-color);
     background-image: linear-gradient(
       var(--background-color-invert),
       var(--background-color-invert)
@@ -31,8 +32,12 @@
     border-style: solid;
     border-width: 1px;
     border-radius: 3px;
-    outline: none;
     transition: background-position 100ms ease-in;
+  }
+
+  button:hover,
+  button:focus {
+    background-color: var(--background-color);
   }
 
   button span {
@@ -49,13 +54,13 @@
     color: var(--text-color-invert);
   }
 
-  button[aria-checked="true"]:not(:hover, :focus) :last-child,
-  button[aria-checked="false"]:not(:hover, :focus) :first-child {
-    color: var(--text-color-disabled);
+  button[aria-checked="true"] :last-child,
+  button[aria-checked="false"] :first-child {
+    color: var(--text-color);
   }
 </style>
 
-<Cluster {clusterSpace} {clusterJustifyContent}>
+<TempCluster {clusterSpace} {clusterJustifyContent}>
   <span class="font-family:sans-serif" {id}>{message}</span>
 
   <button
@@ -70,4 +75,4 @@
     <span>On</span>
     <span>Off</span>
   </button>
-</Cluster>
+</TempCluster>
