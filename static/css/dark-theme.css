@@ -1,14 +1,14 @@
 /* --------------------------- Dark colour scheme --------------------------- */
 body.dark {
-  --link-color: var(--orange-1);
-  --link-color-invert: var(--blue-1);
-  --link-color-active: var(--black-0);
-  --outline: var(--yellow-1);
-  --background-color: var(--black-0);
-  --background-color-invert: var(--white-0);
-  --text-color: var(--white-0);
-  --text-color-invert: var(--black-1);
-  --text-color-disabled: var(--white-2);
-  --button-color-expanded: var(--link-color-active);
-  --button-background-color-expanded: var(--white-2);
+  --color--link: var(--color--orange-1);
+  --color--link-invert: var(--color--blue-1);
+  --color--link-active: var(--color--black-0);
+  --color--outline: var(--color--yellow-1);
+  --color--background: var(--color--black-0);
+  --color--background-invert: var(--color--white-0);
+  --color--text: var(--color--white-0);
+  --color--text-invert: var(--color--black-1);
+  --color--text-disabled: var(--color--white-2);
+  --color--button-expanded: var(--color--link-active);
+  --color--button-background-expanded: var(--color--white-2);
 }
