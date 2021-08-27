@@ -12,22 +12,22 @@
 
   a {
     padding: var(--s-1);
-    color: var(--text-color) !important;
+    color: var(--color--text) !important;
     text-decoration: none !important;
-    background-color: var(--text-color-invert) !important;
+    background-color: var(--color--text-invert) !important;
     border-bottom: none !important;
     outline: none !important;
   }
 
   a:hover,
   a:focus {
-    color: var(--link-color-active) !important;
-    background-color: var(--outline) !important;
+    color: var(--color--link-active) !important;
+    background-color: var(--color--outline) !important;
     border-bottom: none !important;
     outline: none !important;
   }
 
-  .sign-up-link-cotainer {
+  .sign-up-link-container {
     display: flex;
     justify-content: flex-end;
     margin-top: var(--s-1) !important;
@@ -47,7 +47,7 @@
       An essential round-up of science news, opinion and analysis, free in your
       inbox every weekday.
     </p>
-    <div class="sign-up-link-cotainer">
+    <div class="sign-up-link-container">
       <a
         class="font-family:sans-serif"
         href="https://www.nature.com/briefing/signup/"

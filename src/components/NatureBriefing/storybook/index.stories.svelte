@@ -5,7 +5,7 @@
 </script>
 
 <Meta
-  title="Page furniture/NatureBriefing"
+  title="components/NatureBriefing"
   component={NatureBriefing}
   parameters={{
     controls: { hideNoControlsWarning: true },
