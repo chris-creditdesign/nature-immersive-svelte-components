@@ -32,14 +32,22 @@
   name="Default"
   let:args
   args={{
-    className: "example-class",
     altText: "This is the alt text",
+    autoplay: true,
+    buttonAtTop: false,
+    buttonOnLeft: false,
     caption: "This is the caption",
-    srcURL: "video/video-small.jpg",
+    captionSpace: 0,
+    className: "example-class",
     frameRatioHeight: 9,
     frameRatioWidth: 16,
+    loop: true,
     pausedMessage: "Play video",
     playingMessage: "Pause video",
+    srcURL: "video/video-small.jpg",
+  }}
+  parameters={{
+    layout: "fullscreen",
   }}
 >
   <Video {...args} />
@@ -49,18 +57,27 @@
   name="Two videos on page"
   let:args
   args={{
-    className: "example-class",
     altText: "This is the alt text",
+    autoplay: true,
+    buttonAtTop: false,
+    buttonOnLeft: false,
     caption: "This is the caption",
-    srcURL: "video/video-small.jpg",
+    captionSpace: 0,
+    className: "example-class",
     frameRatioHeight: 9,
     frameRatioWidth: 16,
+    loop: true,
     pausedMessage: "Play video",
     playingMessage: "Pause video",
+    srcURL: "video/video-small.jpg",
   }}
 >
   <Stack>
     <Video {...args} />
-    <Video {...args} />
+    <Video
+      altText="This is the alt text"
+      caption="This is the caption"
+      srcURL="video/video-small.jpg"
+    />
   </Stack>
 </Story>

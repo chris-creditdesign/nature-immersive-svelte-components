@@ -1,0 +1,53 @@
+/* --------------------------------- Themes --------------------------------- */
+
+[data-theme] {
+  --color--component: initial;
+  --color--global: var(--color--text);
+  --color--link--component: initial;
+  --color--link--global: var(--color--link);
+  --color--link-active--component: initial;
+  --color--link-active--global: var(--color--link-active);
+  --color--background--component: initial;
+  --color--background--global: var(--color--background);
+
+  color: var(--color--component, var(--color--global));
+  background: var(
+    --color--background--component,
+    var(--color--background--global)
+  );
+  fill: var(--color--component, var(--color--global));
+}
+
+[data-theme] a {
+  color: var(--color--link--component, var(--color--link--global));
+  fill: var(--color--link--component, var(--color--link--global));
+}
+
+[data-theme] a:hover,
+[data-theme] a:focus {
+  color: var(
+    --color--link-active--component,
+    var(--color--link-active--global)
+  );
+  fill: var(--color--link-active--component, var(--color--link-active--global));
+}
+
+/* Invert */
+
+[data-theme="invert"] {
+  --color--component: var(--color--text-invert);
+  --color--link--component: var(--color--link-invert);
+  --color--background--component: var(--color--background-invert);
+}
+
+/* Menu */
+
+[data-theme="menu"] {
+  --color--text: var(--color--text-invert);
+  --color--component: var(--color--text-invert);
+  --color--link-invert: var(--color--text-invert);
+  --color--link--component: var(--color--link-invert);
+  --color--background--component: var(--color--background-invert);
+  --color--button-expanded: var(--color--text-invert);
+  --color--button-background-expanded: var(--color--background-invert);
+}

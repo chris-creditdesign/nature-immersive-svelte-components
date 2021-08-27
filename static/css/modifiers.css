@@ -1,0 +1,15 @@
+/* -------------------------------- Modifiers ------------------------------- */
+
+/* Borders */
+.border-above {
+  border-top: 1.5px solid var(--color--text);
+}
+
+/* Dropcap */
+.drop-cap::first-letter {
+  float: left;
+  padding-top: 0.55rem;
+  font-size: 4.85rem;
+  font-style: normal;
+  line-height: 3rem;
+}

@@ -1,0 +1,80 @@
+/* -------------------------------- Utilities ------------------------------- */
+
+/* Make sure hidden elements are hidden */
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0 !important;
+  opacity: 0;
+}
+
+/* -------------------------- Text style utilities -------------------------- */
+
+.font-family\:sans-serif {
+  font-family: var(--sans-serif-font);
+}
+
+.font-weight\:bold {
+  font-weight: 800;
+}
+
+.font-weight\:normal {
+  font-weight: 200;
+}
+
+.font-style\:italic {
+  font-style: italic;
+}
+
+.text-transform\:uppercase {
+  text-transform: uppercase;
+}
+
+.text-decoration\:none {
+  text-decoration: none;
+}
+
+.text-decoration\:underline {
+  text-decoration: underline;
+}
+
+.letter-spacing\:tight {
+  letter-spacing: -0.02em;
+}
+
+/* --------------------------- Text size utilities -------------------------- */
+
+.font-size\:small {
+  font-size: var(--font-size-small-1);
+}
+
+.font-size\:base {
+  font-size: var(--font-size-base);
+}
+.font-size\:big-1 {
+  font-size: var(--font-size-big-1);
+}
+.font-size\:big-2 {
+  font-size: var(--font-size-big-2);
+}
+.font-size\:big-3 {
+  font-size: var(--font-size-big-3);
+}
+.font-size\:big-4 {
+  font-size: var(--font-size-big-4);
+}
+
+/* --------------------------------- Flexbox -------------------------------- */
+
+.flex-wrap\:wrap {
+  flex-wrap: wrap;
+}

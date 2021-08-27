@@ -1,22 +1,22 @@
 /* ---------------------------- Layout components --------------------------- */
 
-/* ---------------------------------- Card ---------------------------------- */
+/* ---------------------------------- Cards --------------------------------- */
 
-export { default as Card } from "./components/Card/index.svelte";
-export { default as CardBox } from "./components/CardBox/index.svelte";
-export { default as CardImageBelow } from "./components/CardImageBelow/index.svelte";
-export { default as CardImageBelowBox } from "./components/CardImageBelowBox/index.svelte";
-export { default as CardSideImage } from "./components/CardSideImage/index.svelte";
-export { default as CardSideImageBox } from "./components/CardSideImageBox/index.svelte";
+export { default as Card } from "./components/cards/Card/index.svelte";
+export { default as CardBox } from "./components/cards/CardBox/index.svelte";
+export { default as CardImageBelow } from "./components/cards/CardImageBelow/index.svelte";
+export { default as CardImageBelowBox } from "./components/cards/CardImageBelowBox/index.svelte";
+export { default as CardSideImage } from "./components/cards/CardSideImage/index.svelte";
+export { default as CardSideImageBox } from "./components/cards/CardSideImageBox/index.svelte";
 
-/* ---------------------------------- Cover --------------------------------- */
+/* -------------------------------- Sections -------------------------------- */
 
-export { default as CoverBackgroundImage } from "./components/CoverBackgroundImage/index.svelte";
-export { default as CoverBackgroundVideo } from "./components/CoverBackgroundVideo/index.svelte";
-
-/* --------------------------------- Section -------------------------------- */
-
-export { default as Section } from "./components/Section/index.svelte";
+export { default as CoverBackgroundImageSection } from "./components/sections/CoverBackgroundImageSection/index.svelte";
+export { default as CoverBackgroundVideoSection } from "./components/sections/CoverBackgroundVideoSection/index.svelte";
+export { default as Section } from "./components/sections/Section/index.svelte";
+export { default as StaticImage } from "./components/sections/StaticImage/index.svelte";
+export { default as ScrollytellingSection } from "./components/sections/ScrollytellingSection/index.svelte";
+export { default as RelatedArticleContainer } from "./components/sections/RelatedArticleContainer/index.svelte";
 
 /* --------------------------------- Heading -------------------------------- */
 
@@ -50,37 +50,29 @@ export { default as Video } from "./components/Video/index.svelte";
 
 export { default as YouTube } from "./components/YouTube/index.svelte";
 
-/* ---------------------------------- StaticImage ---------------------------------- */
-
-export { default as StaticImage } from "./components/StaticImage/index.svelte";
-
-/* ---------------------------------- ScrollytellingContainer ---------------------------------- */
-
-export { default as ScrollytellingContainer } from "./components/ScrollytellingContainer/index.svelte";
-
 /* ---------------------------------- SeriesArticleNav ---------------------------------- */
 
 export { default as SeriesArticleNav } from "./components/SeriesArticleNav/index.svelte";
 
-/* ------------------------- RelatedArticleContainer ------------------------ */
-
-export { default as RelatedArticleContainer } from "./components/RelatedArticleContainer/index.svelte";
-
-/* ----------------------------- NatureBriefing ----------------------------- */
+/* ---------------------------------- Misc ---------------------------------- */
 
 export { default as NatureBriefing } from "./components/NatureBriefing/index.svelte";
 
 /* ---------------------------------- Logos --------------------------------- */
 
-export { default as LogoEmail } from "./components/LogoEmail/index.svelte";
-export { default as LogoChevron } from "./components/LogoChevron/index.svelte";
-export { default as LogoFacebook } from "./components/LogoFacebook/index.svelte";
-export { default as LogoNature } from "./components/LogoNature/index.svelte";
-export { default as LogoSpringerNature } from "./components/LogoSpringerNature/index.svelte";
-export { default as LogoTwitter } from "./components/LogoTwitter/index.svelte";
-export { default as LogoTriangle } from "./components/LogoTriangle/index.svelte";
-export { default as LogoFilter } from "./components/LogoFilter/index.svelte";
-export { default as LogoDownloadFile } from "./components/LogoDownloadFile/index.svelte";
+export { default as LogoNature } from "./components/logos/NatureLogo/index.svelte";
+export { default as SpringerNatureLogo } from "./components/logos/SpringerNatureLogo/index.svelte";
+export { default as NatureBriefingLogo } from "./components/logos/NatureBriefingLogo/index.svelte";
+
+/* ---------------------------------- Icons --------------------------------- */
+
+export { default as EmailIcon } from "./components/icons/EmailIcon/index.svelte";
+export { default as ChevronIcon } from "./components/icons/ChevronIcon/index.svelte";
+export { default as FacebookIcon } from "./components/icons/FacebookIcon/index.svelte";
+export { default as TwitterIcon } from "./components/icons/TwitterIcon/index.svelte";
+export { default as RadioIcon } from "./components/icons/RadioIcon/index.svelte";
+export { default as FilterIcon } from "./components/icons/FilterIcon/index.svelte";
+export { default as DownloadFileIcon } from "./components/icons/DownloadFileIcon/index.svelte";
 
 /* ---------------------------- PdfDownloadSlider --------------------------- */
 
@@ -92,18 +84,9 @@ export { default as PdfDownloadSlider } from "./components/PdfDownloadSlider/ind
 
 export { default as ImageSlider } from "./components/ImageSlider/index.svelte";
 
-/* ------------------------------- SimpleButton ------------------------------ */
+/* --------------------------------- Buttons -------------------------------- */
 
-export { default as SimpleButton } from "./components/SimpleButton/index.svelte";
-
-/* ------------------------------- ToggleButton ------------------------------ */
-
-export { default as ToggleButton } from "./components/ToggleButton/index.svelte";
-
-/* ------------------------------- FilterButton ------------------------------ */
-
-export { default as FilterButton } from "./components/FilterButton/index.svelte";
-
-/* ------------------------------ ButtonSwitch ------------------------------ */
-
-export { default as ButtonSwitch } from "./components/ButtonSwitch/index.svelte";
+export { default as SimpleButton } from "./components/buttons/SimpleButton/index.svelte";
+export { default as ToggleButton } from "./components/buttons/ToggleButton/index.svelte";
+export { default as FilterButton } from "./components/buttons/FilterButton/index.svelte";
+export { default as SwitchButton } from "./components/buttons/SwitchButton/index.svelte";

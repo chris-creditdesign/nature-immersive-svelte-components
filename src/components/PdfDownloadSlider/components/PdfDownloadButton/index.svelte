@@ -1,6 +1,6 @@
 <script>
   import { buttonElement } from "../../stores/pdf-download-stores.js";
-  import PdfDownloadSVG from "../../../LogoDownload/index.svelte";
+  import DownloadIcon from "../../../icons/DownloadIcon/index.svelte";
 
   export let expanded;
 </script>
@@ -37,5 +37,5 @@
   on:blur
   aria-expanded={expanded}
 >
-  <PdfDownloadSVG width={30} title="Download PDF" />
+  <DownloadIcon width={30} title="Download PDF" />
 </button>

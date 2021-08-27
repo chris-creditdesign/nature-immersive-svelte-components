@@ -2,7 +2,7 @@
   import { Meta, Story } from "@storybook/addon-svelte-csf";
   import { action } from "@storybook/addon-actions";
   import { Stack, Box, Sidebar } from "creditdesign-svelte-components";
-  import ButtonSwitch from "../../ButtonSwitch/index.svelte";
+  import SwitchButton from "../../buttons/SwitchButton/index.svelte";
   import articleData from "../../../preview-content/article-data.js";
   import PdfDownloadSlider from "../index.svelte";
 
@@ -101,7 +101,7 @@
         <PdfDownloadSlider {...args}>
           <div slot="above">
             <Box boxSpace="var(--s-2)">
-              <ButtonSwitch
+              <SwitchButton
                 message="Animation:"
                 clusterJustifyContent="flex-end"
                 {checked}
@@ -139,7 +139,7 @@
         <PdfDownloadSlider {...args}>
           <div slot="above">
             <Box boxSpace="var(--s-2)">
-              <ButtonSwitch
+              <SwitchButton
                 message="Animation:"
                 clusterJustifyContent="flex-end"
                 {checked}

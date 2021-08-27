@@ -5,7 +5,7 @@
 </script>
 
 <Meta
-  title="Page furniture/Footer"
+  title="components/Footer"
   component={Footer}
   parameters={{
     layout: "fullscreen",

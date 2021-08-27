@@ -1,6 +1,6 @@
 <script>
   import { Box } from "creditdesign-svelte-components";
-  import LogoNatureBriefing from "../LogoNatureBriefing/index.svelte";
+  import NatureBriefingLogo from "../logos/NatureBriefingLogo/index.svelte";
 </script>
 
 <style>
@@ -37,8 +37,7 @@
 
 <div data-theme="invert">
   <Box boxSpace="var(--s1)">
-
-    <LogoNatureBriefing height="2.5" />
+    <NatureBriefingLogo height="2.5" />
 
     <p class="font-family:sans-serif">
       Signup for the free daily
@@ -62,6 +61,5 @@
         Sign up for Nature Briefing
       </a>
     </div>
-
   </Box>
 </div>

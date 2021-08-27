@@ -8,5 +8,6 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-svelte-csf",
     "storybook-dark-mode",
+    "@whitespace/storybook-addon-html",
   ],
 };

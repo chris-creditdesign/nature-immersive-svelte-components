@@ -1,6 +1,6 @@
 <script>
   import { Box, Stack, ClusterList } from "creditdesign-svelte-components";
-  import LogoSpringerNature from "../LogoSpringerNature/index.svelte";
+  import SpringerNatureLogo from "../logos/SpringerNatureLogo/index.svelte";
 </script>
 
 <style>
@@ -20,32 +20,36 @@
   <Box>
     <Stack stackSpace="var(--s-1)">
       <div>
-        <LogoSpringerNature height={1.5} />
+        <SpringerNatureLogo height={1.5} />
       </div>
 
-      <ClusterList>
-        <li>
-          <a href="https://www.nature.com/info/privacy.html">Privacy Policy</a>
-        </li>
-        <li>
-          <a href="https://www.nature.com/info/cookies.html">Use of cookies</a>
-        </li>
-        <li>
-          <a href="https://www.nature.com/info/legal_notice.html">
-            Legal notice
-          </a>
-        </li>
-        <li>
-          <a href="https://www.nature.com/info/tandc.html">
-            Terms & Conditions
-          </a>
-        </li>
-        <li>
-          <a href="https://www.nature.com/info/accessibility_statement.html">
-            Accessibility statement
-          </a>
-        </li>
-      </ClusterList>
+      <div>
+        <ClusterList>
+          <li>
+            <a href="https://www.nature.com/info/privacy.html">Privacy Policy</a
+            >
+          </li>
+          <li>
+            <a href="https://www.nature.com/info/cookies.html">Use of cookies</a
+            >
+          </li>
+          <li>
+            <a href="https://www.nature.com/info/legal_notice.html">
+              Legal notice
+            </a>
+          </li>
+          <li>
+            <a href="https://www.nature.com/info/tandc.html">
+              Terms & Conditions
+            </a>
+          </li>
+          <li>
+            <a href="https://www.nature.com/info/accessibility_statement.html">
+              Accessibility statement
+            </a>
+          </li>
+        </ClusterList>
+      </div>
 
       <small>© 2021 Springer Nature Limited. All rights reserved.</small>
     </Stack>

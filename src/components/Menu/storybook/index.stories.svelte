@@ -18,7 +18,7 @@
 </script>
 
 <Meta
-  title="Page furniture/Menu"
+  title="components/Menu"
   component={Menu}
   argTypes={{
     articleData: { control: "object" },

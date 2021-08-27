@@ -1,6 +1,6 @@
 # Nature immersive svelte components
 
-> Colection of svelte components used to build @naturenews immersiev articles
+> Colection of svelte components used to build @naturenews immersive articles
 
 Config based on the [sveltejs/component-template](https://github.com/sveltejs/component-template)
 
@@ -26,20 +26,16 @@ For everyone else, `npm run build` will bundle your component's source code into
 
 ## TODO:
 
+- Caption space for image
 - Footer links
 - Check for intersectionObserver before implementing StaticImage
-- Make veggie burger a proper animating button
 - Implement grid above-min function
 - High res images onMount // and/or lazyLoad / intersection observer
-- Caption space for image
 - Add stories for Layout Switcher
-- Proper transitions for menu button
-- SM image url in Head component
 - Static Image - remove image container on mobile
 - Focus states for header links
 - NoJS state for StaticImage section
 - Set font sizes to values [https://www.smashingmagazine.com/2018/05/css-custom-properties-strategy-guide/]()
-- Recursize stack layout
 - LayoutGrid above min
 
 ## References

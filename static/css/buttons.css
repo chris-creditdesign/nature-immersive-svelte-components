@@ -1,0 +1,40 @@
+/* Buttons */
+
+button {
+  display: flex;
+  gap: var(--s-2);
+  align-items: center;
+  width: fit-content;
+  height: 1.8em;
+  padding: 0 var(--s-2);
+  font-size: inherit;
+  cursor: pointer;
+  border-color: var(--color--text);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+}
+
+button:hover,
+button:focus {
+  color: var(--color--link-active);
+  background-color: var(--color--outline);
+  border-color: var(--color--link-active);
+  outline: 3px solid var(--color--outline);
+  fill: var(--color--link-active);
+}
+
+button:active {
+  transform: translateY(0.5px);
+}
+
+button:active,
+button[aria-expanded="true"] {
+  color: var(--color--button-expanded);
+  background-color: var(--color--button-background-expanded);
+  fill: var(--color--button-expanded);
+}
+
+.no-flexbox-gap button > * + * {
+  margin-left: var(--s-2);
+}

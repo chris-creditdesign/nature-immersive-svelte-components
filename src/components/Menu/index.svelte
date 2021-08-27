@@ -1,12 +1,12 @@
 <script>
   import { onMount } from "svelte";
   import { menuElement, menuHeight } from "./stores/menu-stores.js";
-  import MenuList from "../MenuList/index.svelte";
-  import MenuListStatic from "../MenuListStatic/index.svelte";
-  import MenuSocialLinks from "../MenuSocialLinks/index.svelte";
-  import ExpandButton from "../ExpandButton/index.svelte";
-  import LogoNature from "../LogoNature/index.svelte";
-  import MenuPdfDownload from "../MenuPdfDownload/index.svelte";
+  import MenuList from "./components/MenuList/index.svelte";
+  import MenuListStatic from "./components/MenuListStatic/index.svelte";
+  import MenuSocialLinks from "./components/MenuSocialLinks/index.svelte";
+  import ExpandButton from "../buttons/ExpandButton/index.svelte";
+  import NatureLogo from "../logos/NatureLogo/index.svelte";
+  import MenuPdfDownload from "./components/MenuPdfDownload/index.svelte";
 
   /**
    * - menuLinks
@@ -148,7 +148,7 @@
         data-track="click"
         href="https://www.nature.com"
       >
-        <LogoNature height={logoHeight} />
+        <NatureLogo height={logoHeight} />
       </a>
     </li>
 

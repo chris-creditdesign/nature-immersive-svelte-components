@@ -13,6 +13,9 @@
     className: { control: "text" },
     srcURL: { control: "text" },
   }}
+  parameters={{
+    layout: "fullscreen",
+  }}
 />
 
 <Story

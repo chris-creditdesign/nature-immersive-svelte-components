@@ -1,20 +1,63 @@
 <script>
+  /**
+   * Video element with basic play/pause button
+   * to be used as an animated gif replacement.
+   *
+   * As such there other video controls or caption options
+   * but an `altText` prop should be provided to be applied
+   * as an `aria-label` on the video elemnent.
+   *
+   * The video can be paused by clicking on the button on or
+   * the video element itself.
+   *
+   * @component
+   */
+
   import { onMount } from "svelte";
   import { Frame } from "creditdesign-svelte-components";
-  import VideoButton from "../VideoButton/index.svelte";
+  import VideoButton from "../buttons/VideoButton/index.svelte";
 
+  /**
+   * To be applied to placeholder image or as
+   * `aria-label` on video element.
+   */
   export let altText;
   export let autoplay = true;
+  /**
+   * If `true` button will be placed towards the top of the video
+   */
   export let buttonAtTop = false;
+  /**
+   * If `true` button will be placed towards the left of the video
+   */
   export let buttonOnLeft = false;
   export let caption;
+  /**
+   * Optional space to move caption in from side of video.
+   */
   export let captionSpace;
   export let className = "";
+  /**
+   * Aspect ration of video.
+   */
   export let frameRatioHeight;
   export let frameRatioWidth;
+  /**
+   * If true video will continuously loop until paused.
+   */
   export let loop = true;
-  export let pausedMessage = "";
-  export let playingMessage = "";
+  /**
+   * Message to display on button when video is paused.
+   */
+  export let pausedMessage = "Play video";
+  /**
+   * Message to display on button when video is playing.
+   */
+  export let playingMessage = "Pause video";
+  /**
+   * Location of fallback image should be provided as the src url
+   * ie video/video-small.jpg
+   */
   export let srcURL;
 
   let buttonVerticalPosition = buttonAtTop
@@ -53,8 +96,9 @@
 
   onMount(() => {
     mounted = true;
-    prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
-      .matches;
+    prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
   });
 </script>
 
@@ -71,6 +115,10 @@
       --video-caption-space--component,
       var(--video-caption-space--global, 0)
     );
+
+    margin-top: var(--s-3);
+    margin-right: var(--video-caption-space);
+    margin-left: var(--video-caption-space);
   }
 
   .video-container {
@@ -99,12 +147,6 @@
     max-width: 100%;
     grid-column: 1 / 6;
     grid-row: 1 / 6;
-  }
-
-  figcaption {
-    margin-top: var(--s-3);
-    margin-right: var(--video-caption-space);
-    margin-left: var(--video-caption-space);
   }
 </style>
 

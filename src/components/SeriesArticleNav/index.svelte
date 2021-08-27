@@ -2,7 +2,7 @@
   import { onMount, createEventDispatcher, afterUpdate } from "svelte";
   import { Stack } from "creditdesign-svelte-components";
   import Header from "../Header/index.svelte";
-  import ToggleButton from "../ToggleButton/index.svelte";
+  import ToggleButton from "../buttons/ToggleButton/index.svelte";
 
   const dispatch = createEventDispatcher();
 
