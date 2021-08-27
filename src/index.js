@@ -50,10 +50,6 @@ export { default as Video } from "./components/Video/index.svelte";
 
 export { default as YouTube } from "./components/YouTube/index.svelte";
 
-/* ---------------------------------- SeriesArticleNav ---------------------------------- */
-
-export { default as SeriesArticleNav } from "./components/SeriesArticleNav/index.svelte";
-
 /* ---------------------------------- Misc ---------------------------------- */
 
 export { default as NatureBriefing } from "./components/NatureBriefing/index.svelte";
@@ -83,6 +79,10 @@ export { default as PdfDownloadSlider } from "./components/PdfDownloadSlider/ind
 /* ------------------------------- ImageSlider ------------------------------ */
 
 export { default as ImageSlider } from "./components/interactive/ImageSlider/index.svelte";
+
+/* ---------------------------------- SeriesArticleNav ---------------------------------- */
+
+export { default as SeriesArticleNav } from "./components/interactive/SeriesArticleNav/index.svelte";
 
 /* --------------------------------- Buttons -------------------------------- */
 

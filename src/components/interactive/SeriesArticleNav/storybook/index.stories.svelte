@@ -1,12 +1,12 @@
 <script>
   import { Meta, Story, Template } from "@storybook/addon-svelte-csf";
   import SeriesArticleNav from "../index.svelte";
-  import articleData from "../../../preview-content/article-data.js";
+  import articleData from "../../../../preview-content/article-data.js";
   import {
     headerLevelOptions,
     fontSizeOptions,
     fontWeightOptions,
-  } from "../../../preview-content/options.js";
+  } from "../../../../preview-content/options.js";
 
   let articles = [
     {
@@ -78,7 +78,7 @@
 </script>
 
 <Meta
-  title="Interactive components/SeriesArticleNav"
+  title="components/interactive/SeriesArticleNav"
   component={SeriesArticleNav}
   {argTypes}
 />

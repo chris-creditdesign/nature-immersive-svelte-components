@@ -1,8 +1,29 @@
 <script>
+  /*
+   * Simple widget to add in article navigation between a series of related articles.
+   * 
+   * Will dispatch an "update" event when the button is clicked 
+   * and after the component updates.
+   *
+   * `const dispatch = createEventDispatcher();`
+   *
+   * `dispatch("update");`
+   *
+   * This is useful when used as a widget placed inside a Core Media article 
+   * to send a message to the parent article that the iframe needs to be resized.
+   *
+   * Normally, the article in which the widget is placed will also be part of the 
+   * list of articles listed to - as it is part of the series. If the `parentDoi` 
+   * listed in the `seriesArticleNavData` object matches the doi of the current 
+   * page - this is indicated with a left border and setting `aria-current="page"` 
+   * on the link.
+
+   * @component
+*/
   import { onMount, createEventDispatcher, afterUpdate } from "svelte";
   import { Stack } from "creditdesign-svelte-components";
-  import Header from "../Header/index.svelte";
-  import ToggleButton from "../buttons/ToggleButton/index.svelte";
+  import Header from "../../Header/index.svelte";
+  import ExpandButton from "../../buttons/ExpandButton/index.svelte";
 
   const dispatch = createEventDispatcher();
 
@@ -76,7 +97,7 @@
     </Stack>
 
     {#if mounted}
-      <ToggleButton
+      <ExpandButton
         {expanded}
         {message}
         {expandedMessage}
