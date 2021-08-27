@@ -1,6 +1,6 @@
 <script>
   import { Stack } from "creditdesign-svelte-components";
-  import Image from "../Image/index.svelte";
+  import Image from "../../../../Image/index.svelte";
 
   export let imageData = [];
 </script>

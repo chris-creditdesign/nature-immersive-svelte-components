@@ -26,7 +26,7 @@
 </script>
 
 <Meta
-  title="Interactive components/Components/ImageSliderInteractive"
+  title="components/interactive/ImageSlider/components/ImageSliderInteractive"
   component={ImageSliderInteractive}
   argTypes={{
     altText: { control: "text" },

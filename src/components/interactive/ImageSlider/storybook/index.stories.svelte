@@ -32,7 +32,7 @@
 </script>
 
 <Meta
-  title="Interactive components/ImageSlider"
+  title="components/interactive/ImageSlider"
   component={ImageSlider}
   argTypes={{
     altText: { control: "text" },
@@ -55,9 +55,7 @@
     amountToReveal: 0,
   }}
 >
-  <div style="max-width: var(--measure)">
-    <ImageSlider {...args} />
-  </div>
+  <ImageSlider {...args} />
 </Story>
 
 <Story
@@ -87,12 +85,3 @@
     <ImageSlider {...args} />
   </div>
 </Story>
-
-<Story
-  name="Full width"
-  args={{
-    imageData,
-    message: "Use the slider to reveal the hidden image:",
-    amountToReveal: 0,
-  }}
-/>

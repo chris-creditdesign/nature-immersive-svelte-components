@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import Static from "../ImageSliderStatic/index.svelte";
-  import Interactive from "../ImageSliderInteractive/index.svelte";
+  import Static from "./components/ImageSliderStatic/index.svelte";
+  import Interactive from "./components/ImageSliderInteractive/index.svelte";
 
   /**
    * Aria-label to apply to canvas element.

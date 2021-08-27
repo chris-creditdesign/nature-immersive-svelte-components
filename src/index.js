@@ -82,7 +82,7 @@ export { default as PdfDownloadSlider } from "./components/PdfDownloadSlider/ind
 
 /* ------------------------------- ImageSlider ------------------------------ */
 
-export { default as ImageSlider } from "./components/ImageSlider/index.svelte";
+export { default as ImageSlider } from "./components/interactive/ImageSlider/index.svelte";
 
 /* --------------------------------- Buttons -------------------------------- */
 

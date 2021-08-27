@@ -18,7 +18,7 @@
 </script>
 
 <Meta
-  title="Interactive components/Components/ImageSliderStatic"
+  title="components/interactive/ImageSlider/components/ImageSliderStatic"
   component={ImageSliderStatic}
   argTypes={{
     imageData: { control: "object" },
