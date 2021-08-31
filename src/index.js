@@ -42,13 +42,11 @@ export { default as Menu } from "./components/Menu/index.svelte";
 
 export { default as Image } from "./components/Image/index.svelte";
 
-/* ---------------------------------- Video ---------------------------------- */
+/* --------------------------------- Videos --------------------------------- */
 
-export { default as Video } from "./components/Video/index.svelte";
-
-/* --------------------------------- YouTube -------------------------------- */
-
-export { default as YouTube } from "./components/YouTube/index.svelte";
+export { default as Video } from "./components/videos/Video/index.svelte";
+export { default as SimpleVideo } from "./components/videos/SimpleVideo/index.svelte";
+export { default as YouTube } from "./components/videos/YouTube/index.svelte";
 
 /* ---------------------------------- Misc ---------------------------------- */
 

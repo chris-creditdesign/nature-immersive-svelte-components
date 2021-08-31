@@ -15,7 +15,7 @@
 
   import { onMount } from "svelte";
   import { Frame } from "creditdesign-svelte-components";
-  import VideoButton from "../buttons/VideoButton/index.svelte";
+  import VideoButton from "../../buttons/VideoButton/index.svelte";
 
   /**
    * To be applied to placeholder image or as

@@ -1,8 +1,8 @@
 <script>
   import { Meta, Story } from "@storybook/addon-svelte-csf";
   import { Stack } from "creditdesign-svelte-components";
-  import Video from "../index.svelte";
-  import { spaceOptions } from "../../../preview-content/options.js";
+  import SimpleVideo from "../index.svelte";
+  import { spaceOptions } from "../../../../preview-content/options.js";
 
   let argTypes = {
     altText: { control: "text" },
@@ -26,7 +26,11 @@
   };
 </script>
 
-<Meta title="Components/Video" component={Video} {argTypes} />
+<Meta
+  title="components/videos/SimpleVideo"
+  component={SimpleVideo}
+  {argTypes}
+/>
 
 <Story
   name="Default"
@@ -50,7 +54,7 @@
     layout: "fullscreen",
   }}
 >
-  <Video {...args} />
+  <SimpleVideo {...args} />
 </Story>
 
 <Story
@@ -71,10 +75,13 @@
     playingMessage: "Pause video",
     srcURL: "video/video-small.jpg",
   }}
+  parameters={{
+    layout: "fullscreen",
+  }}
 >
   <Stack>
-    <Video {...args} />
-    <Video
+    <SimpleVideo {...args} />
+    <SimpleVideo
       altText="This is the alt text"
       caption="This is the caption"
       srcURL="video/video-small.jpg"

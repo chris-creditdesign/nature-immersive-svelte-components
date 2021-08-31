@@ -10,7 +10,7 @@
   };
 </script>
 
-<Meta title="Components/YouTube" component={YouTube} {argTypes} />
+<Meta title="components/videos/YouTube" component={YouTube} {argTypes} />
 
 <Story
   name="Default"
