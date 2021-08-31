@@ -10,6 +10,7 @@
     display: flex;
     gap: var(--s-2);
     align-items: center;
+    text-decoration: none;
   }
 
   :global(.no-flexbox-gap a > * + *) {

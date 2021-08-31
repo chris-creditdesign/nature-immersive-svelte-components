@@ -82,10 +82,17 @@
 </script>
 
 <style>
-  .menu-container {
+  ul {
     position: relative;
-    padding: var(--s-2);
+    display: flex;
+    gap: var(--s-1);
+    align-items: center;
+    justify-content: space-between;
+    max-width: none;
+    padding: var(--s-1);
+    margin: 0;
     font-family: var(--sans-serif-font);
+    list-style: none;
   }
 
   a {
@@ -97,20 +104,6 @@
   .flex-grow {
     flex-grow: 2;
     max-width: none;
-  }
-
-  ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: none;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  li {
-    padding: var(--s-4);
   }
 
   .skip-link:not(:focus) {
@@ -134,11 +127,7 @@
 </a>
 
 <header>
-  <ul
-    class="menu-container flex-wrap:wrap"
-    data-theme="menu"
-    bind:this={$menuElement}
-  >
+  <ul class="flex-wrap:wrap" data-theme="menu" bind:this={$menuElement}>
     <li class="flex-grow">
       <a
         class="link-with-svg"
@@ -175,7 +164,6 @@
           />
           {#if menuIsExpanded}
             <MenuList
-              {logoHeight}
               {menuLinks}
               bind:lastMenuLinkElem
               menuHeight={$menuHeight}

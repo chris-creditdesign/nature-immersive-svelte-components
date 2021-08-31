@@ -49,6 +49,22 @@
 />
 
 <Story
+  name="With no menu"
+  let:args
+  args={{
+    articleData: { menuLinks: [], pdfAvailable, doi },
+  }}
+/>
+
+<Story
+  name="With PDF but no menu"
+  let:args
+  args={{
+    articleData: { menuLinks: [], pdfAvailable: true, doi },
+  }}
+/>
+
+<Story
   name="With heading"
   let:args
   args={{
