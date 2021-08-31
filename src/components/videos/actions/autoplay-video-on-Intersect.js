@@ -3,6 +3,7 @@ export function autoplayVideoOnIntersect(node, autoplay) {
   let prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
+  let shouldAutoPlay = autoplay;
 
   /* '-50%' intercept when the item is half way up the screen */
   let options = {
@@ -13,7 +14,7 @@ export function autoplayVideoOnIntersect(node, autoplay) {
   let onEnterScreen = (entries) => {
     let { isIntersecting } = entries[0];
 
-    if (isIntersecting && !prefersReducedMotion && autoplay) {
+    if (isIntersecting && !prefersReducedMotion && shouldAutoPlay) {
       node.play();
       observer.unobserve(node);
     }
@@ -26,6 +27,11 @@ export function autoplayVideoOnIntersect(node, autoplay) {
   }
 
   return {
+    update(newAutoplay) {
+      // the value of `autoplay` has changed
+      shouldAutoPlay = newAutoplay;
+    },
+
     destroy() {
       if (observer !== null) {
         observer.unobserve(node);
