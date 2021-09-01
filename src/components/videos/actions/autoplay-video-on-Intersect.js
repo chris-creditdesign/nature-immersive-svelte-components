@@ -15,8 +15,23 @@ export function autoplayVideoOnIntersect(node, autoplay) {
     let { isIntersecting } = entries[0];
 
     if (isIntersecting && !prefersReducedMotion && shouldAutoPlay) {
-      node.play();
-      observer.unobserve(node);
+      let startPlayPromise = node.play();
+
+      if (startPlayPromise !== undefined) {
+        startPlayPromise
+          .then(() => {
+            // Playback has begun, we can stop
+            // observing the video element.
+            observer.unobserve(node);
+          })
+          .catch((error) => {
+            if (error.name === "NotAllowedError") {
+              console.log("Video autoplay not allowed.");
+            } else {
+              console.log(error);
+            }
+          });
+      }
     }
   };
 
