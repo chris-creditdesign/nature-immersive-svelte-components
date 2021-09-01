@@ -26,7 +26,7 @@
 </style>
 
 <h2 class="visually-hidden">Sharing links</h2>
-<ClusterList clusterSpace="var(--s-2)">
+<ClusterList clusterSpace="var(--s-3)">
   <li>
     <a href={twitterURL}>
       <TwitterIcon height={logoHeight} />

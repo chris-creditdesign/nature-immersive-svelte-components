@@ -85,7 +85,7 @@
   ul {
     position: relative;
     display: flex;
-    gap: var(--s-1);
+    gap: var(--s0);
     align-items: center;
     justify-content: space-between;
     max-width: none;
