@@ -35,7 +35,7 @@
   /**
    * Optional space to move caption in from side of video.
    */
-  export let captionSpace;
+  export let captionSpace = 0;
   export let className = "";
   /**
    * Aspect ration of video.

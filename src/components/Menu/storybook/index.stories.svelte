@@ -1,9 +1,11 @@
 <script>
   import { Meta, Story, Template } from "@storybook/addon-svelte-csf";
+  import { Stack } from "creditdesign-svelte-components";
   import articleData from "../../../preview-content/article-data.js";
 
   import Menu from "../index.svelte";
   import Heading from "../../Heading/index.svelte";
+  import SimpleVideo from "../../videos/SimpleVideo/index.svelte";
 
   let { menuLinks, pdfAvailable, doi } = articleData;
 
@@ -74,6 +76,33 @@
   <Menu {...args}>
     <svelte:fragment slot="heading">
       <Heading articleData={headingData} />
+    </svelte:fragment>
+
+    <main id="main-content" tabindex="-1">
+      <a href="https://www.nature.come">Next focusable item...</a>
+    </main>
+  </Menu>
+</Story>
+
+<Story
+  name="With video before heading"
+  let:args
+  args={{
+    articleData: { menuLinks, pdfAvailable, doi },
+  }}
+>
+  <Menu {...args}>
+    <svelte:fragment slot="heading">
+      <Stack>
+        <SimpleVideo
+          srcURL="video/video-small.jpg"
+          captionSpace="var(--s-1)"
+          caption="Video credit:"
+          frameRatioHeight={9}
+          frameRatioWidth={16}
+        />
+        <Heading articleData={headingData} />
+      </Stack>
     </svelte:fragment>
 
     <main id="main-content" tabindex="-1">

@@ -17,6 +17,7 @@
     /* Position the nav just below the Menu compontent */
     top: calc(1.6em + var(--s-1) + var(--s-1));
     left: 0;
+    z-index: 999;
     width: 100vw;
     max-width: none;
     border-top: 1px solid var(--color--text-invert);
