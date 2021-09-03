@@ -12,6 +12,7 @@ export { default as CardSideImageBox } from "./components/cards/CardSideImageBox
 /* -------------------------------- Sections -------------------------------- */
 
 export { default as CoverBackgroundImageSection } from "./components/sections/CoverBackgroundImageSection/index.svelte";
+export { default as StaticBackgroundImage } from "./components/sections/StaticBackgroundImage/index.svelte";
 export { default as CoverBackgroundVideoSection } from "./components/sections/CoverBackgroundVideoSection/index.svelte";
 export { default as Section } from "./components/sections/Section/index.svelte";
 export { default as StaticImage } from "./components/sections/StaticImage/index.svelte";
