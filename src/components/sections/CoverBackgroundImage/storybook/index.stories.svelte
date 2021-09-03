@@ -1,7 +1,7 @@
 <script>
   import { Meta, Story, Template } from "@storybook/addon-svelte-csf";
   import { Center, Stack } from "creditdesign-svelte-components";
-  import CoverBackgroundVideo from "../index.svelte";
+  import CoverBackgroundImage from "../index.svelte";
   import Heading from "../../../Heading/index.svelte";
   import articleData from "../../../../preview-content/article-data.js";
   import {
@@ -28,8 +28,8 @@
 </script>
 
 <Meta
-  title="components/sections/CoverBackgroundVideoSection"
-  component={CoverBackgroundVideo}
+  title="components/sections/CoverBackgroundImage"
+  component={CoverBackgroundImage}
   {argTypes}
   parameters={{
     layout: "fullscreen",
@@ -37,57 +37,45 @@
 />
 
 <Template let:args>
-  <CoverBackgroundVideo {...args} />
+  <CoverBackgroundImage {...args} />
 </Template>
 
 <Story
   name="Default"
   let:args
   args={{
-    srcURL: "video/video-small.jpg",
+    srcURL: "img/image-small.jpg",
     alt: "This is the alt text",
     coverSpace: "var(--s0)",
     coverHeight: "100vh",
-    buttonClassName: "",
-    buttonPausedMessage: "Play video",
-    buttonPlayingMessage: "Pause video",
-    buttonTheme: "",
   }}
 >
-  <CoverBackgroundVideo {...args} />
+  <CoverBackgroundImage {...args} />
 </Story>
 
 <Story
   name="With Heading"
   let:args
   args={{
-    srcURL: "video/video-small.jpg",
+    srcURL: "img/image-small.jpg",
     alt: "This is the alt text",
     coverSpace: "var(--s0)",
     coverHeight: "100vh",
-    buttonClassName: "",
-    buttonPausedMessage: "Play video",
-    buttonPlayingMessage: "Pause video",
-    buttonTheme: "",
   }}
 >
-  <CoverBackgroundVideo {...args}>
+  <CoverBackgroundImage {...args}>
     <Heading {articleData} />
-  </CoverBackgroundVideo>
+  </CoverBackgroundImage>
 </Story>
 
 <Story
   name="With text around"
   let:args
   args={{
-    srcURL: "video/video-small.jpg",
+    srcURL: "img/image-small.jpg",
     alt: "This is the alt text",
     coverSpace: "var(--s0)",
     coverHeight: "100vh",
-    buttonClassName: "",
-    buttonPausedMessage: "Play video",
-    buttonPlayingMessage: "Pause video",
-    buttonTheme: "",
   }}
 >
   <Stack stackSpace="var(--s3)">
@@ -114,9 +102,9 @@
       </Stack>
     </Center>
 
-    <CoverBackgroundVideo {...args}>
+    <CoverBackgroundImage {...args}>
       <Heading {articleData} />
-    </CoverBackgroundVideo>
+    </CoverBackgroundImage>
 
     <Center>
       <Stack stackSpace="var(--s0)">
