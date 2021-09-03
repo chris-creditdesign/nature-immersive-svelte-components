@@ -21,7 +21,7 @@
    * @component
 */
   import { onMount, createEventDispatcher, afterUpdate } from "svelte";
-  import { Stack } from "creditdesign-svelte-components";
+  import { Stack, StackList, Box } from "creditdesign-svelte-components";
   import Header from "../../Header/index.svelte";
   import ExpandButton from "../../buttons/ExpandButton/index.svelte";
 
@@ -37,6 +37,13 @@
   export let headlineFontWeight = "bold";
   export let message = "Open";
   export let stand;
+  export let stackSpace = "var(--s0)";
+  export let headerStackSpace = "var(--s0)";
+  export let boxSpace = "var(--s-1)";
+  /**
+   * Optional to add `data-theme` to wrapper and button element.
+   */
+  export let theme = "";
 
   let { doi: parentDoi } = articleData;
   let mounted = false;
@@ -58,73 +65,71 @@
 </script>
 
 <style>
-  ul {
-    padding: 0;
-    list-style: none;
-  }
-
-  li {
-    margin-top: var(--s-1);
-  }
-
-  li:first-of-type {
-    margin-top: 0;
+  a {
+    text-decoration: none;
   }
 
   .list-item--current {
     padding-left: 10px;
-    border-left: 5px solid var(--link-color);
+    border-left: 5px solid
+      var(--color--link--component, var(--color--link--global));
   }
 </style>
 
 <div
   class={`series-article-nav font-size:small font-family:sans-serif ${className}`}
+  data-theme={theme}
 >
-  <Stack stackSpace="var(--s1)">
-    <Stack stackSpace="var(--s-3)">
-      <Header
-        text={headline}
-        {headerLevel}
-        {headlineFontSize}
-        {headlineFontWeight}
-      />
+  <Box {boxSpace}>
+    <Stack {stackSpace}>
+      <Stack stackSpace={headerStackSpace}>
+        <Header
+          text={headline}
+          {headerLevel}
+          {headlineFontSize}
+          {headlineFontWeight}
+        />
 
-      {#if stand}
-        <p>
-          {@html stand}
-        </p>
+        {#if stand}
+          <p>
+            {@html stand}
+          </p>
+        {/if}
+      </Stack>
+
+      {#if mounted}
+        <ExpandButton
+          {expanded}
+          {message}
+          {expandedMessage}
+          {theme}
+          on:click={handleClick}
+        />
+      {/if}
+
+      {#if expanded}
+        <StackList {stackSpace}>
+          {#each articles as { title, url, doi, published }}
+            <li class:list-item--current={doi === parentDoi}>
+              {#if published}
+                <a
+                  aria-current={doi === parentDoi ? "page" : null}
+                  href={url}
+                  target="_parent"
+                  data-track="click"
+                  data-event-category="article-series-link"
+                  data-event-action="click"
+                  data-event-label={`from ${parentDoi} to ${url}`}
+                >
+                  {@html title}
+                </a>
+              {:else}
+                {@html title}
+              {/if}
+            </li>
+          {/each}
+        </StackList>
       {/if}
     </Stack>
-
-    {#if mounted}
-      <ExpandButton
-        {expanded}
-        {message}
-        {expandedMessage}
-        on:click={handleClick}
-      />
-    {/if}
-
-    <ul hidden={!expanded}>
-      {#each articles as { title, url, doi, published }}
-        <li class:list-item--current={doi === parentDoi}>
-          {#if published}
-            <a
-              aria-current={doi === parentDoi ? "page" : null}
-              href={url}
-              target="_parent"
-              data-track="click"
-              data-event-category="article-series-link"
-              data-event-action="click"
-              data-event-label={`from ${parentDoi} to ${url}`}
-            >
-              {@html title}
-            </a>
-          {:else}
-            {@html title}
-          {/if}
-        </li>
-      {/each}
-    </ul>
-  </Stack>
+  </Box>
 </div>

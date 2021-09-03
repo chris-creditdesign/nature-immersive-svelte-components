@@ -32,6 +32,18 @@
   fill: var(--color--link-active--component, var(--color--link-active--global));
 }
 
+[data-theme] button {
+  border-color: var(--color--component, var(--color--global));
+}
+
+[data-theme] button:hover,
+[data-theme] button:focus {
+  border-color: var(
+    --color--link-active--component,
+    var(--color--link-active--global)
+  );
+}
+
 /* Invert */
 
 [data-theme="invert"] {

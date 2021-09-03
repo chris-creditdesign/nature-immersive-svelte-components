@@ -6,6 +6,8 @@
     headerLevelOptions,
     fontSizeOptions,
     fontWeightOptions,
+    themeOptions,
+    spaceOptions,
   } from "../../../../preview-content/options.js";
 
   let articles = [
@@ -13,7 +15,7 @@
       title:
         "<strong>Article 1:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.",
       url: "#",
-      doi: "doi-1",
+      doi: "123459789",
       published: true,
     },
     {
@@ -74,6 +76,10 @@
     stand: {
       control: "text",
     },
+    theme: { control: { type: "select", options: themeOptions } },
+    stackSpace: { control: { type: "select", options: spaceOptions } },
+    headerStackSpace: { control: { type: "select", options: spaceOptions } },
+    boxSpace: { control: { type: "select", options: spaceOptions } },
   };
 </script>
 
@@ -96,5 +102,11 @@
     headline,
     stand,
     articles,
+    stackSpace: "var(--s0)",
+    headerStackSpace: "var(--s-3)",
+    boxSpace: "var(--s-1)",
+  }}
+  parameters={{
+    layout: "fullscreen",
   }}
 />
