@@ -31,7 +31,7 @@
    * If `true` button will be placed towards the left of the video
    */
   export let buttonOnLeft = false;
-  export let caption;
+  export let caption = "";
   /**
    * Optional space to move caption in from side of video.
    */
