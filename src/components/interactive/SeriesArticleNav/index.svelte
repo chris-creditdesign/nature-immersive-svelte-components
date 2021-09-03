@@ -38,7 +38,7 @@
   export let message = "Open";
   export let stand;
   export let stackSpace = "var(--s0)";
-  export let headerStackSpace = "var(--s0)";
+  export let headerStackSpace = "var(--s-3)";
   export let boxSpace = "var(--s-1)";
   /**
    * Optional to add `data-theme` to wrapper and button element.
