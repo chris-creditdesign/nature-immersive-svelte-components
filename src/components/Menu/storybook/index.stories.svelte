@@ -72,12 +72,12 @@
   }}
 >
   <Menu {...args}>
-    <div slot="heading">
+    <svelte:fragment slot="heading">
       <Heading articleData={headingData} />
-    </div>
+    </svelte:fragment>
 
-    <div class="container">
+    <main id="main-content" tabindex="-1">
       <a href="https://www.nature.come">Next focusable item...</a>
-    </div>
+    </main>
   </Menu>
 </Story>
