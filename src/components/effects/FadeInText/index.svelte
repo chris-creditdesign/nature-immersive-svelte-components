@@ -14,8 +14,6 @@
 
 <style>
   p {
-    padding: 0;
-    margin: 0;
     transition: opacity ease-in 1500ms;
   }
 

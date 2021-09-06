@@ -11,7 +11,6 @@ export function fadeInOnIntersect(node) {
     let { isIntersecting } = entries[0];
 
     if (isIntersecting) {
-      console.log(node);
       node.classList.remove("text-opacity:zero");
       observer.unobserve(node);
     }
