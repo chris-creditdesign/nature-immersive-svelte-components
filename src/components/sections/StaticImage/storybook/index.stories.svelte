@@ -1,16 +1,16 @@
 <script>
   import { Meta, Story, Template } from "@storybook/addon-svelte-csf";
-  import { Stack } from "creditdesign-svelte-components";
   import StaticImage from "../index.svelte";
-  import Image from "../../../Image/index.svelte";
-  import Card from "../../../cards/Card/index.svelte";
+  import ExampleComponent from "../components/ExampleComponent.svelte";
+  import ExampleComponentWithCards from "../components/ExampleComponentWithCards.svelte";
+
   import {
     spaceOptions,
     justifyContentOptions,
   } from "../../../../preview-content/options.js";
   import {
-    steps,
-    stepsWithCards,
+    basicStepsWithCards,
+    basicStepsWithParagraph,
   } from "../../../../preview-content/static-image-data.js";
 
   let argTypes = {
@@ -32,7 +32,7 @@
         options: justifyContentOptions,
       },
     },
-    placeImageOnLeft: {
+    imageOnLeft: {
       control: "boolean",
     },
     rootMargin: {
@@ -45,12 +45,33 @@
       control: "text",
     },
   };
+
+  let stepsWithParagraph = basicStepsWithParagraph.map((d) => {
+    let { text, altText, caption, srcURL } = d;
+
+    let stepComponent = ExampleComponent;
+    let stepContent = text;
+
+    return { stepComponent, stepContent, altText, caption, srcURL };
+  });
+
+  let stepsWithCards = basicStepsWithCards.map((d) => {
+    let { cards, headline, altText, caption, srcURL } = d;
+
+    let stepComponent = ExampleComponentWithCards;
+    let stepContent = { cards, headline };
+
+    return { stepComponent, stepContent, altText, caption, srcURL };
+  });
 </script>
 
 <Meta
-  title="components/sections/StaticImageSection"
+  title="components/sections/StaticImage"
   component={StaticImage}
   {argTypes}
+  parameters={{
+    layout: "fullscreen",
+  }}
 />
 
 <Template let:args>
@@ -61,89 +82,54 @@
   name="Default"
   let:args
   args={{
-    steps,
+    steps: stepsWithParagraph,
     className: "example-class",
     gridGap: "var(--s3)",
     justifyContent: "center",
-    placeImageOnLeft: false,
+    imageOnLeft: false,
     rootMargin: "-50% 0px -50% 0px",
     imageWidth: "1fr",
     textWidth: "2fr",
   }}
 >
-  <StaticImage {...args}>
-    {#each steps as { text, altText, caption, srcURL }, i}
-      <div class="step">
-        <div class="step__content" data-index={i}>
-          <Image className="step__image" {altText} {caption} {srcURL} />
-          <p>
-            {@html text}
-          </p>
-        </div>
-      </div>
-    {/each}
-  </StaticImage>
+  <StaticImage {...args} />
 </Story>
 
 <Story
-  name="Max width for image"
-  let:args
-  args={{
-    steps,
-    className: "example-class",
-    gridGap: "var(--s3)",
-    justifyContent: "center",
-    placeImageOnLeft: false,
-    rootMargin: "-50% 0px -50% 0px",
-    imageWidth: "min(1fr, 600px)",
-    textWidth: "2fr",
-  }}
->
-  <StaticImage {...args}>
-    {#each steps as { text, altText, caption, srcURL }, i}
-      <div class="step">
-        <div class="step__content" data-index={i}>
-          <Image className="step__image" {altText} {caption} {srcURL} />
-          <p>
-            {@html text}
-          </p>
-        </div>
-      </div>
-    {/each}
-  </StaticImage>
-</Story>
-
-<Story
-  name="With Cards"
+  name="With cards"
   let:args
   args={{
     steps: stepsWithCards,
     className: "example-class",
     gridGap: "var(--s3)",
     justifyContent: "center",
-    placeImageOnLeft: false,
+    imageOnLeft: false,
     rootMargin: "-50% 0px -50% 0px",
     imageWidth: "1fr",
     textWidth: "2fr",
   }}
 >
-  <StaticImage {...args}>
-    {#each stepsWithCards as { headline, content, altText, caption, srcURL }, i}
-      <div class="step">
-        <div class="step__content" data-index={i}>
-          <div class="step__image">
-            <Image {altText} {caption} {srcURL} />
-          </div>
-          <Stack stackSpace={"var(--s1)"}>
-            <h2 class="border-above">
-              {@html headline}
-            </h2>
-            {#each content as cardData}
-              <Card {cardData} />
-            {/each}
-          </Stack>
-        </div>
-      </div>
-    {/each}
-  </StaticImage>
+  <StaticImage {...args} />
+</Story>
+
+<Story
+  name="Fixed width for image column"
+  let:args
+  args={{
+    steps: stepsWithParagraph,
+    className: "example-class",
+    gridGap: "var(--s3)",
+    justifyContent: "center",
+    imageOnLeft: false,
+    rootMargin: "-50% 0px -50% 0px",
+    imageWidth: "300px",
+    textWidth: "2fr",
+  }}
+>
+  <StaticImage {...args} />
+</Story>
+
+<Story name="Multiple static images">
+  <StaticImage steps={stepsWithParagraph} />
+  <StaticImage steps={stepsWithCards} imageOnLeft={true} />
 </Story>

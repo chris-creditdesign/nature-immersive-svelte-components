@@ -2,26 +2,12 @@
   /**
    * _Please use the 'Open canvas in new tab' button to view this component in Storybook._
    *
-   * The `steps` prop must be an array of objects each containing `altText`, `caption`, `srcURL` properties. These are used to build the static images.
+   * The `steps` prop must be an array of objects each containing `altText`, `caption`, `srcURL`,
+   * `stepComponent`, `stepContent`, properties.
+   * The the value of `stepComponent` should be a svelte component and `stepContent` should be the
+   * props to pass to that component - this render the scrolling conent
+   * that will cause the corresponding image to be to be displayed.
    *
-   * The scrolling text content is created via a separate component which is passed in as a `slot` to the `StaticImage` component.
-   *
-   * The child component must create html elements with a class of html elements with the class `.step`. CSS will be applied to make these at least 100vh tall and to vertially center the content.
-   *
-   * Inside there should be a html elemnt with the class of `.step__content` and `data-index` attribute. This is used by the component's javascript to trigger the changes in the static image.
-   *
-   * If there is an image present, it should be given a class of `.step__image` or contained within an element with that class. This will apply a 'vissually hidden' style when the screen is wider than 600px.
-   *
-   * ```
-   * <div class="step">
-   *     <div class="step__content" data-index="1">
-   *         <div class="step__image">
-   *             <img />
-   *         </div>
-   *         <p>...</p>
-   *     </div>
-   * </div>
-   * ```
    *
    * @component
    */
@@ -29,15 +15,37 @@
   import { onMount } from "svelte";
   import Image from "../../Image/index.svelte";
 
+  /**
+   * Arbitary class name to apply to the wrapper div
+   */
   export let className = "";
+  /**
+   * Space between the two columns
+   */
   export let gridGap = "";
+  /**
+   * Width of the image column - either in fr or absolute values
+   */
   export let imageWidth = "";
+  /**
+   * Width of the text column - either in fr or absolute values
+   */
+  export let textWidth = "";
+  /**
+   * The vertical placement of the static image
+   */
   export let justifyContent = "";
-  export let placeImageOnLeft = false;
+  /**
+   * If true, image column will swap to be on the left
+   */
+  export let imageOnLeft = false;
   /* '-50%' intercept when the item is half way up the screen */
   export let rootMargin = "-50% 0px -50% 0px";
+  /**
+   * Expects an array of objects containing:
+   * { stepComponent, stepContent, altText, caption, srcURL }
+   */
   export let steps;
-  export let textWidth = "";
 
   let justifyContentComponent = justifyContent
     ? `--static-image-justify-content--component: ${justifyContent};`
@@ -53,15 +61,25 @@
     ? `--static-image-grid-gap--component: ${gridGap};`
     : "";
 
-  let imagePlacment = placeImageOnLeft
+  let textColumnWidth =
+    "var(--static-image-text-width--component, var(--static-image-text-width--global, 2fr))";
+  let imageColumnWidth =
+    "var(--static-image-image-width--component, var(--static-image-image-width--global, 1fr))";
+
+  let gridTemplateColumns = imageOnLeft
+    ? `${imageColumnWidth} ${textColumnWidth};`
+    : `${textColumnWidth} ${imageColumnWidth};`;
+
+  let imagePlacment = imageOnLeft
     ? `--static-image-text-column--component: 2 / 3; --static-image-image-column--component: 1 / 2;`
     : "";
 
-  let style = `${justifyContentComponent} ${textWidthComponent} ${imageWidthComponent} ${gridGapComponent} ${imagePlacment}`;
+  let style = `grid-template-columns: ${gridTemplateColumns}; ${justifyContentComponent} ${textWidthComponent} ${imageWidthComponent} ${gridGapComponent} ${imagePlacment}`;
 
-  let textContainer;
+  let textContainer = null;
   let intersectingStep = 0;
   let mounted = false;
+  let stepImageClassName = "";
 
   let options = {
     root: null,
@@ -70,10 +88,7 @@
 
   onMount(() => {
     mounted = true;
-
-    const renderedSteps = Array.from(
-      textContainer.querySelectorAll(".step__content")
-    );
+    stepImageClassName = "step__image";
 
     const onEnterScreen = (entries) => {
       entries
@@ -86,6 +101,10 @@
     };
 
     const observer = new IntersectionObserver(onEnterScreen, options);
+
+    const renderedSteps = Array.from(
+      textContainer.querySelectorAll("[data-index]")
+    );
 
     renderedSteps.forEach((step) => observer.observe(step));
   });
@@ -123,15 +142,6 @@
         --static-image-grid-gap--component,
         var(--static-image-grid-gap--global, var(--s3, 1rem))
       );
-      grid-template-columns:
-        var(
-          --static-image-text-width--component,
-          var(--static-image-text-width--global, 2fr)
-        )
-        var(
-          --static-image-image-width--component,
-          var(--static-image-image-width--global, 1fr)
-        );
     }
 
     .text-container {
@@ -166,7 +176,6 @@
       margin: 0;
     }
 
-    /* Content contained within the 'slot' */
     :global(.step) {
       display: flex;
       align-items: center;
@@ -190,9 +199,16 @@
   }
 </style>
 
-<div class={`static-image-container ${className}`} {style}>
-  <div class="text-container" bind:this={textContainer}>
-    <slot />
+<div class:static-image-container={mounted} class={className} {style}>
+  <div class:text-container={mounted} bind:this={textContainer}>
+    {#each steps as { stepContent, stepComponent, altText, caption, srcURL }, i}
+      <div class:step={mounted}>
+        <div class:step__content={mounted} data-index={i}>
+          <Image className={stepImageClassName} {altText} {caption} {srcURL} />
+          <svelte:component this={stepComponent} {stepContent} />
+        </div>
+      </div>
+    {/each}
   </div>
 
   {#if mounted}
