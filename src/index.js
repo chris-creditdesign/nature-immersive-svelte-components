@@ -89,3 +89,7 @@ export { default as SimpleButton } from "./components/buttons/SimpleButton/index
 export { default as ToggleButton } from "./components/buttons/ToggleButton/index.svelte";
 export { default as FilterButton } from "./components/buttons/FilterButton/index.svelte";
 export { default as SwitchButton } from "./components/buttons/SwitchButton/index.svelte";
+
+/* --------------------------------- Effects -------------------------------- */
+
+export { default as FadeInText } from "./components/effects/FadeInText/index.svelte";
