@@ -46,6 +46,14 @@
    * { stepComponent, stepContent, altText, caption, srcURL }
    */
   export let steps;
+  /**
+   * Sets a minimum height for the content of each step.
+   */
+  export let stepMinHeight = "";
+  /**
+   * Margin bottom to apply beneath each step.
+   */
+  export let stepMarginBottom = "";
 
   let justifyContentComponent = justifyContent
     ? `--static-image-justify-content--component: ${justifyContent};`
@@ -54,15 +62,18 @@
   let textWidthComponent = textWidth
     ? `--static-image-text-width--component: ${textWidth};`
     : "";
+
   let imageWidthComponent = imageWidth
     ? `--static-image-image-width--component: ${imageWidth};`
     : "";
+
   let gridGapComponent = gridGap
     ? `--static-image-grid-gap--component: ${gridGap};`
     : "";
 
   let textColumnWidth =
     "var(--static-image-text-width--component, var(--static-image-text-width--global, 2fr))";
+
   let imageColumnWidth =
     "var(--static-image-image-width--component, var(--static-image-image-width--global, 1fr))";
 
@@ -70,11 +81,19 @@
     ? `${imageColumnWidth} ${textColumnWidth};`
     : `${textColumnWidth} ${imageColumnWidth};`;
 
-  let imagePlacment = imageOnLeft
+  let imagePlacementComponent = imageOnLeft
     ? `--static-image-text-column--component: 2 / 3; --static-image-image-column--component: 1 / 2;`
     : "";
 
-  let style = `grid-template-columns: ${gridTemplateColumns}; ${justifyContentComponent} ${textWidthComponent} ${imageWidthComponent} ${gridGapComponent} ${imagePlacment}`;
+  let stepMinHeightComponent = stepMinHeight
+    ? `--static-image-step-min-height--component: ${stepMinHeight};`
+    : "";
+
+  let stepMarginBottomComponent = stepMarginBottom
+    ? `--static-image-step-margin-bottom--component: ${stepMarginBottom};`
+    : "";
+
+  let style = `grid-template-columns: ${gridTemplateColumns}; ${justifyContentComponent} ${textWidthComponent} ${imageWidthComponent} ${gridGapComponent} ${imagePlacementComponent} ${stepMinHeightComponent} ${stepMarginBottomComponent}`;
 
   let textContainer = null;
   let intersectingStep = 0;
@@ -118,6 +137,8 @@
     --static-image-grid-gap--global: var(--s3);
     --static-image-text-column--global: 1 / 2;
     --static-image-image-column--global: 2 / 3;
+    --static-image-step-min-height--global: 100vh;
+    --static-image-step-margin-bottom--global: var(--s4);
   }
 
   :global(.static-image-container) {
@@ -127,6 +148,8 @@
     --static-image-grid-gap--component: initial;
     --static-image-text-column--component: initial;
     --static-image-image-column--component: initial;
+    --static-image-step-min-height--component: initial;
+    --static-image-step-margin-bottom--component: initial;
   }
 
   :global(.image-container) {
@@ -179,8 +202,14 @@
     :global(.step) {
       display: flex;
       align-items: center;
-      min-height: 100vh;
-      margin-bottom: var(--s4);
+      min-height: var(
+        --static-image-step-min-height--component,
+        var(--static-image-step-min-height--global, 100vh)
+      );
+      margin-bottom: var(
+        --static-image-step-margin-bottom--component,
+        var(--static-image-step-margin-bottom--global, var(--s4))
+      );
     }
 
     /* Don't show the images if the screen is wide enough and processed */

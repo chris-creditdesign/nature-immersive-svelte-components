@@ -7,6 +7,7 @@
   import {
     spaceOptions,
     justifyContentOptions,
+    heightOptions,
   } from "../../../../preview-content/options.js";
   import {
     basicStepsWithCards,
@@ -43,6 +44,18 @@
     },
     textWidth: {
       control: "text",
+    },
+    stepMinHeight: {
+      control: {
+        type: "select",
+        options: heightOptions,
+      },
+    },
+    stepMarginBottom: {
+      control: {
+        type: "select",
+        options: spaceOptions,
+      },
     },
   };
 
@@ -90,6 +103,8 @@
     rootMargin: "-50% 0px -50% 0px",
     imageWidth: "1fr",
     textWidth: "2fr",
+    stepMinHeight: "100vh",
+    stepMarginBottom: "var(--s4)",
   }}
 >
   <StaticImage {...args} />
@@ -107,6 +122,8 @@
     rootMargin: "-50% 0px -50% 0px",
     imageWidth: "1fr",
     textWidth: "2fr",
+    stepMinHeight: "100vh",
+    stepMarginBottom: "var(--s4)",
   }}
 >
   <StaticImage {...args} />
@@ -124,6 +141,8 @@
     rootMargin: "-50% 0px -50% 0px",
     imageWidth: "300px",
     textWidth: "2fr",
+    stepMinHeight: "100vh",
+    stepMarginBottom: "var(--s4)",
   }}
 >
   <StaticImage {...args} />
