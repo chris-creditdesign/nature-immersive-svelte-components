@@ -29,5 +29,5 @@
 </style>
 
 <p class={className} class:text-opacity:zero={mounted} use:fadeInOnIntersect>
-  {text}
+  {@html text}
 </p>
