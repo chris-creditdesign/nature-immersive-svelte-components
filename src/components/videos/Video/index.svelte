@@ -1,11 +1,13 @@
 <script>
   /**
-   * Video element with basic play/pause button
-   * to be used as an animated gif replacement.
+   * Default video element.
    *
-   * As such there other video controls or caption options
-   * but an `altText` prop should be provided to be applied
-   * as an `aria-label` on the video elemnent.
+   * Expects an `altText` prop should be provided to be applied to the fall
+   * statict image.
+   *
+   * Accepts an named `transcript` slot, which will be displayed with the
+   * show transcript button. The transcript content can be styled independently
+   * of this component.
    *
    * The video can be paused by clicking on the button on or
    * the video element itself.
@@ -14,12 +16,12 @@
    */
 
   import { onMount } from "svelte";
-  import { Frame } from "creditdesign-svelte-components";
+  import { Stack, Frame, Cluster } from "creditdesign-svelte-components";
   import { autoplayVideoOnIntersect } from "../actions/autoplay-video-on-Intersect";
+  import ExpandButton from "../../buttons/ExpandButton/index.svelte";
 
   /**
-   * To be applied to placeholder image or as
-   * `aria-label` on video element.
+   * To be applied to placeholder image.
    */
   export let altText;
   /**
@@ -59,6 +61,7 @@
   let captionStyle = `${videoCaptionSpace}`;
 
   let mounted = false;
+  let transcriptExpanded = true;
 
   let srcIMG = srcURL.replace(/-small/, "");
   let srcWEBM = srcURL
@@ -70,8 +73,13 @@
     .slice(0, -4)
     .concat(".mp4");
 
+  let handleClick = () => {
+    transcriptExpanded = !transcriptExpanded;
+  };
+
   onMount(() => {
     mounted = true;
+    transcriptExpanded = false;
   });
 </script>
 
@@ -89,7 +97,6 @@
       var(--video-caption-space--global, 0)
     );
 
-    margin-top: var(--s-3);
     margin-right: var(--video-caption-space);
     margin-left: var(--video-caption-space);
   }
@@ -102,49 +109,68 @@
 </style>
 
 <figure class={`${className}`}>
-  <Frame {frameRatioHeight} {frameRatioWidth}>
-    {#if mounted}
-      <!-- svelte-ignore a11y-media-has-caption -->
-      <video
-        controls
-        poster={srcIMG}
-        playsinline="true"
-        {loop}
-        aria-label={altText}
-        use:autoplayVideoOnIntersect={autoplay}
-      >
-        <source src={srcWEBM} type="video/webm" />
-        <source src={srcMP4} type="video/mp4" />
+  <Stack>
+    <Frame {frameRatioHeight} {frameRatioWidth}>
+      {#if mounted}
+        <!-- svelte-ignore a11y-media-has-caption -->
+        <video
+          controls
+          poster={srcIMG}
+          playsinline="true"
+          {loop}
+          aria-describedby="transcript"
+          use:autoplayVideoOnIntersect={autoplay}
+        >
+          <source src={srcWEBM} type="video/webm" />
+          <source src={srcMP4} type="video/mp4" />
 
-        {#each videoCaptionTracks as { label, srclang, defaultTrack }}
-          <track
-            {label}
-            kind="captions"
-            {srclang}
-            src={srcURL
-              .replace(/-small/, "")
-              .slice(0, -4)
-              .concat(`-${srclang}.vtt`)}
-            default={defaultTrack}
-          />
-        {/each}
-      </video>
-    {:else}
-      <img src={srcURL} alt={altText} />
-    {/if}
-  </Frame>
-
-  {#if caption.length}
-    <figcaption
-      class="font-size:small font-family:sans-serif"
-      style={captionStyle}
-    >
-      {@html caption}
-      {#if !mounted}
-        Here is a
-        <a href={srcMP4}>link to the video file</a>
-        .
+          {#each videoCaptionTracks as { label, srclang, defaultTrack }}
+            <track
+              {label}
+              kind="captions"
+              {srclang}
+              src={srcURL
+                .replace(/-small/, "")
+                .slice(0, -4)
+                .concat(`-${srclang}.vtt`)}
+              default={defaultTrack}
+            />
+          {/each}
+        </video>
+      {:else}
+        <img src={srcURL} alt={altText} />
       {/if}
-    </figcaption>
-  {/if}
+    </Frame>
+
+    <Cluster clusterJustifyContent="space-between">
+      {#if caption.length}
+        <figcaption
+          class="font-size:small font-family:sans-serif"
+          style={captionStyle}
+        >
+          {@html caption}
+          {#if !mounted}
+            Here is a
+            <a href={srcMP4}>link to the video file</a>
+            .
+          {/if}
+        </figcaption>
+
+        {#if mounted && $$slots.transcript}
+          <ExpandButton
+            expanded={transcriptExpanded}
+            message="Show transcript"
+            expandedMessage="Hide transcript"
+            on:click={handleClick}
+          />
+        {/if}
+      {/if}
+    </Cluster>
+
+    {#if transcriptExpanded && $$slots.transcript}
+      <div id="transcript">
+        <slot name="transcript" />
+      </div>
+    {/if}
+  </Stack>
 </figure>

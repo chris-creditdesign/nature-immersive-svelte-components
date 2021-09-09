@@ -60,6 +60,54 @@
     layout: "fullscreen",
   }}
 >
+  <Video {...args}>
+    <svelte:fragment slot="transcript">
+      <p>Transcript</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero
+        explicabo ipsum eius porro officiis adipisci iusto assumenda voluptates
+        reprehenderit. Officia, obcaecati velit ad ducimus placeat commodi id
+        quaerat tempore!
+      </p>
+    </svelte:fragment>
+  </Video>
+</Story>
+
+<Story
+  name="With no transcript"
+  let:args
+  args={{
+    altText: "This is the alt text",
+    autoplay: false,
+    caption: "This is the caption",
+    captionSpace: 0,
+    className: "example-class",
+    frameRatioHeight: 1.8,
+    frameRatioWidth: 4.25,
+    loop: false,
+    srcURL: "video/sintel-short-small.jpg",
+    videoCaptionTracks: [
+      {
+        label: "English",
+        srclang: "en",
+        defaultTrack: true,
+      },
+      {
+        label: "Deutsch",
+        srclang: "de",
+        defaultTrack: false,
+      },
+      {
+        label: "Español",
+        srclang: "es",
+        defaultTrack: false,
+      },
+    ],
+  }}
+  parameters={{
+    layout: "fullscreen",
+  }}
+>
   <Video {...args} />
 </Story>
 
@@ -135,7 +183,17 @@
       laboriosam enim, autem voluptate tempora distinctio praesentium nostrum
       modi blanditiis asperiores dignissimos!
     </p>
-    <Video {...args} />
+    <Video {...args}>
+      <svelte:fragment slot="transcript">
+        <p>Transcript</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vero
+          explicabo ipsum eius porro officiis adipisci iusto assumenda
+          voluptates reprehenderit. Officia, obcaecati velit ad ducimus placeat
+          commodi id quaerat tempore!
+        </p>
+      </svelte:fragment>
+    </Video>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, mollitia.
       Voluptatem veniam adipisci vero dolorum, architecto minima saepe
