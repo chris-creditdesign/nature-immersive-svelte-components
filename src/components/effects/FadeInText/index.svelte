@@ -4,8 +4,14 @@
 
   export let text = "";
   export let className = "";
+  /**
+   * CSS transition-duration property for text to fade from 0 to 1 opacity.
+   */
+  export let fadeInDuration = "1500ms";
 
   let mounted = false;
+
+  let style = `transition-duration: ${fadeInDuration};`;
 
   onMount(() => {
     mounted = true;
@@ -14,7 +20,8 @@
 
 <style>
   p {
-    transition: opacity ease-in 1500ms;
+    transition-timing-function: ease-in;
+    transition-property: opacity;
   }
 
   .text-opacity\:zero {
@@ -28,6 +35,11 @@
   }
 </style>
 
-<p class={className} class:text-opacity:zero={mounted} use:fadeInOnIntersect>
+<p
+  class={className}
+  {style}
+  class:text-opacity:zero={mounted}
+  use:fadeInOnIntersect
+>
   {@html text}
 </p>

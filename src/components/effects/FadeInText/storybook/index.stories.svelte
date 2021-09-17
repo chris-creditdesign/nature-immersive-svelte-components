@@ -6,6 +6,7 @@
   let argTypes = {
     className: { control: "text" },
     text: { control: "text" },
+    fadeInDuration: { control: "text" },
   };
 </script>
 
@@ -20,6 +21,7 @@
   let:args
   args={{
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    fadeInDuration: "1500ms",
   }}
 >
   <FadeInText {...args} />
@@ -31,6 +33,7 @@
   args={{
     text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     className: "font-size:big-2",
+    fadeInDuration: "1500ms",
   }}
 >
   <FadeInText {...args} />
@@ -41,6 +44,7 @@
   let:args
   args={{
     className: "font-size:big-2 text-align:center",
+    fadeInDuration: "1500ms",
   }}
 >
   <Stack stackSpace="50vh">
