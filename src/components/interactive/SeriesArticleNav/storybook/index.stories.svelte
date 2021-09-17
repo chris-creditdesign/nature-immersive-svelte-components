@@ -8,6 +8,7 @@
     fontWeightOptions,
     themeOptions,
     spaceOptions,
+    alignItemsOptions,
   } from "../../../../preview-content/options.js";
 
   let articles = [
@@ -80,6 +81,7 @@
     stackSpace: { control: { type: "select", options: spaceOptions } },
     headerStackSpace: { control: { type: "select", options: spaceOptions } },
     boxSpace: { control: { type: "select", options: spaceOptions } },
+    alignItems: { control: { type: "select", options: alignItemsOptions } },
   };
 </script>
 
@@ -105,6 +107,7 @@
     stackSpace: "var(--s0)",
     headerStackSpace: "var(--s-3)",
     boxSpace: "var(--s-1)",
+    alignItems: "flex-start",
   }}
   parameters={{
     layout: "fullscreen",

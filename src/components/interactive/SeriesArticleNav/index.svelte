@@ -21,7 +21,12 @@
    * @component
 */
   import { onMount, createEventDispatcher, afterUpdate } from "svelte";
-  import { Stack, StackList, Box } from "creditdesign-svelte-components";
+  import {
+    Stack,
+    StackList,
+    Box,
+    Cluster,
+  } from "creditdesign-svelte-components";
   import Header from "../../Header/index.svelte";
   import ExpandButton from "../../buttons/ExpandButton/index.svelte";
 
@@ -40,6 +45,10 @@
   export let stackSpace = "var(--s0)";
   export let headerStackSpace = "var(--s-3)";
   export let boxSpace = "var(--s-1)";
+  /**
+   * Flexbox align-items between headline/standfirst and button group.
+   */
+  export let alignItems = "flex-start";
   /**
    * Optional to add `data-theme` to wrapper and button element.
    */
@@ -82,30 +91,34 @@
 >
   <Box {boxSpace}>
     <Stack {stackSpace}>
-      <Stack stackSpace={headerStackSpace}>
-        <Header
-          text={headline}
-          {headerLevel}
-          {headlineFontSize}
-          {headlineFontWeight}
-        />
+      <Cluster {alignItems}>
+        <div class="cluster__grow">
+          <Stack stackSpace={headerStackSpace}>
+            <Header
+              text={headline}
+              {headerLevel}
+              {headlineFontSize}
+              {headlineFontWeight}
+            />
 
-        {#if stand}
-          <p>
-            {@html stand}
-          </p>
+            {#if stand}
+              <p>
+                {@html stand}
+              </p>
+            {/if}
+          </Stack>
+        </div>
+
+        {#if mounted}
+          <ExpandButton
+            {expanded}
+            {message}
+            {expandedMessage}
+            {theme}
+            on:click={handleClick}
+          />
         {/if}
-      </Stack>
-
-      {#if mounted}
-        <ExpandButton
-          {expanded}
-          {message}
-          {expandedMessage}
-          {theme}
-          on:click={handleClick}
-        />
-      {/if}
+      </Cluster>
 
       {#if expanded}
         <StackList {stackSpace}>

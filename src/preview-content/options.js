@@ -67,3 +67,11 @@ export let themeOptions = [
   "menu",
   "custom (to be defined in CSS)",
 ];
+
+export let alignItemsOptions = [
+  "flex-start",
+  "flex-end",
+  "center",
+  "baseline",
+  "stretch",
+];
