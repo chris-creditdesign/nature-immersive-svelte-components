@@ -39,6 +39,7 @@
     amountToReveal: { control: { type: "range", min: 0, max: 100, step: 1 } },
     imageData: { control: "object" },
     message: { control: "text" },
+    className: { control: "text" },
   }}
 />
 
@@ -53,6 +54,7 @@
     imageData,
     message: "Use the slider to reveal the hidden image:",
     amountToReveal: 0,
+    className: "example-class",
   }}
 >
   <ImageSlider {...args} />
@@ -65,11 +67,10 @@
     imageData: badImageData,
     message: "Use the slider to reveal the hidden image:",
     amountToReveal: 0,
+    className: "example-class",
   }}
 >
-  <div style="max-width: var(--measure)">
-    <ImageSlider {...args} />
-  </div>
+  <ImageSlider {...args} />
 </Story>
 
 <Story
@@ -79,9 +80,8 @@
     imageData,
     message: "Use the slider to reveal the hidden image:",
     amountToReveal: 50,
+    className: "example-class",
   }}
 >
-  <div style="max-width: var(--measure)">
-    <ImageSlider {...args} />
-  </div>
+  <ImageSlider {...args} />
 </Story>

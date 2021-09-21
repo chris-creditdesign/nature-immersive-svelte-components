@@ -24,6 +24,10 @@
    * Text to sit above the slider
    */
   export let message = "Use the slider to reveal the hidden image:";
+  /**
+   * Class to add to container div
+   */
+  export let className = "";
 
   let ratio;
   let loadedImages = [];
@@ -71,4 +75,5 @@
   {imageData}
   {message}
   {ratio}
+  {className}
 />

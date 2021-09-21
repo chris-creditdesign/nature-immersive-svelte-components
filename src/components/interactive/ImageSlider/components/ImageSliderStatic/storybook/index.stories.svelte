@@ -22,9 +22,10 @@
   component={ImageSliderStatic}
   argTypes={{
     imageData: { control: "object" },
+    className: { control: "text" },
   }}
 />
 
-<Story name="Default" let:args args={{ imageData }}>
+<Story name="Default" let:args args={{ imageData, className: "example-class" }}>
   <ImageSliderStatic {...args} />
 </Story>

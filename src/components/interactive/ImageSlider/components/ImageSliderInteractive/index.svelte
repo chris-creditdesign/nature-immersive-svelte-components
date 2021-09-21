@@ -26,8 +26,10 @@
    * Ratio of height / width of the images - both should be the same
    */
   export let ratio = 0.666666667;
-
-  console.log(imageA.getAttribute("alt"));
+  /**
+   * Class to add to container div
+   */
+  export let className = "";
 </script>
 
 <style>
@@ -70,7 +72,7 @@
   }
 </style>
 
-<div class="image-slider font-size:small font-family:sans-serif">
+<div class={`${className} image-slider font-size:small font-family:sans-serif`}>
   <Stack>
     <div class="canvas-border">
       <div class="canvas-container">

@@ -34,6 +34,7 @@
     imageA: { control: "none" },
     imageB: { control: "none" },
     message: { control: "text" },
+    className: { control: "text" },
   }}
 />
 
@@ -43,6 +44,7 @@
   args={{
     imageA: loadedImages[0],
     imageB: loadedImages[1],
+    className: "example-class",
   }}
 >
   <ImageSliderInteractive {...args} />
