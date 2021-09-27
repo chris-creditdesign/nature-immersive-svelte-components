@@ -37,6 +37,15 @@
   fill: var(--color--link-active--component, var(--color--link-active--global));
 }
 
+[data-theme] a:hover:visited,
+[data-theme] a:focus:visited {
+  color: var(
+    --color--link-active--component,
+    var(--color--link-active--global)
+  );
+  fill: var(--color--link-active--component, var(--color--link-active--global));
+}
+
 [data-theme] button {
   border-color: var(--color--component, var(--color--global));
 }
