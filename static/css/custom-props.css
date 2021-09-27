@@ -39,13 +39,6 @@
 
   /* ------------------------------ Modular scale ----------------------------- */
 
-  /*	Dimensions are scaled proportionately with the page width */
-
-  /*	The fallback size is 16px */
-
-  font-size: 16px;
-  font-size: min(max(calc(0.5rem + 1vw), 16px), 18px);
-
   /* Sizes to use */
   --ratio: 1.5;
   --s-4: calc(var(--s-3) / var(--ratio));
