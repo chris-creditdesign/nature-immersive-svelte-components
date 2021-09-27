@@ -21,6 +21,12 @@
   let { eyebrow, subHead, headline, href } = cardData;
 </script>
 
+<style>
+  a {
+    text-decoration: none;
+  }
+</style>
+
 <header>
   <Stack stackSpace={cardHeaderStackSpace}>
     {#if eyebrow}
