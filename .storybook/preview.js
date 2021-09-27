@@ -19,6 +19,7 @@ export const parameters = {
 };
 
 import "../static/css/fonts.css";
+import "../static/css/font-size.css";
 import "../static/css/custom-props.css";
 import "../static/css/light-theme.css";
 import "../static/css/dark-theme.css";
