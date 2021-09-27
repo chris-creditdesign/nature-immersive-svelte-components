@@ -67,7 +67,7 @@
   <Stack>
     <Stack stackSpace="var(--s-4)">
       {#if headline.length}
-        <h2 class="font-family:sans-serif border-above">
+        <h2 class="font-family:sans-serif">
           {@html headline}
         </h2>
       {/if}
