@@ -23,6 +23,11 @@
   fill: var(--color--link--component, var(--color--link--global));
 }
 
+[data-theme] a:visited {
+  color: var(--color--link--component, var(--color--link--global));
+  fill: var(--color--link--component, var(--color--link--global));
+}
+
 [data-theme] a:hover,
 [data-theme] a:focus {
   color: var(
