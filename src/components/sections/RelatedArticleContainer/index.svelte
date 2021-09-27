@@ -3,9 +3,12 @@
   import CardSideImageBox from "../../cards/CardSideImageBox/index.svelte";
 
   export let headline = "Related articles";
+  export let stand = "";
   export let relatedArticleFlexBasis = "";
   export let relatedArticleFlexGap = "";
   export let relatedArticles = [];
+  export let cardHeaderLevel = "h3";
+  export let cardHeadlineFontSize = "big-1";
 
   let relatedArticleFlexGapComponent = relatedArticleFlexGap
     ? `--related-article-flex-gap--component: ${relatedArticleFlexGap};`
@@ -35,46 +38,58 @@
       --related-article-flex-basis--component,
       var(--related-article-flex-basis--global)
     );
-  }
 
-  .related-article-container__inner {
     display: flex;
+    gap: var(--related-article-flex-gap);
     flex-wrap: wrap;
-    margin: 1rem;
-    margin: calc(var(--related-article-flex-gap) / 2 * -1);
+    margin: 0;
   }
 
   .related-article-container__article {
+    position: relative;
     flex-basis: var(--related-article-flex-basis);
     flex-shrink: 1;
     flex-grow: 1;
-    margin: 1rem;
-    margin: calc(var(--related-article-flex-gap) / 2);
+    margin: 0;
+  }
+
+  :global(.related-article-container__article a::before) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: "";
   }
 </style>
 
 <aside>
   <Stack>
-    {#if headline.length}
-      <h2 class="font-family:sans-serif border-above">
-        {@html headline}
-      </h2>
-    {/if}
+    <Stack stackSpace="var(--s-4)">
+      {#if headline.length}
+        <h2 class="font-family:sans-serif border-above">
+          {@html headline}
+        </h2>
+      {/if}
+      {#if stand.length}
+        <p class="font-family:sans-serif">
+          {@html stand}
+        </p>
+      {/if}
+    </Stack>
     <div class="related-article-container" {style}>
-      <div class="related-article-container__inner">
-        {#each relatedArticles as cardData}
-          <div
-            class="related-article-container__article font-family:sans-serif"
-            data-theme="invert"
-          >
-            <CardSideImageBox
-              headerLevel="none"
-              headlineFontSize="big-1"
-              {cardData}
-            />
-          </div>
-        {/each}
-      </div>
+      {#each relatedArticles as cardData}
+        <div
+          class="related-article-container__article font-family:sans-serif"
+          data-theme="invert"
+        >
+          <CardSideImageBox
+            headerLevel={cardHeaderLevel}
+            headlineFontSize={cardHeadlineFontSize}
+            {cardData}
+          />
+        </div>
+      {/each}
     </div>
   </Stack>
 </aside>

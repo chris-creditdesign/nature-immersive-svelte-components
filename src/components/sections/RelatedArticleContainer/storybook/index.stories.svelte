@@ -5,6 +5,8 @@
   import {
     spaceOptions,
     measureOptions,
+    headerLevelOptions,
+    fontSizeOptions,
   } from "../../../../preview-content/options.js";
 
   let cardData1 = {
@@ -35,6 +37,9 @@
     headline: {
       control: "text",
     },
+    stand: {
+      control: "text",
+    },
     relatedArticleFlexBasis: {
       control: {
         type: "select",
@@ -49,6 +54,10 @@
     },
     relatedArticles: {
       control: "object",
+    },
+    headerLevel: { control: { type: "select", options: headerLevelOptions } },
+    headlineFontSize: {
+      control: { type: "select", options: fontSizeOptions },
     },
   };
 </script>
@@ -69,8 +78,28 @@
   args={{
     relatedArticles: [cardData1, cardData2, cardData3],
     headline: "Related articles",
+    stand: "",
     relatedArticleFlexBasis: "",
     relatedArticleFlexGap: "",
+    cardHeaderLevel: "h3",
+    cardHeadlineFontSize: "big-1",
+  }}
+>
+  <RelatedArticleContainer {...args} />
+</Story>
+
+<Story
+  name="With standfirst"
+  let:args
+  args={{
+    relatedArticles: [cardData1, cardData2, cardData3],
+    headline: "Related articles",
+    stand:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    relatedArticleFlexBasis: "",
+    relatedArticleFlexGap: "",
+    cardHeaderLevel: "h3",
+    cardHeadlineFontSize: "big-1",
   }}
 >
   <RelatedArticleContainer {...args} />
@@ -92,8 +121,11 @@
       cardData3,
     ],
     headline: "Related articles",
+    stand: "",
     relatedArticleFlexBasis: "",
     relatedArticleFlexGap: "",
+    cardHeaderLevel: "h3",
+    cardHeadlineFontSize: "big-1",
   }}
 >
   <RelatedArticleContainer {...args} />
@@ -105,8 +137,11 @@
   args={{
     relatedArticles: [cardData1],
     headline: "Related articles",
+    stand: "",
     relatedArticleFlexBasis: "",
     relatedArticleFlexGap: "",
+    cardHeaderLevel: "h3",
+    cardHeadlineFontSize: "big-1",
   }}
 >
   <RelatedArticleContainer {...args} />
@@ -118,8 +153,11 @@
   args={{
     relatedArticles: [cardData1, cardData2, cardData3],
     headline: "",
+    stand: "",
     relatedArticleFlexBasis: "",
     relatedArticleFlexGap: "",
+    cardHeaderLevel: "h3",
+    cardHeadlineFontSize: "big-1",
   }}
 >
   <RelatedArticleContainer {...args} />
