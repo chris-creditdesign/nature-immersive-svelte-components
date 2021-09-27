@@ -3,6 +3,7 @@ body {
   --color--link: var(--color--blue-1);
   --color--link-invert: var(--color--orange-1);
   --color--link-active: var(--color--black-0);
+  --color--link-active-invert: var(--color--black-0);
   --color--outline: var(--color--yellow-1);
   --color--background: var(--color--white-0);
   --color--background-invert: var(--color--black-0);

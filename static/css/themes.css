@@ -54,6 +54,7 @@
 [data-theme="invert"] {
   --color--component: var(--color--text-invert);
   --color--link--component: var(--color--link-invert);
+  --color--link-active--component: var(--color--link-active-invert);
   --color--background--component: var(--color--background-invert);
 }
 
