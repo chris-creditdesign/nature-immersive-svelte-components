@@ -31,6 +31,7 @@
   let paused = true;
   let prefersReducedMotion = true;
   let video;
+  let handleBtnClick;
 
   let srcIMG = srcURL.replace(/-small/, "");
   let srcWEBM = srcURL
@@ -42,11 +43,11 @@
     .slice(0, -4)
     .concat(".mp4");
 
-  let handleBtnClick = () => {
-    video[paused ? "play" : "pause"]();
-  };
-
   onMount(async () => {
+    handleBtnClick = () => {
+      video[paused ? "play" : "pause"]();
+    };
+
     mounted = true;
     prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
