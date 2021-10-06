@@ -53,3 +53,7 @@
   --serif-font-family: harding, palatino, times, "Times New Roman", serif;
   --sans-serif-font: "Graphik Nature l Web", arial, helvetica, sans-serif;
 }
+
+body {
+  font-family: var(--serif-font-family);
+}

@@ -10,7 +10,6 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--serif-font-family);
   color: var(--color--text);
   background-color: var(--color--background);
 
