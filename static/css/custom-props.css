@@ -60,9 +60,6 @@
 
   /* ---------------------------------- Type ---------------------------------- */
 
-  /* Harding is the defalut font, otherwise apply the sans serif font */
-  --serif-font-family: harding, palatino, times, "Times New Roman", serif;
-  --sans-serif-font: "Graphik Nature l Web", arial, helvetica, sans-serif;
   --font-size-small-1: calc(var(--s0) / 1.2);
   --font-size-base: var(--s0);
   --font-size-big-1: var(--s1);

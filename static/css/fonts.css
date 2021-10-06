@@ -47,3 +47,9 @@
   src: url("../fonts/GraphikNaturel-Bold-Web.woff2") format("woff2"),
     url("../fonts/GraphikNaturel-Bold-Web.woff") format("woff");
 }
+
+:root {
+  /* Harding is the defalut font, otherwise apply the sans serif font */
+  --serif-font-family: harding, palatino, times, "Times New Roman", serif;
+  --sans-serif-font: "Graphik Nature l Web", arial, helvetica, sans-serif;
+}
