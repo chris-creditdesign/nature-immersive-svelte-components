@@ -13,7 +13,7 @@ export { default as CardSideImageBox } from "./components/cards/CardSideImageBox
 
 export { default as CoverBackgroundImage } from "./components/sections/CoverBackgroundImage/index.svelte";
 export { default as StaticBackgroundImage } from "./components/sections/StaticBackgroundImage/index.svelte";
-export { default as CoverBackgroundVideoSection } from "./components/sections/CoverBackgroundVideo/index.svelte";
+export { default as CoverBackgroundVideo } from "./components/sections/CoverBackgroundVideo/index.svelte";
 export { default as Section } from "./components/sections/Section/index.svelte";
 export { default as StaticImage } from "./components/sections/StaticImage/index.svelte";
 export { default as ScrollytellingSection } from "./components/sections/ScrollytellingSection/index.svelte";
