@@ -10,6 +10,13 @@
   export let cardHeaderLevel = "h3";
   export let cardHeadlineFontSize = "big-1";
 
+  // Id to add to the headline so it can be referenced by the parent
+  // `aside` element's `aria-labelledby` attribute.
+  // TODO: Case where there are multiple RelatedArticleContainer components
+  // on the same page with the same headline.
+  // TODO: Case where there is no headline.
+  let headlineId = headline.toLocaleLowerCase().replace(" ", "-");
+
   let relatedArticleFlexGapComponent = relatedArticleFlexGap
     ? `--related-article-flex-gap--component: ${relatedArticleFlexGap};`
     : "";
@@ -63,11 +70,11 @@
   }
 </style>
 
-<aside>
+<aside aria-labelledby={headline.length ? headlineId : null}>
   <Stack>
     <Stack stackSpace="var(--s-4)">
       {#if headline.length}
-        <h2 class="font-family:sans-serif">
+        <h2 class="font-family:sans-serif" id={headlineId}>
           {@html headline}
         </h2>
       {/if}
