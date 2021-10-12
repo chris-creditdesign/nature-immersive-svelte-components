@@ -78,7 +78,8 @@
   args={{
     relatedArticles: [cardData1, cardData2, cardData3],
     headline: "Related articles",
-    stand: "",
+    stand:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     relatedArticleFlexBasis: "",
     relatedArticleFlexGap: "",
     cardHeaderLevel: "h3",
@@ -89,13 +90,12 @@
 </Story>
 
 <Story
-  name="With standfirst"
+  name="No standfirst"
   let:args
   args={{
     relatedArticles: [cardData1, cardData2, cardData3],
     headline: "Related articles",
-    stand:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    stand: "",
     relatedArticleFlexBasis: "",
     relatedArticleFlexGap: "",
     cardHeaderLevel: "h3",
@@ -121,7 +121,8 @@
       cardData3,
     ],
     headline: "Related articles",
-    stand: "",
+    stand:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     relatedArticleFlexBasis: "",
     relatedArticleFlexGap: "",
     cardHeaderLevel: "h3",
@@ -137,6 +138,23 @@
   args={{
     relatedArticles: [cardData1],
     headline: "Related articles",
+    stand:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    relatedArticleFlexBasis: "",
+    relatedArticleFlexGap: "",
+    cardHeaderLevel: "h3",
+    cardHeadlineFontSize: "big-1",
+  }}
+>
+  <RelatedArticleContainer {...args} />
+</Story>
+
+<Story
+  name="No headline or stand"
+  let:args
+  args={{
+    relatedArticles: [cardData1, cardData2, cardData3],
+    headline: "",
     stand: "",
     relatedArticleFlexBasis: "",
     relatedArticleFlexGap: "",
@@ -148,12 +166,13 @@
 </Story>
 
 <Story
-  name="No headline"
+  name="Long headline"
   let:args
   args={{
     relatedArticles: [cardData1, cardData2, cardData3],
-    headline: "",
-    stand: "",
+    headline: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+    stand:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     relatedArticleFlexBasis: "",
     relatedArticleFlexGap: "",
     cardHeaderLevel: "h3",

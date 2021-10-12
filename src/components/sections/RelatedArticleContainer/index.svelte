@@ -15,7 +15,7 @@
   // TODO: Case where there are multiple RelatedArticleContainer components
   // on the same page with the same headline.
   // TODO: Case where there is no headline.
-  let headlineId = headline.toLocaleLowerCase().replace(" ", "-");
+  let headlineId = headline.toLocaleLowerCase().replaceAll(" ", "-");
 
   let relatedArticleFlexGapComponent = relatedArticleFlexGap
     ? `--related-article-flex-gap--component: ${relatedArticleFlexGap};`
