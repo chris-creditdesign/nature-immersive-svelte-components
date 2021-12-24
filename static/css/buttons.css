@@ -5,8 +5,7 @@ button {
   gap: var(--s-2);
   align-items: center;
   width: fit-content;
-  height: 1.8em;
-  padding: 0 var(--s-2);
+  padding: var(--s-3) var(--s-2);
   font-size: inherit;
   cursor: pointer;
   border-color: var(--color--text);

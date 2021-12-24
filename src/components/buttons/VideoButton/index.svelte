@@ -12,7 +12,6 @@
 <style>
   button {
     z-index: 1; /* Make sure button is above video */
-    padding: var(--s-1) var(--s-2);
     font-weight: bold;
     color: var(--color--text-invert);
     text-transform: uppercase;

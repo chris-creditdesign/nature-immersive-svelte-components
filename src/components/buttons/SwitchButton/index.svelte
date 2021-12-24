@@ -41,7 +41,8 @@
 
 <style>
   button {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
     background-color: var(--color--background);
     background-image: linear-gradient(
       var(--color--background-invert),
