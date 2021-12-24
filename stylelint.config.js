@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ["stylelint-config-standard", "stylelint-config-prettier"],
+  extends: [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+    "stylelint-config-html",
+  ],
   plugins: ["stylelint-order"],
   rules: {
     "order/properties-order": [
