@@ -35,6 +35,7 @@
    * Option to add `data-theme` to button element.
    */
   export let theme = "";
+  export let disabled = false;
 
   let buttonElement;
 
@@ -73,6 +74,7 @@
   on:click
   on:focus
   type="button"
+  disabled={disabled ? true : null}
 >
   <span>
     {#if expanded}{expandedMessage}{:else}{message}{/if}</span

@@ -11,6 +11,7 @@
    * Option to add a value to `data-theme` attribute for styling.
    */
   export let theme = "";
+  export let disabled = false;
 </script>
 
 <button
@@ -22,6 +23,7 @@
   data-track="click"
   on:click
   type="button"
+  disabled={disabled ? true : null}
 >
   {message}
 </button>

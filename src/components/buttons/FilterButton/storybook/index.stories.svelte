@@ -21,14 +21,23 @@
     expandedMessage: { control: "text" },
     expanded: { control: "boolean" },
     theme: { control: { type: "select", options: themeOptions } },
+    disabled: { control: "boolean" },
   }}
 />
 
-<Story name="Default" let:args args={{ className: "example-class" }}>
+<Story
+  name="Default"
+  let:args
+  args={{ className: "example-class", disabled: false }}
+>
   <FilterButton {...args} {expanded} on:click={handleClick} />
 </Story>
 
-<Story name="No flexbox gap" let:args args={{ className: "example-class" }}>
+<Story
+  name="No flexbox gap"
+  let:args
+  args={{ className: "example-class", disabled: false }}
+>
   <div class="no-flexbox-gap">
     <FilterButton {...args} {expanded} on:click={handleClick} />
   </div>

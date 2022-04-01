@@ -14,9 +14,14 @@
     className: { control: "text" },
     message: { control: "text" },
     theme: { control: { type: "select", options: themeOptions } },
+    disabled: { control: "boolean" },
   }}
 />
 
-<Story name="Default" let:args args={{ className: "example-class" }}>
+<Story
+  name="Default"
+  let:args
+  args={{ className: "example-class", disabled: true }}
+>
   <SimpleButton {...args} on:click={handleClick} />
 </Story>

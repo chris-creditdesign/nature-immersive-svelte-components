@@ -3,6 +3,8 @@
 [data-theme] {
   --color--component: initial;
   --color--global: var(--color--text);
+  --color--disabled--component: initial;
+  --color--disabled--global: var(--color--text-disabled);
   --color--link--component: initial;
   --color--link--global: var(--color--link);
   --color--link-active--component: initial;
@@ -47,7 +49,13 @@
 }
 
 [data-theme] button {
+  color: var(--color--component, var(--color--global));
   border-color: var(--color--component, var(--color--global));
+}
+
+[data-theme]:disabled {
+  color: var(--color--disabled--component, var(--color--disabled--global));
+  border-color: var(--color--disabled--component, var(--color--disabled--global));
 }
 
 [data-theme] button:hover,

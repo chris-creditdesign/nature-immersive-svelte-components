@@ -8,7 +8,7 @@ body.dark {
   --color--background-invert: var(--color--white-0);
   --color--text: var(--color--white-0);
   --color--text-invert: var(--color--black-1);
-  --color--text-disabled: var(--color--white-2);
+  --color--text-disabled: var(--color--white-3);
   --color--button-expanded: var(--color--link-active);
   --color--button-background-expanded: var(--color--white-2);
 }

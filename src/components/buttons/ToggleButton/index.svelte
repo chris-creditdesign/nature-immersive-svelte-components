@@ -26,6 +26,7 @@
    * Optional to add `data-theme` to button element.
    */
   export let theme = "";
+  export let disabled = false;
 </script>
 
 <button
@@ -37,6 +38,7 @@
   data-event-action="click"
   data-event-label="Custom toggle button clicked"
   data-theme={theme}
+  disabled={disabled ? true : null}
 >
   <RadioButton checked={expanded} />
 

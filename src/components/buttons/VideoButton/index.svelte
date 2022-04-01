@@ -7,6 +7,7 @@
    * Optional to add `data-theme` to button element.
    */
   export let theme = "";
+  export let disabled = false;
 </script>
 
 <style>
@@ -35,6 +36,7 @@
   type="button"
   data-theme={theme}
   on:click
+  disabled={disabled ? true : null}
 >
   {#if paused}
     {pausedMessage}

@@ -20,6 +20,7 @@
     expandedMessage: { control: "text" },
     message: { control: "text" },
     theme: { control: "text" },
+    disabled: { control: "boolean" },
   }}
 />
 
@@ -32,12 +33,17 @@
     expandedMessage: "Checked",
     message: "Unchecked",
     theme: "",
+    disabled: false,
   }}
 >
   <ToggleButton {...args} {expanded} on:click={handleClick} />
 </Story>
 
-<Story name="No flexbox gap" let:args args={{ className: "example-class" }}>
+<Story
+  name="No flexbox gap"
+  let:args
+  args={{ className: "example-class", disabled: false }}
+>
   <div class="no-flexbox-gap">
     <ToggleButton {...args} {expanded} on:click={handleClick} />
   </div>

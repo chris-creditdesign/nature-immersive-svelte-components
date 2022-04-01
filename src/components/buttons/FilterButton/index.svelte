@@ -23,6 +23,7 @@
    */
   export let message = "Add filter";
   export let theme = "";
+  export let disabled = false;
 </script>
 
 <button
@@ -35,6 +36,7 @@
   data-track="click"
   on:click
   type="button"
+  disabled={disabled ? true : null}
 >
   <FilterIcon checked={expanded} />
 

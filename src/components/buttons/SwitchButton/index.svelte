@@ -33,6 +33,7 @@
    * Option to add `data-theme` to button element.
    */
   export let theme = "";
+  export let disabled = false;
 
   let id = `${message.toLowerCase().replaceAll(" ", "-")}-${Math.random()
     .toString()
@@ -99,6 +100,7 @@
     on:click
     role="switch"
     type="button"
+    disabled={disabled ? true : null}
   >
     <span>On</span>
     <span>Off</span>

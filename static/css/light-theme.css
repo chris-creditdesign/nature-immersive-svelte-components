@@ -9,7 +9,7 @@ body {
   --color--background-invert: var(--color--black-0);
   --color--text: var(--color--black-0);
   --color--text-invert: var(--color--white-0);
-  --color--text-disabled: var(--color--black-2);
+  --color--text-disabled: var(--color--black-3);
   --color--button-expanded: var(--color--link-active);
   --color--button-background-expanded: var(--color--white-2);
 }

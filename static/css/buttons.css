@@ -7,14 +7,16 @@ button {
   width: fit-content;
   padding: var(--s-3) var(--s-2);
   font-size: inherit;
-  cursor: pointer;
-  border-color: var(--color--text);
   border-style: solid;
   border-width: 1px;
 }
 
-button:hover,
-button:focus {
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+button:not(:disabled):hover,
+button:not(:disabled):focus {
   color: var(--color--link-active);
   background-color: var(--color--outline);
   border-color: var(--color--link-active);
@@ -22,12 +24,12 @@ button:focus {
   fill: var(--color--link-active);
 }
 
-button:active {
+button:not(:disabled):active {
   transform: translateY(0.5px);
 }
 
-button:active,
-button[aria-expanded="true"] {
+button:not(:disabled):active,
+button:not(:disabled)[aria-expanded="true"] {
   color: var(--color--button-expanded);
   background-color: var(--color--button-background-expanded);
   fill: var(--color--button-expanded);

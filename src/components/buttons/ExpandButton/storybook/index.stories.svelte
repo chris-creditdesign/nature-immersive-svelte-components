@@ -21,6 +21,7 @@
     expandedMessage: { control: "text" },
     expanded: { control: "boolean" },
     theme: { control: { type: "select", options: themeOptions } },
+    disabled: { control: "boolean" },
   }}
 />
 
@@ -31,6 +32,7 @@
     className: "example-class",
     message: "Open",
     expandedMessage: "Close",
+    disabled: false,
   }}
 >
   <ExpandButton {...args} {expanded} on:click={handleClick} />

@@ -36,6 +36,7 @@
     checked: { control: "boolean" },
     message: { control: "text" },
     theme: { control: { type: "select", options: themeOptions } },
+    disabled: { control: "boolean" },
   }}
 />
 
@@ -49,6 +50,7 @@
     checked: false,
     message: "Switch:",
     theme: "",
+    disabled: false,
   }}
 >
   <SwitchButton {...args} {checked} on:click={handleClick} />
@@ -62,6 +64,7 @@
     message: "Animation:",
     clusterJustifyContent: "center",
     clusterSpace: "var(--s-4)",
+    disabled: false,
   }}
 >
   <div style="width: 160px; border: 1px dashed red;">
@@ -79,6 +82,7 @@
     checked: false,
     message: "Switch:",
     theme: "",
+    disabled: false,
   }}
 >
   <div class="no-flexbox-gap">

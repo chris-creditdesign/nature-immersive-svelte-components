@@ -19,6 +19,7 @@
     paused: { control: "boolean" },
     pausedMessage: { control: "text" },
     playingMessage: { control: "text" },
+    disabled: { control: "boolean" },
   }}
 />
 
@@ -31,6 +32,7 @@
     playingMessage: "Pause video",
     paused: true,
     theme: "",
+    disabled: false,
   }}
 >
   <div style="padding: var(--s3);background-color: #999">
