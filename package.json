@@ -1,6 +1,6 @@
 {
   "name": "nature-immersive-svelte-components",
-  "version": "0.5.07",
+  "version": "0.5.08",
   "description": "Collection of svelte components to build nature immersive articles",
   "svelte": "src/index.js",
   "main": "dist/index.js",
@@ -27,7 +27,7 @@
     "@storybook/svelte": "^6.3.7",
     "@whitespace/storybook-addon-html": "^5.0.0",
     "babel-loader": "^8.1.0",
-    "creditdesign-svelte-components": "^0.2.96",
+    "creditdesign-svelte-components": "^1.0.2",
     "eslint": "^7.4.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",

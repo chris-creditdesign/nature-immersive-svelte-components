@@ -21,12 +21,7 @@
    * @component
 */
   import { onMount, createEventDispatcher, afterUpdate } from "svelte";
-  import {
-    Stack,
-    StackList,
-    Box,
-    Cluster,
-  } from "creditdesign-svelte-components";
+  import { Stack, Box, Cluster } from "creditdesign-svelte-components";
   import Header from "../../Header/index.svelte";
   import ExpandButton from "../../buttons/ExpandButton/index.svelte";
 
@@ -121,7 +116,7 @@
       </Cluster>
 
       {#if expanded}
-        <StackList {stackSpace}>
+        <Stack {stackSpace} list={true}>
           {#each articles as { title, url, doi, published }}
             <li class:list-item--current={doi === parentDoi}>
               {#if published}
@@ -141,7 +136,7 @@
               {/if}
             </li>
           {/each}
-        </StackList>
+        </Stack>
       {/if}
     </Stack>
   </Box>

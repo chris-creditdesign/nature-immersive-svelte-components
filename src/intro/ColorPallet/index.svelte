@@ -1,5 +1,5 @@
 <script>
-  import { GridList, Stack } from "creditdesign-svelte-components";
+  import { Grid, Stack } from "creditdesign-svelte-components";
 
   /**
    * @type {{ prop: string, value: string }[]}
@@ -19,7 +19,7 @@
   }
 </style>
 
-<GridList minWidth="20ch" gridSpace="var(--s1)">
+<Grid minWidth="20ch" gridSpace="var(--s1)" list={true}>
   {#each propValueArray as { prop, value }}
     <li class="font-family:sans-serif">
       <Stack stackSpace="var(--s-3)">
@@ -29,4 +29,4 @@
       </Stack>
     </li>
   {/each}
-</GridList>
+</Grid>

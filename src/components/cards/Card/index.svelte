@@ -7,7 +7,7 @@
 
   import CardHeader from "../components/CardHeader/index.svelte";
   import Image from "../../Image/index.svelte";
-  import { Stack, StackList } from "creditdesign-svelte-components";
+  import { Stack } from "creditdesign-svelte-components";
 
   /**
    * - altText
@@ -70,13 +70,13 @@
             </p>
           {/if}
 
-          <StackList stackSpace={relatedLinksStackSpace}>
+          <Stack stackSpace={relatedLinksStackSpace} list={true}>
             {#each relatedLinks as link}
               <li>
                 {@html link.value}
               </li>
             {/each}
-          </StackList>
+          </Stack>
         </Stack>
       </div>
     {/if}

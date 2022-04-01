@@ -72,21 +72,18 @@
   });
 </script>
 
-<Frame
-  frameRatioHeight="{videoRatioHeight}"
-  frameRatioWidth="{videoRatioWidth}"
->
-  <div bind:clientWidth="{width}">
-    <div id="{uniqueVideoId}"></div>
-  </div>
+<div bind:clientWidth={width}>
+  <Frame frameRatioHeight={videoRatioHeight} frameRatioWidth={videoRatioWidth}>
+    <div id={uniqueVideoId} />
 
-  {#if !mounted}
-    <div class="invert">
-      <p class="font-family:sans-serif">
-        Please visit
-        <a href="https://youtu.be/{videoId}">YouTube</a>
-        to view this video.
-      </p>
-    </div>
-  {/if}
-</Frame>
+    {#if !mounted}
+      <div class="invert">
+        <p class="font-family:sans-serif">
+          Please visit
+          <a href="https://youtu.be/{videoId}">YouTube</a>
+          to view this video.
+        </p>
+      </div>
+    {/if}
+  </Frame>
+</div>

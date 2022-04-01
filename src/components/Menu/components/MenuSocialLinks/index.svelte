@@ -1,5 +1,5 @@
 <script>
-  import { ClusterList } from "creditdesign-svelte-components";
+  import { Cluster } from "creditdesign-svelte-components";
   import FacebookIcon from "../../../icons/FacebookIcon/index.svelte";
   import TwitterIcon from "../../../icons/TwitterIcon/index.svelte";
   import EmailIcon from "../../../icons/EmailIcon/index.svelte";
@@ -26,7 +26,7 @@
 </style>
 
 <h2 class="visually-hidden">Sharing links</h2>
-<ClusterList clusterSpace="var(--s-3)">
+<Cluster clusterSpace="var(--s-3)" list={true}>
   <li>
     <a href={twitterURL}>
       <TwitterIcon height={logoHeight} />
@@ -44,4 +44,4 @@
       <EmailIcon height={logoHeight} />
     </a>
   </li>
-</ClusterList>
+</Cluster>

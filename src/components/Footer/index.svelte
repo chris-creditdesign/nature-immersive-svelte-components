@@ -1,5 +1,5 @@
 <script>
-  import { Box, Stack, ClusterList } from "creditdesign-svelte-components";
+  import { Box, Stack, Cluster } from "creditdesign-svelte-components";
   import SpringerNatureLogo from "../logos/SpringerNatureLogo/index.svelte";
 </script>
 
@@ -24,7 +24,7 @@
       </div>
 
       <div>
-        <ClusterList>
+        <Cluster list={true}>
           <li>
             <a href="https://www.nature.com/info/privacy.html">Privacy Policy</a
             >
@@ -48,7 +48,7 @@
               Accessibility statement
             </a>
           </li>
-        </ClusterList>
+        </Cluster>
       </div>
 
       <small>© 2021 Springer Nature Limited. All rights reserved.</small>

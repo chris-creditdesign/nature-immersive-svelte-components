@@ -1,7 +1,7 @@
 <script>
   import { slide } from "svelte/transition";
   import { quadIn, quadOut } from "svelte/easing";
-  import { SwitcherList, Box } from "creditdesign-svelte-components";
+  import { Switcher, Box } from "creditdesign-svelte-components";
 
   export let menuLinks = [];
   export let lastMenuLinkElem = null;
@@ -45,7 +45,7 @@
   class="font-family:sans-serif"
 >
   <Box boxSpace="var(--s-2)">
-    <SwitcherList>
+    <Switcher list={true}>
       {#each menuLinks as { text, href }, i}
         {#if i !== menuLinks.length - 1}
           <li>
@@ -78,6 +78,6 @@
           </li>
         {/if}
       {/each}
-    </SwitcherList>
+    </Switcher>
   </Box>
 </nav>
