@@ -1,0 +1,1032 @@
+/* -------------------------------------------------------------------------- */
+
+/*                              Custom properties                             */
+
+/* -------------------------------------------------------------------------- */
+
+:root {
+	/* ------------------------------ Modular scale ----------------------------- */
+	font-size: 1rem;
+
+	/* Sizes to use */
+	--ratio: 1.5;
+	--s-6: calc(var(--s-5) / var(--ratio));
+	--s-5: calc(var(--s-4) / var(--ratio));
+	--s-4: calc(var(--s-3) / var(--ratio));
+	--s-3: calc(var(--s-2) / var(--ratio));
+	--s-2: calc(var(--s-1) / var(--ratio));
+	--s-1: calc(var(--s0) / var(--ratio));
+	--s0: 1rem;
+	--s1: calc(var(--s0) * var(--ratio));
+	--s2: calc(var(--s1) * var(--ratio));
+	--s3: calc(var(--s2) * var(--ratio));
+	--s4: calc(var(--s3) * var(--ratio));
+	--s5: calc(var(--s4) * var(--ratio));
+	--s6: calc(var(--s5) * var(--ratio));
+	--s7: calc(var(--s6) * var(--ratio));
+	--s8: calc(var(--s7) * var(--ratio));
+
+	/* Useful to for fallback values */
+	--no-space: 0;
+
+	/* --------------------------------- Measure -------------------------------- */
+	--measure: 60ch;
+	--measure-big: calc(var(--measure) * var(--ratio));
+	--measure-small: calc(var(--measure) / var(--ratio));
+
+	/* --------------------------------- Spacing -------------------------------- */
+	--space: var(--s-1);
+	--cover-space: 1rem;
+	--cover-height: 100vh;
+
+	/* ---------------------- Global styles for components ---------------------- */
+
+	/* ----------------------------------- Box ---------------------------------- */
+	--box-space--global: var(--s-1);
+
+	/* --------------------------------- Center --------------------------------- */
+	--center-measure--global: var(--measure);
+	--center-space--global: var(--s-1);
+
+	/* --------------------------------- Cluster -------------------------------- */
+	--cluster-space--global: var(--s-1);
+	--cluster-justify-content--global: flex-start;
+
+	/* ---------------------------------- Cover --------------------------------- */
+	--cover-height--global: 100vh;
+	--cover-space--global: var(--s-1);
+
+	/* ---------------------------------- Frame --------------------------------- */
+	--frame-ratio-height--global: 9;
+	--frame-ratio-width--global: 16;
+
+	/* -------------------------------- FullBleed ------------------------------- */
+	--full-bleed-measure--global: var(--measure);
+	--full-bleed-side-space--global: var(--s-1);
+	--full-bleed-stack-space--global: var(--s-1);
+
+	/* ---------------------------------- Grid ---------------------------------- */
+	--grid-space--global: var(--s-1);
+	--grid-column-space--global: var(--grid-space--global);
+	--grid-min-width--global: var(--measure-small);
+	--grid-row-space--global: var(--grid-space--global);
+
+	/* --------------------------------- Sidebar -------------------------------- */
+	--sidebar-content-min-width--global: 75%;
+	--sidebar-space--global: var(--s-1);
+	--sidebar-width--global: inherit;
+
+	/* ---------------------------------- Stack --------------------------------- */
+	--stack-space--global: var(--s-1);
+
+	/* --------------------------------- Swither -------------------------------- */
+	--switcher-min-width--global: var(--measure);
+	--switcher-space--global: var(--s-1);
+}
+
+/* ------------------------- Exception based styling ------------------------ */
+* {
+	box-sizing: border-box;
+	max-width: var(--measure);
+}
+
+/* All elements should have a max width of --measure except these */
+html,
+body,
+div,
+aside,
+section,
+main,
+article,
+header,
+figure,
+img,
+video,
+iframe,
+svg,
+canvas,
+footer,
+a {
+  max-width: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                     Box                                    */
+
+/* -------------------------------------------------------------------------- */
+
+.box {
+	--box-space--component: initial;
+	--box-space: var(--box-space--component, var(--box-space--global, 1rem));
+
+	padding: 1rem;
+	padding: var(--box-space);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                   Center                                   */
+
+/* -------------------------------------------------------------------------- */
+
+.center {
+	--center-measure--component: initial;
+	--center-space--component: initial;
+	--center-measure: var(--center-measure--component, var(--center-measure--global, 60ch));
+	--center-space: var(--center-space--component, var(--center-space--global, 1rem));
+
+	box-sizing: content-box;
+	max-width: 60ch;
+	max-width: var(--center-measure);
+	padding-right: 1rem;
+	padding-right: var(--center-space);
+	padding-left: 1rem;
+	padding-left: var(--center-space);
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.center.intrinsically-center {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                   Cluster                                  */
+
+/* -------------------------------------------------------------------------- */
+
+.cluster {
+	--cluster-justify-content--component: initial;
+	--cluster-space--component: initial;
+	--cluster-justify-content: var(
+		--cluster-justify-content--component,
+		var(--cluster-justify-content--global)
+	);
+	--cluster-space: var(--cluster-space--component, var(--cluster-space--global));
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: var(--cluster-justify-content);
+	gap: var(--cluster-space);
+}
+
+.no-flexbox-gap .cluster > * {
+	margin: var(--cluster-space);
+}
+
+ul.cluster {
+	max-width: none;
+	padding: 0;
+	list-style: none;
+	margin-block: 0;
+}
+
+ul.cluster > li {
+	max-width: none;
+	padding: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                    Cover                                   */
+
+/* -------------------------------------------------------------------------- */
+
+.cover {
+	--cover-height--component: initial;
+	--cover-space--component: initial;
+	--cover-height: var(--cover-height--component, var(--cover-height--global, 100vh));
+	--cover-space: var(--cover-space--component, var(--cover-space--global, 1rem));
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	min-height: var(--cover-height);
+	padding: 1rem;
+	padding: var(--cover-space);
+	overflow: hidden;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cover > * {
+	margin-block-start: var(--s-1, 1rem);
+	margin-block-end: var(--s-1, 1rem);
+}
+
+.cover > .cover__centered {
+	margin-block-start: auto;
+	margin-block-end: auto;
+}
+
+.cover > :first-child:not(.cover__centered) {
+	margin-block-start: 0;
+}
+
+.cover > :last-child:not(.cover__centered) {
+	margin-block-end: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                    Frame                                   */
+
+/* -------------------------------------------------------------------------- */
+
+.frame {
+	--frame-ratio-height--component: initial;
+	--frame-ratio-width--component: initial;
+	--frame-ratio-height: var(--frame-ratio-height--component, var(--frame-ratio-height--global));
+	--frame-ratio-width: var(--frame-ratio-width--component, var(--frame-ratio-width--global));
+
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	aspect-ratio: var(--frame-ratio-width) / var(--frame-ratio-height);
+}
+
+.frame > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.frame > video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                  FullBleed                                 */
+
+/* -------------------------------------------------------------------------- */
+
+.full-bleed {
+	--full-bleed-measure--component: initial;
+	--full-bleed-side-space--component: initial;
+	--full-bleed-stack-space--component: initial;
+	--full-bleed-measure: var(
+		--full-bleed-measure--component,
+		var(--full-bleed-measure--global, 60ch)
+	);
+	--full-bleed-side-space: var(
+		--full-bleed-side-space--component,
+		var(--full-bleed-side-space--global, 1rem)
+	);
+	--full-bleed-stack-space: var(
+		--full-bleed-stack-space--component,
+		var(--full-bleed-stack-space--global)
+	);
+
+	width: 100%;
+
+	/* If the min() function is not available ie firefox < 75, chrome < 79
+	set everything into a single column, centered layout as a fall back */
+	max-width: 60ch;
+	max-width: var(--full-bleed-measure);
+	padding-inline-end: var(--full-bleed-side-space);
+	padding-inline-start: var(--full-bleed-side-space);
+	margin-inline-end: auto;
+	margin-inline-start: auto;
+}
+
+/* If the min function is available, then implement the grid layout  */
+@supports (width: min(60ch, 100%)) {
+	.full-bleed {
+		display: grid;
+		max-width: none;
+		gap: var(--full-bleed-stack-space, 1rem) 0;
+		grid-template-columns:
+			1fr
+			1fr
+			1fr
+			1fr
+			min(var(--full-bleed-measure), 100%)
+			1fr
+			1fr
+			1fr
+			1fr;
+	}
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.full-bleed > * {
+	grid-column: 5 / 6;
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
+.full-bleed--1 {
+	grid-column: 1 / 10;
+}
+
+.full-bleed--2 {
+	grid-column: 2 / 9;
+}
+
+.full-bleed--3 {
+	grid-column: 3 / 8;
+}
+
+.full-bleed--4 {
+	grid-column: 4 / 7;
+}
+
+.full-bleed--left {
+	grid-column: 1 / 6;
+}
+
+.full-bleed--left-2 {
+	grid-column: 2 / 6;
+}
+
+.full-bleed--left-3 {
+	grid-column: 3 / 6;
+}
+
+.full-bleed--left-4 {
+	grid-column: 4 / 6;
+}
+
+.full-bleed--right {
+	grid-column: 5 / 10;
+}
+
+.full-bleed--right-2 {
+	grid-column: 5 / 9;
+}
+
+.full-bleed--right-3 {
+	grid-column: 5 / 8;
+}
+
+.full-bleed--right-4 {
+	grid-column: 5 / 7;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                    Grid                                    */
+
+/* -------------------------------------------------------------------------- */
+
+.grid {
+	--grid-column-space--component: initial;
+	--grid-min-width--component: initial;
+	--grid-row-space--component: initial;
+	--grid-column-space: var(--grid-column-space--component, var(--grid-column-space--global));
+	--grid-min-width: var(--grid-min-width--component, var(--grid-min-width--global));
+	--grid-row-space: var(--grid-row-space--component, var(--grid-row-space--global));
+
+	display: grid;
+
+	/* Set a gutter between each grid item */
+	column-gap: var(--grid-column-space);
+	row-gap: var(--grid-row-space);
+
+	/*	repeat() to repeat columns as many times as needed
+		auto-fit instead of of set number of columns,
+		is used to fit columns into the space provided and
+		wrap cells into the row below as needed
+		minmax(250px, 1fr) the minimum width of the columns is 250px.
+		If more space is available, the columns are expanded to fill
+		the space (as defined by auto-fit rather than auto fill witch will
+		add extra empty columns to fill the space).
+		1fr is one fraction of the available space
+		min() returns whatever is the minimum value.
+		in this case --grid-min-width will be returned unless it is less
+		than 100% width. In this case 100% width will be returned.
+		The minmax function will then require columns to be a minimum width
+		of 100% width - this will create a 1 column layout.
+	*/
+	grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-width), 100%), 1fr));
+}
+
+ul.grid {
+	max-width: none;
+	padding: 0;
+	list-style: none;
+	margin-block: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                   Sidebar                                  */
+
+/* -------------------------------------------------------------------------- */
+
+.sidebar {
+	--sidebar-content-min-width--component: initial;
+	--sidebar-space--component: initial;
+	--sidebar-width--component: initial;
+	--sidebar-content-min-width: var(
+		--sidebar-content-min-width--component,
+		var(--sidebar-content-min-width--global)
+	);
+	--sidebar-space: var(--sidebar-space--component, var(--sidebar-space--global));
+	--sidebar-width: var(--sidebar-width--component, var(--sidebar-width--global));
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--sidebar-space);
+}
+
+.no-flexbox-gap .sidebar > * {
+	margin: var(--sidebar-space);
+}
+
+/* stylelint-disable */
+/* If sidebar-on-left is "true" the first child is the sidebar.
+	If sidebar-on-left is "false" the last child is the sidebar. */
+.sidebar:not(.sidebar-on-right) > *:first-child, .sidebar.sidebar-on-right > *:last-child {
+	flex-basis: var(--sidebar-width);
+	flex-grow: 1;
+}
+
+/* If sidebar-on-left is "true" the last child is the main content.
+	If sidebar-on-left is "false" the first child is the main content. */
+.sidebar:not(.sidebar-on-right) > *:last-child, .sidebar.sidebar-on-right > *:first-child {
+	flex-basis: 0;
+	flex-grow: 999;
+	min-width: calc(var(--sidebar-content-min-width) - var(--sidebar-space));
+}
+/* stylelint-enable */
+
+/* -------------------------------------------------------------------------- */
+
+/*                                    Stack                                   */
+
+/* -------------------------------------------------------------------------- */
+
+.stack {
+	--stack-space--component: initial;
+	--stack-space: var(--stack-space--component, var(--stack-space--global));
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: var(--stack-space);
+}
+
+.stack:only-child {
+	/*	So that the Stack area will fill the available height,
+		causing the `.stack__split-after` element to be pushed
+		to the bottom - but only when the stack is the only
+		child of its parent element */
+	block-size: 100%;
+}
+
+ul.stack {
+	max-width: none;
+	padding: 0;
+	list-style: none;
+	margin-block: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.stack > * {
+	margin-block: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.no-flexbox-gap .stack > * + * {
+	margin-block-start: var(--stack-space, 1rem);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                  Switcher                                  */
+
+/* -------------------------------------------------------------------------- */
+
+.switcher {
+	--switcher-min-width--component: initial;
+	--switcher-space--component: initial;
+	--switcher-min-width: var(--switcher-min-width--component, var(--switcher-min-width--global));
+	--switcher-space: var(--switcher-space--component, var(--switcher-space--global));
+	--modifier: calc(var(--switcher-min-width) - (100% - var(--switcher-space)));
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--switcher-space);
+}
+
+ul.switcher {
+	max-width: none;
+	padding: 0;
+	list-style: none;
+	margin-block: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.switcher > * {
+	flex-basis: calc(var(--modifier) * 999);
+	flex-grow: 1;
+	margin: 0;
+}
+
+/*	If there are 8 or more items, stack them automatically.
+	`:nth-last-child(n + 8)`
+	First select every element that is 8 or more elements from
+	the end of the list, counting backwards.
+	`:nth-last-child(n + 8) ~ *`
+	Then select every element that is a general sibling of an elemnet
+	that is 8 or more elements from the end of the list i.e. every elemement
+	that comes after the selected element.
+	Combining these selectors means that if there are 8 or more elements
+	in total they will all be selected. If there are less than 8,
+	none will be selecetd.
+*/
+
+/* stylelint-disable-next-line no-descending-specificity */
+.switcher > :nth-last-child(n + 8) {
+	flex-basis: 100%;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.switcher > :nth-last-child(n + 8) ~ * {
+	flex-basis: 100%;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.no-flexbox-gap .switcher > * {
+	margin: var(--switcher-space);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*                                  Utilities                                 */
+
+/* -------------------------------------------------------------------------- */
+
+.flex-grow\:2 {
+	flex-grow: 2;
+}
+
+.margin-block-end\:auto {
+	margin-block-end: auto;
+}@charset "UTF-8";
+
+@font-face {
+  font-family: "Harding";
+  src: url("../fonts/HardingText-Regular-Web.woff2") format("woff2"),
+    url("../fonts/HardingText-Regular-Web.woff") format("woff");
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "Harding";
+  font-weight: 700;
+  src: url("../fonts/HardingText-Bold-Web.woff2") format("woff2"),
+    url("../fonts/HardingText-Bold-Web.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Harding";
+  font-style: italic;
+  src: url("../fonts/HardingText-RegularItalic-Web.woff2") format("woff2"),
+    url("../fonts/HardingText-RegularItalic-Web.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Harding";
+  font-style: italic;
+  font-weight: 700;
+  src: url("../fonts/HardingText-BoldItalic-Web.woff2") format("woff2"),
+    url("../fonts/HardingText-BoldItalic-Web.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik Nature l Web";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/GraphikNaturel-Regular-Web.woff2") format("woff2"),
+    url("../fonts/GraphikNaturel-Regular-Web.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Graphik Nature l Web";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/GraphikNaturel-Bold-Web.woff2") format("woff2"),
+    url("../fonts/GraphikNaturel-Bold-Web.woff") format("woff");
+}
+
+:root {
+  /* Harding is the defalut font, otherwise apply the sans serif font */
+  --serif-font-family: harding, palatino, times, "Times New Roman", serif;
+  --sans-serif-font: "Graphik Nature l Web", arial, helvetica, sans-serif;
+}
+
+body {
+  font-family: var(--serif-font-family);
+}
+:root {
+  /*	Dimensions are scaled proportionately with the page width */
+
+  /*	The fallback size is 16px */
+
+  font-size: 16px;
+  font-size: min(max(calc(0.5rem + 1vw), 16px), 18px);
+}
+:root {
+  /* --------------------------------- Colours -------------------------------- */
+
+  /* Black & White */
+  --color--black-0: #000;
+  --color--black-1: #262621;
+  --color--black-2: #333;
+  --color--black-3: #666;
+  --color--white-0: #fff;
+  --color--white-1: #eee;
+  --color--white-2: #ccc;
+  --color--white-3: #aaa;
+
+  /* Nature Color Palette */
+  --color--yellow-1: #efd600;
+  --color--yellow-2: #ffd500;
+  --color--yellow-3: #fbba00;
+  --color--orange-1: #f7a70b;
+  --color--orange-2: #eb5b25;
+  --color--orange-3: #e63323;
+  --color--red-1: #e40428;
+  --color--red-2: #e5005b;
+  --color--red-3: #c82285;
+  --color--purple-1: #964091;
+  --color--purple-2: #6c4796;
+  --color--purple-3: #494495;
+  --color--blue-1: #1951a0;
+  --color--blue-2: #006eb7;
+  --color--blue-3: #0085c8;
+  --color--turquoise-1: #0095bb;
+  --color--turquoise-2: #0094a4;
+  --color--turquoise-3: #00928c;
+  --color--seagreen-1: #008b68;
+  --color--seagreen-2: #229863;
+  --color--seagreen-3: #449b50;
+  --color--leafgreen-1: #3fa535;
+  --color--leafgreen-2: #76b82a;
+  --color--leafgreen-3: #c7d530;
+
+  /* ------------------------------ Modular scale ----------------------------- */
+
+  /* Useful to for fallback values */
+  --no-space: 0;
+
+  /* ---------------------------------- Type ---------------------------------- */
+
+  --font-size-small-1: calc(var(--s0) / 1.2);
+  --font-size-base: var(--s0);
+  --font-size-big-1: var(--s1);
+  --font-size-big-2: var(--s2);
+  --font-size-big-3: var(--s3);
+  --font-size-big-4: var(--s4);
+
+  /* ----------------------------- Transition time ---------------------------- */
+  --time: 200ms;
+}
+/* --------------------------- Dark colour scheme --------------------------- */
+body.dark {
+  --color--link: var(--color--orange-1);
+  --color--link-invert: var(--color--blue-1);
+  --color--link-active: var(--color--black-0);
+  --color--outline: var(--color--yellow-1);
+  --color--background: var(--color--black-0);
+  --color--background-invert: var(--color--white-0);
+  --color--text: var(--color--white-0);
+  --color--text-invert: var(--color--black-1);
+  --color--text-disabled: var(--color--white-3);
+  --color--button-expanded: var(--color--link-active);
+  --color--button-background-expanded: var(--color--white-2);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  color: var(--color--text);
+  background-color: var(--color--background);
+
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* -------------------------------- Elements -------------------------------- */
+
+/* headers */
+h3 {
+  font-size: var(--font-size-big-1);
+}
+
+h2 {
+  font-size: var(--font-size-big-2);
+}
+
+h1 {
+  font-size: var(--font-size-big-3);
+}
+
+/* text */
+p {
+  line-height: 1.4em;
+}
+
+/* links */
+a {
+  color: var(--color--link);
+  text-decoration: underline;
+  fill: var(--color--link);
+}
+
+a:hover,
+a:focus {
+  color: var(--color--link-active);
+  background-color: var(--color--outline);
+  outline: 3px solid var(--color--outline);
+  fill: var(--color--link-active);
+}
+
+/* Form elements */
+
+select:focus {
+  outline: 3px solid var(--color--outline);
+}
+
+/* Figures */
+figure {
+  margin: 0;
+}
+
+figcaption {
+  box-sizing: content-box;
+  padding-right: var(--caption-space);
+  padding-left: var(--caption-space);
+}
+
+figure > img,
+figure > video,
+iframe {
+  width: 100%;
+}
+
+/* Prevent Superscripts and Subscripts from Affecting Line-Height */
+
+/* https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/ */
+sup,
+sub {
+  position: relative;
+  top: -0.4em;
+  vertical-align: baseline;
+}
+
+sub {
+  top: 0.4em;
+}
+/* Buttons */
+
+button {
+  display: flex;
+  gap: var(--s-2);
+  align-items: center;
+  width: fit-content;
+  padding: var(--s-3) var(--s-2);
+  font-size: inherit;
+  border-style: solid;
+  border-width: 1px;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+button:not(:disabled):hover,
+button:not(:disabled):focus {
+  color: var(--color--link-active);
+  background-color: var(--color--outline);
+  border-color: var(--color--link-active);
+  outline: 3px solid var(--color--outline);
+  fill: var(--color--link-active);
+}
+
+button:not(:disabled):active {
+  transform: translateY(0.5px);
+}
+
+button:not(:disabled):active,
+button:not(:disabled)[aria-expanded="true"] {
+  color: var(--color--button-expanded);
+  background-color: var(--color--button-background-expanded);
+  fill: var(--color--button-expanded);
+}
+
+.no-flexbox-gap button > * + * {
+  margin-left: var(--s-2);
+}
+/* --------------------------------- Themes --------------------------------- */
+
+[data-theme] {
+  --color--component: initial;
+  --color--global: var(--color--text);
+  --color--disabled--component: initial;
+  --color--disabled--global: var(--color--text-disabled);
+  --color--link--component: initial;
+  --color--link--global: var(--color--link);
+  --color--link-active--component: initial;
+  --color--link-active--global: var(--color--link-active);
+  --color--background--component: initial;
+  --color--background--global: var(--color--background);
+
+  color: var(--color--component, var(--color--global));
+  background: var(
+    --color--background--component,
+    var(--color--background--global)
+  );
+  fill: var(--color--component, var(--color--global));
+}
+
+[data-theme] a {
+  color: var(--color--link--component, var(--color--link--global));
+  fill: var(--color--link--component, var(--color--link--global));
+}
+
+[data-theme] a:visited {
+  color: var(--color--link--component, var(--color--link--global));
+  fill: var(--color--link--component, var(--color--link--global));
+}
+
+[data-theme] a:hover,
+[data-theme] a:focus {
+  color: var(
+    --color--link-active--component,
+    var(--color--link-active--global)
+  );
+  fill: var(--color--link-active--component, var(--color--link-active--global));
+}
+
+[data-theme] a:hover:visited,
+[data-theme] a:focus:visited {
+  color: var(
+    --color--link-active--component,
+    var(--color--link-active--global)
+  );
+  fill: var(--color--link-active--component, var(--color--link-active--global));
+}
+
+[data-theme] button {
+  color: var(--color--component, var(--color--global));
+  border-color: var(--color--component, var(--color--global));
+}
+
+[data-theme]:disabled {
+  color: var(--color--disabled--component, var(--color--disabled--global));
+  border-color: var(--color--disabled--component, var(--color--disabled--global));
+}
+
+[data-theme] button:hover,
+[data-theme] button:focus {
+  border-color: var(
+    --color--link-active--component,
+    var(--color--link-active--global)
+  );
+}
+
+/* Invert */
+
+[data-theme="invert"] {
+  --color--component: var(--color--text-invert);
+  --color--link--component: var(--color--link-invert);
+  --color--link-active--component: var(--color--link-active-invert);
+  --color--background--component: var(--color--background-invert);
+}
+
+/* Menu */
+
+[data-theme="menu"] {
+  --color--text: var(--color--text-invert);
+  --color--component: var(--color--text-invert);
+  --color--link-invert: var(--color--text-invert);
+  --color--link--component: var(--color--link-invert);
+  --color--background--component: var(--color--background-invert);
+  --color--button-expanded: var(--color--text-invert);
+  --color--button-background-expanded: var(--color--background-invert);
+}
+/* -------------------------------- Modifiers ------------------------------- */
+
+/* Borders */
+.border-above {
+  border-top: 1.5px solid var(--color--text);
+}
+
+/* Dropcap */
+.drop-cap::first-letter {
+  float: left;
+  padding-top: 0.55rem;
+  font-size: 4.85rem;
+  font-style: normal;
+  line-height: 3rem;
+}
+/* -------------------------------- Utilities ------------------------------- */
+
+/* Make sure hidden elements are hidden */
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0 !important;
+  opacity: 0;
+}
+
+/* -------------------------- Text style utilities -------------------------- */
+
+.font-family\:sans-serif {
+  font-family: var(--sans-serif-font);
+}
+
+.font-weight\:bold {
+  font-weight: 800;
+}
+
+.font-weight\:normal {
+  font-weight: 200;
+}
+
+.font-style\:italic {
+  font-style: italic;
+}
+
+.text-align\:center {
+  text-align: center;
+}
+
+.text-transform\:uppercase {
+  text-transform: uppercase;
+}
+
+.text-decoration\:none {
+  text-decoration: none;
+}
+
+.text-decoration\:underline {
+  text-decoration: underline;
+}
+
+.letter-spacing\:tight {
+  letter-spacing: -0.02em;
+}
+
+/* --------------------------- Text size utilities -------------------------- */
+
+.font-size\:small {
+  font-size: var(--font-size-small-1);
+}
+
+.font-size\:base {
+  font-size: var(--font-size-base);
+}
+.font-size\:big-1 {
+  font-size: var(--font-size-big-1);
+}
+.font-size\:big-2 {
+  font-size: var(--font-size-big-2);
+}
+.font-size\:big-3 {
+  font-size: var(--font-size-big-3);
+}
+.font-size\:big-4 {
+  font-size: var(--font-size-big-4);
+}
+
+/* --------------------------------- Flexbox -------------------------------- */
+
+.flex-wrap\:wrap {
+  flex-wrap: wrap;
+}
+table.docblock-argstable {
+  max-width: none;
+}
