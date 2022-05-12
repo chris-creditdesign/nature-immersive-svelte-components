@@ -13,10 +13,7 @@
   }
 </style>
 
-<footer
-  class="footer font-size:small font-family:sans-serif"
-  data-theme="invert"
->
+<footer class="footer font-size:small font-family:sans-serif" data-theme="menu">
   <Box>
     <Stack stackSpace="var(--s-1)">
       <div>
