@@ -34,21 +34,12 @@ npx degit chris-creditdesign/nature-immersive-article-template
 
 ## Load CSS
 
-The static CSS files can be concatenated to form a base style sheet:
+It is first necessary to copy the global CSS file into your project, or to import import it into your Svelte layout, for instance with:
 
-```bash
-cat node_modules/nature-immersive-svelte-components/static/css/fonts.css \
-cat node_modules/nature-immersive-svelte-components/static/css/font-size.css \
-	node_modules/nature-immersive-svelte-components/static/css/custom-props.css \
-	node_modules/nature-immersive-svelte-components/static/css/light-theme.css \
-	node_modules/nature-immersive-svelte-components/static/css/index.css \
-	node_modules/nature-immersive-svelte-components/static/css/buttons.css \
-	node_modules/nature-immersive-svelte-components/static/css/themes.css \
-	node_modules/nature-immersive-svelte-components/static/css/modifiers.css \
-	node_modules/nature-immersive-svelte-components/static/css/utilities.css \
-	> public/css/index.css
+```js
+import "..node_modules/nature-immersive-svelte-components/light.css";
 ```
 
-You can choose to include either `light-theme.css` or `dark-theme.css`.
+You can choose to include either `light.css` or `dark.css`.
 
 From then on style can be customised by passing props to existing svelte components or as style blocks within your own components.

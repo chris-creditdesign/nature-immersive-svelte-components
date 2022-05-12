@@ -18,15 +18,4 @@ export const parameters = {
   },
 };
 
-import "../node_modules/creditdesign-svelte-components/index.css";
-import "../src/css/fonts.css";
-import "../src/css/font-size.css";
-import "../src/css/custom-props.css";
-import "../src/css/light-theme.css";
-import "../src/css/dark-theme.css";
-import "../src/css/index.css";
-import "../src/css/buttons.css";
-import "../src/css/themes.css";
-import "../src/css/modifiers.css";
-import "../src/css/utilities.css";
-import "../src/css/storybook-fixes.css";
+import "../static/css/light.css";
