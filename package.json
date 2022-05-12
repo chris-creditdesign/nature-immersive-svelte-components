@@ -7,7 +7,8 @@
   "module": "dist/index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c && sh scripts/build-css.sh",
+    "build": "rollup -c",
+    "build-css": "sh scripts/build-css.sh",
     "prettier": "prettier --write --plugin-search-dir=. src/components/**/*",
     "stylelint": "stylelint --fix src/components/**/* static/css/**/*.css",
     "eslint": "eslint 'src/components/**/*.{js,svelte}'",
