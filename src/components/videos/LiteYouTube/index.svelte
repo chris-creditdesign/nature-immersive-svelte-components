@@ -9,7 +9,7 @@
 </script>
 
 <script>
-  import { afterUpdate, onMount } from "svelte";
+  import { onMount } from "svelte";
   import { youTubeIframeAPIReady } from "./stores/youtube-iframe-api-ready.js";
   export let videoId;
   export let title = "YouTube video player";
@@ -19,12 +19,14 @@
   let iframe;
   let player;
   let mounted = false;
-  let youTubeVideoMounted = false;
+  let playVideoRequested = false;
   let backgroundImageUrl = `url('https://i.ytimg.com/vi/${videoId}/sddefault.jpg')`;
   let uniqueVideoId = `${videoId}-${Date.now().toString(36)}`;
 
+  $: instantiatePlayer($youTubeIframeAPIReady, iframe);
+
   let handleButtonClick = () => {
-    youTubeVideoMounted = true;
+    playVideoRequested = true;
   };
 
   let onPlayerReady = () => {
@@ -48,13 +50,8 @@
     mounted = false;
   };
 
-  afterUpdate(() => {
-    // Once the iframe has loaded - move focus to it
-    if (iframe) {
-      iframe.focus();
-    }
-
-    if (!player && $youTubeIframeAPIReady && youTubeVideoMounted) {
+  let instantiatePlayer = (apiReady, iframeReady) => {
+    if (!player && apiReady && iframeReady) {
       player = new YT.Player(uniqueVideoId, {
         events: {
           onReady: onPlayerReady,
@@ -64,8 +61,10 @@
       });
 
       elements.add(player);
+
+      iframe.focus();
     }
-  });
+  };
 
   onMount(() => {
     mounted = true;
@@ -148,7 +147,7 @@
         to view this video.
       </p>
     </div>
-  {:else if !youTubeVideoMounted}
+  {:else if !playVideoRequested}
     <button class="nature-youtube-play-button" on:click={handleButtonClick}>
       <span class="visually-hidden">Play video</span>
     </button>
