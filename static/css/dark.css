@@ -813,6 +813,10 @@ button {
   border-width: 1px;
 }
 
+button:disabled {
+	opacity: 0.5;
+}
+
 button:not(:disabled) {
   cursor: pointer;
 }
