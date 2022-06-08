@@ -7,6 +7,7 @@
     videoId: { control: "text" },
     videoRatioHeight: { control: "number" },
     videoRatioWidth: { control: "number" },
+    playVideoRequested: { control: "boolean" },
   };
 </script>
 
@@ -23,6 +24,7 @@
     videoId: "kYmLQP2M-qo",
     videoRatioHeight: 9,
     videoRatioWidth: 16,
+    playVideoRequested: false,
   }}
 >
   <LiteYouTube {...args} />
@@ -35,4 +37,8 @@
     <LiteYouTube videoId={"vponeaNiewE"} />
     <LiteYouTube videoId={"5AXApBbj1ps"} />
   </Stack>
+</Story>
+
+<Story name="Autoplay video">
+  <LiteYouTube videoId={"kYmLQP2M-qo"} playVideoRequested={true} />
 </Story>

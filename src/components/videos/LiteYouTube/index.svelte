@@ -16,11 +16,12 @@
   export let title = "YouTube video player";
   export let videoRatioHeight = 9;
   export let videoRatioWidth = 16;
+  export let playVideoRequested = false;
+  export let youTubeContainer;
 
   let iframe;
   let thisPlayer;
   let mounted = false;
-  let playVideoRequested = false;
   let backgroundImageUrl = `url('https://i.ytimg.com/vi/${videoId}/sddefault.jpg')`;
   let uniqueVideoId = `${videoId}-${Date.now().toString(36)}`;
 
@@ -32,6 +33,7 @@
 
   let onPlayerReady = () => {
     backgroundImageUrl = "unset";
+    stopOtherPlayers();
   };
 
   let onPlayerStateChange = (event) => {
@@ -41,14 +43,18 @@
     /* If this video is playing, stop instances of this
 	   component on page from playing */
     if (data === 1) {
-      players.forEach((player) => {
-        if (player !== thisPlayer) player.pauseVideo();
-      });
+      stopOtherPlayers();
     }
   };
 
   let onPlayerError = () => {
     mounted = false;
+  };
+
+  let stopOtherPlayers = () => {
+    players.forEach((player) => {
+      if (player !== thisPlayer) player.pauseVideo();
+    });
   };
 
   let instantiatePlayer = (apiReady, iframeReady) => {
@@ -63,7 +69,7 @@
 
       players.add(thisPlayer);
 
-      iframe.focus();
+      youTubeContainer.focus();
     }
   };
 
@@ -101,8 +107,10 @@
 </svelte:head>
 
 <div
+  bind:this={youTubeContainer}
   class="nature-youtube-container frame"
   style="--frame-ratio-height--component: {videoRatioHeight}; --frame-ratio-width--component: {videoRatioWidth}; background-image: {backgroundImageUrl};"
+  tabindex="-1"
 >
   {#if !mounted}
     <div class="invert">
