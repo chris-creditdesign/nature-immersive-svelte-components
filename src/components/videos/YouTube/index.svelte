@@ -1,7 +1,7 @@
 <script>
   import { onMount, afterUpdate } from "svelte";
   import { Frame } from "creditdesign-svelte-components";
-  import { youTubeIframeAPIReady } from "./stores/youtube-iframe-api-ready.js";
+  import { youTubeIframeAPIReady } from "../../stores/youtube-iframe-api-ready.js";
   import { youTubePlayerReady } from "./stores/youtube-player-ready.js";
 
   export let videoId;

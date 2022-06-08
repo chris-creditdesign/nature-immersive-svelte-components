@@ -1,16 +1,16 @@
 <script context="module">
-  const elements = new Set();
+  export const players = new Set();
 
   export function stopAll() {
-    elements.forEach((element) => {
-      element.pause();
+    players.forEach((player) => {
+      player.pause();
     });
   }
 </script>
 
 <script>
   import { onMount } from "svelte";
-  import { youTubeIframeAPIReady } from "./stores/youtube-iframe-api-ready.js";
+  import { youTubeIframeAPIReady } from "../../stores/youtube-iframe-api-ready.js";
   import YouTubeButton from "../../buttons/YouTubeButton/index.svelte";
   export let videoId;
   export let title = "YouTube video player";
@@ -18,7 +18,7 @@
   export let videoRatioWidth = 16;
 
   let iframe;
-  let player;
+  let thisPlayer;
   let mounted = false;
   let playVideoRequested = false;
   let backgroundImageUrl = `url('https://i.ytimg.com/vi/${videoId}/sddefault.jpg')`;
@@ -41,8 +41,8 @@
     /* If this video is playing, stop instances of this
 	   component on page from playing */
     if (data === 1) {
-      elements.forEach((element) => {
-        if (element !== player) element.pauseVideo();
+      players.forEach((player) => {
+        if (player !== thisPlayer) player.pauseVideo();
       });
     }
   };
@@ -52,8 +52,8 @@
   };
 
   let instantiatePlayer = (apiReady, iframeReady) => {
-    if (!player && apiReady && iframeReady) {
-      player = new YT.Player(uniqueVideoId, {
+    if (!thisPlayer && apiReady && iframeReady) {
+      thisPlayer = new YT.Player(uniqueVideoId, {
         events: {
           onReady: onPlayerReady,
           onStateChange: onPlayerStateChange,
@@ -61,37 +61,20 @@
         },
       });
 
-      elements.add(player);
+      players.add(thisPlayer);
 
       iframe.focus();
     }
   };
 
+  let youtubeAPIScriptLoaded = () => {
+    if (!$youTubeIframeAPIReady) {
+      youTubeIframeAPIReady.set(true);
+    }
+  };
+
   onMount(() => {
     mounted = true;
-
-    // https://developers.google.com/youtube/iframe_api_reference
-    // This code loads the IFrame Player API code asynchronously.
-    let script;
-    let scriptAddedToPage = document.getElementById(
-      "nature-immersive-youtube-api"
-    );
-
-    if (!$youTubeIframeAPIReady && !scriptAddedToPage) {
-      script = document.createElement("script");
-      script.setAttribute("id", "nature-immersive-youtube-api");
-      script.type = "text/javascript";
-      script.src = "https://www.youtube.com/iframe_api";
-      document.head.appendChild(script);
-    }
-
-    /* The onYouTubeIframeAPIReady function will execute
-	   as soon as the player API code downloads. */
-    window.onYouTubeIframeAPIReady = function () {
-      /* This is set to true so that the API code is not 
-	     downloaded multiple times */
-      youTubeIframeAPIReady.set(true);
-    };
   });
 </script>
 
@@ -106,6 +89,16 @@
     height: 100%;
   }
 </style>
+
+<svelte:head>
+  {#if !$youTubeIframeAPIReady}
+    <script
+      type="text/javascript"
+      src="https://www.youtube.com/iframe_api"
+      on:load={youtubeAPIScriptLoaded}>
+    </script>
+  {/if}
+</svelte:head>
 
 <div
   class="nature-youtube-container frame"
