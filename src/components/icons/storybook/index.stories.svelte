@@ -2,6 +2,8 @@
   import { Meta, Story } from "@storybook/addon-svelte-csf";
   import { Stack, Cluster } from "creditdesign-svelte-components";
   import ChevronIcon from "../ChevronIcon/index.svelte";
+  import ChevronRightIcon from "../ChevronRightIcon/index.svelte";
+  import ChevronLeftIcon from "../ChevronLeftIcon/index.svelte";
   import DownloadFileIcon from "../DownloadFileIcon/index.svelte";
   import DownloadIcon from "../DownloadIcon/index.svelte";
   import EmailIcon from "../EmailIcon/index.svelte";
@@ -23,6 +25,8 @@
   <Stack stackSpace="var(--s2)">
     <Cluster>
       <ChevronIcon height="2" />
+      <ChevronRightIcon height="2" />
+      <ChevronLeftIcon height="2" />
       <DownloadFileIcon height="2" />
       <DownloadIcon height="2" />
       <FilterIcon height="2" />
@@ -43,6 +47,26 @@
       <span class="font-family:sans-serif font-size:small">ChevronIcon:</span>
       <div>
         <ChevronIcon height="2" />
+      </div>
+    </Stack>
+
+    <Stack>
+      <hr />
+      <span class="font-family:sans-serif font-size:small"
+        >ChevronRightIcon:</span
+      >
+      <div>
+        <ChevronRightIcon height="2" />
+      </div>
+    </Stack>
+
+    <Stack>
+      <hr />
+      <span class="font-family:sans-serif font-size:small"
+        >ChevronLeftIcon:</span
+      >
+      <div>
+        <ChevronLeftIcon height="2" />
       </div>
     </Stack>
 

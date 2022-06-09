@@ -1,15 +1,15 @@
 <script>
   import { Meta, Story } from "@storybook/addon-svelte-csf";
   import { action } from "@storybook/addon-actions";
-  import SimpleButton from "../index.svelte";
+  import PrevButton from "../index.svelte";
   import { themeOptions } from "../../../../preview-content/options.js";
 
   let handleClick = action("click");
 </script>
 
 <Meta
-  title="components/buttons/SimpleButton"
-  component={SimpleButton}
+  title="components/buttons/PrevButton"
+  component={PrevButton}
   argTypes={{
     className: { control: "text" },
     message: { control: "text" },
@@ -23,5 +23,5 @@
   let:args
   args={{ className: "example-class", disabled: false }}
 >
-  <SimpleButton {...args} on:click={handleClick} />
+  <PrevButton {...args} on:click={handleClick} />
 </Story>

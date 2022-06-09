@@ -1,10 +1,12 @@
 <script>
   import { Meta, Story } from "@storybook/addon-svelte-csf";
   import { action } from "@storybook/addon-actions";
-  import { Stack } from "creditdesign-svelte-components";
+  import { Stack, Cluster } from "creditdesign-svelte-components";
+  import SimpleButton from "../SimpleButton/index.svelte";
+  import PrevButton from "../PrevButton/index.svelte";
+  import NextButton from "../NextButton/index.svelte";
   import ExpandButton from "../ExpandButton/index.svelte";
   import FilterButton from "../FilterButton/index.svelte";
-  import SimpleButton from "../SimpleButton/index.svelte";
   import SwitchButton from "../SwitchButton/index.svelte";
   import ToggleButton from "../ToggleButton/index.svelte";
   import VideoButton from "../VideoButton/index.svelte";
@@ -51,6 +53,17 @@
       <hr />
       <span class="font-family:sans-serif font-size:small">SimpleButton:</span>
       <SimpleButton on:click={handleSimpleButtonClick} />
+    </Stack>
+
+    <Stack>
+      <hr />
+      <span class="font-family:sans-serif font-size:small"
+        >PrevButton and NextButton:</span
+      >
+      <Cluster clusterSpace="var(--s-2)">
+        <PrevButton on:click={handleSimpleButtonClick} />
+        <NextButton on:click={handleSimpleButtonClick} />
+      </Cluster>
     </Stack>
 
     <Stack>

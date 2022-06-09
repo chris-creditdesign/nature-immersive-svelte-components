@@ -64,6 +64,8 @@ export { default as NatureBriefingLogo } from "./components/logos/NatureBriefing
 
 export { default as EmailIcon } from "./components/icons/EmailIcon/index.svelte";
 export { default as ChevronIcon } from "./components/icons/ChevronIcon/index.svelte";
+export { default as ChevronRightIcon } from "./components/icons/ChevronRightIcon/index.svelte";
+export { default as ChevronLeftIcon } from "./components/icons/ChevronLeftIcon/index.svelte";
 export { default as FacebookIcon } from "./components/icons/FacebookIcon/index.svelte";
 export { default as TwitterIcon } from "./components/icons/TwitterIcon/index.svelte";
 export { default as RadioIcon } from "./components/icons/RadioIcon/index.svelte";
@@ -97,6 +99,8 @@ export { default as ToggleButton } from "./components/buttons/ToggleButton/index
 export { default as FilterButton } from "./components/buttons/FilterButton/index.svelte";
 export { default as SwitchButton } from "./components/buttons/SwitchButton/index.svelte";
 export { default as VideoButton } from "./components/buttons/VideoButton/index.svelte";
+export { default as NextButton } from "./components/buttons/NextButton/index.svelte";
+export { default as PrevButton } from "./components/buttons/PrevButton/index.svelte";
 
 /* --------------------------------- Effects -------------------------------- */
 
