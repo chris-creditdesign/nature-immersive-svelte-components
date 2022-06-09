@@ -69,6 +69,12 @@ export { default as TwitterIcon } from "./components/icons/TwitterIcon/index.sve
 export { default as RadioIcon } from "./components/icons/RadioIcon/index.svelte";
 export { default as FilterIcon } from "./components/icons/FilterIcon/index.svelte";
 export { default as DownloadFileIcon } from "./components/icons/DownloadFileIcon/index.svelte";
+export { default as LocationIcon } from "./components/icons/LocationIcon/index.svelte";
+export { default as PersonIcon } from "./components/icons/PersonIcon/index.svelte";
+export { default as StarIcon } from "./components/icons/StarIcon/index.svelte";
+export { default as TrophyIcon } from "./components/icons/TrophyIcon/index.svelte";
+export { default as UniversityIcon } from "./components/icons/UniversityIcon/index.svelte";
+export { default as WebsiteIcon } from "./components/icons/WebsiteIcon/index.svelte";
 
 /* ---------------------------- PdfDownloadSlider --------------------------- */
 

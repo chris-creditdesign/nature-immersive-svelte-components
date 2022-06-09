@@ -32,4 +32,6 @@
     />
   </g>
 </svg>
-<span class="visually-hidden">{title}</span>
+{#if title.length}
+  <span class="visually-hidden">{title}</span>
+{/if}

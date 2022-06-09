@@ -10,6 +10,7 @@
   argTypes={{
     className: { control: "text" },
     height: { control: { type: "range", min: 0.5, max: 10, step: 0.1 } },
+    title: { control: "text" },
   }}
 />
 
@@ -19,6 +20,7 @@
   args={{
     className: "example-class",
     height: 1,
+    title: "",
   }}
 >
   <DownloadFileIcon {...args} />

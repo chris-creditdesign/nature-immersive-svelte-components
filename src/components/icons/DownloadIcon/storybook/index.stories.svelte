@@ -20,7 +20,7 @@
   args={{
     className: "example-class",
     height: 1,
-    title: "Download.",
+    title: "",
   }}
 >
   <DownloadIcon {...args} />

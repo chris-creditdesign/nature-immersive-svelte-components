@@ -9,6 +9,12 @@
   import RadioIcon from "../RadioIcon/index.svelte";
   import TwitterIcon from "../TwitterIcon/index.svelte";
   import FacebookIcon from "../FacebookIcon/index.svelte";
+  import UniversityIcon from "../UniversityIcon/index.svelte";
+  import LocationIcon from "../LocationIcon/index.svelte";
+  import PersonIcon from "../PersonIcon/index.svelte";
+  import StarIcon from "../StarIcon/index.svelte";
+  import TrophyIcon from "../TrophyIcon/index.svelte";
+  import WebsiteIcon from "../WebsiteIcon/index.svelte";
 </script>
 
 <Meta title="components/icons" />
@@ -24,6 +30,12 @@
       <EmailIcon height="2" />
       <FacebookIcon height="2" />
       <TwitterIcon height="2" />
+      <UniversityIcon height="2" />
+      <LocationIcon height="2" />
+      <PersonIcon height="2" />
+      <StarIcon height="2" />
+      <TrophyIcon height="2" />
+      <WebsiteIcon height="2" />
     </Cluster>
 
     <Stack>
@@ -89,6 +101,55 @@
       <span class="font-family:sans-serif font-size:small">TwitterIcon:</span>
       <div>
         <TwitterIcon height="2" />
+      </div>
+    </Stack>
+
+    <Stack>
+      <hr />
+      <span class="font-family:sans-serif font-size:small">LocationIcon:</span>
+      <div>
+        <LocationIcon height="2" />
+      </div>
+    </Stack>
+
+    <Stack>
+      <hr />
+      <span class="font-family:sans-serif font-size:small">PersonIcon:</span>
+      <div>
+        <PersonIcon height="2" />
+      </div>
+    </Stack>
+
+    <Stack>
+      <hr />
+      <span class="font-family:sans-serif font-size:small">StarIcon:</span>
+      <div>
+        <StarIcon height="2" />
+      </div>
+    </Stack>
+
+    <Stack>
+      <hr />
+      <span class="font-family:sans-serif font-size:small">TrophyIcon:</span>
+      <div>
+        <TrophyIcon height="2" />
+      </div>
+    </Stack>
+
+    <Stack>
+      <hr />
+      <span class="font-family:sans-serif font-size:small">UniversityIcon:</span
+      >
+      <div>
+        <UniversityIcon height="2" />
+      </div>
+    </Stack>
+
+    <Stack>
+      <hr />
+      <span class="font-family:sans-serif font-size:small">WebsiteIcon:</span>
+      <div>
+        <WebsiteIcon height="2" />
       </div>
     </Stack>
   </Stack>

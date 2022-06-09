@@ -11,6 +11,7 @@
     className: { control: "text" },
     height: { control: { type: "range", min: 0.5, max: 10, step: 0.1 } },
     checked: { control: "boolean" },
+    title: { control: "text" },
   }}
 />
 
@@ -21,6 +22,7 @@
     className: "example-class",
     height: 1,
     checked: false,
+    title: "",
   }}
 >
   <FilterIcon {...args} />

@@ -1,7 +1,7 @@
 <script>
   export let height = 1;
   export let className = "";
-  export let title = "Download file.";
+  export let title = "";
 </script>
 
 <style>
@@ -31,4 +31,6 @@
 	c0.1-0.1,0.3-0.2,0.4-0.3l10.6-10.6C33.4,18.7,33.4,17.1,32.4,16.1z"
   />
 </svg>
-<span class="visually-hidden">{title}</span>
+{#if title.length}
+  <span class="visually-hidden">{title}</span>
+{/if}

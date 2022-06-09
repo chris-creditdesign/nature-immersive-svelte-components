@@ -2,6 +2,7 @@
   export let className = "";
   export let height = 1;
   export let checked = false;
+  export let title = "";
 </script>
 
 <style>
@@ -36,3 +37,6 @@
 
   <circle class="st0" cx="20" cy="20" r="6.2" />
 </svg>
+{#if title.length}
+  <span class="visually-hidden">{title}</span>
+{/if}
