@@ -34,7 +34,7 @@
   >
     <img src="https://i.ytimg.com/vi/{videoId}/sddefault.jpg" alt="" />
   </div>
-  <p class="font-size:small">
+  <p class="font-size:small margin-top:auto">
     {title}
   </p>
 </button>

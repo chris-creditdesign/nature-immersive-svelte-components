@@ -1,17 +1,17 @@
 <script>
   import { Sidebar } from "creditdesign-svelte-components";
-  import LiteYouTube from "../../videos/LiteYouTube/index.svelte";
-  import VideoButton from "./components/SelectVideoButton/index.svelte";
+  import LiteYouTube from "../../../videos/LiteYouTube/index.svelte";
+  import VideoButton from "../SelectVideoButton/index.svelte";
+  import VideoInfo from "../VideoInfo/index.svelte";
 
-  export let videoData = [];
+  export let videoDataArray = [];
 
   let currentVideoIndex = 0;
   let youTubeContainer;
   let playVideoRequested = false;
-  $: videoId = videoData[currentVideoIndex].videoId;
-  $: title = videoData[currentVideoIndex].title;
-  $: authors = videoData[currentVideoIndex].authors;
-  $: institution = videoData[currentVideoIndex].institution;
+  $: videoData = videoDataArray[currentVideoIndex];
+  $: videoId = videoData.videoId;
+  $: title = videoData.title;
 
   let requestVideo = (event) => {
     if (event.type === "message") {
@@ -41,7 +41,7 @@
   sidebarOnRight={true}
   sidebarWidth="var(--measure)"
   sidebarContentMinWidth="50%"
-  sidebarSpace="var(--s1)"
+  sidebarSpace="0px"
   alignItems="flex-start"
 >
   <svelte:fragment slot="main-content">
@@ -56,24 +56,16 @@
         {title}
         {playVideoRequested}
       />
-      <div class="stack box">
-        <h2 class="font-size:big-1">{title}</h2>
-        <ul>
-          {#each authors as author}
-            <li>{author}</li>
-          {/each}
-        </ul>
-        <p>{institution}</p>
-      </div>
+      <VideoInfo {videoData} className="box" />
     </div>
   </svelte:fragment>
 
   <svelte:fragment slot="sidebar">
     <ol
       class="grid side-menu box"
-      style="--grid-min-width--component: 20ch; --grid-column-space--component: var(--s0); --grid-row-space--component: var(--s0); --box-space--component: var(--s0)"
+      style="--grid-min-width--component: 20ch; --grid-column-space--component: var(--s1); --grid-row-space--component: var(--s2); --box-space--component: var(--s0)"
     >
-      {#each videoData as { videoId, title }, i}
+      {#each videoDataArray as { videoId, title }, i}
         <li>
           <VideoButton on:message={requestVideo} {title} {videoId} index={i} />
         </li>

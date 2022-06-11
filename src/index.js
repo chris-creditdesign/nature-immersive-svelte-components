@@ -19,6 +19,11 @@ export { default as StaticImage } from "./components/sections/StaticImage/index.
 export { default as ScrollytellingSection } from "./components/sections/ScrollytellingSection/index.svelte";
 export { default as RelatedArticleContainer } from "./components/sections/RelatedArticleContainer/index.svelte";
 
+/* ----------------------------- YouTubeSection ----------------------------- */
+
+export { default as VideoCard } from "./components/sections/YouTubeSection/VideoCard/index.svelte";
+export { default as YouTubeCarousel } from "./components/sections/YouTubeSection/YouTubeCarousel/index.svelte";
+
 /* --------------------------------- Heading -------------------------------- */
 
 export { default as Heading } from "./components/Heading/index.svelte";

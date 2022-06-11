@@ -1014,15 +1014,19 @@ button:not(:disabled)[aria-expanded="true"] {
 .font-size\:base {
   font-size: var(--font-size-base);
 }
+
 .font-size\:big-1 {
   font-size: var(--font-size-big-1);
 }
+
 .font-size\:big-2 {
   font-size: var(--font-size-big-2);
 }
+
 .font-size\:big-3 {
   font-size: var(--font-size-big-3);
 }
+
 .font-size\:big-4 {
   font-size: var(--font-size-big-4);
 }
@@ -1031,6 +1035,10 @@ button:not(:disabled)[aria-expanded="true"] {
 
 .flex-wrap\:wrap {
   flex-wrap: wrap;
+}
+
+.margin-top\:auto {
+  margin-top: auto;
 }
 table.docblock-argstable {
   max-width: none;

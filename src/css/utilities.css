@@ -64,15 +64,19 @@
 .font-size\:base {
   font-size: var(--font-size-base);
 }
+
 .font-size\:big-1 {
   font-size: var(--font-size-big-1);
 }
+
 .font-size\:big-2 {
   font-size: var(--font-size-big-2);
 }
+
 .font-size\:big-3 {
   font-size: var(--font-size-big-3);
 }
+
 .font-size\:big-4 {
   font-size: var(--font-size-big-4);
 }
@@ -81,4 +85,8 @@
 
 .flex-wrap\:wrap {
   flex-wrap: wrap;
+}
+
+.margin-top\:auto {
+  margin-top: auto;
 }
