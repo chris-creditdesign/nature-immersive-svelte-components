@@ -4,9 +4,12 @@
   export let title;
   export let index;
 
+  let backgroundImageUrl = `url('https://i.ytimg.com/vi/${videoId}/sddefault.jpg')`;
+
   const dispatch = createEventDispatcher();
 
   function sendMessage() {
+    console.log("message");
     dispatch("message", {
       index,
     });
@@ -15,26 +18,29 @@
 
 <style>
   button {
-    align-items: start;
-    border-style: none;
-    padding: 0;
-    text-align: start;
+    align-items: start !important;
+    border-style: none !important;
+    padding: 0 !important;
+    text-align: start !important;
     background-color: unset;
+    width: 100% !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+
+  span {
+    width: 100%;
+    background-color: var(--color--white-0);
+    padding: var(--s-1);
   }
 </style>
 
 <button
   on:click={sendMessage}
-  class="stack"
-  style="--stack-space--component: var(--s-2);"
+  class="frame"
+  style="--frame-ratio-height--component: 9; --frame-ratio-width--component: 16; background-image: {backgroundImageUrl};"
 >
-  <div
-    class="nature-youtube-container frame"
-    style="--frame-ratio-height--component: 9; --frame-ratio-width--component: 16;"
-  >
-    <img src="https://i.ytimg.com/vi/{videoId}/sddefault.jpg" alt="" />
-  </div>
-  <p class="font-size:small margin-top:auto">
+  <span class="font-size:small margin-top:auto">
     {title}
-  </p>
+  </span>
 </button>

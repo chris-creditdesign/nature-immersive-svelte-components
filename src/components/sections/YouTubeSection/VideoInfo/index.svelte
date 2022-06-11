@@ -14,6 +14,10 @@
     align-items: baseline;
   }
 
+  .nature-definition-list {
+    margin-top: auto !important;
+  }
+
   dt {
     fill: var(--color--white-3);
   }
@@ -30,14 +34,14 @@
   <div class="stack" style="--stack-space--component: var(--s-2);">
     <svelte:element
       this={headerLevel}
-      class={`font-size:${headlineFontSize} font-weight:bold`}
+      class={`font-size:${headlineFontSize} font-weight:bold font-family:sans-serif`}
     >
       {videoData.title}
     </svelte:element>
-    <p>{videoData.info}</p>
+    <p class="font-family:sans-serif">{videoData.info}</p>
   </div>
 
-  <dl class="stack margin-top:auto font-size:small">
+  <dl class="nature-definition-list stack font-size:small">
     <div class="definition-container">
       <dt><PersonIcon title="Authors:" /></dt>
       <dd>
