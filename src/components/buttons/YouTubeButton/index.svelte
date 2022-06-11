@@ -24,12 +24,12 @@
 
   button.nature-youtube-play-button:focus,
   button.nature-youtube-play-button:hover {
-    filter: none;
-    background-color: unset;
+    filter: none !important;
+    background-color: unset !important;
   }
 
   button.nature-youtube-play-button:active {
-    transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0) !important;
   }
 </style>
 
