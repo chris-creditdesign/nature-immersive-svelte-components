@@ -39,6 +39,6 @@ button:not(:disabled)[aria-expanded="true"] {
   fill: var(--color--button-expanded);
 }
 
-.no-flexbox-gap button > * + * {
+@at-root .no-flexbox-gap button > * + * {
   margin-left: var(--s-2);
 }

@@ -1,6 +1,6 @@
 module.exports = {
   stories: [
-    "../src/**/*.stories.@(mdx|svelte)",
+    "../src/**/*.stories.@(svelte)",
     "../src/**/storybook/*.stories.@(js|jsx|ts|tsx|svelte)",
   ],
   addons: [
@@ -8,6 +8,5 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-svelte-csf",
     "storybook-dark-mode",
-    "@whitespace/storybook-addon-html",
   ],
 };

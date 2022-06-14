@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "Harding";
+  font-family: Harding;
   src: url("../fonts/HardingText-Regular-Web.woff2") format("woff2"),
     url("../fonts/HardingText-Regular-Web.woff") format("woff");
   font-display: fallback;
 }
 
 @font-face {
-  font-family: "Harding";
+  font-family: Harding;
   font-weight: 700;
   src: url("../fonts/HardingText-Bold-Web.woff2") format("woff2"),
     url("../fonts/HardingText-Bold-Web.woff") format("woff");
@@ -16,7 +16,7 @@
 }
 
 @font-face {
-  font-family: "Harding";
+  font-family: Harding;
   font-style: italic;
   src: url("../fonts/HardingText-RegularItalic-Web.woff2") format("woff2"),
     url("../fonts/HardingText-RegularItalic-Web.woff") format("woff");
@@ -24,7 +24,7 @@
 }
 
 @font-face {
-  font-family: "Harding";
+  font-family: Harding;
   font-style: italic;
   font-weight: 700;
   src: url("../fonts/HardingText-BoldItalic-Web.woff2") format("woff2"),
@@ -54,6 +54,6 @@
   --sans-serif-font: "Graphik Nature l Web", arial, helvetica, sans-serif;
 }
 
-body {
+@at-root body {
   font-family: var(--serif-font-family);
 }

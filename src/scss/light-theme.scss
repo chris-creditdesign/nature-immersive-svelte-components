@@ -1,5 +1,5 @@
 /* --------------------------- Light colour scheme -------------------------- */
-body {
+@at-root :root {
   --color--link: var(--color--blue-1);
   --color--link-invert: var(--color--orange-1);
   --color--link-active: var(--color--black-0);
