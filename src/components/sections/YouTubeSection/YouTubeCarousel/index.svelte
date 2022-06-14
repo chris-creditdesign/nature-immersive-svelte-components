@@ -46,9 +46,9 @@
 >
   <svelte:fragment slot="main-content">
     <div
-      class="stack font-family:sans-serif"
+      class="stack box font-family:sans-serif"
       data-theme="invert"
-      style="--stack-space--component: 0;"
+      style="--stack-space--component:  var(--s1);"
     >
       <LiteYouTube
         bind:youTubeContainer
@@ -56,14 +56,14 @@
         {title}
         {playVideoRequested}
       />
-      <VideoInfo {videoData} className="box" />
+      <VideoInfo {videoData} />
     </div>
   </svelte:fragment>
 
   <svelte:fragment slot="sidebar">
     <ol
       class="grid side-menu box"
-      style="--grid-min-width--component: 20ch; --grid-column-space--component: var(--s1); --grid-row-space--component: var(--s2); --box-space--component: var(--s0)"
+      style="--grid-min-width--component: 20ch; --grid-column-space--component: var(--s1); --grid-row-space--component: var(--s1); --box-space--component: var(--s1)"
     >
       {#each videoDataArray as { videoId, title }, i}
         <li>
