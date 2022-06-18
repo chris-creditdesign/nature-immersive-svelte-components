@@ -3,13 +3,13 @@
   export let videoId;
   export let title;
   export let index;
+  export let currentVideoIndex;
 
   let backgroundImageUrl = `url('https://i.ytimg.com/vi/${videoId}/sddefault.jpg')`;
 
   const dispatch = createEventDispatcher();
 
   function sendMessage() {
-    console.log("message");
     dispatch("message", {
       index,
     });
@@ -30,13 +30,20 @@
 
   span {
     width: 100%;
-    background-color: var(--color--white-0);
     padding: var(--s-1);
+    background-color: var(--color--background);
+    color: var(--color--text);
+  }
+
+  button[aria-current] span {
+    background-color: var(--color--background-invert);
+    color: var(--color--text-invert);
   }
 </style>
 
 <button
   on:click={sendMessage}
+  aria-current={index === currentVideoIndex ? "true" : null}
   class="frame"
   style="--frame-ratio-height--component: 9; --frame-ratio-width--component: 16; background-image: {backgroundImageUrl};"
 >

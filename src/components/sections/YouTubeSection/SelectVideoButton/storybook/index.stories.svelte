@@ -1,9 +1,5 @@
 <script>
   import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import {
-    headerLevelOptions,
-    fontSizeOptions,
-  } from "../../../../../preview-content/options.js";
   import SelectVideoButton from "../index.svelte";
   import { videoDataArray } from "../../../../../preview-content/video-data-array.js";
 

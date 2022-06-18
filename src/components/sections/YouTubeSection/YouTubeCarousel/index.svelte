@@ -5,6 +5,9 @@
   import VideoInfo from "../VideoInfo/index.svelte";
 
   export let videoDataArray = [];
+  export let headerLevel = "h2";
+  export let headlineFontSize = "big-1";
+  export let videoListLabel = "Choose a video from the following list to play.";
 
   let currentVideoIndex = 0;
   let youTubeContainer;
@@ -56,20 +59,32 @@
         {title}
         {playVideoRequested}
       />
-      <VideoInfo {videoData} />
+      <VideoInfo {videoData} {headerLevel} {headlineFontSize} />
     </div>
   </svelte:fragment>
 
   <svelte:fragment slot="sidebar">
-    <ol
-      class="grid side-menu box"
-      style="--grid-min-width--component: 20ch; --grid-column-space--component: var(--s1); --grid-row-space--component: var(--s1); --box-space--component: var(--s1)"
-    >
-      {#each videoDataArray as { videoId, title }, i}
-        <li>
-          <VideoButton on:message={requestVideo} {title} {videoId} index={i} />
-        </li>
-      {/each}
-    </ol>
+    <div>
+      <p id="video-selection-list-label" hidden>
+        {videoListLabel}
+      </p>
+      <ol
+        class="grid side-menu box"
+        aria-labelledby="video-selection-list-label"
+        style="--grid-min-width--component: 20ch; --grid-column-space--component: var(--s1); --grid-row-space--component: var(--s1); --box-space--component: var(--s1)"
+      >
+        {#each videoDataArray as { videoId, title }, i}
+          <li>
+            <VideoButton
+              on:message={requestVideo}
+              {title}
+              {videoId}
+              index={i}
+              {currentVideoIndex}
+            />
+          </li>
+        {/each}
+      </ol>
+    </div>
   </svelte:fragment>
 </Sidebar>

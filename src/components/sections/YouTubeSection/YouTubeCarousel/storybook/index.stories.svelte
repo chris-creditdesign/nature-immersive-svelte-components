@@ -1,11 +1,20 @@
 <script>
   import { Meta, Story } from "@storybook/addon-svelte-csf";
+  import {
+    headerLevelOptions,
+    fontSizeOptions,
+  } from "../../../../../preview-content/options.js";
   import YouTubeCarousel from "../index.svelte";
   import LiteYouTube from "../../../../videos/LiteYouTube/index.svelte";
   import { videoDataArray } from "../../../../../preview-content/video-data-array.js";
 
   let argTypes = {
     videoDataArray: { control: "objet" },
+    headerLevel: { control: { type: "select", options: headerLevelOptions } },
+    headlineFontSize: {
+      control: { type: "select", options: fontSizeOptions },
+    },
+    videoListLabel: { control: "text" },
   };
 </script>
 
