@@ -113,11 +113,10 @@
   tabindex="-1"
 >
   {#if !mounted}
-    <div class="invert">
+    <div class="box" data-theme="invert">
       <p class="font-family:sans-serif">
-        Please visit
-        <a href="https://youtu.be/{videoId}">YouTube</a>
-        to view this video.
+        Please visit <a href="https://youtu.be/{videoId}">YouTube</a> to view this
+        video.
       </p>
     </div>
   {:else if !playVideoRequested}
