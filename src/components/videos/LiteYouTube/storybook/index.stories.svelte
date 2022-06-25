@@ -8,6 +8,7 @@
     videoRatioHeight: { control: "number" },
     videoRatioWidth: { control: "number" },
     playVideoRequested: { control: "boolean" },
+    autoplay: { control: "boolean" },
   };
 </script>
 
@@ -25,6 +26,7 @@
     videoRatioHeight: 9,
     videoRatioWidth: 16,
     playVideoRequested: false,
+    autoplay: true,
   }}
 >
   <LiteYouTube {...args} />
@@ -39,6 +41,10 @@
   </Stack>
 </Story>
 
-<Story name="Autoplay video">
+<Story name="Play video requested">
   <LiteYouTube videoId={"kYmLQP2M-qo"} playVideoRequested={true} />
+</Story>
+
+<Story name="No auto play after load">
+  <LiteYouTube videoId={"kYmLQP2M-qo"} autoplay={false} />
 </Story>

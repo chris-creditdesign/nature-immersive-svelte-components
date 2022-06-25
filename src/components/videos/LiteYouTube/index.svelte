@@ -17,6 +17,7 @@
   export let videoRatioHeight = 9;
   export let videoRatioWidth = 16;
   export let playVideoRequested = false;
+  export let autoplay = true;
   export let youTubeContainer;
 
   let iframe;
@@ -120,12 +121,17 @@
       </p>
     </div>
   {:else if !playVideoRequested}
-    <YouTubeButton on:click={handleButtonClick} message={`Play: ${title}`} />
+    <YouTubeButton
+      on:click={handleButtonClick}
+      message={`Play video: ${title}`}
+    />
   {:else}
     <iframe
       bind:this={iframe}
       id={uniqueVideoId}
-      src="https://www.youtube-nocookie.com/embed/{videoId}?autoplay=1&enablejsapi=1"
+      src="https://www.youtube-nocookie.com/embed/{videoId}?autoplay={autoplay
+        ? '1'
+        : '0'}&enablejsapi=1"
       frameborder="0"
       width="560"
       height="315"

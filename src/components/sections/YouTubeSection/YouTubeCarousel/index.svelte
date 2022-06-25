@@ -7,7 +7,8 @@
   export let videoDataArray = [];
   export let headerLevel = "h2";
   export let headlineFontSize = "big-1";
-  export let videoListLabel = "Choose a video from the following list to play.";
+  export let videoListLabel =
+    "Choose a video from the following list to load in the above player.";
 
   let currentVideoIndex = 0;
   let youTubeContainer;
@@ -16,14 +17,13 @@
   $: videoId = videoData.videoId;
   $: title = videoData.title;
 
-  let requestVideo = (event) => {
+  let requestVideo = async (event) => {
     if (event.type === "message") {
       let { detail } = event;
       playVideoRequested = true;
       currentVideoIndex = detail.index;
+      youTubeContainer.focus();
     }
-
-    youTubeContainer.focus();
   };
 </script>
 
@@ -53,11 +53,23 @@
       data-theme="invert"
       style="--stack-space--component:  var(--s1);"
     >
+      <div
+        role="region"
+        aria-live="polite"
+        aria-atomic="true"
+        class="visually-hidden"
+      >
+        <p>
+          Video {currentVideoIndex + 1} of {videoDataArray.length} selected.
+        </p>
+      </div>
+
       <LiteYouTube
         bind:youTubeContainer
         {videoId}
         {title}
         {playVideoRequested}
+        autoplay={false}
       />
       <VideoInfo {videoData} {headerLevel} {headlineFontSize} />
     </div>
@@ -65,7 +77,7 @@
 
   <svelte:fragment slot="sidebar">
     <div>
-      <p id="video-selection-list-label" hidden>
+      <p id="video-selection-list-label" class="visually-hidden">
         {videoListLabel}
       </p>
       <ol
