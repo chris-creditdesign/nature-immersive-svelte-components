@@ -1,32 +1,39 @@
 <script>
-  import { Sidebar } from "creditdesign-svelte-components";
   import LiteYouTube from "../../../videos/LiteYouTube/index.svelte";
   import VideoInfo from "../VideoInfo/index.svelte";
 
   export let videoData;
   export let headerLevel = "h2";
   export let headlineFontSize = "big-1";
-  export let sidebarOnRight = false;
+  export let videoOnLeft = false;
 </script>
 
 <style>
-  :global(.video-card) {
+  .video-card {
     background-color: var(--color--white-1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s0);
+  }
+
+  .video-card.row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  :global(.video-card > *:first-child) {
+    flex-basis: 30ch;
+    flex-grow: 1;
+  }
+
+  :global(.video-card > *:last-child) {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: calc(50% - var(--s0));
   }
 </style>
 
-<Sidebar
-  className="box video-card"
-  sidebarWidth="30ch"
-  sidebarContentMinWidth="50%"
-  {sidebarOnRight}
-  sidebarSpace="var(--s0)"
->
-  <svelte:fragment slot="sidebar">
-    <VideoInfo {videoData} {headerLevel} {headlineFontSize} />
-  </svelte:fragment>
+<div class="video-card box" class:row-reverse={videoOnLeft}>
+  <VideoInfo {videoData} {headerLevel} {headlineFontSize} />
 
-  <svelte:fragment slot="main-content">
-    <LiteYouTube title={videoData.title} videoId={videoData.videoId} />
-  </svelte:fragment>
-</Sidebar>
+  <LiteYouTube title={videoData.title} videoId={videoData.videoId} />
+</div>

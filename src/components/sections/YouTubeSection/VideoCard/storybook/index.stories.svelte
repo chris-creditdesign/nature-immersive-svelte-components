@@ -13,7 +13,7 @@
     headlineFontSize: {
       control: { type: "select", options: fontSizeOptions },
     },
-    sidebarOnRight: { control: "boolean" },
+    videoOnLeft: { control: "boolean" },
   };
 </script>
 
@@ -30,7 +30,7 @@
     videoData: videoDataArray[0],
     headerLevel: "h2",
     headlineFontSize: "big-1",
-    sidebarOnRight: false,
+    videoOnLeft: false,
   }}
 >
   <VideoCard {...args} />

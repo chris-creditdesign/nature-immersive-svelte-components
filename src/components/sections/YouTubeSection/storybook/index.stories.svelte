@@ -22,7 +22,7 @@
     </div>
 
     {#each videoDataArray as videoData, i}
-      <VideoCard {videoData} sidebarOnRight={(i %= 2)} />
+      <VideoCard {videoData} videoOnLeft={(i %= 2)} />
     {/each}
 
     <div
