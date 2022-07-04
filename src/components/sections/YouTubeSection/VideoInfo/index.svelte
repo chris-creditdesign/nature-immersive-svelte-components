@@ -45,12 +45,7 @@
     <div class="definition-container">
       <dt><PersonIcon title="Authors:" /></dt>
       <dd>
-        <ul class="cluster" style="--cluster-space--component: var(--s-4);">
-          {#each videoData.authors as author, i}
-            <li>{author}{i < videoData.authors.length ? "," : ""}</li>
-          {/each}
-          <li class="font-style:italic">et al.</li>
-        </ul>
+        {videoData.authors}
       </dd>
     </div>
 
