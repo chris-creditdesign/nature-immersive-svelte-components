@@ -76,6 +76,7 @@ export { default as TwitterIcon } from "./components/icons/TwitterIcon/index.sve
 export { default as RadioIcon } from "./components/icons/RadioIcon/index.svelte";
 export { default as FilterIcon } from "./components/icons/FilterIcon/index.svelte";
 export { default as DownloadFileIcon } from "./components/icons/DownloadFileIcon/index.svelte";
+export { default as DownloadIcon } from "./components/icons/DownloadIcon/index.svelte";
 export { default as LocationIcon } from "./components/icons/LocationIcon/index.svelte";
 export { default as PersonIcon } from "./components/icons/PersonIcon/index.svelte";
 export { default as StarIcon } from "./components/icons/StarIcon/index.svelte";
