@@ -17,26 +17,10 @@
   let tabindex = id.length && href !== undefined ? "-1" : null;
 
   let className = `font-size:${headlineFontSize} font-weight:bold`;
+
+  let tag = headerLevel === "none" ? "span" : headerLevel;
 </script>
 
-{#if headerLevel === "h1"}
-  <h1 id={useId} {tabindex} class={className}>
-    <slot />
-  </h1>
-{:else if headerLevel === "h2"}
-  <h2 id={useId} {tabindex} class={className}>
-    <slot />
-  </h2>
-{:else if headerLevel === "h3"}
-  <h3 id={useId} {tabindex} class={className}>
-    <slot />
-  </h3>
-{:else if headerLevel === "h4"}
-  <h4 id={useId} {tabindex} class={className}>
-    <slot />
-  </h4>
-{:else if headerLevel === "none"}
-  <span id={useId} {tabindex} class={className}>
-    <slot />
-  </span>
-{/if}
+<svelte:element this={tag} id={useId} {tabindex} class={className}>
+  <slot />
+</svelte:element>
