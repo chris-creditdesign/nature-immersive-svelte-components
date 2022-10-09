@@ -30,7 +30,7 @@
 <header>
   <Stack stackSpace={cardHeaderStackSpace}>
     {#if eyebrow}
-      <p class="font-size:small font-family:sans-serif">
+      <p class="eyebrow font-size:small font-family:sans-serif">
         {@html eyebrow}
       </p>
     {/if}

@@ -52,7 +52,7 @@
     <Stack {stackSpace}>
       <Sidebar
         sidebarContentMinWidth={textMinWidth}
-        sidebarOnLeft={imageOnLeft}
+        sidebarOnRight={!imageOnLeft}
         {sidebarSpace}
         sidebarWidth={imageWidth}
       >
