@@ -18,7 +18,7 @@
     top: calc(1.6em + var(--s-1) + var(--s-1));
     left: 0;
     z-index: 999;
-    width: 100vw;
+    width: 100%;
     max-width: none;
     border-top: 1px solid var(--color--text-invert);
   }
