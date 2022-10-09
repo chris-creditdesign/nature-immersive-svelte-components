@@ -1,0 +1,30 @@
+@at-root html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @at-root html {
+    scroll-behavior: auto;
+  }
+}
+
+@at-root body {
+  margin: 0;
+  color: var(--color--text);
+  background-color: var(--color--background);
+
+  /* https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth */
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+@import "../../node_modules/creditdesign-svelte-components/scss/index.scss";
+@import "./font-size.scss";
+@import "./fonts.scss";
+@import "./custom-props.scss";
+@import "./dark-theme.scss";
+@import "./elements.scss";
+@import "./buttons.scss";
+@import "./themes.scss";
+@import "./modifiers.scss";
+@import "./utilities.scss";
+@import "./storybook-fixes.scss";
