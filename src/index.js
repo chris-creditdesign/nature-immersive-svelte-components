@@ -100,13 +100,14 @@ export { default as SeriesArticleNav } from "./components/interactive/SeriesArti
 
 /* --------------------------------- Buttons -------------------------------- */
 
-export { default as SimpleButton } from "./components/buttons/SimpleButton/index.svelte";
-export { default as ToggleButton } from "./components/buttons/ToggleButton/index.svelte";
+export { default as ExpandButton } from "./components/buttons/ExpandButton/index.svelte";
 export { default as FilterButton } from "./components/buttons/FilterButton/index.svelte";
-export { default as SwitchButton } from "./components/buttons/SwitchButton/index.svelte";
-export { default as VideoButton } from "./components/buttons/VideoButton/index.svelte";
 export { default as NextButton } from "./components/buttons/NextButton/index.svelte";
 export { default as PrevButton } from "./components/buttons/PrevButton/index.svelte";
+export { default as SimpleButton } from "./components/buttons/SimpleButton/index.svelte";
+export { default as SwitchButton } from "./components/buttons/SwitchButton/index.svelte";
+export { default as ToggleButton } from "./components/buttons/ToggleButton/index.svelte";
+export { default as VideoButton } from "./components/buttons/VideoButton/index.svelte";
 
 /* --------------------------------- Effects -------------------------------- */
 
