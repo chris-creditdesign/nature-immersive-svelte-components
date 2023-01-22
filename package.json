@@ -45,6 +45,7 @@
     "postcss-html": "^1.4.1",
     "prettier": "^2.6.2",
     "prettier-plugin-svelte": "^2.7.0",
+    "rollup": "^2.79.1",
     "rollup-plugin-svelte": "^7.1.0",
     "storybook-dark-mode": "^1.0.9",
     "stylelint": "^14.7.1",
