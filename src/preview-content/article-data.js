@@ -1,4 +1,4 @@
-const articleData = {
+export const articleData = {
 	twitterHandle: '@nature',
 	title: 'Page title',
 	description: 'Page description.',
@@ -23,5 +23,3 @@ const articleData = {
 		{ text: 'Download data', href: 'dat/data.zip' }
 	]
 };
-
-module.exports = articleData;
