@@ -1,8 +1,17 @@
-<script>
-  export let text = "Headline headline";
-  export let headerLevel = "h2";
-  export let headlineFontSize = "big-2";
-  export let headlineFontWeight = "bold";
+<script lang="ts">
+  interface Props {
+    text?: string;
+    headerLevel?: string;
+    headlineFontSize?: string;
+    headlineFontWeight?: string;
+  }
+
+  let {
+    text = "Headline headline",
+    headerLevel = "h2",
+    headlineFontSize = "big-2",
+    headlineFontWeight = "bold"
+  }: Props = $props();
 </script>
 
 {#if headerLevel === "h1"}

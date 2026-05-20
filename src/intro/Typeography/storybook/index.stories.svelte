@@ -1,16 +1,14 @@
-<script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-
-  import Typography from "../index.svelte";
-</script>
-
-<Meta
-  title="Intro/Typography"
-  component={Typography}
-  parameters={{
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import Typography from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'Intro/Typography',
+    component: Typography,
+    parameters: {
     controls: { hideNoControlsWarning: true },
-  }}
-/>
+  },
+  });
+</script>
 
 <Story name="Harding font">
   <Typography />

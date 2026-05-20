@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   /**
    * When the button is in its 'open' state, `aria-expanded` will be true.
    *
@@ -15,32 +15,39 @@
    */
   import ChevronIcon from "../../icons/ChevronIcon/index.svelte";
 
-  /**
-   * Optional to add extra class to button element
-   */
-  export let className = "";
-  /**
-   * State of `aria-expanded` attribute on button.
-   */
-  export let expanded = false;
-  /**
-   * Text that will be displayed in the button when it is expanded
-   */
-  export let expandedMessage = "Close";
-  /**
-   * Text that will be displayed in the button when it is not expanded
-   */
-  export let message = "Open";
-  /**
-   * Option to add `data-theme` to button element.
-   */
-  export let theme = "";
-  export let disabled = false;
+  interface Props {
+    /** Optional to add extra class to button element */
+    className?: string;
+    /** State of `aria-expanded` attribute on button. */
+    expanded?: boolean;
+    /** Text that will be displayed in the button when it is expanded */
+    expandedMessage?: string;
+    /** Text that will be displayed in the button when it is not expanded */
+    message?: string;
+    /** Option to add `data-theme` to button element. */
+    theme?: string;
+    disabled?: boolean;
+    onclick?: (event: MouseEvent) => void;
+    onfocus?: (event: FocusEvent) => void;
+    onblur?: (event: FocusEvent) => void;
+  }
 
-  let buttonElement;
+  let {
+    className = "",
+    expanded = false,
+    expandedMessage = "Close",
+    message = "Open",
+    theme = "",
+    disabled = false,
+    onclick,
+    onfocus,
+    onblur
+  }: Props = $props();
+
+  let buttonElement = $state<HTMLButtonElement | undefined>();
 
   export function focusButton() {
-    buttonElement.focus();
+    buttonElement?.focus();
   }
 </script>
 
@@ -70,9 +77,9 @@
   data-event-label="Expand button clicked"
   data-theme={theme}
   data-track="click"
-  on:blur
-  on:click
-  on:focus
+  onblur={onblur}
+  onclick={onclick}
+  onfocus={onfocus}
   type="button"
   disabled={disabled ? true : null}
 >

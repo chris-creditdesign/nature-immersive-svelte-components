@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   /**
    * A Card Component
    *
@@ -9,7 +9,9 @@
   import Image from "../../Image/index.svelte";
   import { Stack } from "creditdesign-svelte-components";
 
-  /**
+  
+  interface Props {
+    /**
    * - altText
    * - caption
    * - eyebrow
@@ -20,15 +22,30 @@
    * - subHead
    * - text
    */
-  export let cardData;
-  export let cardHeaderStackSpace = "var(--s-4)";
-  export let className = "";
-  export let headerLevel = "h2";
-  export let headlineFontSize = "big-2";
-  export let id = "";
-  export let stackSpace = "var(--s-1)";
-  export let relatedLinksStackSpace = "var(--s-3)";
-  export let theme = "";
+    cardData: any;
+    cardHeaderStackSpace?: string;
+    className?: string;
+    headerLevel?: string;
+    headlineFontSize?: string;
+    id?: string;
+    stackSpace?: string;
+    relatedLinksStackSpace?: string;
+    theme?: string;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    cardData,
+    cardHeaderStackSpace = "var(--s-4)",
+    className = "",
+    headerLevel = "h2",
+    headlineFontSize = "big-2",
+    id = "",
+    stackSpace = "var(--s-1)",
+    relatedLinksStackSpace = "var(--s-3)",
+    theme = "",
+    children
+  }: Props = $props();
 
   let {
     altText,
@@ -87,6 +104,6 @@
       </p>
     {/if}
 
-    <slot />
+    {@render children?.()}
   </Stack>
 </div>

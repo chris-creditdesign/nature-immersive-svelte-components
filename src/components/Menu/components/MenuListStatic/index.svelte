@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { Stack } from "creditdesign-svelte-components";
 
-  export let menuLinks;
+  let { menuLinks } = $props();
 </script>
 
 <style>

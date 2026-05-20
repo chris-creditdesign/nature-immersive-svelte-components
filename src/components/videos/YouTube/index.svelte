@@ -1,17 +1,19 @@
-<script>
-  import { onMount, afterUpdate } from "svelte";
-  import { Frame } from "creditdesign-svelte-components";
+<script lang="ts">
   import { youTubeIframeAPIReady } from "../../stores/youtube-iframe-api-ready.js";
   import { youTubePlayerReady } from "./stores/youtube-player-ready.js";
 
-  export let videoId;
-  export let videoRatioHeight = 9;
-  export let videoRatioWidth = 16;
+  interface Props {
+    videoId: string;
+    videoRatioHeight?: number;
+    videoRatioWidth?: number;
+  }
 
-  let width = 600;
-  let mounted = false;
-  let heightOverWidthRatio = videoRatioHeight / videoRatioWidth;
-  let player;
+  let { videoId, videoRatioHeight = 9, videoRatioWidth = 16 }: Props = $props();
+
+  let width = $state(600);
+  let mounted = $state(false);
+  let heightOverWidthRatio = $derived(videoRatioHeight / videoRatioWidth);
+  let player = $state<any>(null);
   let uniqueVideoId = `${videoId}-${Date.now().toString(36)}`;
 
   let onPlayerReady = () => {
@@ -27,10 +29,8 @@
 
     // https://developers.google.com/youtube/iframe_api_reference
     // This code loads the IFrame Player API code asynchronously.
-    let script;
-    let scriptAddedToPage = document.getElementById(
-      "nature-immersive-youtube-api"
-    );
+    let script: HTMLScriptElement | undefined;
+    let scriptAddedToPage = document.getElementById("nature-immersive-youtube-api");
     if (!$youTubeIframeAPIReady && !scriptAddedToPage) {
       script = document.createElement("script");
       script.setAttribute("id", "nature-immersive-youtube-api");
@@ -39,13 +39,13 @@
       document.head.appendChild(script);
     }
 
-    window.onYouTubeIframeAPIReady = function () {
+    (window as any).onYouTubeIframeAPIReady = function () {
       youTubeIframeAPIReady.set(true);
     };
 
     return () => {
       if (script) {
-        script.parentNode.removeChild(script);
+        script.parentNode?.removeChild(script);
       }
       if (player) {
         player.destroy();
@@ -54,10 +54,9 @@
     };
   });
 
-  afterUpdate(() => {
-    // Would this be better with async await?
+  $effect(() => {
     if (!player && $youTubeIframeAPIReady) {
-      player = new YT.Player(uniqueVideoId, {
+      player = new (window as any).YT.Player(uniqueVideoId, {
         videoId,
         events: {
           onReady: onPlayerReady,

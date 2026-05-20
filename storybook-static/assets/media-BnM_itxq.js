@@ -1,0 +1,1 @@
+import{as as l,a4 as r}from"./props-D2QecWz3.js";function t(a,s,u=s){var p=s(),e=()=>{p!==a.paused&&u(p=a.paused)};l(a,["play","pause","canplay"],e,p==null),r(()=>{(p=!!s())!==a.paused&&(p?a.pause():a.play().catch(f=>{throw u(p=!0),f}))})}export{t as b};

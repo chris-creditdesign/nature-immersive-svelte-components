@@ -1,11 +1,18 @@
-<script>
+<script lang="ts">
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   import { slide } from "svelte/transition";
   import { quadIn, quadOut } from "svelte/easing";
   import { Switcher, Box } from "creditdesign-svelte-components";
 
-  export let menuLinks = [];
-  export let lastMenuLinkElem = null;
-  export let menuHeight = 0;
+  interface Props {
+    menuLinks?: any;
+    lastMenuLinkElem?: any;
+    menuHeight?: number;
+  }
+
+  let { menuLinks = [], lastMenuLinkElem = $bindable(null), menuHeight = 0 }: Props = $props();
 
   let style = `top: ${menuHeight}px;`;
 </script>
@@ -51,8 +58,8 @@
           <li>
             <a
               {href}
-              on:focus
-              on:blur
+              onfocus={bubble('focus')}
+              onblur={bubble('blur')}
               data-event-category="menu"
               data-event-action="click"
               data-event-label={text}
@@ -65,8 +72,8 @@
           <li>
             <a
               {href}
-              on:focus
-              on:blur
+              onfocus={bubble('focus')}
+              onblur={bubble('blur')}
               bind:this={lastMenuLinkElem}
               data-event-category="menu"
               data-event-action="click"

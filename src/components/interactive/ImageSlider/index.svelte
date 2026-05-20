@@ -1,42 +1,57 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import Static from "./components/ImageSliderStatic/index.svelte";
   import Interactive from "./components/ImageSliderInteractive/index.svelte";
 
-  /**
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * Aria-label to apply to canvas element.
    */
-  export let altText = "Interactive section used to compare two images.";
-  /**
+    altText?: string;
+    /**
    * Percentage of imageA that should be showing over imageB
    * when the component loads.
    */
-  export let amountToReveal = 0;
-  /**
+    amountToReveal?: number;
+    /**
    * Array of objects containing:
    *
    * - srcURL
    * - altText
    * - caption
    */
-  export let imageData;
-  /**
+    imageData: any;
+    /**
    * Text to sit above the slider
    */
-  export let message = "Use the slider to reveal the hidden image:";
-  /**
+    message?: string;
+    /**
    * Class to add to container div
    */
-  export let className = "";
+    className?: string;
+  }
 
-  let ratio;
-  let loadedImages = [];
-  let mounted = false;
+  let {
+    altText = "Interactive section used to compare two images.",
+    amountToReveal = 0,
+    imageData,
+    message = "Use the slider to reveal the hidden image:",
+    className = ""
+  }: Props = $props();
+
+  let ratio = $state();
+  let loadedImages = $state([]);
+  let mounted = $state(false);
   let componentMap = new Map();
   componentMap.set(false, Static);
   componentMap.set(true, Interactive);
 
-  $: selectedComponent = componentMap.get(mounted);
+  let selectedComponent = $derived(componentMap.get(mounted));
 
   onMount(() => {
     loadedImages = imageData.map((elem) => {
@@ -64,10 +79,11 @@
         mounted = false;
       });
   });
+
+  const SvelteComponent = $derived(selectedComponent);
 </script>
 
-<svelte:component
-  this={selectedComponent}
+<SvelteComponent
   {altText}
   {amountToReveal}
   imageA={loadedImages[0]}

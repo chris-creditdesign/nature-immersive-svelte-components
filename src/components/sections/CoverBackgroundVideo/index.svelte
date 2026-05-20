@@ -1,37 +1,55 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import { Cover, Cluster } from "creditdesign-svelte-components";
   import VideoButton from "../../buttons/VideoButton/index.svelte";
 
-  export let srcURL;
-  export let alt;
-  /**
+  
+  
+  
+  interface Props {
+    srcURL: any;
+    alt: any;
+    /**
    * Side padding of sloted content
    */
-  export let coverSpace = "var(--s0)";
-  export let coverHeight = "100vh";
-  /**
+    coverSpace?: string;
+    coverHeight?: string;
+    /**
    * Optional class to add to button element.
    */
-  export let buttonClassName = "";
-  export let buttonPausedMessage = "Play video";
-  export let buttonPlayingMessage = "Pause video";
-  /**
+    buttonClassName?: string;
+    buttonPausedMessage?: string;
+    buttonPlayingMessage?: string;
+    /**
    * Optional to add `data-theme` to button element.
    */
-  export let buttonTheme = "";
+    buttonTheme?: string;
+    children?: import('svelte').Snippet;
+  }
 
-  let slotPresent = Object.keys($$slots).length > 0;
+  let {
+    srcURL,
+    alt,
+    coverSpace = "var(--s0)",
+    coverHeight = "100vh",
+    buttonClassName = "",
+    buttonPausedMessage = "Play video",
+    buttonPlayingMessage = "Pause video",
+    buttonTheme = "",
+    children
+  }: Props = $props();
+
+  let slotPresent = !!children;
 
   // If the slot is present add the css class to add a semi-transparent
   // background and make the text color white.
   let className = slotPresent ? "cover-with-background" : null;
 
-  let mounted = false;
-  let paused = true;
-  let prefersReducedMotion = true;
-  let video;
-  let handleBtnClick;
+  let mounted = $state(false);
+  let paused = $state(true);
+  let prefersReducedMotion = $state(true);
+  let video = $state();
+  let handleBtnClick = $state();
 
   let srcIMG = srcURL.replace(/-small/, "");
   let srcWEBM = srcURL
@@ -107,7 +125,7 @@
     {/if}
 
     <div class="cover__centered">
-      <slot />
+      {@render children?.()}
     </div>
 
     {#if mounted}
@@ -118,7 +136,7 @@
           playingMessage={buttonPlayingMessage}
           theme={buttonTheme}
           {paused}
-          on:click={handleBtnClick}
+          onclick={handleBtnClick}
         />
       </Cluster>
     {/if}

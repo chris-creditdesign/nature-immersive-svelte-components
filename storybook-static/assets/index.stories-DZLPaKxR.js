@@ -1,0 +1,5 @@
+import{aE as n,ay as i,aB as p,aY as l}from"./props-D2QecWz3.js";import{c as m,d as c}from"./create-runtime-stories-BTZEUp9S.js";import{S as e}from"./index-Dt09Fgcf.js";import{i as g}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";const d={title:"components/logos/SpringerNatureLogo",component:e,argTypes:{className:{control:"text"},height:{control:{type:"range",min:.5,max:10,step:.1}},title:{control:"text"}}},{Story:u}=c();function t(o,s){n(s,!1),g(),u(o,{name:"Default",args:{className:"example-class",height:1,title:"Springer Nature"},children:(r,a=i)=>{e(r,l(a))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<SpringerNatureLogo {...args}>
+  {#snippet children(args)}
+<SpringerNatureLogo {...args} />
+{/snippet}
+</SpringerNatureLogo>`}}}),p()}t.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const f=m(t,d),L=["Default"],$={...f.Default,tags:["svelte-csf-v5"]};export{$ as Default,L as __namedExportsOrder,d as default};

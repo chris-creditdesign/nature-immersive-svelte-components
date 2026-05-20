@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import { menuElement, menuHeight } from "./stores/menu-stores.js";
   import MenuList from "./components/MenuList/index.svelte";
@@ -8,28 +8,35 @@
   import NatureLogo from "../logos/NatureLogo/index.svelte";
   import MenuPdfDownload from "./components/MenuPdfDownload/index.svelte";
 
-  /**
-   * - menuLinks
-   * - pdfAvailable
-   * - doi
-   */
-  export let articleData;
+  interface Props {
+    /**
+     * - menuLinks
+     * - pdfAvailable
+     * - doi
+     */
+    articleData: any;
+    children?: import('svelte').Snippet;
+    heading?: import('svelte').Snippet;
+  }
+
+  let { articleData, children, heading }: Props = $props();
   let { menuLinks, pdfAvailable, doi } = articleData;
 
   let logoHeight = 1.6;
-  let mounted = false;
-  let menuIsExpanded = true;
-  let menuLinkIsFocused = false;
-  let buttonIsFocused = false;
-  let lastMenuLinkElem = null;
-  let handleButtonBlur;
+  let mounted = $state(false);
+  let menuIsExpanded = $state(true);
+  let menuLinkIsFocused = $state(false);
+  let buttonIsFocused = $state(false);
+  let lastMenuLinkElem = $state<HTMLElement | null>(null);
+  let expandButtonRef = $state<InstanceType<typeof ExpandButton> | null>(null);
+  let handleButtonBlur: (() => void) | undefined;
 
   let closeMenu = () => {
     menuIsExpanded = false;
   };
 
   let focusButton = () => {
-    buttonElement.focus();
+    expandButtonRef?.focusButton();
   };
 
   let handleButtonClick = () => {
@@ -44,15 +51,15 @@
     buttonIsFocused = true;
   };
 
-  let handleMenuLinkBlur = (event) => {
+  let handleMenuLinkBlur = (event: Event) => {
     menuLinkIsFocused = false;
 
-    if (event.target === lastMenuLinkElem) {
+    if ((event as FocusEvent).target === lastMenuLinkElem) {
       closeMenu();
     }
   };
 
-  let handleKeydown = (event) => {
+  let handleKeydown = (event: KeyboardEvent) => {
     let { key } = event;
     let escapeIsPressed = key === "Escape";
     let menuLinkOrButtonAreFocused = menuLinkIsFocused || buttonIsFocused;
@@ -68,8 +75,8 @@
     menuIsExpanded = false;
 
     // `window` is not available for static render,
-    // so wait till onMount to define this function
-    // 'blur' event doesn't seem to fire on firefox using MocOS using mouse clicks
+    // so wait till onMount to define this function.
+    // 'blur' event doesn't fire reliably on Firefox/macOS with mouse clicks:
     // https://github.com/facebook/react/issues/12993#issuecomment-413949427
     handleButtonBlur = () => {
       window.setTimeout(() => {
@@ -120,7 +127,7 @@
   }
 </style>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window onkeydown={handleKeydown} />
 
 <a href="#main-content" class="skip-link font-family:sans-serif">
   Skip to main content
@@ -153,13 +160,13 @@
       {#if mounted}
         <li>
           <ExpandButton
+            bind:this={expandButtonRef}
             expanded={menuIsExpanded}
             expandedMessage="Menu"
-            let:buttonElement
             message="Menu"
-            on:blur={handleButtonBlur}
-            on:click={handleButtonClick}
-            on:focus={handleButtonFocus}
+            onblur={handleButtonBlur}
+            onclick={handleButtonClick}
+            onfocus={handleButtonFocus}
             theme="menu"
           />
           {#if menuIsExpanded}
@@ -167,8 +174,8 @@
               {menuLinks}
               bind:lastMenuLinkElem
               menuHeight={$menuHeight}
-              on:blur={handleMenuLinkBlur}
-              on:focus={handleMenuLinkFocus}
+              onblur={handleMenuLinkBlur}
+              onfocus={handleMenuLinkFocus}
             />
           {/if}
         </li>
@@ -180,10 +187,10 @@
     {/if}
   </ul>
 
-  <slot name="heading" />
+  {@render heading?.()}
 </header>
 
-<slot />
+{@render children?.()}
 
 {#if !mounted}
   <MenuListStatic {menuLinks} />

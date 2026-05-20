@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
   import { Stack } from "creditdesign-svelte-components";
@@ -6,22 +6,35 @@
   import PdfDownloadButton from "./components/PdfDownloadButton/index.svelte";
   import PdfDownloadContent from "./components/PdfDownloadContent/index.svelte";
 
-  export let cardData;
-  export let articleData;
-  /**
+  
+  interface Props {
+    cardData: any;
+    articleData: any;
+    /**
    * Boolean for the parent Component to report if it is not wide enough for the slider.
    * Normally set in App.svelte and accessed via a store.
    * If not wide enough, hide the button and show the contents.
    */
-  export let wideEnough = true;
+    wideEnough?: boolean;
+    above?: import('svelte').Snippet;
+    below?: import('svelte').Snippet;
+  }
+
+  let {
+    cardData,
+    articleData,
+    wideEnough = true,
+    above,
+    below
+  }: Props = $props();
 
   let { doi } = articleData;
-  let mounted = false;
-  let expanded = true;
+  let mounted = $state(false);
+  let expanded = $state(true);
   let buttonIsFocused = false;
   let pdfLinkIsFocused = false;
-  let handleButtonBlur;
-  let handlePdfLinkBlur;
+  let handleButtonBlur = $state();
+  let handlePdfLinkBlur = $state();
 
   let close = () => {
     expanded = false;
@@ -135,40 +148,40 @@
   }
 </style>
 
-<svelte:window on:keydown={handleKeydown} />
+<svelte:window onkeydown={handleKeydown} />
 
 <div class="pdf-download">
   {#if wideEnough}
     <Stack>
-      <slot name="above" />
+      {@render above?.()}
       <div class="inner stack__split-after" class:expanded>
         {#if mounted}
           <PdfDownloadButton
-            on:click={handleButtonClick}
-            on:focus={handleButtonFocus}
-            on:blur={handleButtonBlur}
+            onclick={handleButtonClick}
+            onfocus={handleButtonFocus}
+            onblur={handleButtonBlur}
             {expanded}
           />
         {/if}
         {#if expanded}
           <div class="card-container" out:fade>
             <PdfDownloadContent
-              on:focus={handlePdfLinkFocus}
-              on:blur={handlePdfLinkBlur}
+              onfocus={handlePdfLinkFocus}
+              onblur={handlePdfLinkBlur}
               {cardData}
               {doi}
             />
           </div>
         {/if}
       </div>
-      <slot name="below" />
+      {@render below?.()}
     </Stack>
   {:else}
     <PdfDownloadContent
       {cardData}
       {doi}
-      on:focus={handlePdfLinkFocus}
-      on:blur={handlePdfLinkBlur}
+      onfocus={handlePdfLinkFocus}
+      onblur={handlePdfLinkBlur}
     />
   {/if}
 </div>

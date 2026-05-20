@@ -1,20 +1,18 @@
-// .storybook/manager.js
-
-import { addons } from "@storybook/addons";
+import { addons } from '@storybook/manager-api';
 
 addons.setConfig({
   isFullscreen: false,
   showNav: true,
   showPanel: true,
-  panelPosition: "right",
+  panelPosition: 'right',
   enableShortcuts: true,
   isToolshown: true,
   theme: undefined,
   selectedPanel: undefined,
-  initialActive: "sidebar",
+  initialActive: 'sidebar',
   sidebar: {
     showRoots: false,
-    collapsedRoots: ["other"],
+    collapsedRoots: ['other'],
   },
   toolbar: {
     title: { hidden: false },
@@ -24,3 +22,4 @@ addons.setConfig({
     fullscreen: { hidden: false },
   },
 });
+

@@ -42,4 +42,4 @@ const seriesArticleNavData = {
   ],
 };
 
-module.exports = seriesArticleNavData;
+export default seriesArticleNavData;

@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
   import { Stack } from "creditdesign-svelte-components";
   import Card from "../../../cards/Card/index.svelte";
 
-  export let stepContent;
+  let { stepContent } = $props();
 
   let { headline, cards } = stepContent;
 </script>

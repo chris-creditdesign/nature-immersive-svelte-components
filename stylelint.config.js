@@ -1,7 +1,6 @@
-module.exports = {
+export default {
   extends: [
     "stylelint-config-standard",
-    "stylelint-config-prettier",
     "stylelint-config-html",
   ],
   plugins: ["stylelint-order"],
@@ -219,7 +218,7 @@ module.exports = {
       "stroke",
     ],
     /* In order to allow svelte's :global() modifier */
-    "selector-pseudo-class-no-unknown": null,
+    "selector-pseudo-class-no-unknown": [true, { ignorePseudoClasses: ["global"] }],
     /* Stops stylelint butting heads with Svelet for VS Code's formatting for long lines */
 
     "declaration-colon-newline-after": null,

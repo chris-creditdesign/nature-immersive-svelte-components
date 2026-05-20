@@ -1,8 +1,22 @@
-<script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import ImageSliderInteractive from "../index.svelte";
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import ImageSliderInteractive from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/interactive/ImageSlider/components/ImageSliderInteractive',
+    component: ImageSliderInteractive,
+    argTypes: {
+    altText: { control: "text" },
+    amountToReveal: { control: { type: "range", min: 0, max: 100, step: 1 } },
+    imageA: { control: "none" },
+    imageB: { control: "none" },
+    message: { control: "text" },
+    className: { control: "text" },
+  },
+  });
+</script>
 
-  const imageData = [
+<script>
+const imageData = [
     {
       altText: "Scientific image containing duplicated regions.",
       caption: "The image that Elisabeth Bik was asked to review.",
@@ -15,7 +29,6 @@
       srcURL: "img/image-slider-test-b.jpg",
     },
   ];
-
   const loadedImages = imageData.map((elem) => {
     let thisImage = new Image();
     thisImage.src = elem.srcURL;
@@ -25,27 +38,8 @@
   });
 </script>
 
-<Meta
-  title="components/interactive/ImageSlider/components/ImageSliderInteractive"
-  component={ImageSliderInteractive}
-  argTypes={{
-    altText: { control: "text" },
-    amountToReveal: { control: { type: "range", min: 0, max: 100, step: 1 } },
-    imageA: { control: "none" },
-    imageB: { control: "none" },
-    message: { control: "text" },
-    className: { control: "text" },
-  }}
-/>
-
-<Story
-  name="Default"
-  let:args
-  args={{
-    imageA: loadedImages[0],
-    imageB: loadedImages[1],
-    className: "example-class",
-  }}
->
-  <ImageSliderInteractive {...args} />
+<Story name="Default" args={{ imageA: loadedImages[0], imageB: loadedImages[1], className: "example-class", }}>
+  {#snippet children(args)}
+    <ImageSliderInteractive {...args} />
+  {/snippet}
 </Story>

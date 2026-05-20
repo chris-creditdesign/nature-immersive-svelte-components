@@ -1,18 +1,30 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import { Cover } from "creditdesign-svelte-components";
 
-  export let srcURL = "";
-  export let alt = "";
-  /**
+  
+  interface Props {
+    srcURL?: string;
+    alt?: string;
+    /**
    * Side padding of sloted content
    */
-  export let coverSpace = "var(--s0)";
-  export let coverHeight = "100vh";
+    coverSpace?: string;
+    coverHeight?: string;
+    children?: import('svelte').Snippet;
+  }
 
-  $: src = srcURL;
+  let {
+    srcURL = "",
+    alt = "",
+    coverSpace = "var(--s0)",
+    coverHeight = "100vh",
+    children
+  }: Props = $props();
 
-  let slotPresent = Object.keys($$slots).length > 0;
+  let src = $derived(srcURL);
+
+  let slotPresent = !!children;
 
   // If the slot is present add the css class to add a semi-transparent
   // background and make the text color white.
@@ -21,7 +33,7 @@
     ? `linear-gradient(rgba(10, 4, 4, 0.4), rgba(10, 4, 4, 0.4)),`
     : "";
 
-  $: backgroundImageStyle = `background-image: ${linearGradientStyle} url(${src});`;
+  let backgroundImageStyle = $derived(`background-image: ${linearGradientStyle} url(${src});`);
 
   onMount(() => {
     src = srcURL.replace(/-small/, "");
@@ -49,7 +61,7 @@
 >
   <Cover {coverSpace} {coverHeight}>
     <div class="cover__centered">
-      <slot />
+      {@render children?.()}
     </div>
   </Cover>
 </div>

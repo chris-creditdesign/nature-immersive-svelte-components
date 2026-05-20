@@ -1,0 +1,1 @@
+import{K as t,ar as o,b7 as a,b5 as c,an as u}from"./props-D2QecWz3.js";function f(e){t===null&&o(),u&&t.l!==null?l(t).m.push(e):a(()=>{const n=c(e);if(typeof n=="function")return n})}function l(e){var n=e.l;return n.u??(n.u={a:[],b:[],m:[]})}export{f as o};

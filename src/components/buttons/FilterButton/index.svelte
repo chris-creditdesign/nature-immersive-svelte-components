@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   /**
    * When the button is in its 'filter on' state, `aria-expanded` will be true.
    *
@@ -6,24 +9,39 @@
    */
   import FilterIcon from "../../icons/FilterIcon/index.svelte";
 
-  /**
+  
+  
+  
+  
+  interface Props {
+    /**
    * Optional to add extra class to button element
    */
-  export let className = "";
-  /**
+    className?: string;
+    /**
    * State of `aria-expanded` attribute on button.
    */
-  export let expanded = false;
-  /**
+    expanded?: boolean;
+    /**
    * Text that will be displayed in the button when it is expanded
    */
-  export let expandedMessage = "Remove filter";
-  /**
+    expandedMessage?: string;
+    /**
    * Text that will be displayed in the button when it is not expanded
    */
-  export let message = "Add filter";
-  export let theme = "";
-  export let disabled = false;
+    message?: string;
+    theme?: string;
+    disabled?: boolean;
+  }
+
+  let {
+    className = "",
+    expanded = false,
+    expandedMessage = "Remove filter",
+    message = "Add filter",
+    theme = "",
+    disabled = false
+  }: Props = $props();
 </script>
 
 <button
@@ -34,7 +52,7 @@
   data-event-label="Filter button clicked"
   data-theme={theme}
   data-track="click"
-  on:click
+  onclick={bubble('click')}
   type="button"
   disabled={disabled ? true : null}
 >

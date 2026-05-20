@@ -1,11 +1,20 @@
-<script>
+<script lang="ts">
   import LiteYouTube from "../../../videos/LiteYouTube/index.svelte";
   import VideoInfo from "../VideoInfo/index.svelte";
 
-  export let videoData;
-  export let headerLevel = "h2";
-  export let headlineFontSize = "big-1";
-  export let videoOnLeft = false;
+  interface Props {
+    videoData: any;
+    headerLevel?: string;
+    headlineFontSize?: string;
+    videoOnLeft?: boolean;
+  }
+
+  let {
+    videoData,
+    headerLevel = "h2",
+    headlineFontSize = "big-1",
+    videoOnLeft = false
+  }: Props = $props();
 </script>
 
 <style>

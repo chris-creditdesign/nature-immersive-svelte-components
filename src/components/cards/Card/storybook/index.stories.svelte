@@ -1,16 +1,10 @@
-<script>
-  import { Meta, Story, Template } from "@storybook/addon-svelte-csf";
-  import Card from "../index.svelte";
-  import CardSideImageBox from "../../CardSideImageBox/index.svelte";
-  import cardData from "../../../../preview-content/card-data.js";
-  import {
-    headerLevelOptions,
-    fontSizeOptions,
-    spaceOptions,
-    themeOptions,
-  } from "../../../../preview-content/options.js";
-
-  let argTypes = {
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import Card from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/cards/Card',
+    component: Card,
+    argTypes: {
     cardData: {
       control: "object",
     },
@@ -31,78 +25,43 @@
       control: { type: "select", options: spaceOptions },
     },
     theme: { control: { type: "select", options: themeOptions } },
-  };
+  },
+    parameters: {
+    layout: "fullscreen",
+  },
+  });
+</script>
 
+<script>
+import CardSideImageBox from "../../CardSideImageBox/index.svelte";
+  import cardData from "../../../../preview-content/card-data.js";
+  import {
+    headerLevelOptions,
+    fontSizeOptions,
+    spaceOptions,
+    themeOptions,
+  } from "../../../../preview-content/options.js";
   let cardDataNoRelatedLinks = Object.assign({}, cardData, {
     relatedLinks: [],
   });
 </script>
 
-<Meta
-  title="components/cards/Card"
-  component={Card}
-  {argTypes}
-  parameters={{
-    layout: "fullscreen",
-  }}
-/>
-
-<Template let:args>
-  <Card {...args} />
-</Template>
-
-<Story
-  name="Default"
-  let:args
-  args={{
-    cardData: cardDataNoRelatedLinks,
-    cardHeaderStackSpace: "var(--s-4)",
-    className: "example-class",
-    headerLevel: "h2",
-    headlineFontSize: "big-2",
-    id: "example-id",
-    stackSpace: "var(--s-1)",
-    relatedLinksStackSpace: "var(--s-3)",
-    theme: "",
-  }}
->
-  <Card {...args} />
+<Story name="Default" args={{ cardData: cardDataNoRelatedLinks, cardHeaderStackSpace: "var(--s-4)", className: "example-class", headerLevel: "h2", headlineFontSize: "big-2", id: "example-id", stackSpace: "var(--s-1)", relatedLinksStackSpace: "var(--s-3)", theme: "", }}>
+  {#snippet children(args)}
+    <Card {...args} />
+  {/snippet}
 </Story>
 
-<Story
-  name="With related links"
-  let:args
-  args={{
-    cardData,
-    cardHeaderStackSpace: "var(--s-4)",
-    className: "example-class",
-    headerLevel: "h2",
-    headlineFontSize: "big-2",
-    id: "example-id",
-    stackSpace: "var(--s-1)",
-    relatedLinksStackSpace: "var(--s-3)",
-    theme: "",
-  }}
->
-  <Card {...args} />
+<Story name="With related links" args={{ cardData, cardHeaderStackSpace: "var(--s-4)", className: "example-class", headerLevel: "h2", headlineFontSize: "big-2", id: "example-id", stackSpace: "var(--s-1)", relatedLinksStackSpace: "var(--s-3)", theme: "", }}>
+  {#snippet children(args)}
+    <Card {...args} />
+  {/snippet}
 </Story>
 
-<Story
-  name="With card inserted"
-  let:args
-  args={{
-    cardData: cardDataNoRelatedLinks,
-    cardHeaderStackSpace: "var(--s-4)",
-    className: "example-class",
-    headerLevel: "h2",
-    headlineFontSize: "big-2",
-    id: "example-id",
-    stackSpace: "var(--s-1)",
-    relatedLinksStackSpace: "var(--s-3)",
-    theme: "",
-  }}
->
-  <Card {...args}>
-    <CardSideImageBox cardData={cardDataNoRelatedLinks} theme="invert" />
-  </Card>
+<Story name="With card inserted" args={{ cardData: cardDataNoRelatedLinks, cardHeaderStackSpace: "var(--s-4)", className: "example-class", headerLevel: "h2", headlineFontSize: "big-2", id: "example-id", stackSpace: "var(--s-1)", relatedLinksStackSpace: "var(--s-3)", theme: "", }}>
+  {#snippet children(args)}
+    <Card {...args}>
+      <CardSideImageBox cardData={cardDataNoRelatedLinks} theme="invert" />
+    </Card>
+  {/snippet}
 </Story>

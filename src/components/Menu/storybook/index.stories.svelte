@@ -1,14 +1,24 @@
-<script>
-  import { Meta, Story, Template } from "@storybook/addon-svelte-csf";
-  import { Stack } from "creditdesign-svelte-components";
-  import articleData from "../../../preview-content/article-data.js";
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import Menu from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/Menu',
+    component: Menu,
+    argTypes: {
+    articleData: { control: "object" },
+  },
+    parameters: {
+    layout: "fullscreen",
+  },
+  });
+</script>
 
-  import Menu from "../index.svelte";
+<script>
+import { Stack } from "creditdesign-svelte-components";
+  import articleData from "../../../preview-content/article-data.js";
   import Heading from "../../Heading/index.svelte";
   import SimpleVideo from "../../videos/SimpleVideo/index.svelte";
-
   let { menuLinks, pdfAvailable, doi } = articleData;
-
   let headingData = {
     author: "Author Name",
     headline: "Headline headline headline",
@@ -19,60 +29,32 @@
   };
 </script>
 
-<Meta
-  title="components/Menu"
-  component={Menu}
-  argTypes={{
-    articleData: { control: "object" },
-  }}
-  parameters={{
-    layout: "fullscreen",
-  }}
-/>
+<Story name="Default" args={{ articleData: { menuLinks, pdfAvailable, doi }, }}>
+  {#snippet children(args)}
+    <Menu {...args} />
+  {/snippet}
+</Story>
 
-<Template let:args>
-  <Menu {...args} />
-</Template>
+<Story name="With PDF" args={{ articleData: { menuLinks, pdfAvailable: true, doi }, }}>
+  {#snippet children(args)}
+    <Menu {...args} />
+  {/snippet}
+</Story>
 
-<Story
-  name="Default"
-  let:args
-  args={{
-    articleData: { menuLinks, pdfAvailable, doi },
-  }}
-/>
+<Story name="With no menu" args={{ articleData: { menuLinks: [], pdfAvailable, doi }, }}>
+  {#snippet children(args)}
+    <Menu {...args} />
+  {/snippet}
+</Story>
 
-<Story
-  name="With PDF"
-  let:args
-  args={{
-    articleData: { menuLinks, pdfAvailable: true, doi },
-  }}
-/>
+<Story name="With PDF but no menu" args={{ articleData: { menuLinks: [], pdfAvailable: true, doi }, }}>
+  {#snippet children(args)}
+    <Menu {...args} />
+  {/snippet}
+</Story>
 
-<Story
-  name="With no menu"
-  let:args
-  args={{
-    articleData: { menuLinks: [], pdfAvailable, doi },
-  }}
-/>
-
-<Story
-  name="With PDF but no menu"
-  let:args
-  args={{
-    articleData: { menuLinks: [], pdfAvailable: true, doi },
-  }}
-/>
-
-<Story
-  name="With heading"
-  let:args
-  args={{
-    articleData: { menuLinks, pdfAvailable, doi },
-  }}
->
+<Story name="With heading" args={{ articleData: { menuLinks, pdfAvailable, doi }, }}>
+  {#snippet children(args)}
   <Menu {...args}>
     <svelte:fragment slot="heading">
       <Heading articleData={headingData} />
@@ -82,15 +64,11 @@
       <a href="https://www.nature.come">Next focusable item...</a>
     </main>
   </Menu>
+  {/snippet}
 </Story>
 
-<Story
-  name="With video before heading"
-  let:args
-  args={{
-    articleData: { menuLinks, pdfAvailable, doi },
-  }}
->
+<Story name="With video before heading" args={{ articleData: { menuLinks, pdfAvailable, doi }, }}>
+  {#snippet children(args)}
   <Menu {...args}>
     <svelte:fragment slot="heading">
       <Stack>
@@ -109,4 +87,5 @@
       <a href="https://www.nature.come">Next focusable item...</a>
     </main>
   </Menu>
+  {/snippet}
 </Story>

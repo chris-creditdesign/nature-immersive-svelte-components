@@ -1,0 +1,12 @@
+import{aE as O,a7 as P,ay as u,aa as l,aW as m,s as d,aB as $,a9 as h,aY as c,a1 as v,z as L}from"./props-D2QecWz3.js";import{c as D,d as W}from"./create-runtime-stories-BTZEUp9S.js";import{Y as r}from"./index-BgIbuoIy.js";import{i as k}from"./lifecycle-BxzyBO6_.js";import{f as x,h as S}from"./options-B0eN1I47.js";import{L as q}from"./index-DZ5e75Qv.js";import{v as f}from"./video-data-array-DOf3FiVt.js";import"./index-C__6K5js.js";import"./each-C-_z2p6v.js";import"./index-z2squIO3.js";import"./slot-ChEXTifl.js";import"./class-CoxErtGF.js";import"./attributes-pwFWEx45.js";import"./index-ClUjit7f.js";import"./index-client-B4LLJqus.js";import"./index-BZ9D-Wmf.js";import"./svelte-element-DeaYRF6t.js";import"./index-C__dGtKU.js";import"./index-ptHkvhc7.js";import"./this-B0xwDqzd.js";import"./legacy-client-DJX1Senp.js";import"./youtube-iframe-api-ready-D29aQybQ.js";import"./index-BgQRSmCm.js";const w={title:"components/sections/YouTubeSection/YouTubeCarousel",component:r,argTypes:{videoDataArray:{control:"objet"},headerLevel:{control:{type:"select",options:S}},headlineFontSize:{control:{type:"select",options:x}},videoListLabel:{control:"text"}}},{Story:_}=W();var z=h('<div class="stack"><!> <!></div>'),I=h("<!> <!>",1);function g(b,T){O(T,!1),k();var a=I(),i=P(a);{const e=(t,s=u)=>{r(t,c(s))};let o=v(()=>({videoDataArray:f}));_(i,{name:"Default",get args(){return l(o)},children:e,$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<YouTubeCarousel {...args}>
+  {#snippet children(args)}
+<YouTubeCarousel {...args} />
+{/snippet}
+</YouTubeCarousel>`}}})}var y=m(i,2);{const e=(t,s=u)=>{var n=z(),p=L(n);q(p,{videoId:"kYmLQP2M-qo"});var C=m(p,2);r(C,c(s)),d(t,n)};let o=v(()=>({videoDataArray:f}));_(y,{name:"With other YouTube players on page.",get args(){return l(o)},children:e,$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<YouTubeCarousel {...args}>
+  {#snippet children(args)}
+<div class="stack">
+  <LiteYouTube videoId={"kYmLQP2M-qo"} />
+  <YouTubeCarousel {...args} />
+</div>
+{/snippet}
+</YouTubeCarousel>`}}})}d(b,a),$()}g.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const Y=D(g,w),ie=["Default","WithOtherYouTubePlayersOnPage"],ne={...Y.Default,tags:["svelte-csf-v5"]},pe={...Y.WithOtherYouTubePlayersOnPage,tags:["svelte-csf-v5"]};export{ne as Default,pe as WithOtherYouTubePlayersOnPage,ie as __namedExportsOrder,w as default};

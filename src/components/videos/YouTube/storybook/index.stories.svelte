@@ -1,27 +1,25 @@
-<script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import { Stack } from "creditdesign-svelte-components";
-  import YouTube from "../index.svelte";
-
-  let argTypes = {
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import YouTube from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/videos/YouTube',
+    component: YouTube,
+    argTypes: {
     videoId: { control: "text" },
     videoRatioHeight: { control: "number" },
     videoRatioWidth: { control: "number" },
-  };
+  },
+  });
 </script>
 
-<Meta title="components/videos/YouTube" component={YouTube} {argTypes} />
+<script>
+import { Stack } from "creditdesign-svelte-components";
+</script>
 
-<Story
-  name="Default"
-  let:args
-  args={{
-    videoId: "kYmLQP2M-qo",
-    videoRatioHeight: 9,
-    videoRatioWidth: 16,
-  }}
->
-  <YouTube {...args} />
+<Story name="Default" args={{ videoId: "kYmLQP2M-qo", videoRatioHeight: 9, videoRatioWidth: 16, }}>
+  {#snippet children(args)}
+    <YouTube {...args} />
+  {/snippet}
 </Story>
 
 <Story name="Multiple videos">

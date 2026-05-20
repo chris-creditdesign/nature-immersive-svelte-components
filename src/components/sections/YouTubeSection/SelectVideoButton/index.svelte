@@ -1,19 +1,27 @@
-<script>
-  import { createEventDispatcher, onMount } from "svelte";
-  export let videoId;
-  export let title;
-  export let index;
-  export let currentVideoIndex;
+<script lang="ts">
+  import { onMount } from "svelte";
 
-  let mounted = false;
+  interface Props {
+    videoId: string;
+    title: string;
+    index: number;
+    currentVideoIndex: number;
+    onmessage?: (detail: { index: number }) => void;
+  }
+
+  let {
+    videoId,
+    title,
+    index,
+    currentVideoIndex,
+    onmessage
+  }: Props = $props();
+
+  let mounted = $state(false);
   let backgroundImageUrl = `url('https://i.ytimg.com/vi/${videoId}/sddefault.jpg')`;
 
-  const dispatch = createEventDispatcher();
-
   function sendMessage() {
-    dispatch("message", {
-      index,
-    });
+    onmessage?.({ index });
   }
 
   onMount(() => {
@@ -49,7 +57,7 @@
 
 {#if mounted}
   <button
-    on:click={sendMessage}
+    onclick={sendMessage}
     aria-current={index === currentVideoIndex ? "true" : null}
     class="frame"
     style="--frame-ratio-height--component: 9; --frame-ratio-width--component: 16; background-image: {backgroundImageUrl};"

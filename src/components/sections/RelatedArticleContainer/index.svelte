@@ -1,14 +1,26 @@
-<script>
+<script lang="ts">
   import { Stack } from "creditdesign-svelte-components";
   import CardSideImageBox from "../../cards/CardSideImageBox/index.svelte";
 
-  export let headline = "Related articles";
-  export let stand = "";
-  export let relatedArticleFlexBasis = "";
-  export let relatedArticleFlexGap = "";
-  export let relatedArticles = [];
-  export let cardHeaderLevel = "h3";
-  export let cardHeadlineFontSize = "big-1";
+  interface Props {
+    headline?: string;
+    stand?: string;
+    relatedArticleFlexBasis?: string;
+    relatedArticleFlexGap?: string;
+    relatedArticles?: any;
+    cardHeaderLevel?: string;
+    cardHeadlineFontSize?: string;
+  }
+
+  let {
+    headline = "Related articles",
+    stand = "",
+    relatedArticleFlexBasis = "",
+    relatedArticleFlexGap = "",
+    relatedArticles = [],
+    cardHeaderLevel = "h3",
+    cardHeadlineFontSize = "big-1"
+  }: Props = $props();
 
   // Id to add to the headline so it can be referenced by the parent
   // `aside` element's `aria-labelledby` attribute.

@@ -1,0 +1,7 @@
+import{aE as c,ay as u,aB as m,aY as f,aa as t,s as g,a9 as v,aO as _,aZ as h,z as y}from"./props-D2QecWz3.js";import{c as k,d as x}from"./create-runtime-stories-BTZEUp9S.js";import{V as a}from"./index-Dl2iB8Kv.js";import{a as b}from"./index-B-lxVbXh.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";import"./legacy-client-DJX1Senp.js";import"./v4-CtRu48qb.js";const $={title:"components/buttons/VideoButton",component:a,argTypes:{className:{control:"text"},paused:{control:"boolean"},pausedMessage:{control:"text"},playingMessage:{control:"text"},disabled:{control:"boolean"}}},{Story:B}=x();var V=v('<div style="padding: var(--s3);background-color: #999"><!></div>');function o(n,r){c(r,!0);let e=h(!1),d=()=>{_(e,!t(e)),b("click")()};B(n,{name:"Default",args:{className:"example-class",pausedMessage:"Play video",playingMessage:"Pause video",paused:!0,theme:"",disabled:!1},children:(i,l=u)=>{var s=V(),p=y(s);a(p,f(l,{get paused(){return t(e)},$$events:{click:d}})),g(i,s)},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<VideoButton {...args}>
+  {#snippet children(args)}
+<div style="padding: var(--s3);background-color: #999">
+  <VideoButton {...args} {paused} on:click={handleClick} />
+</div>
+{/snippet}
+</VideoButton>`}}}),m()}o.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const D=k(o,$),R=["Default"],T={...D.Default,tags:["svelte-csf-v5"]};export{T as Default,R as __namedExportsOrder,$ as default};

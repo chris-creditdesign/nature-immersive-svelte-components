@@ -1,0 +1,5 @@
+import{aE as r,ay as i,aB as c,aY as l}from"./props-D2QecWz3.js";import{c as p,d as m}from"./create-runtime-stories-BTZEUp9S.js";import{R as e}from"./index-CHrq1IJQ.js";import{i as d}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";const f={title:"components/icons/RadioIcon",component:e,argTypes:{className:{control:"text"},height:{control:{type:"range",min:.5,max:10,step:.1}},checked:{control:"boolean"},title:{control:"text"}}},{Story:_}=m();function t(o,s){r(s,!1),d(),_(o,{name:"Default",args:{className:"example-class",height:1,checked:!1,title:""},children:(a,n=i)=>{e(a,l(n))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<RadioIcon {...args}>
+  {#snippet children(args)}
+<RadioIcon {...args} />
+{/snippet}
+</RadioIcon>`}}}),c()}t.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const u=p(t,f),$=["Default"],k={...u.Default,tags:["svelte-csf-v5"]};export{k as Default,$ as __namedExportsOrder,f as default};

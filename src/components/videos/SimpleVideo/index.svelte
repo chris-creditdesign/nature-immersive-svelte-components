@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   /**
    * Video element with basic play/pause button
    * to be used as an animated gif replacement.
@@ -17,48 +17,75 @@
   import { Frame } from "creditdesign-svelte-components";
   import VideoButton from "../../buttons/VideoButton/index.svelte";
 
-  /**
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * To be applied to placeholder image or as
    * `aria-label` on video element.
    */
-  export let altText;
-  export let autoplay = true;
-  /**
+    altText: any;
+    autoplay?: boolean;
+    /**
    * If `true` button will be placed towards the top of the video
    */
-  export let buttonAtTop = false;
-  /**
+    buttonAtTop?: boolean;
+    /**
    * If `true` button will be placed towards the left of the video
    */
-  export let buttonOnLeft = false;
-  export let caption = "";
-  /**
+    buttonOnLeft?: boolean;
+    caption?: string;
+    /**
    * Optional space to move caption in from side of video.
    */
-  export let captionSpace = 0;
-  export let className = "";
-  /**
+    captionSpace?: number;
+    className?: string;
+    /**
    * Aspect ration of video.
    */
-  export let frameRatioHeight;
-  export let frameRatioWidth;
-  /**
+    frameRatioHeight: any;
+    frameRatioWidth: any;
+    /**
    * If true video will continuously loop until paused.
    */
-  export let loop = true;
-  /**
+    loop?: boolean;
+    /**
    * Message to display on button when video is paused.
    */
-  export let pausedMessage = "Play video";
-  /**
+    pausedMessage?: string;
+    /**
    * Message to display on button when video is playing.
    */
-  export let playingMessage = "Pause video";
-  /**
+    playingMessage?: string;
+    /**
    * Location of fallback image should be provided as the src url
    * ie video/video-small.jpg
    */
-  export let srcURL;
+    srcURL: any;
+  }
+
+  let {
+    altText,
+    autoplay = true,
+    buttonAtTop = false,
+    buttonOnLeft = false,
+    caption = "",
+    captionSpace = 0,
+    className = "",
+    frameRatioHeight,
+    frameRatioWidth,
+    loop = true,
+    pausedMessage = "Play video",
+    playingMessage = "Pause video",
+    srcURL
+  }: Props = $props();
 
   let buttonVerticalPosition = buttonAtTop
     ? `--video-button-row--component: 2 / 3;`
@@ -75,10 +102,10 @@
   let style = `${buttonHorizontalPosition} ${buttonVerticalPosition}`;
   let captionStyle = `${videoCaptionSpace}`;
 
-  let video;
-  let mounted = false;
-  let paused = true;
-  let prefersReducedMotion = true;
+  let video = $state();
+  let mounted = $state(false);
+  let paused = $state(true);
+  let prefersReducedMotion = $state(true);
 
   let srcIMG = srcURL.replace(/-small/, "");
   let srcWEBM = srcURL
@@ -163,7 +190,7 @@
           {loop}
           aria-label={altText}
           bind:paused
-          on:click={handleBtnClick}
+          onclick={handleBtnClick}
         >
           <source src={srcWEBM} type="video/webm" />
           <source src={srcMP4} type="video/mp4" />
@@ -178,7 +205,7 @@
           {playingMessage}
           {pausedMessage}
           {paused}
-          on:click={handleBtnClick}
+          onclick={handleBtnClick}
         />
       {/if}
     </div>

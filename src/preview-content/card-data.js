@@ -30,4 +30,4 @@ const cardData = {
   ],
 };
 
-module.exports = cardData;
+export default cardData;

@@ -1,0 +1,1 @@
+.toggle-icon.svelte-fm0hir{transition:transform .25s ease;transform:rotate(0)}@media(prefers-reduced-motion:reduce){.toggle-icon.svelte-fm0hir{transition:none}}button[aria-expanded=true].svelte-fm0hir .toggle-icon:where(.svelte-fm0hir){transform:rotate(180deg)}

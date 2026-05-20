@@ -1,11 +1,23 @@
-<script>
-  /**
+<script lang="ts">
+  
+  interface Props {
+    /**
    * - href
    */
-  export let cardData;
-  export let headerLevel = "h2";
-  export let headlineFontSize = "big-2";
-  export let id = "";
+    cardData: any;
+    headerLevel?: string;
+    headlineFontSize?: string;
+    id?: string;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    cardData,
+    headerLevel = "h2",
+    headlineFontSize = "big-2",
+    id = "",
+    children
+  }: Props = $props();
 
   let { href } = cardData;
 
@@ -22,5 +34,5 @@
 </script>
 
 <svelte:element this={tag} id={useId} {tabindex} class={className}>
-  <slot />
+  {@render children?.()}
 </svelte:element>

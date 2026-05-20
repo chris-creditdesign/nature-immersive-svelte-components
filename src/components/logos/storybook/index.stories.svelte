@@ -1,12 +1,16 @@
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  const { Story } = defineMeta({
+    title: 'components/logos',
+  });
+</script>
+
 <script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import { Stack } from "creditdesign-svelte-components";
+import { Stack } from "creditdesign-svelte-components";
   import NatureLogo from "../NatureLogo/index.svelte";
   import NatureBriefingLogo from "../NatureBriefingLogo/index.svelte";
   import SpringerNatureLogo from "../SpringerNatureLogo/index.svelte";
 </script>
-
-<Meta title="components/logos" />
 
 <Story name="Default">
   <Stack stackSpace="var(--s2)">

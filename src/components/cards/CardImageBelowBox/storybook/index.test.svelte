@@ -49,30 +49,36 @@
   {argTypes}
 />
 
-<Template let:args>
-  <CardImageBelowBox {...args} />
+<Template >
+  {#snippet children({ args })}
+    <CardImageBelowBox {...args} />
+  {/snippet}
 </Template>
 
 <Story
   name="Default"
-  let:args
+  
   args={{ cardData, className: "example-class", id: "example-id" }}
 >
-  <div style="max-width: var(--measure)">
-    <CardImageBelowBox {...args} />
-  </div>
+  {#snippet children({ args })}
+    <div style="max-width: var(--measure)">
+      <CardImageBelowBox {...args} />
+    </div>
+  {/snippet}
 </Story>
 
 <Story
   name="With card inserted"
-  let:args
+  
   args={{ cardData, className: "example-class", id: "example-id" }}
 >
-  <div style="max-width: var(--measure)">
-    <CardImageBelowBox {...args}>
-      <CardSideImageBox {cardData} theme="" />
-    </CardImageBelowBox>
-  </div>
+  {#snippet children({ args })}
+    <div style="max-width: var(--measure)">
+      <CardImageBelowBox {...args}>
+        <CardSideImageBox {cardData} theme="" />
+      </CardImageBelowBox>
+    </div>
+  {/snippet}
 </Story>
 
 <Story

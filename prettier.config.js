@@ -1,7 +1,9 @@
-module.exports = {
-  svelteSortOrder: "scripts-styles-markup",
+export default {
+  plugins: ['prettier-plugin-svelte'],
+  overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }],
+  svelteSortOrder: 'scripts-styles-markup',
   svelteStrictMode: false,
-  svelteBracketNewLine: true,
   svelteAllowShorthand: true,
   svelteIndentScriptAndStyle: true,
 };
+

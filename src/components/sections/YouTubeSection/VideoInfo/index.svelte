@@ -1,10 +1,19 @@
-<script>
+<script lang="ts">
   import UniversityIcon from "../../../icons/UniversityIcon/index.svelte";
   import PersonIcon from "../../../icons/PersonIcon/index.svelte";
-  export let videoData = {};
-  export let headerLevel = "h2";
-  export let headlineFontSize = "big-1";
-  export let className = "";
+  interface Props {
+    videoData?: any;
+    headerLevel?: string;
+    headlineFontSize?: string;
+    className?: string;
+  }
+
+  let {
+    videoData = {},
+    headerLevel = "h2",
+    headlineFontSize = "big-1",
+    className = ""
+  }: Props = $props();
 </script>
 
 <style>

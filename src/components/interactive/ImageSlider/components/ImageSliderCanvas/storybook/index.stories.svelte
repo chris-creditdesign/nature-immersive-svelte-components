@@ -1,8 +1,21 @@
-<script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import ImageSliderCanvas from "../index.svelte";
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import ImageSliderCanvas from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/interactive/ImageSlider/components/ImageSliderCanvas',
+    component: ImageSliderCanvas,
+    argTypes: {
+    altText: { control: "text" },
+    imageA: { control: "none" },
+    imageB: { control: "none" },
+    ratio: { control: { type: "range", min: 0, max: 1, step: 0.01 } },
+    amountToReveal: { control: { type: "range", min: 0, max: 100, step: 1 } },
+  },
+  });
+</script>
 
-  const imageData = [
+<script>
+const imageData = [
     {
       altText: "Scientific image containing duplicated regions.",
       caption: "The image that Elisabeth Bik was asked to review.",
@@ -15,7 +28,6 @@
       srcURL: "img/image-slider-test-b.jpg",
     },
   ];
-
   const loadedImages = imageData.map((elem) => {
     let thisImage = new Image();
     thisImage.src = elem.srcURL;
@@ -24,25 +36,8 @@
   });
 </script>
 
-<Meta
-  title="components/interactive/ImageSlider/components/ImageSliderCanvas"
-  component={ImageSliderCanvas}
-  argTypes={{
-    altText: { control: "text" },
-    imageA: { control: "none" },
-    imageB: { control: "none" },
-    ratio: { control: { type: "range", min: 0, max: 1, step: 0.01 } },
-    amountToReveal: { control: { type: "range", min: 0, max: 100, step: 1 } },
-  }}
-/>
-
-<Story
-  name="Default"
-  let:args
-  args={{
-    imageA: loadedImages[0],
-    imageB: loadedImages[1],
-  }}
->
-  <ImageSliderCanvas {...args} />
+<Story name="Default" args={{ imageA: loadedImages[0], imageB: loadedImages[1], }}>
+  {#snippet children(args)}
+    <ImageSliderCanvas {...args} />
+  {/snippet}
 </Story>

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   /**
    * _Please use the 'Open canvas in new tab' button to view this component in Storybook._
    *
@@ -15,45 +15,70 @@
   import { onMount } from "svelte";
   import Image from "../../Image/index.svelte";
 
-  /**
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * Arbitary class name to apply to the wrapper div
    */
-  export let className = "";
-  /**
+    className?: string;
+    /**
    * Space between the two columns
    */
-  export let gridGap = "";
-  /**
+    gridGap?: string;
+    /**
    * Width of the image column - either in fr or absolute values
    */
-  export let imageWidth = "";
-  /**
+    imageWidth?: string;
+    /**
    * Width of the text column - either in fr or absolute values
    */
-  export let textWidth = "";
-  /**
+    textWidth?: string;
+    /**
    * The vertical placement of the static image
    */
-  export let justifyContent = "";
-  /**
+    justifyContent?: string;
+    /**
    * If true, image column will swap to be on the left
    */
-  export let imageOnLeft = false;
-  /* '-50%' intercept when the item is half way up the screen */
-  export let rootMargin = "-50% 0px -50% 0px";
-  /**
+    imageOnLeft?: boolean;
+    /* '-50%' intercept when the item is half way up the screen */
+    rootMargin?: string;
+    /**
    * Expects an array of objects containing:
    * { stepComponent, stepContent, altText, caption, srcURL }
    */
-  export let steps;
-  /**
+    steps: any;
+    /**
    * Sets a minimum height for the content of each step.
    */
-  export let stepMinHeight = "";
-  /**
+    stepMinHeight?: string;
+    /**
    * Margin bottom to apply beneath each step.
    */
-  export let stepMarginBottom = "";
+    stepMarginBottom?: string;
+  }
+
+  let {
+    className = "",
+    gridGap = "",
+    imageWidth = "",
+    textWidth = "",
+    justifyContent = "",
+    imageOnLeft = false,
+    rootMargin = "-50% 0px -50% 0px",
+    steps,
+    stepMinHeight = "",
+    stepMarginBottom = ""
+  }: Props = $props();
 
   let justifyContentComponent = justifyContent
     ? `--static-image-justify-content--component: ${justifyContent};`
@@ -95,10 +120,10 @@
 
   let style = `grid-template-columns: ${gridTemplateColumns}; ${justifyContentComponent} ${textWidthComponent} ${imageWidthComponent} ${gridGapComponent} ${imagePlacementComponent} ${stepMinHeightComponent} ${stepMarginBottomComponent}`;
 
-  let textContainer = null;
-  let intersectingStep = 0;
-  let mounted = false;
-  let stepImageClassName = "";
+  let textContainer = $state(null);
+  let intersectingStep = $state(0);
+  let mounted = $state(false);
+  let stepImageClassName = $state("");
 
   let options = {
     root: null,
@@ -231,10 +256,11 @@
 <div class:static-image-container={mounted} class={className} {style}>
   <div class:text-container={mounted} bind:this={textContainer}>
     {#each steps as { stepContent, stepComponent, altText, caption, srcURL }, i}
+      {@const SvelteComponent = stepComponent}
       <div class:step={mounted}>
         <div class:step__content={mounted} data-index={i}>
           <Image className={stepImageClassName} {altText} {caption} {srcURL} />
-          <svelte:component this={stepComponent} {stepContent} />
+          <SvelteComponent {stepContent} />
         </div>
       </div>
     {/each}

@@ -1,0 +1,5 @@
+import{aE as r,ay as i,aB as c,aY as p}from"./props-D2QecWz3.js";import{c as l,d as m}from"./create-runtime-stories-BTZEUp9S.js";import{L as t}from"./index-ZwJDiBRw.js";import{i as d}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";const f={title:"components/icons/LocationIcon",component:t,argTypes:{className:{control:"text"},height:{control:{type:"range",min:.5,max:10,step:.1}},title:{control:"text"}}},{Story:_}=m();function e(o,s){r(s,!1),d(),_(o,{name:"Default",args:{className:"example-class",height:1,title:""},children:(a,n=i)=>{t(a,p(n))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<LocationIcon {...args}>
+  {#snippet children(args)}
+<LocationIcon {...args} />
+{/snippet}
+</LocationIcon>`}}}),c()}e.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const u=l(e,f),$=["Default"],w={...u.Default,tags:["svelte-csf-v5"]};export{w as Default,$ as __namedExportsOrder,f as default};

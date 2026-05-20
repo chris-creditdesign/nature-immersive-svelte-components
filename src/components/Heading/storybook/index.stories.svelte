@@ -1,15 +1,10 @@
-<script>
-  import { Meta, Story, Template } from "@storybook/addon-svelte-csf";
-  import Heading from "../index.svelte";
-  import articleData from "../../../preview-content/article-data.js";
-  import {
-    spaceOptions,
-    measureOptions,
-  } from "../../../preview-content/options.js";
-
-  let { author, headline, photographer, publishedAt, stand } = articleData;
-
-  let argTypes = {
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import Heading from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'Components/Heading',
+    component: Heading,
+    argTypes: {
     articleData: { control: "object" },
     className: { control: "text" },
     maxWidth: { control: { type: "select", options: measureOptions } },
@@ -37,26 +32,24 @@
         options: spaceOptions,
       },
     },
-  };
+  },
+    parameters: {
+    layout: "fullscreen",
+  },
+  });
 </script>
 
-<Meta
-  title="Components/Heading"
-  component={Heading}
-  {argTypes}
-  parameters={{
-    layout: "fullscreen",
-  }}
-/>
+<script>
+import articleData from "../../../preview-content/article-data.js";
+  import {
+    spaceOptions,
+    measureOptions,
+  } from "../../../preview-content/options.js";
+  let { author, headline, photographer, publishedAt, stand } = articleData;
+</script>
 
-<Template let:args>
-  <Heading {...args} />
-</Template>
-
-<Story
-  name="Default"
-  args={{
-    articleData: { author, headline, photographer, publishedAt, stand },
-    className: "test",
-  }}
-/>
+<Story name="Default" args={{ articleData: { author, headline, photographer, publishedAt, stand }, className: "test", }}>
+  {#snippet children(args)}
+    <Heading {...args} />
+  {/snippet}
+</Story>

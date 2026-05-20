@@ -1,15 +1,20 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import { fadeInOnIntersect } from "./actions/fate-in-on-intersect.js";
 
-  export let text = "";
-  export let className = "";
-  /**
+  
+  interface Props {
+    text?: string;
+    className?: string;
+    /**
    * CSS transition-duration property for text to fade from 0 to 1 opacity.
    */
-  export let fadeInDuration = "1500ms";
+    fadeInDuration?: string;
+  }
 
-  let mounted = false;
+  let { text = "", className = "", fadeInDuration = "1500ms" }: Props = $props();
+
+  let mounted = $state(false);
 
   let style = `transition-duration: ${fadeInDuration};`;
 

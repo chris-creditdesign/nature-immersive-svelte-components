@@ -1,33 +1,48 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
 
-  /**
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * Aria-label to apply to canvas element.
    */
-  export let altText = "Interactive section used to compare two images.";
-  /**
+    altText?: string;
+    /**
    * Percentage of imageA to show over imageB
    */
-  export let amountToReveal = 0;
-  /**
+    amountToReveal?: number;
+    /**
    * HTMLImageElement to render to the canvas
    */
-  export let imageA;
-  /**
+    imageA: any;
+    /**
    * HTMLImageElement to render to the canvas
    */
-  export let imageB;
-  /**
+    imageB: any;
+    /**
    * Ratio of height / width of the images - both should be the same
    */
-  export let ratio = 0.666666667;
+    ratio?: number;
+  }
 
-  let canvas;
+  let {
+    altText = "Interactive section used to compare two images.",
+    amountToReveal = 0,
+    imageA,
+    imageB,
+    ratio = 0.666666667
+  }: Props = $props();
+
+  let canvas = $state();
   let ctx;
   let frame;
   let width = 900;
 
-  $: height = width * ratio;
+  let height = $derived(width * ratio);
 
   let loop = () => {
     ctx.lineWidth = 4;
@@ -103,4 +118,4 @@
   }
 </style>
 
-<canvas bind:this={canvas} {width} {height} role="img" aria-label={altText} />
+<canvas bind:this={canvas} {width} {height} role="img" aria-label={altText}></canvas>

@@ -1,0 +1,5 @@
+import{aE as n,ay as i,aB as p,aY as l}from"./props-D2QecWz3.js";import{c as m,d as c}from"./create-runtime-stories-BTZEUp9S.js";import{N as e}from"./index-CYC4Y34T.js";import{i as d}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";const u={title:"components/logos/NatureLogo",component:e,argTypes:{className:{control:"text"},height:{control:{type:"range",min:.5,max:10,step:.1}},title:{control:"text"}}},{Story:f}=c();function t(o,s){n(s,!1),d(),f(o,{name:"Default",args:{className:"example-class",height:1,title:"Nature"},children:(a,r=i)=>{e(a,l(r))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<NatureLogo {...args}>
+  {#snippet children(args)}
+<NatureLogo {...args} />
+{/snippet}
+</NatureLogo>`}}}),p()}t.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const g=m(t,u),$=["Default"],w={...g.Default,tags:["svelte-csf-v5"]};export{w as Default,$ as __namedExportsOrder,u as default};

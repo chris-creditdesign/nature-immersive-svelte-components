@@ -1,0 +1,5 @@
+import{aE as r,ay as i,aB as l,aY as c}from"./props-D2QecWz3.js";import{c as p,d as m}from"./create-runtime-stories-BTZEUp9S.js";import{D as e}from"./index-BUvFZG0q.js";import{i as d}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";const f={title:"components/icons/DownloadIcon",component:e,argTypes:{className:{control:"text"},height:{control:{type:"range",min:.5,max:10,step:.1}},title:{control:"text"}}},{Story:_}=m();function t(o,s){r(s,!1),d(),_(o,{name:"Default",args:{className:"example-class",height:1,title:""},children:(a,n=i)=>{e(a,c(n))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<DownloadIcon {...args}>
+  {#snippet children(args)}
+<DownloadIcon {...args} />
+{/snippet}
+</DownloadIcon>`}}}),l()}t.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const u=p(t,f),$=["Default"],C={...u.Default,tags:["svelte-csf-v5"]};export{C as Default,$ as __namedExportsOrder,f as default};

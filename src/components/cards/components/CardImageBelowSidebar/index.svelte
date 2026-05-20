@@ -1,36 +1,53 @@
-<script>
+<script lang="ts">
   import { Sidebar } from "creditdesign-svelte-components";
   import Image from "../../../Image/index.svelte";
   import CardImageBelowStack from "../CardImageBelowStack/index.svelte";
 
-  /**
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * - altText
    * - caption
    * - footnote
    * - srcURL
    * - text
    */
-  export let cardData;
-  /**
+    cardData: any;
+    /**
    * Minimum percentage of the components width that the text can
    * be squashed to before switching to the stacked view.
    */
-  export let textMinWidth = "50%";
-  export let imageOnLeft = true;
-  /**
+    textMinWidth?: string;
+    imageOnLeft?: boolean;
+    /**
    * Space between the text block and the image,
    * either stacked or side by side.
    */
-  export let sidebarSpace = "var(--s-1)";
-  /**
+    sidebarSpace?: string;
+    /**
    * Width of the image when in side by side view.
    */
-  export let imageWidth = "var(--s7)";
-  /**
+    imageWidth?: string;
+    /**
    * Stack space within the text block
    */
-  export let stackSpace = "var(--s-1)";
-  export let relatedLinksStackSpace = "var(--s-3)";
+    stackSpace?: string;
+    relatedLinksStackSpace?: string;
+  }
+
+  let {
+    cardData,
+    textMinWidth = "50%",
+    imageOnLeft = true,
+    sidebarSpace = "var(--s-1)",
+    imageWidth = "var(--s7)",
+    stackSpace = "var(--s-1)",
+    relatedLinksStackSpace = "var(--s-3)"
+  }: Props = $props();
 
   let { altText, caption, srcURL } = cardData;
 </script>
@@ -41,9 +58,11 @@
   {sidebarSpace}
   sidebarWidth={imageWidth}
 >
-  <div slot="sidebar">
-    <Image {altText} {caption} {srcURL} />
-  </div>
+  {#snippet sidebar()}
+    <div >
+      <Image {altText} {caption} {srcURL} />
+    </div>
+  {/snippet}
   <div slot="main-content">
     <CardImageBelowStack {cardData} {stackSpace} {relatedLinksStackSpace} />
   </div>
