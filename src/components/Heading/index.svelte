@@ -1,21 +1,35 @@
-<script>
+<script lang="ts">
   import { Center, Stack } from "creditdesign-svelte-components";
 
   import formatDate from "../utils/format-date.js";
 
-  export let articleData;
-  export let className = "";
-  export let maxWidth = "var(--measure-big)";
-  /**
+  
+  
+  interface Props {
+    articleData: any;
+    className?: string;
+    maxWidth?: string;
+    /**
    * Padding to left and right of the heading
    */
-  export let centerSpace = "0";
-  /**
+    centerSpace?: string;
+    /**
    * Space between head and stand block and bylines and date block
    */
-  export let headAndCreditsStackSpace = "var(--s2)";
-  export let headStandStackSpace = "var(--s2)";
-  export let creditsStackSpace = "var(--s-3)";
+    headAndCreditsStackSpace?: string;
+    headStandStackSpace?: string;
+    creditsStackSpace?: string;
+  }
+
+  let {
+    articleData,
+    className = "",
+    maxWidth = "var(--measure-big)",
+    centerSpace = "0",
+    headAndCreditsStackSpace = "var(--s2)",
+    headStandStackSpace = "var(--s2)",
+    creditsStackSpace = "var(--s-3)"
+  }: Props = $props();
 
   let { author, headline, photographer, publishedAt, stand } = articleData;
 </script>

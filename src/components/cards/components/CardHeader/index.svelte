@@ -1,22 +1,34 @@
-<script>
+<script lang="ts">
   import { Stack } from "creditdesign-svelte-components";
   import CardHeadline from "../CardHeadline/index.svelte";
 
-  /**
+  
+
+  
+  interface Props {
+    /**
    * - eyebrow
    * - subHead
    * - headline
    * - href
    */
-  export let cardData;
-
-  /**
+    cardData: any;
+    /**
    * Space between eyebrow, headline and sub-head
    */
-  export let cardHeaderStackSpace = "var(--s-4)";
-  export let headerLevel = "h2";
-  export let headlineFontSize = "big-2";
-  export let id = "";
+    cardHeaderStackSpace?: string;
+    headerLevel?: string;
+    headlineFontSize?: string;
+    id?: string;
+  }
+
+  let {
+    cardData,
+    cardHeaderStackSpace = "var(--s-4)",
+    headerLevel = "h2",
+    headlineFontSize = "big-2",
+    id = ""
+  }: Props = $props();
 
   let { eyebrow, subHead, headline, href } = cardData;
 </script>

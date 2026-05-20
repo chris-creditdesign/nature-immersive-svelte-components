@@ -1,35 +1,54 @@
-<script>
+<script lang="ts">
   import { Stack } from "creditdesign-svelte-components";
   import ImageSliderCanvas from "../ImageSliderCanvas/index.svelte";
 
-  /**
+  
+  
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * Aria-label to apply to canvas element.
    */
-  export let altText = "Interactive section used to compare two images.";
-  /**
+    altText?: string;
+    /**
    * Percentage of imageA to show over imageB
    */
-  export let amountToReveal = 0;
-  /**
+    amountToReveal?: number;
+    /**
    * HTMLImageElement to render to the canvas
    */
-  export let imageA;
-  /**
+    imageA: any;
+    /**
    * HTMLImageElement to render to the canvas
    */
-  export let imageB;
-  /**
+    imageB: any;
+    /**
    * Text to sit above the slider
    */
-  export let message = "Use the slider to reveal the hidden image:";
-  /**
+    message?: string;
+    /**
    * Ratio of height / width of the images - both should be the same
    */
-  export let ratio = 0.666666667;
-  /**
+    ratio?: number;
+    /**
    * Class to add to container div
    */
-  export let className = "";
+    className?: string;
+  }
+
+  let {
+    altText = "Interactive section used to compare two images.",
+    amountToReveal = $bindable(0),
+    imageA,
+    imageB,
+    message = "Use the slider to reveal the hidden image:",
+    ratio = 0.666666667,
+    className = ""
+  }: Props = $props();
 </script>
 
 <style>

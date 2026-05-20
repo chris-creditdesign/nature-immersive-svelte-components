@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   /**
    * Button element with `role="switch"` and `type="button"` applied.
    *
@@ -8,32 +11,50 @@
    */
   import { Cluster } from "creditdesign-svelte-components";
 
-  /**
+  
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * Optional to add extra class to button element
    */
-  export let className = "";
-  /**
+    className?: string;
+    /**
    * Flexbox justify-content on message and button
    * within container div
    */
-  export let clusterJustifyContent = "flex-start";
-  /**
+    clusterJustifyContent?: string;
+    /**
    * Flexbox gap space between message and button
    */
-  export let clusterSpace = "var(--s-1)";
-  /**
+    clusterSpace?: string;
+    /**
    * Text to place beside button
    */
-  export let message = "Switch:";
-  /**
+    message?: string;
+    /**
    * State of `aria-checked` attribute on button.
    */
-  export let checked = false;
-  /**
+    checked?: boolean;
+    /**
    * Option to add `data-theme` to button element.
    */
-  export let theme = "";
-  export let disabled = false;
+    theme?: string;
+    disabled?: boolean;
+  }
+
+  let {
+    className = "",
+    clusterJustifyContent = "flex-start",
+    clusterSpace = "var(--s-1)",
+    message = "Switch:",
+    checked = false,
+    theme = "",
+    disabled = false
+  }: Props = $props();
 
   let id = `${message.toLowerCase().replaceAll(" ", "-")}-${Math.random()
     .toString()
@@ -97,7 +118,7 @@
     aria-labelledby={id}
     class={`font-family:sans-serif ${className}`}
     data-theme={theme}
-    on:click
+    onclick={bubble('click')}
     role="switch"
     type="button"
     disabled={disabled ? true : null}

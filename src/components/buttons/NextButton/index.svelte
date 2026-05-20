@@ -1,19 +1,34 @@
-<script>
+<script lang="ts">
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   import ChevronRightIcon from "../../icons/ChevronRightIcon/index.svelte";
 
-  /**
+  
+  
+  
+  interface Props {
+    /**
    * Class name applied to the button element
    */
-  export let className = "";
-  /**
+    className?: string;
+    /**
    * Text that will be displayed in the button
    */
-  export let message = "Next";
-  /**
+    message?: string;
+    /**
    * Option to add a value to `data-theme` attribute for styling.
    */
-  export let theme = "";
-  export let disabled = false;
+    theme?: string;
+    disabled?: boolean;
+  }
+
+  let {
+    className = "",
+    message = "Next",
+    theme = "",
+    disabled = false
+  }: Props = $props();
 </script>
 
 <button
@@ -23,7 +38,7 @@
   data-event-label="Button clicked"
   data-theme={theme}
   data-track="click"
-  on:click
+  onclick={bubble('click')}
   type="button"
   disabled={disabled ? true : null}
 >

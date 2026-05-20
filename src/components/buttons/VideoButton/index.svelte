@@ -1,13 +1,28 @@
-<script>
-  export let className = "";
-  export let paused = true;
-  export let pausedMessage = "Play video";
-  export let playingMessage = "Pause video";
-  /**
+<script lang="ts">
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
+  
+  interface Props {
+    className?: string;
+    paused?: boolean;
+    pausedMessage?: string;
+    playingMessage?: string;
+    /**
    * Optional to add `data-theme` to button element.
    */
-  export let theme = "";
-  export let disabled = false;
+    theme?: string;
+    disabled?: boolean;
+  }
+
+  let {
+    className = "",
+    paused = true,
+    pausedMessage = "Play video",
+    playingMessage = "Pause video",
+    theme = "",
+    disabled = false
+  }: Props = $props();
 </script>
 
 <style>
@@ -35,7 +50,7 @@
   role="switch"
   type="button"
   data-theme={theme}
-  on:click
+  onclick={bubble('click')}
   disabled={disabled ? true : null}
 >
   {#if paused}

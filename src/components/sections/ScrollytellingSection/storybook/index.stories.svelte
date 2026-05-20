@@ -1,8 +1,25 @@
-<script>
-  import { Meta, Story, Template } from "@storybook/addon-svelte-csf";
-  import ScrollytellingSection from "../index.svelte";
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import ScrollytellingSection from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/sections/ScrollytellingSection',
+    component: ScrollytellingSection,
+    argTypes: {
+    className: {
+      control: "text",
+    },
+    scrollytellingSteps: {
+      control: "object",
+    },
+  },
+    parameters: {
+    layout: "fullscreen",
+  },
+  });
+</script>
 
-  let scrollytellingSteps = [
+<script>
+let scrollytellingSteps = [
     {
       text: "<p>Step one. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>",
       data: {
@@ -39,15 +56,6 @@
       },
     },
   ];
-
-  let argTypes = {
-    className: {
-      control: "text",
-    },
-    scrollytellingSteps: {
-      control: "object",
-    },
-  };
 </script>
 
 <style>
@@ -71,30 +79,17 @@
   }
 </style>
 
-<Meta
-  title="components/sections/ScrollytellingSection"
-  component={ScrollytellingSection}
-  {argTypes}
-  parameters={{
-    layout: "fullscreen",
-  }}
-/>
-
-<Template let:args>
-  <ScrollytellingSection {...args} />
-</Template>
-
-<Story
-  name="Default"
-  let:args
-  args={{ scrollytellingSteps, className: "example-class" }}
->
-  <ScrollytellingSection {...args} let:intersectingStep>
-    <div slot="graphic" class="graphic">
-      <img
-        src={scrollytellingSteps[intersectingStep].data.url}
-        alt="There we go"
-      />
-    </div>
-  </ScrollytellingSection>
+<Story name="Default" args={{ scrollytellingSteps, className: "example-class" }}>
+  {#snippet children(args)}
+    <ScrollytellingSection {...args}>
+      {#snippet graphic({ intersectingStep })}
+        <div class="graphic">
+          <img
+            src={scrollytellingSteps[intersectingStep].data.url}
+            alt="There we go"
+          />
+        </div>
+      {/snippet}
+    </ScrollytellingSection>
+  {/snippet}
 </Story>

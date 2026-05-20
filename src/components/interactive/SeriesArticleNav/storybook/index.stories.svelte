@@ -1,7 +1,45 @@
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import SeriesArticleNav from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/interactive/SeriesArticleNav',
+    component: SeriesArticleNav,
+    argTypes: {
+    articleData: {
+      control: "object",
+    },
+    articles: {
+      control: "object",
+    },
+    className: {
+      control: "text",
+    },
+    expandedMessage: {
+      control: "text",
+    },
+    headerLevel: { type: "select", options: headerLevelOptions },
+    headline: {
+      control: "text",
+    },
+    headlineFontSize: { type: "select", options: fontSizeOptions },
+    headlineFontWeight: { type: "select", options: fontWeightOptions },
+    message: {
+      control: "text",
+    },
+    stand: {
+      control: "text",
+    },
+    theme: { control: { type: "select", options: themeOptions } },
+    stackSpace: { control: { type: "select", options: spaceOptions } },
+    headerStackSpace: { control: { type: "select", options: spaceOptions } },
+    boxSpace: { control: { type: "select", options: spaceOptions } },
+    alignItems: { control: { type: "select", options: alignItemsOptions } },
+  },
+  });
+</script>
+
 <script>
-  import { Meta, Story, Template } from "@storybook/addon-svelte-csf";
-  import SeriesArticleNav from "../index.svelte";
-  import articleData from "../../../../preview-content/article-data.js";
+import articleData from "../../../../preview-content/article-data.js";
   import {
     headerLevelOptions,
     fontSizeOptions,
@@ -10,7 +48,6 @@
     spaceOptions,
     alignItemsOptions,
   } from "../../../../preview-content/options.js";
-
   let articles = [
     {
       title:
@@ -51,65 +88,10 @@
   let headline = "Headline headline headline";
   let stand =
     "Veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo. Hempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.";
-
-  let argTypes = {
-    articleData: {
-      control: "object",
-    },
-    articles: {
-      control: "object",
-    },
-    className: {
-      control: "text",
-    },
-    expandedMessage: {
-      control: "text",
-    },
-    headerLevel: { type: "select", options: headerLevelOptions },
-    headline: {
-      control: "text",
-    },
-    headlineFontSize: { type: "select", options: fontSizeOptions },
-    headlineFontWeight: { type: "select", options: fontWeightOptions },
-    message: {
-      control: "text",
-    },
-    stand: {
-      control: "text",
-    },
-    theme: { control: { type: "select", options: themeOptions } },
-    stackSpace: { control: { type: "select", options: spaceOptions } },
-    headerStackSpace: { control: { type: "select", options: spaceOptions } },
-    boxSpace: { control: { type: "select", options: spaceOptions } },
-    alignItems: { control: { type: "select", options: alignItemsOptions } },
-  };
 </script>
 
-<Meta
-  title="components/interactive/SeriesArticleNav"
-  component={SeriesArticleNav}
-  {argTypes}
-/>
-
-<Template let:args>
-  <SeriesArticleNav {...args} />
-</Template>
-
-<Story
-  name="Default"
-  let:args
-  args={{
-    articleData,
-    className: "example-class",
-    headline,
-    stand,
-    articles,
-    stackSpace: "var(--s0)",
-    headerStackSpace: "var(--s-3)",
-    boxSpace: "var(--s-1)",
-    alignItems: "flex-start",
-  }}
-  parameters={{
-    layout: "fullscreen",
-  }}
-/>
+<Story name="Default" args={{ articleData, className: "example-class", headline, stand, articles, stackSpace: "var(--s0)", headerStackSpace: "var(--s-3)", boxSpace: "var(--s-1)", alignItems: "flex-start", }} parameters={{ layout: "fullscreen", }}>
+  {#snippet children(args)}
+    <SeriesArticleNav {...args} />
+  {/snippet}
+</Story>

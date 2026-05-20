@@ -1,13 +1,17 @@
-<script>
+<script lang="ts">
   import { Cluster } from "creditdesign-svelte-components";
   import FacebookIcon from "../../../icons/FacebookIcon/index.svelte";
   import TwitterIcon from "../../../icons/TwitterIcon/index.svelte";
   import EmailIcon from "../../../icons/EmailIcon/index.svelte";
 
-  export let articleData;
-  export let logoHeight = 1.6;
 
   import generateSocialURLs from "../../../utils/generate-social-urls.js";
+  interface Props {
+    articleData: any;
+    logoHeight?: number;
+  }
+
+  let { articleData, logoHeight = 1.6 }: Props = $props();
 
   let { doi, articleURL, title, description } = articleData;
 

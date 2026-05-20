@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   /**
    * Please use the 'Open canvas in new tab' button to view this component.
    *
@@ -8,11 +8,16 @@
   import { onMount } from "svelte";
   import { Cover } from "creditdesign-svelte-components";
 
-  export let className = "";
-  export let scrollytellingSteps;
+  interface Props {
+    className?: string;
+    scrollytellingSteps: any;
+    graphic?: import('svelte').Snippet<[any]>;
+  }
 
-  let stepContainer;
-  let intersectingStep = 0;
+  let { className = "", scrollytellingSteps, graphic }: Props = $props();
+
+  let stepContainer = $state();
+  let intersectingStep = $state(0);
 
   /* '-50%' intercept when the item is half way up the screen */
   let options = {
@@ -63,7 +68,7 @@
 
 <section class={`scrollytelling-container ${className}`}>
   <div class="graphic-container">
-    <slot name="graphic" {intersectingStep} />
+    {@render graphic?.({ intersectingStep, })}
   </div>
 
   <div class="step-container" bind:this={stepContainer}>

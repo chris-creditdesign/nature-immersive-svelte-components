@@ -1,0 +1,6 @@
+import{aC as t,ao as r,ap as z,ah as B,b1 as E,s as g,aB as X,aE as j,X as o,a9 as v,aa as d,z as q,ax as l,aO as m,a7 as M,aW as O}from"./props-D2QecWz3.js";import{s as c}from"./slot-ChEXTifl.js";import{s as A}from"./class-CoxErtGF.js";import{b as D}from"./attributes-pwFWEx45.js";import{i as F}from"./lifecycle-BxzyBO6_.js";var G=v("<!> <!>",1),H=v("<!> <!>",1),J=v("<div><!></div>");function U(w,a){j(a,!1);const p=l(),C=l(),W=l(),u=l();let b=t(a,"sidebarContentMinWidth",8,""),S=t(a,"sidebarOnRight",8,!1),_=t(a,"sidebarSpace",8,""),f=t(a,"sidebarWidth",8,""),y=t(a,"alignItems",8,"stretch"),x=t(a,"className",8,"");r(()=>o(b()),()=>{m(p,b().length>0?`--sidebar-content-min-width--component: ${b()};`:"")}),r(()=>o(_()),()=>{m(C,_().length>0?`--sidebar-space--component: ${_()};`:"")}),r(()=>o(f()),()=>{m(W,f().length>0?`--sidebar-width--component: ${f()};`:"")}),r(()=>o(y()),()=>{m(u,`align-items: ${y()};`)}),z(),F();var n=J();let I;var N=q(n);{var R=e=>{var s=G(),i=M(s);c(i,a,"main-content",{});var h=O(i,2);c(h,a,"sidebar",{}),g(e,s)},k=e=>{var s=H(),i=M(s);c(i,a,"sidebar",{});var h=O(i,2);c(h,a,"main-content",{}),g(e,s)};B(N,e=>{S()?e(R):e(k,-1)})}E(()=>{I=A(n,1,`sidebar ${x()}`,null,I,{"sidebar-on-right":S()}),D(n,`
+		${d(p)}
+		${d(C)}
+		${d(W)}
+		${d(u)}
+	`)}),g(w,n),X()}export{U as S};

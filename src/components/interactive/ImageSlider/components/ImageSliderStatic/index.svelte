@@ -1,13 +1,18 @@
-<script>
+<script lang="ts">
   import { Stack } from "creditdesign-svelte-components";
   import Image from "../../../../Image/index.svelte";
 
-  export let imageData = [];
 
-  /**
+  
+  interface Props {
+    imageData?: any;
+    /**
    * Class to add to container div
    */
-  export let className = "";
+    className?: string;
+  }
+
+  let { imageData = [], className = "" }: Props = $props();
 </script>
 
 <div class={`${className} image-slider font-size:small font-family:sans-serif`}>

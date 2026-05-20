@@ -24,4 +24,4 @@ const articleData = {
   ],
 };
 
-module.exports = articleData;
+export default articleData;

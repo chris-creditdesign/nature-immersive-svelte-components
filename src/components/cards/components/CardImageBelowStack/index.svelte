@@ -1,13 +1,18 @@
-<script>
+<script lang="ts">
   import { Stack } from "creditdesign-svelte-components";
 
-  /**
+  
+  interface Props {
+    /**
    * - text
    * - footnote
    */
-  export let cardData;
-  export let stackSpace = "var(--s-1)";
-  export let relatedLinksStackSpace = "var(--s-3)";
+    cardData: any;
+    stackSpace?: string;
+    relatedLinksStackSpace?: string;
+  }
+
+  let { cardData, stackSpace = "var(--s-1)", relatedLinksStackSpace = "var(--s-3)" }: Props = $props();
 
   let { footnote, text, relatedLinks, relatedLinksHeadline } = cardData;
 </script>

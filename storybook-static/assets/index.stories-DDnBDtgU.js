@@ -1,0 +1,5 @@
+import{aE as r,ay as p,aB as i,aY as c}from"./props-D2QecWz3.js";import{c as l,d as m}from"./create-runtime-stories-BTZEUp9S.js";import{T as e}from"./index-DozlKQBN.js";import{i as d}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";const f={title:"components/icons/TrophyIcon",component:e,argTypes:{className:{control:"text"},height:{control:{type:"range",min:.5,max:10,step:.1}},title:{control:"text"}}},{Story:h}=m();function t(s,o){r(o,!1),d(),h(s,{name:"Default",args:{className:"example-class",height:1,title:""},children:(a,n=p)=>{e(a,c(n))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<TrophyIcon {...args}>
+  {#snippet children(args)}
+<TrophyIcon {...args} />
+{/snippet}
+</TrophyIcon>`}}}),i()}t.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const _=l(t,f),$=["Default"],w={..._.Default,tags:["svelte-csf-v5"]};export{w as Default,$ as __namedExportsOrder,f as default};

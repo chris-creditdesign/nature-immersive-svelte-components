@@ -1,24 +1,19 @@
-<script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import YouTubeButton from "../index.svelte";
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import YouTubeButton from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/buttons/YouTubeButton',
+    component: YouTubeButton,
+    argTypes: {
+    message: { control: "text" },
+  },
+  });
 </script>
 
-<Meta
-  title="components/buttons/YouTubeButton"
-  component={YouTubeButton}
-  argTypes={{
-    message: { control: "text" },
-  }}
-/>
-
-<Story
-  name="Default"
-  let:args
-  args={{
-    message: "Play video",
-  }}
->
-  <div>
-    <YouTubeButton {...args} />
-  </div>
+<Story name="Default" args={{ message: "Play video", }}>
+  {#snippet children(args)}
+    <div>
+      <YouTubeButton {...args} />
+    </div>
+  {/snippet}
 </Story>

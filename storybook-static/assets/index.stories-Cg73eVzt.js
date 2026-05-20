@@ -1,0 +1,13 @@
+import{s,a9 as n,aE as h,a7 as v,aW as g,aB as _,z as y}from"./props-D2QecWz3.js";import{c as L,d as $}from"./create-runtime-stories-BTZEUp9S.js";import{S as w}from"./index-kMN-P2iR.js";import{i as k}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./slot-ChEXTifl.js";import"./svelte-element-DeaYRF6t.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";var b=n(`<h1>Heading level 1</h1> <h2>Heading level 2</h2> <h3>Heading level 3</h3> <p class="drop-cap">Worem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
+    eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
+    numquam officia architecto modi! Labore natus error nisi earum? Lorem ipsum
+    dolor sit amet consectetur, adipisicing elit. <a href="https://www.nature.com">Nam deserunt iusto eveniet dolore eum eligendi veniam</a> ipsam deleniti commodi illo corrupti numquam officia architecto modi! Labore
+    natus error nisi earum?</p> <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam deserunt iusto
+    eveniet dolore eum eligendi veniam, ipsam deleniti commodi illo corrupti
+    numquam officia architecto modi! Labore natus error nisi earum?</p> <p><a href="https://www.nature.com">Link text</a></p> <ul><li>List item one</li> <li>List item two</li> <li>List item three</li></ul> <ol><li>List item one</li> <li>List item two</li> <li>List item three</li></ol>`,1);function t(i){w(i,{stackSpace:"var(--s1)",children:(o,r)=>{var e=b();s(o,e)},$$slots:{default:!0}})}t.__docgen={version:3,name:"index.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const N={title:"Intro/Typography",component:t,parameters:{controls:{hideNoControlsWarning:!0}}},{Story:l}=$();var F=n('<div class="font-family:sans-serif"><!></div>'),H=n("<!> <!>",1);function d(i,o){h(o,!1),k();var r=H(),e=v(r);l(e,{name:"Harding font",children:(a,u)=>{t(a)},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<Typography {...args}>
+  <Typography />
+</Typography>`}}});var c=g(e,2);l(c,{name:"Graphik Nature l Web font",children:(a,u)=>{var m=F(),f=y(m);t(f),s(a,m)},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<Typography {...args}>
+  <div class="font-family:sans-serif">
+<Typography />
+</div>
+</Typography>`}}}),s(i,r),_()}d.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const p=L(d,N),I=["HardingFont","GraphikNatureLWebFont"],z={...p.HardingFont,tags:["svelte-csf-v5"]},B={...p.GraphikNatureLWebFont,tags:["svelte-csf-v5"]};export{B as GraphikNatureLWebFont,z as HardingFont,I as __namedExportsOrder,N as default};

@@ -1,8 +1,18 @@
-<script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import ImageSliderStatic from "../index.svelte";
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import ImageSliderStatic from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/interactive/ImageSlider/components/ImageSliderStatic',
+    component: ImageSliderStatic,
+    argTypes: {
+    imageData: { control: "object" },
+    className: { control: "text" },
+  },
+  });
+</script>
 
-  const imageData = [
+<script>
+const imageData = [
     {
       altText: "Scientific image containing duplicated regions.",
       caption: "The image that Elisabeth Bik was asked to review.",
@@ -17,15 +27,8 @@
   ];
 </script>
 
-<Meta
-  title="components/interactive/ImageSlider/components/ImageSliderStatic"
-  component={ImageSliderStatic}
-  argTypes={{
-    imageData: { control: "object" },
-    className: { control: "text" },
-  }}
-/>
-
-<Story name="Default" let:args args={{ imageData, className: "example-class" }}>
-  <ImageSliderStatic {...args} />
+<Story name="Default" args={{ imageData, className: "example-class" }}>
+  {#snippet children(args)}
+    <ImageSliderStatic {...args} />
+  {/snippet}
 </Story>

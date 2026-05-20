@@ -1,0 +1,1 @@
+const e={parameters:{controls:{expanded:!0,matchers:{color:/(background|color)$/i,date:/Date$/}},darkMode:{classTarget:"body",stylePreview:!0},options:{storySort:{order:["Intro",["Welcome","*"],"Pages","*"]}}}};export{e as default};

@@ -1,0 +1,5 @@
+import{aE as r,ay as i,aB as c,aY as p}from"./props-D2QecWz3.js";import{c as l,d as m}from"./create-runtime-stories-BTZEUp9S.js";import{C as e}from"./index-DjqFcMpb.js";import{i as d}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";const h={title:"components/icons/ChevronRightIcon",component:e,argTypes:{className:{control:"text"},height:{control:{type:"range",min:.5,max:10,step:.1}},title:{control:"text"}}},{Story:f}=m();function t(s,o){r(o,!1),d(),f(s,{name:"Default",args:{className:"example-class",height:1,title:""},children:(n,a=i)=>{e(n,p(a))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<ChevronRightIcon {...args}>
+  {#snippet children(args)}
+<ChevronRightIcon {...args} />
+{/snippet}
+</ChevronRightIcon>`}}}),c()}t.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const g=l(t,h),D=["Default"],$={...g.Default,tags:["svelte-csf-v5"]};export{$ as Default,D as __namedExportsOrder,h as default};

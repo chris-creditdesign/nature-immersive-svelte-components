@@ -1,0 +1,5 @@
+import{aE as n,ay as i,aB as p,aY as l}from"./props-D2QecWz3.js";import{c as m,d as c}from"./create-runtime-stories-BTZEUp9S.js";import{N as e}from"./index-D33_ASQk.js";import{i as f}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";const g={title:"components/logos/NatureBriefingLogo",component:e,argTypes:{className:{control:"text"},height:{control:{type:"range",min:.5,max:10,step:.1}},title:{control:"text"}}},{Story:d}=c();function t(o,s){n(s,!1),f(),d(o,{name:"Default",args:{className:"example-class",height:1,title:"Nature Briefing"},children:(r,a=i)=>{e(r,l(a))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<NatureBriefingLogo {...args}>
+  {#snippet children(args)}
+<NatureBriefingLogo {...args} />
+{/snippet}
+</NatureBriefingLogo>`}}}),p()}t.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const u=m(t,g),L=["Default"],$={...u.Default,tags:["svelte-csf-v5"]};export{$ as Default,L as __namedExportsOrder,g as default};

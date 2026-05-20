@@ -1,9 +1,17 @@
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import MenuListStatic from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'components/menu/components/MenuListStatic',
+    component: MenuListStatic,
+    argTypes: {
+    menuLinks: { control: "object" },
+  },
+  });
+</script>
+
 <script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-
-  import MenuListStatic from "../index.svelte";
-
-  let menuLinks = [
+let menuLinks = [
     { text: "View animation", href: "#" },
     { text: "Controls", href: "#" },
     { text: "Replay intro", href: "#" },
@@ -13,20 +21,8 @@
   ];
 </script>
 
-<Meta
-  title="components/menu/components/MenuListStatic"
-  component={MenuListStatic}
-  argTypes={{
-    menuLinks: { control: "object" },
-  }}
-/>
-
-<Story
-  name="Default"
-  let:args
-  args={{
-    menuLinks,
-  }}
->
-  <MenuListStatic {...args} />
+<Story name="Default" args={{ menuLinks, }}>
+  {#snippet children(args)}
+    <MenuListStatic {...args} />
+  {/snippet}
 </Story>

@@ -1,8 +1,17 @@
-<script>
-  export let className = "";
-  export let height = 1;
-  export let checked = false;
-  export let title = "";
+<script lang="ts">
+  interface Props {
+    className?: string;
+    height?: number;
+    checked?: boolean;
+    title?: string;
+  }
+
+  let {
+    className = "",
+    height = 1,
+    checked = false,
+    title = ""
+  }: Props = $props();
 </script>
 
 <style>

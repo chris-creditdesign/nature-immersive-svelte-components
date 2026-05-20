@@ -1,17 +1,10 @@
-<script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import Header from "../index.svelte";
-  import {
-    headerLevelOptions,
-    fontSizeOptions,
-    fontWeightOptions,
-  } from "../../../preview-content/options.js";
-</script>
-
-<Meta
-  title="Components/Header"
-  component={Header}
-  argTypes={{
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  import Header from '../index.svelte';
+  const { Story } = defineMeta({
+    title: 'Components/Header',
+    component: Header,
+    argTypes: {
     text: { control: "text" },
     headerLevel: {
       control: {
@@ -31,9 +24,20 @@
         options: fontWeightOptions,
       },
     },
-  }}
-/>
+  },
+  });
+</script>
 
-<Story name="Default" let:args>
-  <Header {...args} />
+<script>
+import {
+    headerLevelOptions,
+    fontSizeOptions,
+    fontWeightOptions,
+  } from "../../../preview-content/options.js";
+</script>
+
+<Story name="Default">
+  {#snippet children(args)}
+    <Header {...args} />
+  {/snippet}
 </Story>

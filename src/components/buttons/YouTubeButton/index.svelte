@@ -1,5 +1,12 @@
-<script>
-  export let message = "Play video";
+<script lang="ts">
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
+  interface Props {
+    message?: string;
+  }
+
+  let { message = "Play video" }: Props = $props();
 </script>
 
 <style>
@@ -33,6 +40,6 @@
   }
 </style>
 
-<button class="nature-youtube-play-button" on:click>
+<button class="nature-youtube-play-button" onclick={bubble('click')}>
   <span class="visually-hidden">{message}</span>
 </button>

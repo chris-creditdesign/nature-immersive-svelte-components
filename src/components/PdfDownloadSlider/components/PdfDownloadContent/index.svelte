@@ -1,6 +1,8 @@
-<script>
-  export let cardData;
-  export let doi;
+<script lang="ts">
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
+  let { cardData, doi } = $props();
 
   let { headline, srcURL, text } = cardData;
 </script>
@@ -36,7 +38,7 @@
 
 <div data-theme="invert" class="font-family:sans-serif">
   <h2 class="font-size:base">{headline}</h2>
-  <a href={`pdf/${doi}.pdf`} on:blur on:focus>
+  <a href={`pdf/${doi}.pdf`} onblur={bubble('blur')} onfocus={bubble('focus')}>
     <img src={srcURL} alt="" />
     <span>
       {@html text}

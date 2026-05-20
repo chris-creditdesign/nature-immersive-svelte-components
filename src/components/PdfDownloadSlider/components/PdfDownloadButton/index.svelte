@@ -1,8 +1,11 @@
-<script>
+<script lang="ts">
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   import { buttonElement } from "../../stores/pdf-download-stores.js";
   import DownloadIcon from "../../../icons/DownloadIcon/index.svelte";
 
-  export let expanded;
+  let { expanded } = $props();
 </script>
 
 <style>
@@ -32,9 +35,9 @@
 
 <button
   bind:this={$buttonElement}
-  on:click
-  on:focus
-  on:blur
+  onclick={bubble('click')}
+  onfocus={bubble('focus')}
+  onblur={bubble('blur')}
   aria-expanded={expanded}
 >
   <DownloadIcon width={30} title="Download PDF" />

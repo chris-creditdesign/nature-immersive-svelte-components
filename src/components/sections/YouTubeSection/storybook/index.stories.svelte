@@ -1,11 +1,15 @@
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  const { Story } = defineMeta({
+    title: 'components/sections/YouTubeSection',
+  });
+</script>
+
 <script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import VideoCard from "../VideoCard/index.svelte";
+import VideoCard from "../VideoCard/index.svelte";
   import YouTubeCarousel from "../YouTubeCarousel/index.svelte";
   import { videoDataArray } from "../../../../preview-content/video-data-array.js";
 </script>
-
-<Meta title="components/sections/YouTubeSection" />
 
 <Story name="Default">
   <div class="stack" style="--stack-space--component: var(--s2);">
@@ -22,7 +26,7 @@
     </div>
 
     {#each videoDataArray as videoData, i}
-      <VideoCard {videoData} videoOnLeft={(i %= 2)} />
+      <VideoCard {videoData} videoOnLeft={i % 2 !== 0} />
     {/each}
 
     <div

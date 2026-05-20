@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
   export const players = new Set();
 
   export function stopAll() {
@@ -8,25 +8,38 @@
   }
 </script>
 
-<script>
+<script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { onMount } from "svelte";
   import { youTubeIframeAPIReady } from "../../stores/youtube-iframe-api-ready.js";
   import YouTubeButton from "../../buttons/YouTubeButton/index.svelte";
-  export let videoId;
-  export let title = "YouTube video player";
-  export let videoRatioHeight = 9;
-  export let videoRatioWidth = 16;
-  export let playVideoRequested = false;
-  export let autoplay = true;
-  export let youTubeContainer;
+  interface Props {
+    videoId: any;
+    title?: string;
+    videoRatioHeight?: number;
+    videoRatioWidth?: number;
+    playVideoRequested?: boolean;
+    autoplay?: boolean;
+    youTubeContainer: any;
+  }
 
-  let iframe;
+  let {
+    videoId,
+    title = "YouTube video player",
+    videoRatioHeight = 9,
+    videoRatioWidth = 16,
+    playVideoRequested = $bindable(false),
+    autoplay = true,
+    youTubeContainer = $bindable()
+  }: Props = $props();
+
+  let iframe = $state();
   let thisPlayer;
-  let mounted = false;
-  let backgroundImageUrl = `url('https://i.ytimg.com/vi/${videoId}/sddefault.jpg')`;
+  let mounted = $state(false);
+  let backgroundImageUrl = $state(`url('https://i.ytimg.com/vi/${videoId}/sddefault.jpg')`);
   let uniqueVideoId = `${videoId}-${Date.now().toString(36)}`;
 
-  $: instantiatePlayer($youTubeIframeAPIReady, iframe);
 
   let handleButtonClick = () => {
     playVideoRequested = true;
@@ -83,6 +96,9 @@
   onMount(() => {
     mounted = true;
   });
+  run(() => {
+    instantiatePlayer($youTubeIframeAPIReady, iframe);
+  });
 </script>
 
 <style>
@@ -102,7 +118,7 @@
     <script
       type="text/javascript"
       src="https://www.youtube.com/iframe_api"
-      on:load={youtubeAPIScriptLoaded}>
+      onload={youtubeAPIScriptLoaded}>
     </script>
   {/if}
 </svelte:head>
@@ -122,7 +138,7 @@
     </div>
   {:else if !playVideoRequested}
     <YouTubeButton
-      on:click={handleButtonClick}
+      onclick={handleButtonClick}
       message={`Play video: ${title}`}
     />
   {:else}
@@ -138,6 +154,6 @@
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
       {title}
-    />
+></iframe>
   {/if}
 </div>

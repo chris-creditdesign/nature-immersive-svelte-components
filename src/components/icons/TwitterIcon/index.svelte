@@ -1,7 +1,11 @@
-<script>
-  export let className = "";
-  export let height = 1;
-  export let title = "Twitter";
+<script lang="ts">
+  interface Props {
+    className?: string;
+    height?: number;
+    title?: string;
+  }
+
+  let { className = "", height = 1, title = "Twitter" }: Props = $props();
 </script>
 
 <style>

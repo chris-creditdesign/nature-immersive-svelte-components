@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   /**
    * Default video element.
    *
@@ -20,39 +20,62 @@
   import { autoplayVideoOnIntersect } from "../actions/autoplay-video-on-Intersect";
   import ExpandButton from "../../buttons/ExpandButton/index.svelte";
 
-  /**
+  
+  
+
+  
+  
+  
+  
+
+  interface Props {
+    /**
    * To be applied to placeholder image.
    */
-  export let altText;
-  /**
+    altText: any;
+    /**
    * If autoplay is true, `autoplayVideoOnIntersect` will attempt to play
    * the video when it is scrolled 50% into view - if prefers reduced motion
    * is not set.
    */
-  export let autoplay = false;
-
-  export let caption;
-  /**
+    autoplay?: boolean;
+    caption: any;
+    /**
    * Optional space to move caption in from side of video.
    */
-  export let captionSpace;
-  export let className = "";
-  /**
+    captionSpace: any;
+    className?: string;
+    /**
    * Aspect ration of video.
    */
-  export let frameRatioHeight;
-  export let frameRatioWidth;
-  /**
+    frameRatioHeight: any;
+    frameRatioWidth: any;
+    /**
    * If true video will continuously loop until paused.
    */
-  export let loop = false;
-  /**
+    loop?: boolean;
+    /**
    * Location of fallback image should be provided as the src url
    * ie video/video-small.jpg
    */
-  export let srcURL;
+    srcURL: any;
+    videoCaptionTracks?: any;
+    transcript?: import('svelte').Snippet;
+  }
 
-  export let videoCaptionTracks = [];
+  let {
+    altText,
+    autoplay = false,
+    caption,
+    captionSpace,
+    className = "",
+    frameRatioHeight,
+    frameRatioWidth,
+    loop = false,
+    srcURL,
+    videoCaptionTracks = [],
+    transcript
+  }: Props = $props();
 
   let videoCaptionSpace = captionSpace
     ? `--video-caption-space--component: ${captionSpace};`
@@ -60,8 +83,8 @@
 
   let captionStyle = `${videoCaptionSpace}`;
 
-  let mounted = false;
-  let transcriptExpanded = true;
+  let mounted = $state(false);
+  let transcriptExpanded = $state(true);
 
   let srcIMG = srcURL.replace(/-small/, "");
   let srcWEBM = srcURL
@@ -112,7 +135,7 @@
   <Stack>
     <Frame {frameRatioHeight} {frameRatioWidth}>
       {#if mounted}
-        <!-- svelte-ignore a11y-media-has-caption -->
+        <!-- svelte-ignore a11y_media_has_caption -->
         <video
           controls
           poster={srcIMG}
@@ -156,20 +179,20 @@
           {/if}
         </figcaption>
 
-        {#if mounted && $$slots.transcript}
+        {#if mounted && transcript}
           <ExpandButton
             expanded={transcriptExpanded}
             message="Show transcript"
             expandedMessage="Hide transcript"
-            on:click={handleClick}
+            onclick={handleClick}
           />
         {/if}
       {/if}
     </Cluster>
 
-    {#if transcriptExpanded && $$slots.transcript}
+    {#if transcriptExpanded && transcript}
       <div id="transcript">
-        <slot name="transcript" />
+        {@render transcript?.()}
       </div>
     {/if}
   </Stack>

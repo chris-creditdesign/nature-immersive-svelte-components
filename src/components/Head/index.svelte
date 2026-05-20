@@ -1,5 +1,5 @@
-<script>
-  export let articleData;
+<script lang="ts">
+  let { articleData } = $props();
 
   let {
     articleURL,
@@ -10,7 +10,7 @@
     twitterHandle,
   } = articleData;
 
-  $: imageURL = `${immersiveURL}${doi}/img/${doi}.jpg`;
+  let imageURL = $derived(`${immersiveURL}${doi}/img/${doi}.jpg`);
 </script>
 
 <svelte:head>

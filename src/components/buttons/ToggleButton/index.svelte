@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+  import { createBubbler } from 'svelte/legacy';
+
+  const bubble = createBubbler();
   /**
    * When the button is in its 'open' state, `aria-expanded` will be true.
    *
@@ -6,32 +9,48 @@
    */
   import RadioButton from "../../icons/RadioIcon/index.svelte";
 
-  /**
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * Optional to add extra class to button element
    */
-  export let className = "";
-  /**
+    className?: string;
+    /**
    * State of `aria-expanded` attribute on button.
    */
-  export let expanded = false;
-  /**
+    expanded?: boolean;
+    /**
    * Text that will be displayed in the button when it is expanded
    */
-  export let expandedMessage = "Checked";
-  /**
+    expandedMessage?: string;
+    /**
    * Text that will be displayed in the button when it is not expanded
    */
-  export let message = "Unchecked";
-  /**
+    message?: string;
+    /**
    * Optional to add `data-theme` to button element.
    */
-  export let theme = "";
-  export let disabled = false;
+    theme?: string;
+    disabled?: boolean;
+  }
+
+  let {
+    className = "",
+    expanded = false,
+    expandedMessage = "Checked",
+    message = "Unchecked",
+    theme = "",
+    disabled = false
+  }: Props = $props();
 </script>
 
 <button
   class={className}
-  on:click
+  onclick={bubble('click')}
   aria-expanded={expanded}
   data-track="click"
   data-event-category="toggle-button"

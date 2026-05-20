@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   /**
    * HTML `section` element to place around contents with
    * optional H2 headline.
@@ -7,27 +7,44 @@
    */
   import { Center, Stack } from "creditdesign-svelte-components";
 
-  /**
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * Optional class to add to `section` element.
    */
-  export let className = "";
-  /**
+    className?: string;
+    /**
    * Space left and right around section.
    */
-  export let centerSpace = "var(--s1)";
-  /**
+    centerSpace?: string;
+    /**
    * Vertical space between elements within the section.
    */
-  export let stackSpace = "var(--s-1)";
-  /**
+    stackSpace?: string;
+    /**
    * Miniumum width of the section.
    */
-  export let centerMeasure = "var(--measure)";
-  /**
+    centerMeasure?: string;
+    /**
    * Optional headline. If none supplied the `h2` will not
    * be present.
    */
-  export let headline = "";
+    headline?: string;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    className = "",
+    centerSpace = "var(--s1)",
+    stackSpace = "var(--s-1)",
+    centerMeasure = "var(--measure)",
+    headline = "",
+    children
+  }: Props = $props();
 </script>
 
 <section class={`${className}`}>
@@ -36,7 +53,7 @@
       {#if headline.length}
         <h2 class="border-above">{headline}</h2>
       {/if}
-      <slot />
+      {@render children?.()}
     </Stack>
   </Center>
 </section>

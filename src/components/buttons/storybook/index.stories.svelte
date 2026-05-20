@@ -1,6 +1,12 @@
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  const { Story } = defineMeta({
+    title: 'components/buttons',
+  });
+</script>
+
 <script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import { action } from "@storybook/addon-actions";
+import { action } from "@storybook/addon-actions";
   import { Stack, Cluster } from "creditdesign-svelte-components";
   import SimpleButton from "../SimpleButton/index.svelte";
   import PrevButton from "../PrevButton/index.svelte";
@@ -10,42 +16,33 @@
   import SwitchButton from "../SwitchButton/index.svelte";
   import ToggleButton from "../ToggleButton/index.svelte";
   import VideoButton from "../VideoButton/index.svelte";
-
-  let switchButtonchecked = false;
-  let expandButtonExpanded = false;
-  let filterButtonexpanded = false;
-  let toggleButtonExpanded = false;
-  let paused = false;
-
+  let switchButtonchecked = $state(false);
+  let expandButtonExpanded = $state(false);
+  let filterButtonexpanded = $state(false);
+  let toggleButtonExpanded = $state(false);
+  let paused = $state(false);
   let handleSimpleButtonClick = action("click");
-
   let handleSwitchButtonClick = () => {
     switchButtonchecked = !switchButtonchecked;
     action("click")();
   };
-
   let handleExpandButtonClick = () => {
     expandButtonExpanded = !expandButtonExpanded;
     action("click")();
   };
-
   let handleFilterButtonClick = () => {
     filterButtonexpanded = !filterButtonexpanded;
     action("click")();
   };
-
   let handleToggleButtonClick = () => {
     toggleButtonExpanded = !toggleButtonExpanded;
     action("click")();
   };
-
   let handleVideoButtonClick = () => {
     paused = !paused;
     action("click")();
   };
 </script>
-
-<Meta title="components/buttons" />
 
 <Story name="Default">
   <Stack stackSpace="var(--s2)">

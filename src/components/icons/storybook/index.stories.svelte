@@ -1,6 +1,12 @@
+<script module>
+  import { defineMeta } from '@storybook/addon-svelte-csf';
+  const { Story } = defineMeta({
+    title: 'components/icons',
+  });
+</script>
+
 <script>
-  import { Meta, Story } from "@storybook/addon-svelte-csf";
-  import { Stack, Cluster } from "creditdesign-svelte-components";
+import { Stack, Cluster } from "creditdesign-svelte-components";
   import ChevronIcon from "../ChevronIcon/index.svelte";
   import ChevronRightIcon from "../ChevronRightIcon/index.svelte";
   import ChevronLeftIcon from "../ChevronLeftIcon/index.svelte";
@@ -18,8 +24,6 @@
   import TrophyIcon from "../TrophyIcon/index.svelte";
   import WebsiteIcon from "../WebsiteIcon/index.svelte";
 </script>
-
-<Meta title="components/icons" />
 
 <Story name="Default">
   <Stack stackSpace="var(--s2)">

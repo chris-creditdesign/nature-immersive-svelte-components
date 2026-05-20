@@ -1,9 +1,15 @@
-<script>
+<script lang="ts">
   import { Sidebar, Stack } from "creditdesign-svelte-components";
   import Card from "../Card/index.svelte";
   import Image from "../../Image/index.svelte";
 
-  /**
+  
+  
+  
+  
+  
+  interface Props {
+    /**
    * - altText
    * - caption
    * - eyebrow
@@ -14,33 +20,52 @@
    * - subHead
    * - text
    */
-  export let cardData;
-  export let cardHeaderStackSpace = "var(--s-4)";
-  export let className = "";
-  export let headerLevel = "h2";
-  export let headlineFontSize = "big-2";
-  export let id = "";
-  /**
+    cardData: any;
+    cardHeaderStackSpace?: string;
+    className?: string;
+    headerLevel?: string;
+    headlineFontSize?: string;
+    id?: string;
+    /**
    * Minimum percentage of the components width that the text can
    * be squashed to before switching to the stacked view.
    */
-  export let textMinWidth = "50%";
-  export let imageOnLeft = true;
-  /**
+    textMinWidth?: string;
+    imageOnLeft?: boolean;
+    /**
    * Space between the text block and the image,
    * either stacked or side by side.
    */
-  export let sidebarSpace = "var(--s-1)";
-  /**
+    sidebarSpace?: string;
+    /**
    * Width of the image when in side by side view.
    */
-  export let imageWidth = "var(--s7)";
-  /**
+    imageWidth?: string;
+    /**
    * Stack space within the text block
    */
-  export let stackSpace = "var(--s-1)";
-  export let relatedLinksStackSpace = "var(--s-3)";
-  export let theme = "";
+    stackSpace?: string;
+    relatedLinksStackSpace?: string;
+    theme?: string;
+    children?: import('svelte').Snippet;
+  }
+
+  let {
+    cardData,
+    cardHeaderStackSpace = "var(--s-4)",
+    className = "",
+    headerLevel = "h2",
+    headlineFontSize = "big-2",
+    id = "",
+    textMinWidth = "50%",
+    imageOnLeft = true,
+    sidebarSpace = "var(--s-1)",
+    imageWidth = "var(--s7)",
+    stackSpace = "var(--s-1)",
+    relatedLinksStackSpace = "var(--s-3)",
+    theme = "",
+    children
+  }: Props = $props();
 
   let { altText, caption, srcURL } = cardData;
 
@@ -56,9 +81,11 @@
         {sidebarSpace}
         sidebarWidth={imageWidth}
       >
-        <div slot="sidebar">
-          <Image {altText} {caption} {srcURL} />
-        </div>
+        {#snippet sidebar()}
+                <div >
+            <Image {altText} {caption} {srcURL} />
+          </div>
+              {/snippet}
         <div slot="main-content">
           <Card
             {cardHeaderStackSpace}
@@ -72,7 +99,7 @@
           />
         </div>
       </Sidebar>
-      <slot />
+      {@render children?.()}
     </Stack>
   {:else}
     <Card
@@ -84,7 +111,7 @@
       {relatedLinksStackSpace}
       {theme}
     >
-      <slot />
+      {@render children?.()}
     </Card>
   {/if}
 </div>

@@ -1,61 +1,70 @@
-<script>
+<script lang="ts">
   /*
-   * Simple widget to add in article navigation between a series of related articles.
-   * 
-   * Will dispatch an "update" event when the button is clicked 
-   * and after the component updates.
    *
-   * `const dispatch = createEventDispatcher();`
+   * Will call the `onupdate` callback when the button is clicked and after the
+   * component updates. This is useful when used as a widget placed inside a Core Media
+   * article to send a message to the parent article that the iframe needs to be resized.
    *
-   * `dispatch("update");`
-   *
-   * This is useful when used as a widget placed inside a Core Media article 
-   * to send a message to the parent article that the iframe needs to be resized.
-   *
-   * Normally, the article in which the widget is placed will also be part of the 
-   * list of articles listed to - as it is part of the series. If the `parentDoi` 
-   * listed in the `seriesArticleNavData` object matches the doi of the current 
-   * page - this is indicated with a left border and setting `aria-current="page"` 
+   * Normally, the article in which the widget is placed will also be part of the
+   * list of articles listed to - as it is part of the series. If the `parentDoi`
+   * listed in the `seriesArticleNavData` object matches the doi of the current
+   * page - this is indicated with a left border and setting `aria-current="page"`
    * on the link.
-
+   *
    * @component
-*/
-  import { onMount, createEventDispatcher, afterUpdate } from "svelte";
+   */
+  import { onMount } from "svelte";
   import { Stack, Box, Cluster } from "creditdesign-svelte-components";
   import Header from "../../Header/index.svelte";
   import ExpandButton from "../../buttons/ExpandButton/index.svelte";
 
-  const dispatch = createEventDispatcher();
+  interface Props {
+    articleData: any;
+    articles: any[];
+    className?: string;
+    expandedMessage?: string;
+    headerLevel?: string;
+    headline: string;
+    headlineFontSize?: string;
+    headlineFontWeight?: string;
+    message?: string;
+    stand?: string;
+    stackSpace?: string;
+    headerStackSpace?: string;
+    boxSpace?: string;
+    /** Flexbox align-items between headline/standfirst and button group. */
+    alignItems?: string;
+    /** Optional to add `data-theme` to wrapper and button element. */
+    theme?: string;
+    onupdate?: () => void;
+  }
 
-  export let articleData;
-  export let articles;
-  export let className = "";
-  export let expandedMessage = "Close";
-  export let headerLevel = "h2";
-  export let headline;
-  export let headlineFontSize = "big-2";
-  export let headlineFontWeight = "bold";
-  export let message = "Open";
-  export let stand;
-  export let stackSpace = "var(--s0)";
-  export let headerStackSpace = "var(--s-3)";
-  export let boxSpace = "var(--s-1)";
-  /**
-   * Flexbox align-items between headline/standfirst and button group.
-   */
-  export let alignItems = "flex-start";
-  /**
-   * Optional to add `data-theme` to wrapper and button element.
-   */
-  export let theme = "";
+  let {
+    articleData,
+    articles,
+    className = "",
+    expandedMessage = "Close",
+    headerLevel = "h2",
+    headline,
+    headlineFontSize = "big-2",
+    headlineFontWeight = "bold",
+    message = "Open",
+    stand,
+    stackSpace = "var(--s0)",
+    headerStackSpace = "var(--s-3)",
+    boxSpace = "var(--s-1)",
+    alignItems = "flex-start",
+    theme = "",
+    onupdate
+  }: Props = $props();
 
-  let { doi: parentDoi } = articleData;
-  let mounted = false;
-  let expanded = true;
+  let parentDoi = $derived(articleData.doi);
+  let mounted = $state(false);
+  let expanded = $state(true);
 
   let handleClick = () => {
     expanded = !expanded;
-    dispatch("update");
+    onupdate?.();
   };
 
   onMount(() => {
@@ -63,8 +72,13 @@
     expanded = false;
   });
 
-  afterUpdate(() => {
-    dispatch("update");
+  $effect(() => {
+    // Signal parent (e.g. iframe host) that component has updated and may need resizing.
+    // Reading `expanded` ensures this re-runs whenever it changes.
+    void expanded;
+    if (mounted) {
+      onupdate?.();
+    }
   });
 </script>
 
@@ -110,7 +124,7 @@
             {message}
             {expandedMessage}
             {theme}
-            on:click={handleClick}
+            onclick={handleClick}
           />
         {/if}
       </Cluster>

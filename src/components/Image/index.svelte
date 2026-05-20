@@ -1,16 +1,27 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
 
-  export let altText;
-  export let caption = "";
-  export let className = "";
-  export let srcURL;
-  /**
+  
+  interface Props {
+    altText: any;
+    caption?: string;
+    className?: string;
+    srcURL: any;
+    /**
    * Optional space to move caption in from side of video.
    */
-  export let captionSpace = 0;
+    captionSpace?: number;
+  }
 
-  let image;
+  let {
+    altText,
+    caption = "",
+    className = "",
+    srcURL,
+    captionSpace = 0
+  }: Props = $props();
+
+  let image = $state();
 
   let captionSpaceComponent = captionSpace
     ? `--image-caption-space--component: ${captionSpace};`
@@ -18,7 +29,7 @@
 
   let captionStyle = `${captionSpaceComponent}`;
 
-  $: src = srcURL;
+  let src = $derived(srcURL);
 
   onMount(() => {
     if ("loading" in HTMLImageElement.prototype) {

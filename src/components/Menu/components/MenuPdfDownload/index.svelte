@@ -1,8 +1,12 @@
-<script>
+<script lang="ts">
   import DownloadFileIcon from "../../../icons/DownloadFileIcon/index.svelte";
 
-  export let doi;
-  export let logoHeight = 1.6;
+  interface Props {
+    doi: any;
+    logoHeight?: number;
+  }
+
+  let { doi, logoHeight = 1.6 }: Props = $props();
 </script>
 
 <style>

@@ -1,0 +1,5 @@
+import{aE as r,ay as i,aB as l,aY as m}from"./props-D2QecWz3.js";import{c,d as p}from"./create-runtime-stories-BTZEUp9S.js";import{E as e}from"./index-BY13iEot.js";import{i as d}from"./lifecycle-BxzyBO6_.js";import"./index-C__6K5js.js";import"./attributes-pwFWEx45.js";import"./class-CoxErtGF.js";const f={title:"components/icons/EmailIcon",component:e,argTypes:{className:{control:"text"},height:{control:{type:"range",min:.5,max:10,step:.1}},title:{control:"text"}}},{Story:_}=p();function t(s,o){r(o,!1),d(),_(s,{name:"Default",args:{className:"example-class",title:"Email",height:1},children:(a,n=i)=>{e(a,m(n))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<EmailIcon {...args}>
+  {#snippet children(args)}
+<EmailIcon {...args} />
+{/snippet}
+</EmailIcon>`}}}),l()}t.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const u=c(t,f),$=["Default"],w={...u.Default,tags:["svelte-csf-v5"]};export{w as Default,$ as __namedExportsOrder,f as default};

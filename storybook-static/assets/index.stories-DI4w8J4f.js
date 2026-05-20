@@ -1,0 +1,5 @@
+import{aE as r,ay as i,aB as p,aY as l}from"./props-D2QecWz3.js";import{c as d,d as c}from"./create-runtime-stories-BTZEUp9S.js";import{H as e}from"./index-bjGsaHKP.js";import{i as m}from"./lifecycle-BxzyBO6_.js";import{b as f,f as _,h as u}from"./options-B0eN1I47.js";import"./index-C__6K5js.js";import"./html-DCvpNGh9.js";import"./class-CoxErtGF.js";const h={title:"Components/Header",component:e,argTypes:{text:{control:"text"},headerLevel:{control:{type:"select",options:u}},headlineFontSize:{control:{type:"select",options:_}},headlineFontWeight:{control:{type:"select",options:f}}}},{Story:g}=c();function t(o,s){r(s,!1),m(),g(o,{name:"Default",children:(n,a=i)=>{e(n,l(a))},$$slots:{default:!0},parameters:{__svelteCsf:{rawCode:`<Header {...args}>
+  {#snippet children(args)}
+<Header {...args} />
+{/snippet}
+</Header>`}}}),p()}t.__docgen={version:3,name:"index.stories.svelte",data:[],computed:[],methods:[],components:[],description:null,keywords:[],events:[],slots:[],refs:[]};const v=d(t,h),z=["Default"],E={...v.Default,tags:["svelte-csf-v5"]};export{E as Default,z as __namedExportsOrder,h as default};

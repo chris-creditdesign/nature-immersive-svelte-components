@@ -1,29 +1,34 @@
-<script>
+<script lang="ts">
   import { Sidebar } from "creditdesign-svelte-components";
   import LiteYouTube from "../../../videos/LiteYouTube/index.svelte";
   import VideoButton from "../SelectVideoButton/index.svelte";
   import VideoInfo from "../VideoInfo/index.svelte";
 
-  export let videoDataArray = [];
-  export let headerLevel = "h2";
-  export let headlineFontSize = "big-1";
-  export let videoListLabel =
-    "Choose a video from the following list to load in the above player.";
+  interface Props {
+    videoDataArray?: any;
+    headerLevel?: string;
+    headlineFontSize?: string;
+    videoListLabel?: string;
+  }
 
-  let currentVideoIndex = 0;
-  let youTubeContainer;
-  let playVideoRequested = false;
-  $: videoData = videoDataArray[currentVideoIndex];
-  $: videoId = videoData.videoId;
-  $: title = videoData.title;
+  let {
+    videoDataArray = [],
+    headerLevel = "h2",
+    headlineFontSize = "big-1",
+    videoListLabel = "Choose a video from the following list to load in the above player."
+  }: Props = $props();
 
-  let requestVideo = async (event) => {
-    if (event.type === "message") {
-      let { detail } = event;
-      playVideoRequested = true;
-      currentVideoIndex = detail.index;
-      youTubeContainer.focus();
-    }
+  let currentVideoIndex = $state(0);
+  let youTubeContainer = $state();
+  let playVideoRequested = $state(false);
+  let videoData = $derived(videoDataArray[currentVideoIndex]);
+  let videoId = $derived(videoData.videoId);
+  let title = $derived(videoData.title);
+
+  let requestVideo = (detail: { index: number }) => {
+    playVideoRequested = true;
+    currentVideoIndex = detail.index;
+    youTubeContainer.focus();
   };
 </script>
 
@@ -47,9 +52,9 @@
   sidebarSpace="0px"
   alignItems="flex-start"
 >
-  <svelte:fragment slot="main-content">
-    <div
+  <div
       class="stack box font-family:sans-serif"
+      slot="main-content"
       data-theme="invert"
       style="--stack-space--component:  var(--s1);"
     >
@@ -73,30 +78,31 @@
       />
       <VideoInfo {videoData} {headerLevel} {headlineFontSize} />
     </div>
-  </svelte:fragment>
 
-  <svelte:fragment slot="sidebar">
-    <div>
-      <p id="video-selection-list-label" class="visually-hidden">
-        {videoListLabel}
-      </p>
-      <ol
-        class="grid side-menu box"
-        aria-labelledby="video-selection-list-label"
-        style="--grid-min-width--component: 20ch; --grid-column-space--component: var(--s1); --grid-row-space--component: var(--s1); --box-space--component: var(--s1)"
-      >
-        {#each videoDataArray as { videoId, title }, i}
-          <li>
-            <VideoButton
-              on:message={requestVideo}
-              {title}
-              {videoId}
-              index={i}
-              {currentVideoIndex}
-            />
-          </li>
-        {/each}
-      </ol>
-    </div>
-  </svelte:fragment>
+  {#snippet sidebar()}
+  
+      <div>
+        <p id="video-selection-list-label" class="visually-hidden">
+          {videoListLabel}
+        </p>
+        <ol
+          class="grid side-menu box"
+          aria-labelledby="video-selection-list-label"
+          style="--grid-min-width--component: 20ch; --grid-column-space--component: var(--s1); --grid-row-space--component: var(--s1); --box-space--component: var(--s1)"
+        >
+          {#each videoDataArray as { videoId, title }, i}
+            <li>
+              <VideoButton
+                onmessage={requestVideo}
+                {title}
+                {videoId}
+                index={i}
+                {currentVideoIndex}
+              />
+            </li>
+          {/each}
+        </ol>
+      </div>
+    
+  {/snippet}
 </Sidebar>
